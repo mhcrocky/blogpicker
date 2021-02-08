@@ -1,0 +1,16 @@
+Started GET "/" for ::1 at 2021-02-08 11:55:29 -0800
+
+ActiveRecord::NoDatabaseError - FATAL:  database "fsProject_development" does not exist:
+
+Started POST "/__better_errors/803436ef9a441eb3/variables" for ::1 at 2021-02-08 11:55:29 -0800
+  [1m[35m (218.5ms)[0m  [1m[35mCREATE DATABASE "fsProject_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (65.7ms)[0m  [1m[35mCREATE DATABASE "fsProject_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-02-08 11:56:34 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 1641ms (Views: 1638.1ms | ActiveRecord: 0.0ms)
+
+
