@@ -16,12 +16,13 @@ class Header extends React.Component {
         const pathname = this.props.location.pathname;
         let loginCondition;
         if (this.props.currentUser) {
-            loginCondition = <>
-                <Link to={`/users/${this.props.currentUser.id}`}>
-                    {this.props.currentUser.username}
-                </Link>
-                <button onClick={this.handleLogout}>Logout</button>
-            </>
+            loginCondition =
+                <div>
+                    <Link to={`/users/${this.props.currentUser.id}`}>
+                        {this.props.currentUser.username}
+                    </Link>
+                    <button onClick={this.handleLogout}>Logout</button>
+                </div>
         } else if (pathname === "/login" || pathname === "/signup") {
             loginCondition = <div></div>;
         } else {

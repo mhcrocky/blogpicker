@@ -1,5 +1,18 @@
 
+.session-form-body {
+    background-image: url(https://source.unsplash.com/random/1920x1080);
+    background-position: center;
+}
 
+.session-form-container {
+    display: block;
+    width: 22rem;
+    position: relative;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: .25rem;
+    margin: 0;
+}
 
 .session-form-container{
     display: flex;
@@ -12,6 +25,9 @@
     }
 }
 
+#splash-login-img {
+    z-index: 0;
+}
 
 .circles-container {
     height: 1.5rem;

@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
             )
         })
         return (
-            <div>
+            <div className="session-form-body">
                 <div className="session-form-container">
                     <svg viewBox="0 0 24 24" className="circles-container">
                         <circle id="circle-left" cx="6" cy="12" r="5"></circle>
@@ -62,7 +62,6 @@ class SessionForm extends React.Component {
                     </ul>
                     {signUpOrLogin}
                 </div>
-                <img id="splash-login-img" src="https://source.unsplash.com/random/1920x1080" />
             </div>
         )
     }
