@@ -43,8 +43,8 @@ class SessionForm extends React.Component {
         return (
             <div className="session-form-container">
                 <svg viewBox="0 0 24 24" className="circles-container">
-                    <circle cx="6" cy="12" r="5"></circle>
-                    <circle cx="18" cy="12" r="5"></circle>
+                    <circle id="circle-left" cx="6" cy="12" r="5"></circle>
+                    <circle id="circle-right" cx="18" cy="12" r="5"></circle>
                 </svg>
                 <h3>{this.props.formType}</h3>
                 <form onSubmit={this.handleSubmit}>
