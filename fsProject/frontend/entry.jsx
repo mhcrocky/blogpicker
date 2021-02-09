@@ -2,16 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from "./components/root";
-import * as Action from './actions/session_actions';
+
 
 document.addEventListener("DOMContentLoaded", () => {
+    let store;                   //Allowing user to refresh & stay logged in
+    // if (window.currentUser) {    //We set currentUser in root.html.erb
+    //     const preloadedState = { //If a currentUser exists, adding to preload
+    //         entities: {
+    //             users: { [window.currentUser.id]: window.currentUser }
+    //         },
+    //         session: { id: window.currentUser.id }
+    //     };
+    //     store = configureStore(preloadedState);
+    //     delete window.currentUser;
+    // } else {
+    //     store = configureStore();
+    // }
+
     const root = document.getElementById("root");
-    const store = configureStore();
     ReactDOM.render(<Root store={store}/>, root);
 
     //Remove these after done testing!
     window.store = store;
-    window.login = Action.login;
-    window.logout = Action.logout;
-    window.signup = Action.signup;
+    
 })
