@@ -42,10 +42,10 @@ class SessionForm extends React.Component {
         })
         return (
             <div className="session-form-container">
-                <div className="circles-container">
-                    <span id="circle-1"></span>
-                    <span id="circle-1"></span>
-                </div>
+                <svg viewBox="0 0 24 24" className="circles-container">
+                    <circle cx="6" cy="12" r="5"></circle>
+                    <circle cx="18" cy="12" r="5"></circle>
+                </svg>
                 <h3>{this.props.formType}</h3>
                 <form onSubmit={this.handleSubmit}>
                     <label>

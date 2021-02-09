@@ -15,3 +15,5 @@
  */
 
  @import "reset/reset.scss";
+
+ @import "components/*";
