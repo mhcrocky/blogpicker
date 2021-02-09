@@ -8,12 +8,16 @@ import SignUpFormContainer from "./session_form/signup_form_container";
 import Welcome from "./welcome/welcome";
 
 const App = () => (
-    <div>
-        <Route path='/' component={HeaderContainer} />
-        <AuthRoute exact path='/' component={Welcome} />
-        <AuthRoute exact path='/login' component={LoginFormContainer} />
-        <AuthRoute exact path='/signup' component={SignUpFormContainer} />
-        <Route path='/feed' component={Feed} />
+    <div className="all-content">
+        <header>
+            <Route path='/' component={HeaderContainer} />
+        </header>
+        <body>
+            <AuthRoute exact path='/' component={Welcome} />
+            <AuthRoute exact path='/login' component={LoginFormContainer} />
+            <AuthRoute exact path='/signup' component={SignUpFormContainer} />
+            <Route path='/feed' component={Feed} />
+        </body>
     </div>
 );
 
