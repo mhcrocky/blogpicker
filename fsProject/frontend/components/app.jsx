@@ -8,8 +8,8 @@ import Welcome from "./welcome/welcome";
 
 const App = () => (
     <div>
-        <Route path='/' component={HeaderContainer}/>
-        <Route exact path='/' component={Welcome}/>
+        <Route path='/' component={HeaderContainer} />
+        <Route exact path='/' component={Welcome} />
         <Route path='/login' component={LoginFormContainer} />
         <Route path='/signup' component={SignUpFormContainer} />
         <Route path='/feed' component={Feed} />
