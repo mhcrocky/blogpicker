@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.handleLogout = this.handleLogout.bind(this);
+    }
+
+    handleLogout() {
+        return this.props.logout()
+            .then(() => this.props.history.push('/login'))
     }
 
     render() {
@@ -13,7 +19,7 @@ class Header extends React.Component {
                 <Link to={`/users/${this.props.currentUser.id}`}>
                     {this.props.currentUser.username}
                 </Link>
-                <button onClick={this.props.logout}>Logout</button>
+                <button onClick={this.handleLogout}>Logout</button>
             </>
         } else {
             loginCondition = <>
