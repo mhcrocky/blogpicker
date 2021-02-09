@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Remove these after done testing!
     window.store = store;
-    // window.login = Action.login;
-    // window.logout = Action.logout;
-    // window.signup = Action.signup;
+    window.login = Action.login;
+    window.logout = Action.logout;
+    window.signup = Action.signup;
 })

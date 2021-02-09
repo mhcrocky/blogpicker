@@ -5,7 +5,9 @@ const Header = (props) => {
     let loginCondition = <div></div>
     if (props.currentUser) {
         loginCondition = <>
-            <h2>Welcome! {props.currentUser.username}</h2>
+            <Link to={`/users/${props.currentUser.id}`}>
+                {props.currentUser.username}
+            </Link>
             <button onClick={props.logout}>Logout</button>
         </>
     } else {
@@ -17,7 +19,7 @@ const Header = (props) => {
 
     return (
         <div>
-            <h1>Website Name Header Here</h1>
+            <h3>Website Name Header Here</h3>
             {loginCondition}
         </div>
     )

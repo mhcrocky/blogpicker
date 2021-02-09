@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 
 const Welcome = (props) => {
  return (
      <div>
-        <h1>Welcome Page to display login and signup!</h1>
-        <Link to='/signup'>Signup</Link>
-        <Link to='/login'>Login</Link>
+        <h1>Welcome Page!</h1>
+        <p>This page will display login, sign up and demo</p>
      </div>
  )
 }
