@@ -2,3 +2,7 @@ node_modules/
 bundle.js
 bundle.js.map
 tmp/
+
+master.key
+
+public/assets/*

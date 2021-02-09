@@ -1,5 +1,18 @@
 
 
+
+.session-form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
 .circles-container {
     height: 1.5rem;
     width: 1.5rem;
