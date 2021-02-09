@@ -41,7 +41,11 @@ class SessionForm extends React.Component {
             )
         })
         return (
-            <div>
+            <div className="session-form-container">
+                <div className="circles-container">
+                    <span id="circle-1"></span>
+                    <span id="circle-1"></span>
+                </div>
                 <h3>{this.props.formType}</h3>
                 <form onSubmit={this.handleSubmit}>
                     <label>

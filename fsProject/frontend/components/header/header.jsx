@@ -13,6 +13,7 @@ class Header extends React.Component {
     }
 
     render() {
+        const pathname = this.props.location.pathname;
         let loginCondition;
         if (this.props.currentUser) {
             loginCondition = <>
@@ -21,8 +22,7 @@ class Header extends React.Component {
                 </Link>
                 <button onClick={this.handleLogout}>Logout</button>
             </>
-        } else if (this.props.location.pathname === "/login" ||
-        this.props.location.pathname === "/signup") {
+        } else if (pathname === "/login" || pathname === "/signup") {
             loginCondition = <div></div>;
         } else {
             loginCondition = <>
@@ -31,8 +31,15 @@ class Header extends React.Component {
             </>
         }
         
+        let nameOfClass; //To change header visual for login/signup page
+        if (pathname === "/login" || pathname === "/signup") {
+            nameOfClass = 'header-session-form';
+        } else {
+            nameOfClass = 'header';
+        }
+
         return (
-            <div>
+            <div className={nameOfClass}>
                 <h3>Website Name Header Here</h3>
                 {loginCondition}
             </div>
