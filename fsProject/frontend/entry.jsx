@@ -6,19 +6,19 @@ import Root from "./components/root";
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;                   //Allowing user to refresh & stay logged in
-    // if (window.currentUser) {    //We set currentUser in root.html.erb
-    //     const preloadedState = { //If a currentUser exists, adding to preload
-    //         entities: {
-    //             users: { [window.currentUser.id]: window.currentUser }
-    //         },
-    //         session: { id: window.currentUser.id }
-    //     };
-    //     store = configureStore(preloadedState);
-    //     delete window.currentUser;
-    // } else {
-    //     store = configureStore();
-    // }
-
+    if (window.currentUser) {    //We set currentUser in root.html.erb
+        const preloadedState = { //If a currentUser exists, adding to preload
+            entities: {
+                users: { [window.currentUser.id]: window.currentUser }
+            },
+            session: { currentUserId: window.currentUser.id }
+        };
+        store = configureStore(preloadedState);
+        delete window.currentUser;
+    } else {
+        store = configureStore();
+    }
+    
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store}/>, root);
 
