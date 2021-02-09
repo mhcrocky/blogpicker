@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import HeaderContainer from '../header/header_container';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -42,6 +43,7 @@ class SessionForm extends React.Component {
         })
         return (
             <div className="session-form-body">
+                <HeaderContainer />
                 <div className="session-form-container">
                     <svg viewBox="0 0 24 24" className="circles-container">
                         <circle id="circle-left" cx="6" cy="12" r="5"></circle>
