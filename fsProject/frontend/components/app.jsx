@@ -7,18 +7,16 @@ import LoginFormContainer from "./session_form/login_form_container";
 import SignUpFormContainer from "./session_form/signup_form_container";
 import Welcome from "./welcome/welcome";
 
-const App = () => (
-    <div className="all-content">
-        <header>
+const App = () => {
+    return (
+        <div>
             <Route path='/' component={HeaderContainer} />
-        </header>
-        <body>
             <AuthRoute exact path='/' component={Welcome} />
             <AuthRoute exact path='/login' component={LoginFormContainer} />
             <AuthRoute exact path='/signup' component={SignUpFormContainer} />
             <Route path='/feed' component={Feed} />
-        </body>
-    </div>
-);
+        </div>
+    )
+};
 
 export default App;

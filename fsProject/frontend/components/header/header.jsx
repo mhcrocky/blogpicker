@@ -36,10 +36,15 @@ class Header extends React.Component {
             nameOfClass = 'header-session-form';
         } else {
             nameOfClass = 'header';
+
         }
 
         return (
             <div className={nameOfClass}>
+                <svg viewBox="0 0 24 24" className="circles-container">
+                    <circle id="circle-left" cx="6" cy="12" r="5"></circle>
+                    <circle id="circle-right" cx="18" cy="12" r="5"></circle>
+                </svg>
                 <h3>Website Name Header Here</h3>
                 {loginCondition}
             </div>
