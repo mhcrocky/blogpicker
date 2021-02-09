@@ -10,7 +10,7 @@ import Welcome from "./welcome/welcome";
 const App = () => (
     <div>
         <Route path='/' component={HeaderContainer} />
-        <Route exact path='/' component={Welcome} />
+        <AuthRoute exact path='/' component={Welcome} />
         <AuthRoute exact path='/login' component={LoginFormContainer} />
         <AuthRoute exact path='/signup' component={SignUpFormContainer} />
         <Route path='/feed' component={Feed} />
