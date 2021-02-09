@@ -1,3 +1,6 @@
+
+<!-- If a user is logged in we are adding the user to the window.
+    This allows us to persist a logged in user on refresh (via entry file) -->
 <% if logged_in? %>
   <script type="text/javascript">
     window.currentUser = <%= render(

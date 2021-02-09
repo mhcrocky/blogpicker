@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import { AuthRoute } from "../util/route_util";
 import Feed from "./feed/feed";
 import HeaderContainer from "./header/header_container";
 import LoginFormContainer from "./session_form/login_form_container";
@@ -10,8 +11,8 @@ const App = () => (
     <div>
         <Route path='/' component={HeaderContainer} />
         <Route exact path='/' component={Welcome} />
-        <Route path='/login' component={LoginFormContainer} />
-        <Route path='/signup' component={SignUpFormContainer} />
+        <AuthRoute exact path='/login' component={LoginFormContainer} />
+        <AuthRoute exact path='/signup' component={SignUpFormContainer} />
         <Route path='/feed' component={Feed} />
     </div>
 );
