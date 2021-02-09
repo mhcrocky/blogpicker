@@ -32,8 +32,8 @@ class Header extends React.Component {
         }
         
         let nameOfClass; //To change header visual for login/signup page
-        if (pathname === "/login" || pathname === "/signup") {
-            nameOfClass = 'header-session-form';
+        if (pathname === "/") {
+            nameOfClass = 'header-landing';
         } else {
             nameOfClass = 'header';
 
