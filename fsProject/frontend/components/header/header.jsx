@@ -13,7 +13,7 @@ class Header extends React.Component {
     }
 
     render() {
-        let loginCondition = <div></div>
+        let loginCondition;
         if (this.props.currentUser) {
             loginCondition = <>
                 <Link to={`/users/${this.props.currentUser.id}`}>
@@ -21,13 +21,16 @@ class Header extends React.Component {
                 </Link>
                 <button onClick={this.handleLogout}>Logout</button>
             </>
+        } else if (this.props.location.pathname === "/login" ||
+        this.props.location.pathname === "/signup") {
+            loginCondition = <div></div>;
         } else {
             loginCondition = <>
                 <Link to="/signup">Sign Up</Link>
                 <Link to="/login">Log In</Link>
             </>
         }
-    
+        
         return (
             <div>
                 <h3>Website Name Header Here</h3>
