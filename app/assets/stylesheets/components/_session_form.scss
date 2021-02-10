@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 80%;
+    min-height: 85%;
    
 }
 
@@ -22,7 +22,7 @@
     justify-content: space-between;
     align-items: center;
     width: 280px;
-    height: 280px;
+    height: 350px;
     padding: 24px;
     border-radius: 0.25rem;
 
@@ -37,6 +37,8 @@
         font-size: 1.25rem;
     }
 }
+
+
 //input fields
 .form-input {
     display: flex;
@@ -63,6 +65,21 @@
     }
 }
 
+//submit button and demo login button
+.session-button {
+    width: 100%;
+    color: #fff;
+    background-color: #128fdc;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 600;
+    outline: none;
+    border-style: none;
+    margin-top: 15px;
+    padding: 8px;
+    cursor: pointer;
+}
+
 // circle logos
 .circles-container {
     height: 1.5rem;
@@ -75,4 +92,9 @@
 
 #circle-left {
     fill: rgb(0, 95, 222);
+}
+
+//Botton form message
+.sign-up-or-log-in {
+    font-size: 0.875rem;
 }

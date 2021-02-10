@@ -30,16 +30,19 @@ class SessionForm extends React.Component {
         let demoLogin;
 
         if (this.props.formType === 'Login to Picktr') {
-            signUpOrLogin = <div>Not a (app_name) member? 
+            signUpOrLogin = <div className="sign-up-or-log-in">
+                Not a (app_name) member? 
                 <Link to="/signup"> Sign up here.</Link>
             </div>;
 
-            demoLogin = <button onClick={() => this.props.processForm(
+            demoLogin = <button className="session-button"
+                onClick={() => this.props.processForm(
                 {username:'demo_user', password:'123456'})}>
                 Demo Login</button>;
 
         } else {
-            signUpOrLogin = <div>Already a (app_name) member?
+            signUpOrLogin = <div className="sign-up-or-log-in">
+                Already a (app_name) member?
                 <Link to="/login"> Login here.</Link>
             </div>;
 
@@ -51,6 +54,9 @@ class SessionForm extends React.Component {
                 <li key={idx}>{error}</li>
             )
         })
+
+        const buttonText = (this.props.formType === 'Login to Picktr') ? 'Next'
+            : 'Sign up';
 
         return (
             <div className="session-form-body">
@@ -76,7 +82,7 @@ class SessionForm extends React.Component {
                             <ul>
                                 {errors}
                             </ul>
-                            <button>Submit</button>
+                            <button className="session-button">{buttonText}</button>
                         </form>
                         {demoLogin}
                         {signUpOrLogin}
