@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
         let signUpOrLogin;
         let demoLogin;
 
-        if (this.props.formType === 'Login') {
+        if (this.props.formType === 'Login to Picktr') {
             signUpOrLogin = <div>Not a (app_name) member? 
                 <Link to="/signup"> Sign up here.</Link>
             </div>;
@@ -63,14 +63,16 @@ class SessionForm extends React.Component {
                         </svg>
                         <h3>{this.props.formType}</h3>
                         <form onSubmit={this.handleSubmit}>
-                            <label>Username:
+                            <div className="form-input">
+                                <label>Username:</label>
                                 <input onChange={this.handleChange('username')}
                                 type="text" value={this.state.username} />
-                            </label>
-                            <label>Password:
+                            </div>
+                            <div className="form-input">
+                                <label>Password:</label>
                                 <input onChange={this.handleChange('password')}
                                 type="password" value={this.state.password} />
-                            </label>
+                            </div>
                             <ul>
                                 {errors}
                             </ul>
