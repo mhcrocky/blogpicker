@@ -595,7 +595,6 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       username: "",
       password: ""
     };
-    _this.demoUser = {};
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -675,7 +674,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         onChange: this.handleChange('password'),
         type: "password",
         value: this.state.password
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Submit")), demoLogin, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors), signUpOrLogin));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Submit")), demoLogin, signUpOrLogin));
     }
   }]);
 
@@ -1088,23 +1087,16 @@ var logout = function logout() {
 /*!****************************************!*\
   !*** ./frontend/util/user_api_util.js ***!
   \****************************************/
-/*! exports provided: fetchUser, fetchDemo */
+/*! exports provided: fetchUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchDemo", function() { return fetchDemo; });
 //fetch user ajax request
 var fetchUser = function fetchUser(userId) {
   return $.ajax({
     url: "/api/users/".concat(userId),
-    method: 'GET'
-  });
-};
-var fetchDemo = function fetchDemo() {
-  return $.ajax({
-    url: '/api/users/demo_user',
     method: 'GET'
   });
 };

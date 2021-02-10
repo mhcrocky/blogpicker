@@ -2,9 +2,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: auto;
+    background-image: url(https://source.unsplash.com/random/1920x1080);
 }
 
 .session-form-container {
+    background-color: white;
     display: flex;
     flex-direction: column;
 }

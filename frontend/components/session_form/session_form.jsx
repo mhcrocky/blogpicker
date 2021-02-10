@@ -9,7 +9,6 @@ class SessionForm extends React.Component {
             username: "",
             password: ""
         };
-        this.demoUser = {};
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -34,12 +33,16 @@ class SessionForm extends React.Component {
             signUpOrLogin = <div>Not a (app_name) member? 
                 <Link to="/signup"> Sign up here.</Link>
             </div>;
-            demoLogin = <button onClick={() => this.props.processForm({username:'demo_user', password:'123456'})}>
+
+            demoLogin = <button onClick={() => this.props.processForm(
+                {username:'demo_user', password:'123456'})}>
                 Demo Login</button>;
+
         } else {
             signUpOrLogin = <div>Already a (app_name) member?
                 <Link to="/login"> Login here.</Link>
             </div>;
+
             demoLogin = <div></div>;
         }
         
@@ -48,6 +51,7 @@ class SessionForm extends React.Component {
                 <li key={idx}>{error}</li>
             )
         })
+
         return (
             <div className="session-form-body">
                 <HeaderContainer />
@@ -59,17 +63,19 @@ class SessionForm extends React.Component {
                     <h3>{this.props.formType}</h3>
                     <form onSubmit={this.handleSubmit}>
                         <label>Username:
-                            <input onChange={this.handleChange('username')} type="text" value={this.state.username} />
+                            <input onChange={this.handleChange('username')}
+                             type="text" value={this.state.username} />
                         </label>
                         <label>Password:
-                            <input onChange={this.handleChange('password')} type="password" value={this.state.password} />
+                            <input onChange={this.handleChange('password')}
+                             type="password" value={this.state.password} />
                         </label>
+                        <ul>
+                            {errors}
+                        </ul>
                         <button>Submit</button>
                     </form>
                     {demoLogin}
-                    <ul>
-                        {errors}
-                    </ul>
                     {signUpOrLogin}
                 </div>
             </div>
