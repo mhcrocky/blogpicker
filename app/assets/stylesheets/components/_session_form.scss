@@ -2,19 +2,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: auto;
+    height: 100%;
     background-image: url(https://source.unsplash.com/random/1920x1080);
 }
 
 .session-form-container {
-    background-color: white;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
+    width: 22rem;
+    padding: 1.5rem;
+    border-radius: 0.25rem;
 }
 
-#splash-login-img {
-    z-index: 0;
-}
 
 .circles-container {
     height: 1.5rem;
