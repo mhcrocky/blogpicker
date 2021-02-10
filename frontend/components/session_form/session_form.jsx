@@ -9,11 +9,13 @@ class SessionForm extends React.Component {
             username: "",
             password: ""
         };
+        this.demoUser = {};
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
-        
+        this.props.fetchDemo();
+        this.demoUser = Object.values(this.props.users)[0];
     }
 
     handleChange(body) {
@@ -29,15 +31,20 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        let signUpOrLogin = <div></div>;
+        let signUpOrLogin;
+        let demoLogin;
+
         if (this.props.formType === 'Login') {
             signUpOrLogin = <div>Not a (app_name) member? 
                 <Link to="/signup"> Sign up here.</Link>
-            </div>
+            </div>;
+            demoLogin = <button onClick={() => this.props.processForm(this.demoUser)}>
+                Demo Login</button>;
         } else {
             signUpOrLogin = <div>Already a (app_name) member?
                 <Link to="/login"> Login here.</Link>
-            </div> 
+            </div>;
+            demoLogin = <div></div>;
         }
         
         const errors = this.props.errors.session.map((error, idx) => {
@@ -63,6 +70,7 @@ class SessionForm extends React.Component {
                         </label>
                         <button>Submit</button>
                     </form>
+                    {demoLogin}
                     <ul>
                         {errors}
                     </ul>
