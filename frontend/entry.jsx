@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from "./components/root";
+import { fetchDemo } from './util/user_api_util';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,5 +25,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Remove these after done testing!
     window.store = store;
-    
+    window.fetchDemo = fetchDemo;
 })

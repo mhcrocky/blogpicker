@@ -742,7 +742,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _util_user_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/user_api_util */ "./frontend/util/user_api_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -774,6 +776,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }), root); //Remove these after done testing!
 
   window.store = store;
+  window.fetchDemo = _util_user_api_util__WEBPACK_IMPORTED_MODULE_4__["fetchDemo"];
 });
 
 /***/ }),
@@ -1067,10 +1070,26 @@ var logout = function logout() {
 /*!****************************************!*\
   !*** ./frontend/util/user_api_util.js ***!
   \****************************************/
-/*! exports provided: fetchUser */
-/***/ (function(module, exports) {
+/*! exports provided: fetchUser, fetchDemo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/bcdguz/Desktop/picktr/frontend/util/user_api_util.js: Unexpected token (10:31)\n\n\u001b[0m \u001b[90m  8 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m  9 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m fetchDemo \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m \u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n    at Object._raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:776:17)\n    at Object.raiseWithData (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:769:17)\n    at Object.raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:737:17)\n    at Object.unexpected (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9183:16)\n    at Object.parseExprAtom (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:10673:20)\n    at Object.parseExprAtom (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:4795:20)\n    at Object.parseExprSubscripts (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:10248:23)\n    at Object.parseUpdate (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:10228:21)\n    at Object.parseMaybeUnary (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:10206:23)\n    at Object.parseExprOps (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:10071:23)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchDemo", function() { return fetchDemo; });
+//fetch user ajax request
+var fetchUser = function fetchUser(userId) {
+  return $.ajax({
+    url: "/api/users/".concat(userId),
+    method: 'GET'
+  });
+};
+var fetchDemo = function fetchDemo() {
+  return $.ajax({
+    url: '/api/users/demo_user',
+    method: 'GET'
+  });
+};
 
 /***/ }),
 
