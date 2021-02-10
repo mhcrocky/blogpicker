@@ -13,10 +13,6 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount() {
-        this.props.fetchDemo();
-        this.demoUser = Object.values(this.props.users)[0];
-    }
 
     handleChange(body) {
         return (e) => (
@@ -38,7 +34,7 @@ class SessionForm extends React.Component {
             signUpOrLogin = <div>Not a (app_name) member? 
                 <Link to="/signup"> Sign up here.</Link>
             </div>;
-            demoLogin = <button onClick={() => this.props.processForm(this.demoUser)}>
+            demoLogin = <button onClick={() => this.props.processForm({username:'demo_user', password:'123456'})}>
                 Demo Login</button>;
         } else {
             signUpOrLogin = <div>Already a (app_name) member?

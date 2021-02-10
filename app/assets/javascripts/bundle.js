@@ -519,8 +519,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state) {
   return {
     errors: state.errors,
-    formType: 'Login',
-    users: state.entities.users
+    formType: 'Login'
   };
 };
 
@@ -602,12 +601,6 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(SessionForm, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchDemo();
-      this.demoUser = Object.values(this.props.users)[0];
-    }
-  }, {
     key: "handleChange",
     value: function handleChange(body) {
       var _this2 = this;
@@ -637,7 +630,10 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         }, " Sign up here."));
         demoLogin = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: function onClick() {
-            return _this3.props.processForm(_this3.demoUser);
+            return _this3.props.processForm({
+              username: 'demo_user',
+              password: '123456'
+            });
           }
         }, "Demo Login");
       } else {

@@ -8,7 +8,6 @@ const mapStateToProps = (state) => {
     return {
         errors: state.errors,
         formType: 'Login',
-        users: state.entities.users
     }
 }
 
