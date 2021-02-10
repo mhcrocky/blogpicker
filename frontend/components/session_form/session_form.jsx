@@ -12,6 +12,10 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        
+    }
+
     handleChange(body) {
         return (e) => (
             this.setState({ [body]: e.target.value })

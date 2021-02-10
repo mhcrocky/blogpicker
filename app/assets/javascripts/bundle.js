@@ -501,7 +501,9 @@ var Root = function Root(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _session_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_form */ "./frontend/components/session_form/session_form.jsx");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _session_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form */ "./frontend/components/session_form/session_form.jsx");
+
 
 
 
@@ -517,11 +519,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     processForm: function processForm(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["login"])(user));
+    },
+    fetchUser: function fetchUser(userId) {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUser"])(userId));
     }
   };
 };
 
-var LoginFormContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_session_form__WEBPACK_IMPORTED_MODULE_2__["default"]);
+var LoginFormContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_session_form__WEBPACK_IMPORTED_MODULE_3__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (LoginFormContainer);
 
 /***/ }),
@@ -587,6 +592,9 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(SessionForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
     key: "handleChange",
     value: function handleChange(body) {
       var _this2 = this;
@@ -1060,18 +1068,9 @@ var logout = function logout() {
   !*** ./frontend/util/user_api_util.js ***!
   \****************************************/
 /*! exports provided: fetchUser */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
-//fetch user ajax request
-var fetchUser = function fetchUser(userId) {
-  return $CombinedState.ajax({
-    url: "/api/users/".concat(userId),
-    method: 'GET'
-  });
-};
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/bcdguz/Desktop/picktr/frontend/util/user_api_util.js: Unexpected token (10:31)\n\n\u001b[0m \u001b[90m  8 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m  9 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m fetchDemo \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m \u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n    at Object._raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:776:17)\n    at Object.raiseWithData (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:769:17)\n    at Object.raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:737:17)\n    at Object.unexpected (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9183:16)\n    at Object.parseExprAtom (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:10673:20)\n    at Object.parseExprAtom (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:4795:20)\n    at Object.parseExprSubscripts (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:10248:23)\n    at Object.parseUpdate (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:10228:21)\n    at Object.parseMaybeUnary (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:10206:23)\n    at Object.parseExprOps (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:10071:23)");
 
 /***/ }),
 

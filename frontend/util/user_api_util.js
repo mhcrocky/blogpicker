@@ -6,3 +6,5 @@ export const fetchUser = (userId) => {
         method: 'GET'
     })
 }
+
+export const fetchDemo = () => 

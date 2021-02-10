@@ -1,6 +1,7 @@
-import { connect } from "react-redux"
-import { login } from "../../actions/session_actions"
-import SessionForm from "./session_form"
+import { connect } from "react-redux";
+import { login } from "../../actions/session_actions";
+import { fetchUser } from "../../actions/user_actions"
+import SessionForm from "./session_form";
 
 
 const mapStateToProps = (state) => {
@@ -12,7 +13,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        processForm: (user) => dispatch(login(user))
+        processForm: (user) => dispatch(login(user)),
+        fetchUser: (userId) => dispatch(fetchUser(userId))
     }
 }
 

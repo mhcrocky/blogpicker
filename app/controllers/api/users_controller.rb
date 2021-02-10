@@ -1,4 +1,9 @@
 class Api::UsersController < ApplicationController
+    def demo_user
+        @user = User.find_by(username: 'demo_user')
+        render :show
+    end
+
     def show
         @user = User.find_by(id: params[:id])
         render :show
