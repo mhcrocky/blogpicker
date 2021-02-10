@@ -31,18 +31,18 @@ class SessionForm extends React.Component {
 
         if (this.props.formType === 'Login to Picktr') {
             signUpOrLogin = <div className="sign-up-or-log-in">
-                Not a (app_name) member? 
+                Not a Picktr member? 
                 <Link to="/signup"> Sign up here.</Link>
             </div>;
 
-            demoLogin = <button className="session-button"
+            demoLogin = <button type="button" className="session-button"
                 onClick={() => this.props.processForm(
                 {username:'demo_user', password:'123456'})}>
                 Demo Login</button>;
 
         } else {
             signUpOrLogin = <div className="sign-up-or-log-in">
-                Already a (app_name) member?
+                Already a Picktr member?
                 <Link to="/login"> Login here.</Link>
             </div>;
 
@@ -79,12 +79,12 @@ class SessionForm extends React.Component {
                                 <input onChange={this.handleChange('password')}
                                 type="password" value={this.state.password} />
                             </div>
-                            <ul>
+                            <ul className="form-errors">
                                 {errors}
                             </ul>
                             <button className="session-button">{buttonText}</button>
+                            {demoLogin}
                         </form>
-                        {demoLogin}
                         {signUpOrLogin}
                     </div>
                 </div>

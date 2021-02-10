@@ -613,10 +613,11 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       if (this.props.formType === 'Login to Picktr') {
         signUpOrLogin = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "sign-up-or-log-in"
-        }, "Not a (app_name) member?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        }, "Not a Picktr member?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/signup"
         }, " Sign up here."));
         demoLogin = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button",
           className: "session-button",
           onClick: function onClick() {
             return _this3.props.processForm({
@@ -628,7 +629,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       } else {
         signUpOrLogin = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "sign-up-or-log-in"
-        }, "Already a (app_name) member?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        }, "Already a Picktr member?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/login"
         }, " Login here."));
         demoLogin = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
@@ -673,9 +674,11 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         onChange: this.handleChange('password'),
         type: "password",
         value: this.state.password
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "form-errors"
+      }, errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "session-button"
-      }, buttonText)), demoLogin, signUpOrLogin)));
+      }, buttonText), demoLogin), signUpOrLogin)));
     }
   }]);
 
