@@ -20,10 +20,3 @@ export const fetchUser = (userId) => (dispatch) => {
             dispatch(receiveUser(user));
         })
 }
-
-export const fetchDemo = () => (dispatch) => {
-    return APIUtil.fetchDemo()
-        .then((demo) => {
-            dispatch(receiveUser(demo))
-        })
-}
