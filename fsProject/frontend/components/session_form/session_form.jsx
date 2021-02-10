@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
                 <Link to="/login"> Login here.</Link>
             </div> 
         }
-        // debugger
+        
         const errors = this.props.errors.session.map((error, idx) => {
             return (
                 <li key={idx}>{error}</li>
