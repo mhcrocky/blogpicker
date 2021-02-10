@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
-    background-image: url(https://source.unsplash.com/random/1920x1080);
+    background-image: asset-url('landscape.jpg');
+    background-size: cover;
 }
 
 .session-form-container {
