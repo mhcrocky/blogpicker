@@ -23,7 +23,7 @@
     align-items: center;
     width: 280px;
     height: 280px;
-    padding: 1.5rem;
+    padding: 24px;
     border-radius: 0.25rem;
 
     form {
@@ -45,9 +45,21 @@
     height: 50px;
     width: 100%;
     border: 1px solid #212124;
+    border-radius: 0.25rem;
+    margin-bottom: 10px;
 
     input {
         border: none;
+        outline: none;
+        margin-left: 15px;
+        font-size: 16px;
+    }
+
+    label {
+        font-size: 13px;
+        margin-left: 15px;
+        color: #898989;
+        margin-bottom: 3px;
     }
 }
 

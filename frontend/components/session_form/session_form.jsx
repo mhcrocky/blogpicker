@@ -64,12 +64,12 @@ class SessionForm extends React.Component {
                         <h3>{this.props.formType}</h3>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-input">
-                                <label>Username:</label>
+                                <label>Username</label>
                                 <input onChange={this.handleChange('username')}
                                 type="text" value={this.state.username} />
                             </div>
                             <div className="form-input">
-                                <label>Password:</label>
+                                <label>Password</label>
                                 <input onChange={this.handleChange('password')}
                                 type="password" value={this.state.password} />
                             </div>
