@@ -56,27 +56,29 @@ class SessionForm extends React.Component {
             <div className="session-form-body">
                 <HeaderContainer />
                 <div className="session-form-container">
-                    <svg viewBox="0 0 24 24" className="circles-container">
-                        <circle id="circle-left" cx="6" cy="12" r="5"></circle>
-                        <circle id="circle-right" cx="18" cy="12" r="5"></circle>
-                    </svg>
-                    <h3>{this.props.formType}</h3>
-                    <form onSubmit={this.handleSubmit}>
-                        <label>Username:
-                            <input onChange={this.handleChange('username')}
-                             type="text" value={this.state.username} />
-                        </label>
-                        <label>Password:
-                            <input onChange={this.handleChange('password')}
-                             type="password" value={this.state.password} />
-                        </label>
-                        <ul>
-                            {errors}
-                        </ul>
-                        <button>Submit</button>
-                    </form>
-                    {demoLogin}
-                    {signUpOrLogin}
+                    <div className="session-form-content">
+                        <svg viewBox="0 0 24 24" className="circles-container">
+                            <circle id="circle-left" cx="6" cy="12" r="5"></circle>
+                            <circle id="circle-right" cx="18" cy="12" r="5"></circle>
+                        </svg>
+                        <h3>{this.props.formType}</h3>
+                        <form onSubmit={this.handleSubmit}>
+                            <label>Username:
+                                <input onChange={this.handleChange('username')}
+                                type="text" value={this.state.username} />
+                            </label>
+                            <label>Password:
+                                <input onChange={this.handleChange('password')}
+                                type="password" value={this.state.password} />
+                            </label>
+                            <ul>
+                                {errors}
+                            </ul>
+                            <button>Submit</button>
+                        </form>
+                        {demoLogin}
+                        {signUpOrLogin}
+                    </div>
                 </div>
             </div>
         )

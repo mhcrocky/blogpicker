@@ -213,11 +213,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 /* harmony import */ var _feed_feed__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./feed/feed */ "./frontend/components/feed/feed.jsx");
-/* harmony import */ var _header_header_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./header/header_container */ "./frontend/components/header/header_container.js");
-/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.js");
-/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.js");
-/* harmony import */ var _welcome_welcome__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./welcome/welcome */ "./frontend/components/welcome/welcome.jsx");
-
+/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.js");
+/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.js");
+/* harmony import */ var _welcome_welcome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./welcome/welcome */ "./frontend/components/welcome/welcome.jsx");
 
 
 
@@ -232,15 +230,15 @@ var App = function App() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     exact: true,
     path: "/",
-    component: _welcome_welcome__WEBPACK_IMPORTED_MODULE_7__["default"]
+    component: _welcome_welcome__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     exact: true,
     path: "/login",
-    component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     exact: true,
     path: "/signup",
-    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/feed",
     component: _feed_feed__WEBPACK_IMPORTED_MODULE_3__["default"]
@@ -653,6 +651,8 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         className: "session-form-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session-form-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "session-form-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
         viewBox: "0 0 24 24",
         className: "circles-container"
@@ -676,7 +676,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         onChange: this.handleChange('password'),
         type: "password",
         value: this.state.password
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Submit")), demoLogin, signUpOrLogin));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Submit")), demoLogin, signUpOrLogin)));
     }
   }]);
 
