@@ -348,6 +348,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _header_header_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../header/header_container */ "./frontend/components/header/header_container.js");
+/* harmony import */ var _photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../photo_index/photo_index_container */ "./frontend/components/photo_index/photo_index_container.js");
+/* harmony import */ var _photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -373,6 +375,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Feed = /*#__PURE__*/function (_React$Component) {
   _inherits(Feed, _React$Component);
 
@@ -387,7 +390,9 @@ var Feed = /*#__PURE__*/function (_React$Component) {
   _createClass(Feed, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "PhotoIndex Goes Here!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Reminder to change this to Feed Component in app.jsx route"));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "feed-page"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "PhotoIndex Goes Here!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2___default.a, null));
     }
   }]);
 
@@ -581,6 +586,17 @@ var NoExistingPage = function NoExistingPage() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (NoExistingPage);
+
+/***/ }),
+
+/***/ "./frontend/components/photo_index/photo_index_container.js":
+/*!******************************************************************!*\
+  !*** ./frontend/components/photo_index/photo_index_container.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/bcdguz/Desktop/picktr/frontend/components/photo_index/photo_index_container.js: Unexpected token (13:23)\n\n\u001b[0m \u001b[90m 11 |\u001b[39m \u001b[36mconst\u001b[39m mapDispatchToProps \u001b[33m=\u001b[39m (dispatch) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 12 |\u001b[39m     \u001b[36mreturn\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 13 |\u001b[39m         fetchAllPhotos \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m dispatch(fetchAllPhotos())\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 14 |\u001b[39m     }\u001b[0m\n\u001b[0m \u001b[90m 15 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 16 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m connect(mapStateToProps\u001b[33m,\u001b[39m mapDispatchToProps)(\u001b[33mPhotoIndex\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n    at Object._raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:776:17)\n    at Object.raiseWithData (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:769:17)\n    at Object.raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:737:17)\n    at Object.unexpected (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9183:16)\n    at Object.checkExpressionErrors (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9271:12)\n    at Object.parseMaybeAssign (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:10035:12)\n    at Object.parseExpressionBase (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9953:23)\n    at allowInAnd (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9947:39)\n    at Object.allowInAnd (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:11647:12)\n    at Object.parseExpression (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9947:17)");
 
 /***/ }),
 
@@ -907,9 +923,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/photo_actions */ "./frontend/actions/photo_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -939,9 +953,6 @@ document.addEventListener("DOMContentLoaded", function () {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root); //Remove these after done testing!
-
-  window.dispatch = store.dispatch;
-  window.getState = store.getState;
 });
 
 /***/ }),

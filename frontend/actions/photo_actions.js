@@ -29,7 +29,7 @@ const removePhoto = (photoId) => {
 
 //thunks
 
-export const createPhoto = (photo) => (dispatch) => {
+export const createPhoto = (photo) => (dispatch) => { 
     return APIUtil.createPhoto(photo)
         .then(photo => {
             dispatch(receivePhoto(photo));
