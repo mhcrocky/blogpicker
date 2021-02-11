@@ -8938,3 +8938,1842 @@ Processing by Api::UsersController#show as */*
 Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for ::1 at 2021-02-11 15:14:24 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gEZbFLyE_pcLVBooK-IIwA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 523ms (Views: 518.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:14:25 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (1.7ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.6ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (97.8ms)
+Completed 200 OK in 163ms (Views: 160.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:14:25 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:14:25 -0800
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Processing by Api::UsersController#show as */*
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:14:25 -0800
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (62.2ms)
+Completed 200 OK in 131ms (Views: 126.8ms | ActiveRecord: 1.5ms)
+
+
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (11.6ms)
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:14:25 -0800
+Completed 200 OK in 70ms (Views: 55.0ms | ActiveRecord: 2.1ms)
+
+
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (9.7ms)
+Processing by Api::UsersController#show as */*
+Completed 200 OK in 56ms (Views: 53.8ms | ActiveRecord: 0.3ms)
+
+
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (8.1ms)
+Completed 200 OK in 45ms (Views: 40.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:14:25 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (8.6ms)
+Completed 200 OK in 44ms (Views: 42.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:14:25 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (8.7ms)
+Completed 200 OK in 55ms (Views: 54.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:14:25 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (8.4ms)
+Completed 200 OK in 48ms (Views: 46.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:14:43 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gEZbFLyE_pcLVBooK-IIwA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 117ms (Views: 115.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:14:43 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (0.8ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (71.3ms)
+Completed 200 OK in 117ms (Views: 116.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:14:43 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:14:43 -0800
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Processing by Api::UsersController#show as */*
+  Rendering api/users/show.json.jbuilder
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:14:44 -0800
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/users/show.json.jbuilder (16.9ms)
+Completed 200 OK in 72ms (Views: 69.4ms | ActiveRecord: 0.8ms)
+
+
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:14:44 -0800
+  Rendering api/users/show.json.jbuilder
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (19.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+Processing by Api::UsersController#show as */*
+Completed 200 OK in 145ms (Views: 80.3ms | ActiveRecord: 1.1ms)
+
+
+  Rendered api/users/show.json.jbuilder (12.2ms)
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:14:44 -0800
+Completed 200 OK in 157ms (Views: 143.7ms | ActiveRecord: 5.6ms)
+
+
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  Rendered api/users/show.json.jbuilder (18.8ms)
+  ↳ app/controllers/api/users_controller.rb:8
+Completed 200 OK in 64ms (Views: 59.7ms | ActiveRecord: 1.0ms)
+
+
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (9.6ms)
+Completed 200 OK in 78ms (Views: 75.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:14:44 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (11.9ms)
+Completed 200 OK in 67ms (Views: 63.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:14:44 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (12.3ms)
+Completed 200 OK in 61ms (Views: 58.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:15:53 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gEZbFLyE_pcLVBooK-IIwA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 150ms (Views: 146.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:15:54 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (1.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.6ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/index.json.jbuilder (102.9ms)
+Completed 200 OK in 156ms (Views: 153.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:15:54 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:15:54 -0800
+  Rendering api/users/show.json.jbuilder
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:15:54 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (15.0ms)
+Completed 200 OK in 68ms (Views: 65.7ms | ActiveRecord: 0.6ms)
+
+
+Processing by Api::UsersController#show as */*
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[36mUser Load (34.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:15:54 -0800
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (21.0ms)
+Completed 200 OK in 93ms (Views: 88.1ms | ActiveRecord: 1.8ms)
+
+
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (8.7ms)
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+Completed 200 OK in 91ms (Views: 53.2ms | ActiveRecord: 34.4ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:15:54 -0800
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (10.5ms)
+Completed 200 OK in 52ms (Views: 50.2ms | ActiveRecord: 0.4ms)
+
+
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (7.2ms)
+Completed 200 OK in 45ms (Views: 44.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:15:54 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (8.0ms)
+Completed 200 OK in 44ms (Views: 43.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:15:54 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (8.4ms)
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:16:03 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gEZbFLyE_pcLVBooK-IIwA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 159ms (Views: 154.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:16:04 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (1.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (1.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.6ms)
+  Rendered api/photos/index.json.jbuilder (122.2ms)
+Completed 200 OK in 199ms (Views: 198.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:16:04 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:16:04 -0800
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:16:04 -0800
+Processing by Api::UsersController#show as */*
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (10.4ms)
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+Completed 200 OK in 81ms (Views: 78.4ms | ActiveRecord: 0.9ms)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:16:04 -0800
+  Rendering api/users/show.json.jbuilder
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (1.5ms)
+  Rendered api/users/show.json.jbuilder (8.4ms)
+Completed 200 OK in 96ms (Views: 59.7ms | ActiveRecord: 0.7ms)
+
+
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (19.8ms)
+Completed 200 OK in 100ms (Views: 96.4ms | ActiveRecord: 1.0ms)
+
+
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:16:04 -0800
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/users/show.json.jbuilder (59.2ms)
+Completed 200 OK in 131ms (Views: 127.0ms | ActiveRecord: 3.2ms)
+
+
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (10.9ms)
+Completed 200 OK in 84ms (Views: 65.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:16:04 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered api/users/show.json.jbuilder (8.3ms)
+Completed 200 OK in 48ms (Views: 46.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:16:04 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/users/show.json.jbuilder (10.1ms)
+Completed 200 OK in 47ms (Views: 45.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:16:11 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gEZbFLyE_pcLVBooK-IIwA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 131ms (Views: 127.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:16:11 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (4.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.6ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (100.5ms)
+Completed 200 OK in 184ms (Views: 179.7ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:16:11 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:16:11 -0800
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:16:11 -0800
+Processing by Api::UsersController#show as */*
+  ↳ app/controllers/api/users_controller.rb:8
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Load (15.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendered api/users/show.json.jbuilder (18.7ms)
+Completed 200 OK in 170ms (Views: 163.5ms | ActiveRecord: 1.3ms)
+
+
+  Rendering api/users/show.json.jbuilder
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:16:11 -0800
+  Rendered api/users/show.json.jbuilder (8.9ms)
+Completed 200 OK in 134ms (Views: 113.5ms | ActiveRecord: 15.3ms)
+
+
+  Rendered api/users/show.json.jbuilder (18.4ms)
+Completed 200 OK in 117ms (Views: 78.6ms | ActiveRecord: 0.5ms)
+
+
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:16:11 -0800
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendered api/users/show.json.jbuilder (15.7ms)
+Completed 200 OK in 128ms (Views: 126.0ms | ActiveRecord: 0.4ms)
+
+
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (13.8ms)
+Completed 200 OK in 76ms (Views: 73.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:16:12 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (11.6ms)
+Completed 200 OK in 74ms (Views: 72.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:16:12 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (11.0ms)
+Completed 200 OK in 68ms (Views: 66.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:18:38 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gEZbFLyE_pcLVBooK-IIwA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 166ms (Views: 162.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:18:39 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.6ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (85.1ms)
+Completed 200 OK in 156ms (Views: 155.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:18:39 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:18:39 -0800
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:18:39 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[36mUser Load (18.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (75.8ms)
+Completed 200 OK in 136ms (Views: 133.4ms | ActiveRecord: 0.3ms)
+
+
+  Rendering api/users/show.json.jbuilder
+  Rendering api/users/show.json.jbuilder
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:18:39 -0800
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (21.1ms)
+Completed 200 OK in 107ms (Views: 88.4ms | ActiveRecord: 8.3ms)
+
+
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (13.2ms)
+Completed 200 OK in 111ms (Views: 59.9ms | ActiveRecord: 18.6ms)
+
+
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:18:39 -0800
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (10.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+Completed 200 OK in 55ms (Views: 53.0ms | ActiveRecord: 0.9ms)
+
+
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (7.4ms)
+Completed 200 OK in 52ms (Views: 49.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:18:39 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (9.2ms)
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:18:39 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (7.4ms)
+Completed 200 OK in 50ms (Views: 48.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:18:59 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gEZbFLyE_pcLVBooK-IIwA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 133ms (Views: 129.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:18:59 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (1.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (87.9ms)
+Completed 200 OK in 140ms (Views: 139.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:18:59 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:18:59 -0800
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:18:59 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (9.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (10.4ms)
+Completed 200 OK in 87ms (Views: 84.4ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:18:59 -0800
+  Rendering api/users/show.json.jbuilder
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (25.6ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+Completed 200 OK in 109ms (Views: 95.2ms | ActiveRecord: 9.7ms)
+
+
+  Rendered api/users/show.json.jbuilder (10.2ms)
+Completed 200 OK in 101ms (Views: 65.6ms | ActiveRecord: 1.1ms)
+
+
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:18:59 -0800
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (15.5ms)
+Completed 200 OK in 74ms (Views: 66.9ms | ActiveRecord: 0.6ms)
+
+
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (10.2ms)
+Completed 200 OK in 65ms (Views: 62.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:19:00 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (10.1ms)
+Completed 200 OK in 63ms (Views: 61.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:19:00 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (11.4ms)
+Completed 200 OK in 62ms (Views: 60.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:19:27 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gEZbFLyE_pcLVBooK-IIwA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 127ms (Views: 124.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:19:27 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (1.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (69.2ms)
+Completed 200 OK in 119ms (Views: 117.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:19:27 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:19:27 -0800
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:19:27 -0800
+Processing by Api::UsersController#show as */*
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+  Rendered api/users/show.json.jbuilder (11.9ms)
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+Completed 200 OK in 76ms (Views: 72.7ms | ActiveRecord: 0.9ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:19:27 -0800
+  Rendering api/users/show.json.jbuilder
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (8.6ms)
+Completed 200 OK in 96ms (Views: 59.9ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:19:27 -0800
+  Rendered api/users/show.json.jbuilder (18.9ms)
+Completed 200 OK in 136ms (Views: 131.1ms | ActiveRecord: 1.6ms)
+
+
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendered api/users/show.json.jbuilder (13.0ms)
+Completed 200 OK in 57ms (Views: 54.3ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (7.6ms)
+Completed 200 OK in 46ms (Views: 42.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:19:28 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (9.1ms)
+Completed 200 OK in 47ms (Views: 46.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:19:28 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/users/show.json.jbuilder (9.8ms)
+Completed 200 OK in 52ms (Views: 50.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:19:36 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gEZbFLyE_pcLVBooK-IIwA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 124ms (Views: 120.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:19:36 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (0.6ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.5ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (92.2ms)
+Completed 200 OK in 148ms (Views: 146.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:19:36 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:19:36 -0800
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:19:36 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (39.1ms)
+Completed 200 OK in 102ms (Views: 98.4ms | ActiveRecord: 1.5ms)
+
+
+Processing by Api::UsersController#show as */*
+  Rendering api/users/show.json.jbuilder
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:19:37 -0800
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (11.8ms)
+  ↳ app/controllers/api/users_controller.rb:8
+Completed 200 OK in 66ms (Views: 50.9ms | ActiveRecord: 6.1ms)
+
+
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (14.3ms)
+Processing by Api::UsersController#show as */*
+Completed 200 OK in 71ms (Views: 67.3ms | ActiveRecord: 0.5ms)
+
+
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:19:37 -0800
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (9.9ms)
+Completed 200 OK in 51ms (Views: 49.2ms | ActiveRecord: 0.3ms)
+
+
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (10.3ms)
+Completed 200 OK in 51ms (Views: 49.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:19:37 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered api/users/show.json.jbuilder (12.4ms)
+Completed 200 OK in 65ms (Views: 62.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:19:37 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered api/users/show.json.jbuilder (11.5ms)
+Completed 200 OK in 65ms (Views: 63.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:20:31 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gEZbFLyE_pcLVBooK-IIwA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 132ms (Views: 128.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:20:31 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (0.7ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.5ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (77.1ms)
+Completed 200 OK in 123ms (Views: 122.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:20:31 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:20:31 -0800
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:20:31 -0800
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendered api/users/show.json.jbuilder (12.2ms)
+Completed 200 OK in 105ms (Views: 102.2ms | ActiveRecord: 0.3ms)
+
+
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Load (45.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:20:31 -0800
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (9.7ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+Completed 200 OK in 116ms (Views: 50.9ms | ActiveRecord: 45.5ms)
+
+
+Processing by Api::UsersController#show as */*
+  Rendered api/users/show.json.jbuilder (68.6ms)
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:20:31 -0800
+Completed 200 OK in 120ms (Views: 117.3ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (39.0ms)
+Completed 200 OK in 92ms (Views: 86.4ms | ActiveRecord: 3.5ms)
+
+
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (9.1ms)
+Completed 200 OK in 60ms (Views: 42.2ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:20:32 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (8.7ms)
+Completed 200 OK in 42ms (Views: 41.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:20:32 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (8.7ms)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:20:41 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gEZbFLyE_pcLVBooK-IIwA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 127ms (Views: 124.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:20:42 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (0.6ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.6ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (96.3ms)
+Completed 200 OK in 164ms (Views: 162.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:20:42 -0800
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:20:42 -0800
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:20:42 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[36mUser Load (61.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (10.0ms)
+Completed 200 OK in 138ms (Views: 74.7ms | ActiveRecord: 61.9ms)
+
+
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (24.5ms)
+  ↳ app/controllers/api/users_controller.rb:8
+Completed 200 OK in 142ms (Views: 136.8ms | ActiveRecord: 3.6ms)
+
+
+  Rendering api/users/show.json.jbuilder
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:20:42 -0800
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (12.0ms)
+Completed 200 OK in 52ms (Views: 49.5ms | ActiveRecord: 0.9ms)
+
+
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:20:42 -0800
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (39.1ms)
+  Rendering api/users/show.json.jbuilder
+Completed 200 OK in 90ms (Views: 87.7ms | ActiveRecord: 0.7ms)
+
+
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (7.9ms)
+Completed 200 OK in 53ms (Views: 43.9ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:20:42 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (10.6ms)
+Completed 200 OK in 48ms (Views: 47.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:20:42 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (9.1ms)
+Completed 200 OK in 46ms (Views: 45.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:20:54 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gEZbFLyE_pcLVBooK-IIwA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 144ms (Views: 141.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:20:54 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.5ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (72.9ms)
+Completed 200 OK in 134ms (Views: 133.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:20:55 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:20:55 -0800
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:20:55 -0800
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendered api/users/show.json.jbuilder (13.4ms)
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+Completed 200 OK in 84ms (Views: 81.5ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:20:55 -0800
+  Rendering api/users/show.json.jbuilder
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (21.0ms)
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  Rendered api/users/show.json.jbuilder (9.0ms)
+Completed 200 OK in 101ms (Views: 59.1ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Completed 200 OK in 101ms (Views: 98.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:20:55 -0800
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (16.3ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+Completed 200 OK in 78ms (Views: 75.2ms | ActiveRecord: 0.6ms)
+
+
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (9.8ms)
+Completed 200 OK in 60ms (Views: 57.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:20:55 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered api/users/show.json.jbuilder (10.5ms)
+Completed 200 OK in 63ms (Views: 60.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:20:55 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (7.9ms)
+Completed 200 OK in 48ms (Views: 45.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:21:59 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gEZbFLyE_pcLVBooK-IIwA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 158ms (Views: 154.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:21:59 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (0.6ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (90.1ms)
+Completed 200 OK in 146ms (Views: 145.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:22:00 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:22:00 -0800
+  Rendering api/users/show.json.jbuilder
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:22:00 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  Rendered api/users/show.json.jbuilder (10.7ms)
+Completed 200 OK in 59ms (Views: 56.6ms | ActiveRecord: 0.4ms)
+
+
+  ↳ app/controllers/api/users_controller.rb:8
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:22:00 -0800
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  Rendering api/users/show.json.jbuilder
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (11.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Completed 200 OK in 59ms (Views: 44.3ms | ActiveRecord: 4.8ms)
+
+
+  Rendered api/users/show.json.jbuilder (53.0ms)
+  Rendering api/users/show.json.jbuilder
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:22:00 -0800
+Completed 200 OK in 145ms (Views: 140.9ms | ActiveRecord: 0.7ms)
+
+
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendered api/users/show.json.jbuilder (15.3ms)
+Completed 200 OK in 70ms (Views: 67.7ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (11.9ms)
+Completed 200 OK in 66ms (Views: 62.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:22:00 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered api/users/show.json.jbuilder (12.9ms)
+Completed 200 OK in 62ms (Views: 59.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:22:00 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (11.5ms)
+Completed 200 OK in 69ms (Views: 64.5ms | ActiveRecord: 2.8ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-02-11 15:26:50 -0800
+Processing by Api::SessionsController#destroy as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gEZbFLyE_pcLVBooK-IIwA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:47
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "demo_user"], ["id", 21], ["LIMIT", 1]]
+  ↳ app/models/user.rb:47
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "1hr6_K6Yi8UDlgxNYK7trQ"], ["id", 21], ["LIMIT", 1]]
+  ↳ app/models/user.rb:47
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "1hr6_K6Yi8UDlgxNYK7trQ"], ["updated_at", "2021-02-11 23:26:50.864991"], ["id", 21]]
+  ↳ app/models/user.rb:47
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:47
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-11 15:27:18 -0800
+Processing by Api::SessionsController#create as */*
+  Parameters: {"user"=>{"username"=>"demo_user", "password"=>"[FILTERED]"}, "default"=>{"format"=>:json}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "demo_user"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:32
+  Rendering api/sessions/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/sessions/show.json.jbuilder (8.6ms)
+Completed 200 OK in 310ms (Views: 41.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:27:19 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:27:19 -0800
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:27:19 -0800
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/photos" for ::1 at 2021-02-11 15:27:19 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Load (11.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+Processing by Api::UsersController#show as */*
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/users/show.json.jbuilder (43.0ms)
+Completed 200 OK in 87ms (Views: 82.2ms | ActiveRecord: 1.1ms)
+
+
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendering api/users/show.json.jbuilder
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:27:19 -0800
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (41.0ms)
+Completed 200 OK in 92ms (Views: 76.3ms | ActiveRecord: 11.9ms)
+
+
+Processing by Api::UsersController#show as */*
+  Rendering api/users/show.json.jbuilder
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+Processing by Api::PhotosController#index as */*
+  Rendered api/users/show.json.jbuilder (14.5ms)
+Completed 200 OK in 71ms (Views: 59.7ms | ActiveRecord: 9.5ms)
+
+
+  Parameters: {"default"=>{"format"=>:json}}
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/photos/index.json.jbuilder
+  Rendering api/users/show.json.jbuilder
+  [1m[36mPhoto Load (5.6ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:27:19 -0800
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/users/show.json.jbuilder (8.4ms)
+Completed 200 OK in 97ms (Views: 57.1ms | ActiveRecord: 2.1ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.5ms)
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendering api/users/show.json.jbuilder
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (31.6ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+Completed 200 OK in 98ms (Views: 86.6ms | ActiveRecord: 0.5ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (144.8ms)
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:27:19 -0800
+Completed 200 OK in 214ms (Views: 208.6ms | ActiveRecord: 5.6ms)
+
+
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (11.3ms)
+Completed 200 OK in 65ms (Views: 62.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:27:19 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (10.4ms)
+Completed 200 OK in 58ms (Views: 56.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:32:02 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1hr6_K6Yi8UDlgxNYK7trQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 369ms (Views: 366.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:32:02 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (0.9ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/index.json.jbuilder (63.0ms)
+Completed 200 OK in 120ms (Views: 118.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:32:03 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:32:03 -0800
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:32:03 -0800
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+Processing by Api::UsersController#show as */*
+  Rendered api/users/show.json.jbuilder (10.0ms)
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+Completed 200 OK in 57ms (Views: 53.9ms | ActiveRecord: 1.4ms)
+
+
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:32:03 -0800
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (22.2ms)
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+Completed 200 OK in 120ms (Views: 115.4ms | ActiveRecord: 3.5ms)
+
+
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendered api/users/show.json.jbuilder (12.5ms)
+  ↳ app/controllers/api/users_controller.rb:8
+Completed 200 OK in 121ms (Views: 65.2ms | ActiveRecord: 1.5ms)
+
+
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (9.0ms)
+Completed 200 OK in 48ms (Views: 45.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:32:03 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (8.4ms)
+Completed 200 OK in 44ms (Views: 42.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:32:03 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (8.9ms)
+Completed 200 OK in 47ms (Views: 45.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:32:03 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (8.6ms)
+Completed 200 OK in 43ms (Views: 40.9ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-02-11 15:32:08 -0800
+Processing by Api::SessionsController#destroy as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1hr6_K6Yi8UDlgxNYK7trQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:47
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "demo_user"], ["id", 21], ["LIMIT", 1]]
+  ↳ app/models/user.rb:47
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "c_PNnIeGTOtX5jsn8qGLAQ"], ["id", 21], ["LIMIT", 1]]
+  ↳ app/models/user.rb:47
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "c_PNnIeGTOtX5jsn8qGLAQ"], ["updated_at", "2021-02-11 23:32:08.287102"], ["id", 21]]
+  ↳ app/models/user.rb:47
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:47
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:32:43 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 352ms (Views: 350.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:34:01 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 406ms (Views: 404.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-11 15:34:18 -0800
+Processing by Api::SessionsController#create as */*
+  Parameters: {"user"=>{"username"=>"demo_user", "password"=>"[FILTERED]"}, "default"=>{"format"=>:json}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "demo_user"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:32
+  Rendering api/sessions/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/sessions/show.json.jbuilder (8.5ms)
+Completed 200 OK in 302ms (Views: 38.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 15:34:18 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/index.json.jbuilder (53.1ms)
+Completed 200 OK in 87ms (Views: 86.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:34:18 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:34:19 -0800
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (8.6ms)
+Completed 200 OK in 48ms (Views: 46.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:34:19 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:34:19 -0800
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+Processing by Api::UsersController#show as */*
+  ↳ app/controllers/api/users_controller.rb:8
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+Processing by Api::UsersController#show as */*
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (34.0ms)
+Completed 200 OK in 74ms (Views: 70.4ms | ActiveRecord: 1.3ms)
+
+
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (8.9ms)
+Completed 200 OK in 56ms (Views: 41.9ms | ActiveRecord: 5.3ms)
+
+
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:34:19 -0800
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (9.6ms)
+Completed 200 OK in 53ms (Views: 42.2ms | ActiveRecord: 9.1ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (7.4ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:34:19 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (8.1ms)
+Completed 200 OK in 38ms (Views: 37.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:34:19 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (8.0ms)
+Completed 200 OK in 46ms (Views: 44.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-02-11 15:34:36 -0800
+Processing by Api::SessionsController#destroy as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "c_PNnIeGTOtX5jsn8qGLAQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:47
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "demo_user"], ["id", 21], ["LIMIT", 1]]
+  ↳ app/models/user.rb:47
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "wBMVnIO-P8WPBO3HI4hpSg"], ["id", 21], ["LIMIT", 1]]
+  ↳ app/models/user.rb:47
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "wBMVnIO-P8WPBO3HI4hpSg"], ["updated_at", "2021-02-11 23:34:36.816863"], ["id", 21]]
+  ↳ app/models/user.rb:47
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:47
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-11 15:34:43 -0800
+Processing by Api::SessionsController#create as */*
+  Parameters: {"user"=>{"username"=>"demo_user", "password"=>"[FILTERED]"}, "default"=>{"format"=>:json}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "demo_user"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:32
+  Rendering api/sessions/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/sessions/show.json.jbuilder (8.0ms)
+Completed 200 OK in 302ms (Views: 38.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:34:44 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+Started GET "/api/users/23" for ::1 at 2021-02-11 15:34:44 -0800
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:34:44 -0800
+Started GET "/api/photos" for ::1 at 2021-02-11 15:34:44 -0800
+  Rendering api/users/show.json.jbuilder
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"23"}
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendered api/users/show.json.jbuilder (11.6ms)
+Completed 200 OK in 91ms (Views: 88.3ms | ActiveRecord: 1.3ms)
+
+
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/22" for ::1 at 2021-02-11 15:34:44 -0800
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (60.5ms)
+Completed 200 OK in 95ms (Views: 91.7ms | ActiveRecord: 1.6ms)
+
+
+Processing by Api::UsersController#show as */*
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"22"}
+  Rendered api/users/show.json.jbuilder (10.5ms)
+Completed 200 OK in 96ms (Views: 55.2ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:34:44 -0800
+  Rendering api/users/show.json.jbuilder
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+  Rendering api/photos/index.json.jbuilder
+  Rendered api/users/show.json.jbuilder (66.9ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+Completed 200 OK in 120ms (Views: 118.0ms | ActiveRecord: 0.5ms)
+
+
+  ↳ app/controllers/api/users_controller.rb:8
+  [1m[36mPhoto Load (41.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendering api/users/show.json.jbuilder
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/show.json.jbuilder (19.5ms)
+Completed 200 OK in 82ms (Views: 77.4ms | ActiveRecord: 1.6ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:34:44 -0800
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (121.6ms)
+Completed 200 OK in 179ms (Views: 137.7ms | ActiveRecord: 41.0ms)
+
+
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (9.1ms)
+Completed 200 OK in 50ms (Views: 40.1ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/api/users/21" for ::1 at 2021-02-11 15:34:44 -0800
+Processing by Api::UsersController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/users/show.json.jbuilder (8.4ms)
+Completed 200 OK in 40ms (Views: 38.6ms | ActiveRecord: 0.2ms)
+
+

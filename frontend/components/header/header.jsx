@@ -14,18 +14,18 @@ class Header extends React.Component {
 
     render() {
         const pathname = this.props.location.pathname;
-        let loginCondition;
+        let loginCondition = <div></div>;
+        let usernameCondition = <div></div>;
         if (this.props.currentUser) {
             loginCondition =
-                <div>
-                    <Link to={`/users/${this.props.currentUser.id}`}>
-                        {this.props.currentUser.username}
-                    </Link>
+                <div className="username-logout-container">
                     <button onClick={this.handleLogout}>Logout</button>
-                </div>
-        } else if (pathname === "/login" || pathname === "/signup") {
-            loginCondition = <div></div>;
-        } else {
+                </div>;
+            usernameCondition =
+                <Link to={`/users/${this.props.currentUser.id}`}>
+                    {this.props.currentUser.username}
+                </Link>;
+        } else if (pathname !== "/login" && pathname !== "/signup") {
             loginCondition = <div className="login-signup">
                 <Link to="/signup">Sign Up</Link>
                 <Link to="/login">Log In</Link>
@@ -48,9 +48,12 @@ class Header extends React.Component {
                             <circle id="circle-left" cx="6" cy="12" r="5"></circle>
                             <circle id="circle-right" cx="18" cy="12" r="5"></circle>
                         </svg>
-                        <Link to="/">
-                            <h1>Picktr</h1>
-                        </Link>
+                        <div>
+                            <Link to="/">
+                                <h1>Picktr</h1>
+                            </Link>
+                            {usernameCondition}
+                        </div>
                     </div>
                     {loginCondition}
                 </div>

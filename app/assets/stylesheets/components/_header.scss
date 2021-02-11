@@ -13,6 +13,28 @@
         height: 100%;
     }
 
+    .username-logout-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 150px;
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-family: inherit;
+        }
+
+        button {
+            margin: 10px;
+            border: 2px solid #fff;
+            padding: 5px 10px;
+            color: #fff;
+            background-color: #212124;
+            text-decoration: none;
+        }
+    }
+
     .header-logo {
     display: flex;
     align-items: center;
