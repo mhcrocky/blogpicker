@@ -3,7 +3,7 @@ class Api::PhotosController < ApplicationController
         @photo = Photo.new(photo_params)
         @photo.user_id = current_user.id
         if @photo.save
-            redirect_to api_photo(@photo)
+            redirect_to api_photo_url(@photo)
         else  
             render json: @photo.errors.full_messages, status: 422
         end
@@ -11,8 +11,9 @@ class Api::PhotosController < ApplicationController
 
     def update
         @photo = Photo.find_by(id: params[:id])
+        debugger
         if @photo.update(photo_params)
-            redirect_to api_photo(@photo)
+            redirect_to api_photo_url(@photo)
         else
             render json: @photo.errors.full_messages, status: 422
         end
