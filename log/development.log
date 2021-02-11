@@ -8000,3 +8000,128 @@ Processing by Api::PhotosController#index as */*
 Completed 200 OK in 93ms (Views: 91.9ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/" for ::1 at 2021-02-11 11:43:26 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FwQ-HS0nhtVArv-hgzSm6A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 54ms (Views: 42.5ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 11:44:00 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FwQ-HS0nhtVArv-hgzSm6A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 372ms (Views: 369.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 11:44:25 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FwQ-HS0nhtVArv-hgzSm6A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 378ms (Views: 376.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 11:44:37 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (0.7ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (71.8ms)
+Completed 200 OK in 103ms (Views: 97.0ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 11:44:52 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (62.5ms)
+Completed 200 OK in 93ms (Views: 92.2ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/api/photos/1" for ::1 at 2021-02-11 11:45:10 -0800
+Processing by Api::PhotosController#destroy as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"1"}
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/photos_controller.rb:22
+  [1m[36mPhoto Destroy (0.9ms)[0m  [1m[31mDELETE FROM "photos" WHERE "photos"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/photos_controller.rb:23
+  Rendering api/photos/show.json.jbuilder
+  Rendered api/photos/_photo.json.jbuilder (28.4ms)
+  Rendered api/photos/show.json.jbuilder (35.2ms)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 1.3ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/photos/_photo.json.jbuilder:1:in `_app_views_api_photos__photo_json_jbuilder___2253001857375427701_70236111940320'
+  app/views/api/photos/show.json.jbuilder:1:in `_app_views_api_photos_show_json_jbuilder__3437429483664346721_70236053510220'
+  app/controllers/api/photos_controller.rb:24:in `destroy'
+
+Started GET "/" for ::1 at 2021-02-11 11:47:16 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FwQ-HS0nhtVArv-hgzSm6A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 64ms (Views: 57.4ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/api/photos" for ::1 at 2021-02-11 11:47:21 -0800
+Processing by Api::PhotosController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/photos/index.json.jbuilder
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/views/api/photos/index.json.jbuilder:1
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (63.2ms)
+Completed 200 OK in 97ms (Views: 90.3ms | ActiveRecord: 3.9ms)
+
+
+Started DELETE "/api/photos/2" for ::1 at 2021-02-11 11:47:31 -0800
+Processing by Api::PhotosController#destroy as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"2"}
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/photos_controller.rb:22
+  [1m[36mPhoto Destroy (1.0ms)[0m  [1m[31mDELETE FROM "photos" WHERE "photos"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/api/photos_controller.rb:24
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+

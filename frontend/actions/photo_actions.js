@@ -59,7 +59,7 @@ export const updatePhoto = (photo) => (dispatch) => {
 
 export const deletePhoto = (photoId) => (dispatch) => {
     return APIUtil.deletePhoto(photoId)
-        .then((photo) => {
-            dispatch(removePhoto(photo.id))
+        .then((res) => {
+            dispatch(removePhoto(res.photoId))
         })
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from "./components/root";
+import { deletePhoto, fetchAllPhotos } from './util/photo_api_util';
 
 
 
@@ -25,4 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Remove these after done testing!
     window.store = store;
+    window.allPhotos = fetchAllPhotos;
+    window.deletePhoto = deletePhoto;
 })
