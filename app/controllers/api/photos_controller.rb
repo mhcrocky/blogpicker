@@ -11,9 +11,8 @@ class Api::PhotosController < ApplicationController
 
     def update
         @photo = Photo.find_by(id: params[:id])
-        debugger
         if @photo.update(photo_params)
-            redirect_to api_photo_url(@photo)
+            render :show
         else
             render json: @photo.errors.full_messages, status: 422
         end
