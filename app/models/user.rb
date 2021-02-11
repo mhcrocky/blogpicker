@@ -18,6 +18,16 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
+    # Associations
+
+    has_many :photos,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Photo
+
+
+    # User Auth methods below
+
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
         user && user.is_password?(password) ? user :nil
