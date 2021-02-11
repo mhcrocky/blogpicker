@@ -1,16 +1,23 @@
 import React from 'react';
 
 
-const PhotoIndexItem = (props) => {
-    const photo = props.photo;
-    const user = props.user;
+class PhotoIndexItem extends React.Component {
+    componentDidMount() {
+        this.props.fetchUser(this.props.photo.userId);
+    }
 
-    return (
-        <li>
-            <div>{photo.title}</div>
-            <div>{users[photo.userId].username}</div>
-        </li>
-    )
+    render() {
+        const photo = this.props.photo;
+        const users = this.props.users;
+        const username = users[photo.userId] ? users[photo.userId].username : "";
+
+        return (
+            <li>
+                <div>{photo.title}</div>
+                <div>{username}</div>
+            </li>
+        )
+    }
 }
 
 export default PhotoIndexItem;

@@ -1,5 +1,6 @@
 import { connect } from "react-redux"
 import { fetchAllPhotos } from "../../actions/photo_actions"
+import { fetchUser } from "../../actions/user_actions"
 import PhotoIndex from "./photo_index"
 
 const mapStateToProps = (state) => {
@@ -11,7 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchAllPhotos: () => dispatch(fetchAllPhotos())
+        fetchAllPhotos: () => dispatch(fetchAllPhotos()),
+        fetchUser: (id) => dispatch(fetchUser(id))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PhotoIndex);

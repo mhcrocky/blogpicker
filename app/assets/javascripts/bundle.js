@@ -253,21 +253,31 @@ var logout = function logout() {
 /*!******************************************!*\
   !*** ./frontend/actions/user_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_USER, fetchUser */
+/*! exports provided: RECEIVE_USER, RECEIVE_ALL_USERS, fetchUser, fetchAllUsers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_USER", function() { return RECEIVE_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_USERS", function() { return RECEIVE_ALL_USERS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllUsers", function() { return fetchAllUsers; });
 /* harmony import */ var _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/user_api_util */ "./frontend/util/user_api_util.js");
 
-var RECEIVE_USER = "RECEIVE_USER"; //regular actions
+var RECEIVE_USER = "RECEIVE_USER";
+var RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS"; //regular actions
 
 var receiveUser = function receiveUser(user) {
   return {
     type: RECEIVE_USER,
     user: user
+  };
+};
+
+var receiveAllUsers = function receiveAllUsers(users) {
+  return {
+    type: RECEIVE_ALL_USERS,
+    users: users
   };
 }; //thunk actions
 
@@ -276,6 +286,13 @@ var fetchUser = function fetchUser(userId) {
   return function (dispatch) {
     return _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchUser"](userId).then(function (user) {
       dispatch(receiveUser(user));
+    });
+  };
+};
+var fetchAllUsers = function fetchAllUsers() {
+  return function (dispatch) {
+    return _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllUsers"]().then(function (users) {
+      dispatch(receiveAllUsers(users));
     });
   };
 };
@@ -650,7 +667,8 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: photo.id,
           photo: photo,
-          users: _this.props.users
+          users: _this.props.users,
+          fetchUser: _this.props.fetchUser
         });
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, photos);
@@ -675,7 +693,9 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/photo_actions */ "./frontend/actions/photo_actions.js");
-/* harmony import */ var _photo_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./photo_index */ "./frontend/components/photo_index/photo_index.jsx");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _photo_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./photo_index */ "./frontend/components/photo_index/photo_index.jsx");
+
 
 
 
@@ -692,11 +712,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchAllPhotos: function fetchAllPhotos() {
       return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["fetchAllPhotos"])());
+    },
+    fetchUser: function fetchUser(id) {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUser"])(id));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_photo_index__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_photo_index__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -711,13 +734,58 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
-var PhotoIndexItem = function PhotoIndexItem(props) {
-  var photo = props.photo;
-  var user = props.user;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, photo.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, users[photo.userId].username));
-};
+
+var PhotoIndexItem = /*#__PURE__*/function (_React$Component) {
+  _inherits(PhotoIndexItem, _React$Component);
+
+  var _super = _createSuper(PhotoIndexItem);
+
+  function PhotoIndexItem() {
+    _classCallCheck(this, PhotoIndexItem);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(PhotoIndexItem, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchUser(this.props.photo.userId);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var photo = this.props.photo;
+      var users = this.props.users;
+      var username = users[photo.userId] ? users[photo.userId].username : "";
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, photo.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, username));
+    }
+  }]);
+
+  return PhotoIndexItem;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (PhotoIndexItem);
 
@@ -1282,6 +1350,10 @@ var usersReducer = function usersReducer() {
   var newState = Object.assign({}, state);
 
   switch (action.type) {
+    case _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_USERS"]:
+      newState = Object.assign({}, action.users);
+      return newState;
+
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       newState[action.user.id] = action.user;
       return newState;
@@ -1474,16 +1546,23 @@ var logout = function logout() {
 /*!****************************************!*\
   !*** ./frontend/util/user_api_util.js ***!
   \****************************************/
-/*! exports provided: fetchUser */
+/*! exports provided: fetchUser, fetchAllUsers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllUsers", function() { return fetchAllUsers; });
 //fetch user ajax request
 var fetchUser = function fetchUser(userId) {
   return $.ajax({
     url: "/api/users/".concat(userId),
+    method: 'GET'
+  });
+};
+var fetchAllUsers = function fetchAllUsers() {
+  return $.ajax({
+    url: '/api/users',
     method: 'GET'
   });
 };
