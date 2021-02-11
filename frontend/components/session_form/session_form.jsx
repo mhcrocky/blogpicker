@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
             password: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.clearErrors = this.clearErrors.bind(this);
     }
 
 
@@ -25,6 +26,10 @@ class SessionForm extends React.Component {
         this.props.processForm(user);
     }
 
+    clearErrors () {
+        this.props.clearErrors();
+    }
+
     render() {
         let signUpOrLogin;
         let demoLogin;
@@ -32,7 +37,7 @@ class SessionForm extends React.Component {
         if (this.props.formType === 'Login to Picktr') {
             signUpOrLogin = <div className="sign-up-or-log-in">
                 Not a Picktr member? 
-                <Link to="/signup"> Sign up here.</Link>
+                <Link onClick={this.clearErrors} to="/signup"> Sign up here.</Link>
             </div>;
 
             demoLogin = <button type="button" className="session-button"
@@ -43,7 +48,7 @@ class SessionForm extends React.Component {
         } else {
             signUpOrLogin = <div className="sign-up-or-log-in">
                 Already a Picktr member?
-                <Link to="/login"> Login here.</Link>
+                <Link onClick={this.clearErrors} to="/login"> Login here.</Link>
             </div>;
 
             demoLogin = <div></div>;

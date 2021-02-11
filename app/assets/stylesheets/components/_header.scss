@@ -16,7 +16,10 @@
     .header-logo {
     display: flex;
     align-items: center;
-    
+        
+        a {
+            text-decoration: none;
+        }
 
         h1 {
             color: #fff;
