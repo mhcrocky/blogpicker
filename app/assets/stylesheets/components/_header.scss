@@ -31,3 +31,44 @@
 }
 
 
+// Landing pages header
+.header-landing {
+    display: block;
+    height: 3rem;
+    width: 100%;
+    background-color: #212124;
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        width: 80%;
+        height: 100%;
+    }
+
+    .header-logo {
+    display: flex;
+    align-items: center;
+        
+        a {
+            text-decoration: none;
+        }
+
+        h1 {
+            color: #fff;
+            font-weight: 700;
+            font-size: 28px;
+            padding-left: 6px;
+        }
+    }
+
+    .login-signup {
+        display: flex;
+        justify-content: flex-end;
+
+        a {
+            margin: 10px;
+        }
+    }
+}

@@ -26,10 +26,10 @@ class Header extends React.Component {
         } else if (pathname === "/login" || pathname === "/signup") {
             loginCondition = <div></div>;
         } else {
-            loginCondition = <>
+            loginCondition = <div className="login-signup">
                 <Link to="/signup">Sign Up</Link>
                 <Link to="/login">Log In</Link>
-            </>
+            </div>
         }
         
         let nameOfClass; //To change header visual for login/signup page
