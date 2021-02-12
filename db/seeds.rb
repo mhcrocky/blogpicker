@@ -16,11 +16,19 @@ demo_user = User.create!(
     password: '123456'
 )
 user1 = User.create!(
-    username: 'ILovePhotos',
+    username: 'Pro-Photographer',
     password: '123456'
 )
 user2 = User.create!(
-    username: 'dogPhotosOnly',
+    username: 'Festive Photos',
+    password: 'password'
+)
+user2 = User.create!(
+    username: 'NautilusSoup',
+    password: 'password'
+)
+user2 = User.create!(
+    username: 'Dogo Ma',
     password: 'password'
 )
 
