@@ -48,10 +48,10 @@ class Header extends React.Component {
                             <circle id="circle-left" cx="6" cy="12" r="5"></circle>
                             <circle id="circle-right" cx="18" cy="12" r="5"></circle>
                         </svg>
-                        <div>
-                            <Link to="/">
-                                <h1>Picktr</h1>
-                            </Link>
+                        <Link to="/">
+                            <h1>Picktr</h1>
+                        </Link>
+                        <div className="username-nav">
                             {usernameCondition}
                         </div>
                     </div>

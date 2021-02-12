@@ -13,17 +13,18 @@
         height: 100%;
     }
 
+    .username-nav a{
+        text-decoration: none;
+        color: #fff;
+        font-family: inherit;
+        margin-left: 20px;
+    }
+
     .username-logout-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 150px;
-
-        a {
-            text-decoration: none;
-            color: #fff;
-            font-family: inherit;
-        }
 
         button {
             margin: 10px;

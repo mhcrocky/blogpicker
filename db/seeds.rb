@@ -12,7 +12,7 @@ Photo.delete_all
 # user seeds 
 
 demo_user = User.create!(
-    username: 'demo_user',
+    username: 'Demo_User',
     password: '123456'
 )
 user1 = User.create!(

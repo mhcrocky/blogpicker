@@ -533,9 +533,11 @@ var Header = /*#__PURE__*/function (_React$Component) {
         cx: "18",
         cy: "12",
         r: "5"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Picktr")), usernameCondition)), loginCondition));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Picktr")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "username-nav"
+      }, usernameCondition)), loginCondition));
     }
   }]);
 
@@ -964,7 +966,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
           className: "session-button",
           onClick: function onClick() {
             return _this3.props.processForm({
-              username: 'demo_user',
+              username: 'Demo_User',
               password: '123456'
             });
           }

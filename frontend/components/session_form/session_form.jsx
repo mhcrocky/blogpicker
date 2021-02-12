@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
 
             demoLogin = <button type="button" className="session-button"
                 onClick={() => this.props.processForm(
-                {username:'demo_user', password:'123456'})}>
+                {username:'Demo_User', password:'123456'})}>
                 Demo Login</button>;
 
         } else {
