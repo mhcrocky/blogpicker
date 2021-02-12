@@ -85,24 +85,29 @@ photo7 = Photo.create!(
     description: "Some dope graffiti art I came across.",
     user_id: user3.id
 )
-file7 = open()
-photo7.picture.attach()
+file7 = open('https://picktr-seeds.s3-us-west-1.amazonaws.com/smile_graffiti.jpg')
+photo7.picture.attach(io: file7, filename: 'smile_graffiti.jpg')
 
 photo8 = Photo.create!(
     title: "Snowy Mountain",
     description: "A freezing day but worth the photo!",
     user_id: user3.id
 )
-file8 = open()
-photo8.picture.attach()
+file8 = open('https://picktr-seeds.s3-us-west-1.amazonaws.com/snowy_mountain.jpg')
+photo8.picture.attach(io: file8, filename: 'snow_mountain.jpg')
 
 photo9 = Photo.create!(
     title: "Succulent Picture",
     description: "Been trying out my green thumb during quarantine.",
     user_id: demo_user.id
 )
+file9 = open('https://picktr-seeds.s3-us-west-1.amazonaws.com/succulant.jpg')
+photo9.picture.attach(io: file9, filename: 'succulant.jpg')
+
 photo10 = Photo.create!(
     title: "Bird is the Word",
     description: "Caught this bird chilling by the pond!",
     user_id: demo_user.id
 )
+file10 = open('https://picktr-seeds.s3-us-west-1.amazonaws.com/bird.jpg')
+photo10.picture.attach(io: file10, filename: 'bird.jpg')

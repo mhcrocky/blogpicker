@@ -15550,3 +15550,429 @@ Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.8ms)
   ↳ db/seeds.rb:79
   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:79
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Destroy (1.3ms)[0m  [1m[31mDELETE FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mPhoto Destroy (1.1ms)[0m  [1m[31mDELETE FROM "photos"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Demo_User"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "3U8ALBEvP3UB_fmeaOq13Q"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Demo_User"], ["password_digest", "$2a$12$QzhZXlOSx0W6kTSKTP78JOPWhttPQEbLeltFI7PmCBuDJDr0sdFte"], ["session_token", "3U8ALBEvP3UB_fmeaOq13Q"], ["created_at", "2021-02-12 22:28:47.790580"], ["updated_at", "2021-02-12 22:28:47.790580"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "FriendOfDogs"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9vM_auMV74hhKhsSp5Ku3g"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "FriendOfDogs"], ["password_digest", "$2a$12$d/SpvWnDx/K0NGk7zWZx8uzcUd1HWpAxn3uItgGMkkvXMwzELmgAa"], ["session_token", "9vM_auMV74hhKhsSp5Ku3g"], ["created_at", "2021-02-12 22:28:48.055929"], ["updated_at", "2021-02-12 22:28:48.055929"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Cato-grapher"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gxqq6v1THTSxyVDa4Wb8HQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Cato-grapher"], ["password_digest", "$2a$12$axpKuUO/D8ZvHFQynpwrPuJpuzXgN8dYOnadl8maRuwc4J6hCt2s."], ["session_token", "gxqq6v1THTSxyVDa4Wb8HQ"], ["created_at", "2021-02-12 22:28:48.321194"], ["updated_at", "2021-02-12 22:28:48.321194"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "NautilusSoup"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RejH0KNdo2Wk8bzkYAF8KQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "NautilusSoup"], ["password_digest", "$2a$12$p65WyhadmqGWVf/aLfztnurh1CFPJkzgdDwI0PuO60kp1Q4Joz55m"], ["session_token", "RejH0KNdo2Wk8bzkYAF8KQ"], ["created_at", "2021-02-12 22:28:48.584898"], ["updated_at", "2021-02-12 22:28:48.584898"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mPhoto Create (0.4ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Yung Pup"], ["description", "Yung pup ready to drop his album dog!"], ["user_id", 33], ["created_at", "2021-02-12 22:28:48.601913"], ["updated_at", "2021-02-12 22:28:48.601913"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 30], ["record_type", "Photo"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:41
+[36m  S3 Storage (2049.7ms) [0m[32mUploaded file to key: ooqtSFh39d5omt7c8rrMWVAH (checksum: GvmYVMW2FV6QfLjgvlyNog==)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:41
+  [1m[36mActiveStorage::Blob Create (5.0ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "ooqtSFh39d5omt7c8rrMWVAH"], ["filename", "yung_pup.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 4323140], ["checksum", "GvmYVMW2FV6QfLjgvlyNog=="], ["created_at", "2021-02-12 22:28:51.385407"]]
+  ↳ db/seeds.rb:41
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:41
+  [1m[36mActiveStorage::Attachment Create (1.9ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "picture"], ["record_type", "Photo"], ["record_id", 30], ["blob_id", 1], ["created_at", "2021-02-12 22:28:51.412091"]]
+  ↳ db/seeds.rb:41
+  [1m[36mPhoto Update (0.7ms)[0m  [1m[33mUPDATE "photos" SET "updated_at" = $1 WHERE "photos"."id" = $2[0m  [["updated_at", "2021-02-12 22:28:51.415099"], ["id", 30]]
+  ↳ db/seeds.rb:41
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:41
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:41
+[ActiveJob] [ActiveStorage::AnalyzeJob] [682b5076-f734-4aba-9436-78848af29f5b] Performing ActiveStorage::AnalyzeJob (Job ID: 682b5076-f734-4aba-9436-78848af29f5b) from Inline(default) with arguments: #<GlobalID:0x00007fe286d384f0 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [682b5076-f734-4aba-9436-78848af29f5b] [36m  S3 Storage (653.6ms) [0m[34mDownloaded file from key: ooqtSFh39d5omt7c8rrMWVAH[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [682b5076-f734-4aba-9436-78848af29f5b] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [682b5076-f734-4aba-9436-78848af29f5b]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [682b5076-f734-4aba-9436-78848af29f5b]   ↳ db/seeds.rb:41
+[ActiveJob] [ActiveStorage::AnalyzeJob] [682b5076-f734-4aba-9436-78848af29f5b]   [1m[36mActiveStorage::Blob Update (0.4ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [682b5076-f734-4aba-9436-78848af29f5b]   ↳ db/seeds.rb:41
+[ActiveJob] [ActiveStorage::AnalyzeJob] [682b5076-f734-4aba-9436-78848af29f5b]   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [682b5076-f734-4aba-9436-78848af29f5b]   ↳ db/seeds.rb:41
+[ActiveJob] [ActiveStorage::AnalyzeJob] [682b5076-f734-4aba-9436-78848af29f5b] Performed ActiveStorage::AnalyzeJob (Job ID: 682b5076-f734-4aba-9436-78848af29f5b) from Inline(default) in 691.51ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 682b5076-f734-4aba-9436-78848af29f5b) to Inline(default) with arguments: #<GlobalID:0x00007fe286471e20 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ db/seeds.rb:43
+  [1m[36mPhoto Create (0.3ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Good Boi"], ["description", "My dog chilling on a bed."], ["user_id", 33], ["created_at", "2021-02-12 22:28:52.143014"], ["updated_at", "2021-02-12 22:28:52.143014"]]
+  ↳ db/seeds.rb:43
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 31], ["record_type", "Photo"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:49
+[36m  S3 Storage (1224.0ms) [0m[32mUploaded file to key: xLpgRz4fVP8RSBh5Uiv5eJeK (checksum: uma3KsqPKN/S/il+o3U1LA==)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:49
+  [1m[36mActiveStorage::Blob Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "xLpgRz4fVP8RSBh5Uiv5eJeK"], ["filename", "dog_on_bed.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 3261154], ["checksum", "uma3KsqPKN/S/il+o3U1LA=="], ["created_at", "2021-02-12 22:28:54.219201"]]
+  ↳ db/seeds.rb:49
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:49
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:49
+  [1m[36mActiveStorage::Attachment Create (1.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "picture"], ["record_type", "Photo"], ["record_id", 31], ["blob_id", 2], ["created_at", "2021-02-12 22:28:54.225155"]]
+  ↳ db/seeds.rb:49
+  [1m[36mPhoto Update (0.5ms)[0m  [1m[33mUPDATE "photos" SET "updated_at" = $1 WHERE "photos"."id" = $2[0m  [["updated_at", "2021-02-12 22:28:54.228316"], ["id", 31]]
+  ↳ db/seeds.rb:49
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:49
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:49
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9483b963-4648-4151-a4e7-f184a5481470] Performing ActiveStorage::AnalyzeJob (Job ID: 9483b963-4648-4151-a4e7-f184a5481470) from Inline(default) with arguments: #<GlobalID:0x00007fe286d9a510 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9483b963-4648-4151-a4e7-f184a5481470] [36m  S3 Storage (348.8ms) [0m[34mDownloaded file from key: xLpgRz4fVP8RSBh5Uiv5eJeK[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9483b963-4648-4151-a4e7-f184a5481470] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9483b963-4648-4151-a4e7-f184a5481470]   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9483b963-4648-4151-a4e7-f184a5481470]   ↳ db/seeds.rb:49
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9483b963-4648-4151-a4e7-f184a5481470]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9483b963-4648-4151-a4e7-f184a5481470]   ↳ db/seeds.rb:49
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9483b963-4648-4151-a4e7-f184a5481470]   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9483b963-4648-4151-a4e7-f184a5481470]   ↳ db/seeds.rb:49
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9483b963-4648-4151-a4e7-f184a5481470] Performed ActiveStorage::AnalyzeJob (Job ID: 9483b963-4648-4151-a4e7-f184a5481470) from Inline(default) in 356.55ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 9483b963-4648-4151-a4e7-f184a5481470) to Inline(default) with arguments: #<GlobalID:0x00007fe284a9aec0 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/2>>
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:51
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ db/seeds.rb:51
+  [1m[36mPhoto Create (0.3ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Golden Gate Bridge"], ["description", "Bay area represent!"], ["user_id", 32], ["created_at", "2021-02-12 22:28:54.594662"], ["updated_at", "2021-02-12 22:28:54.594662"]]
+  ↳ db/seeds.rb:51
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:51
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "Photo"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:57
+[36m  S3 Storage (4565.1ms) [0m[32mUploaded file to key: 8toJeiGMEBJudQAQRU4QKdPC (checksum: Dj7zoGQRG/jtz2D2z/0eeQ==)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:57
+  [1m[36mActiveStorage::Blob Create (0.9ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "8toJeiGMEBJudQAQRU4QKdPC"], ["filename", "gg_bridge.JPG"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 12716255], ["checksum", "Dj7zoGQRG/jtz2D2z/0eeQ=="], ["created_at", "2021-02-12 22:29:00.661374"]]
+  ↳ db/seeds.rb:57
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:57
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:57
+  [1m[36mActiveStorage::Attachment Create (0.9ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "picture"], ["record_type", "Photo"], ["record_id", 32], ["blob_id", 3], ["created_at", "2021-02-12 22:29:00.667749"]]
+  ↳ db/seeds.rb:57
+  [1m[36mPhoto Update (0.7ms)[0m  [1m[33mUPDATE "photos" SET "updated_at" = $1 WHERE "photos"."id" = $2[0m  [["updated_at", "2021-02-12 22:29:00.670307"], ["id", 32]]
+  ↳ db/seeds.rb:57
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:57
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:57
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ac803683-c993-462b-88da-cac29b46dbf7] Performing ActiveStorage::AnalyzeJob (Job ID: ac803683-c993-462b-88da-cac29b46dbf7) from Inline(default) with arguments: #<GlobalID:0x00007fe28eabbbc0 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/3>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ac803683-c993-462b-88da-cac29b46dbf7] [36m  S3 Storage (988.9ms) [0m[34mDownloaded file from key: 8toJeiGMEBJudQAQRU4QKdPC[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ac803683-c993-462b-88da-cac29b46dbf7] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ac803683-c993-462b-88da-cac29b46dbf7]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ac803683-c993-462b-88da-cac29b46dbf7]   ↳ db/seeds.rb:57
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ac803683-c993-462b-88da-cac29b46dbf7]   [1m[36mActiveStorage::Blob Update (0.6ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 3]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ac803683-c993-462b-88da-cac29b46dbf7]   ↳ db/seeds.rb:57
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ac803683-c993-462b-88da-cac29b46dbf7]   [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ac803683-c993-462b-88da-cac29b46dbf7]   ↳ db/seeds.rb:57
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ac803683-c993-462b-88da-cac29b46dbf7] Performed ActiveStorage::AnalyzeJob (Job ID: ac803683-c993-462b-88da-cac29b46dbf7) from Inline(default) in 1001.21ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: ac803683-c993-462b-88da-cac29b46dbf7) to Inline(default) with arguments: #<GlobalID:0x00007fe28c92fc40 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/3>>
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:59
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ db/seeds.rb:59
+  [1m[36mPhoto Create (0.4ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Bananable"], ["description", "Got to feed monkeys while on my trip!"], ["user_id", 32], ["created_at", "2021-02-12 22:29:01.681484"], ["updated_at", "2021-02-12 22:29:01.681484"]]
+  ↳ db/seeds.rb:59
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:59
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 33], ["record_type", "Photo"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:65
+[36m  S3 Storage (1778.3ms) [0m[32mUploaded file to key: NoaR2ipijz1v9ai21q34ExG7 (checksum: mgBn+1tsOLSIBzGKCSycEg==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:65
+  [1m[36mActiveStorage::Blob Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "NoaR2ipijz1v9ai21q34ExG7"], ["filename", "monkeys.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 4940455], ["checksum", "mgBn+1tsOLSIBzGKCSycEg=="], ["created_at", "2021-02-12 22:29:04.970544"]]
+  ↳ db/seeds.rb:65
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:65
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:65
+  [1m[36mActiveStorage::Attachment Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "picture"], ["record_type", "Photo"], ["record_id", 33], ["blob_id", 4], ["created_at", "2021-02-12 22:29:04.975744"]]
+  ↳ db/seeds.rb:65
+  [1m[36mPhoto Update (0.5ms)[0m  [1m[33mUPDATE "photos" SET "updated_at" = $1 WHERE "photos"."id" = $2[0m  [["updated_at", "2021-02-12 22:29:04.977440"], ["id", 33]]
+  ↳ db/seeds.rb:65
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:65
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:65
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4eb854f5-19b2-49b9-8d46-adb15d2aa323] Performing ActiveStorage::AnalyzeJob (Job ID: 4eb854f5-19b2-49b9-8d46-adb15d2aa323) from Inline(default) with arguments: #<GlobalID:0x00007fe286c7d2e0 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/4>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4eb854f5-19b2-49b9-8d46-adb15d2aa323] [36m  S3 Storage (376.4ms) [0m[34mDownloaded file from key: NoaR2ipijz1v9ai21q34ExG7[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4eb854f5-19b2-49b9-8d46-adb15d2aa323] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4eb854f5-19b2-49b9-8d46-adb15d2aa323]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4eb854f5-19b2-49b9-8d46-adb15d2aa323]   ↳ db/seeds.rb:65
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4eb854f5-19b2-49b9-8d46-adb15d2aa323]   [1m[36mActiveStorage::Blob Update (0.4ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 4]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4eb854f5-19b2-49b9-8d46-adb15d2aa323]   ↳ db/seeds.rb:65
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4eb854f5-19b2-49b9-8d46-adb15d2aa323]   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4eb854f5-19b2-49b9-8d46-adb15d2aa323]   ↳ db/seeds.rb:65
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4eb854f5-19b2-49b9-8d46-adb15d2aa323] Performed ActiveStorage::AnalyzeJob (Job ID: 4eb854f5-19b2-49b9-8d46-adb15d2aa323) from Inline(default) in 385.09ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 4eb854f5-19b2-49b9-8d46-adb15d2aa323) to Inline(default) with arguments: #<GlobalID:0x00007fe28658bea0 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/4>>
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:67
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ db/seeds.rb:67
+  [1m[36mPhoto Create (0.3ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Taco-Tuesday"], ["description", "Everyday should be taco tuesday."], ["user_id", 34], ["created_at", "2021-02-12 22:29:05.368262"], ["updated_at", "2021-02-12 22:29:05.368262"]]
+  ↳ db/seeds.rb:67
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:67
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 34], ["record_type", "Photo"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:73
+[36m  S3 Storage (5496.4ms) [0m[32mUploaded file to key: oaiTKBm5Jm1ZhST351pzmTzc (checksum: TzL9xG7rgDCSmnualTykUQ==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mActiveStorage::Blob Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "oaiTKBm5Jm1ZhST351pzmTzc"], ["filename", "taco_truck.JPG"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 11759979], ["checksum", "TzL9xG7rgDCSmnualTykUQ=="], ["created_at", "2021-02-12 22:29:18.287550"]]
+  ↳ db/seeds.rb:73
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mActiveStorage::Attachment Create (0.8ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "picture"], ["record_type", "Photo"], ["record_id", 34], ["blob_id", 5], ["created_at", "2021-02-12 22:29:18.292627"]]
+  ↳ db/seeds.rb:73
+  [1m[36mPhoto Update (0.5ms)[0m  [1m[33mUPDATE "photos" SET "updated_at" = $1 WHERE "photos"."id" = $2[0m  [["updated_at", "2021-02-12 22:29:18.294551"], ["id", 34]]
+  ↳ db/seeds.rb:73
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:73
+[ActiveJob] [ActiveStorage::AnalyzeJob] [15f75cc3-3c8c-4ebc-b4d1-8454b12bb1e3] Performing ActiveStorage::AnalyzeJob (Job ID: 15f75cc3-3c8c-4ebc-b4d1-8454b12bb1e3) from Inline(default) with arguments: #<GlobalID:0x00007fe28eabb968 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/5>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [15f75cc3-3c8c-4ebc-b4d1-8454b12bb1e3] [36m  S3 Storage (1116.4ms) [0m[34mDownloaded file from key: oaiTKBm5Jm1ZhST351pzmTzc[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [15f75cc3-3c8c-4ebc-b4d1-8454b12bb1e3] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [15f75cc3-3c8c-4ebc-b4d1-8454b12bb1e3]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [15f75cc3-3c8c-4ebc-b4d1-8454b12bb1e3]   ↳ db/seeds.rb:73
+[ActiveJob] [ActiveStorage::AnalyzeJob] [15f75cc3-3c8c-4ebc-b4d1-8454b12bb1e3]   [1m[36mActiveStorage::Blob Update (0.5ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 5]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [15f75cc3-3c8c-4ebc-b4d1-8454b12bb1e3]   ↳ db/seeds.rb:73
+[ActiveJob] [ActiveStorage::AnalyzeJob] [15f75cc3-3c8c-4ebc-b4d1-8454b12bb1e3]   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [15f75cc3-3c8c-4ebc-b4d1-8454b12bb1e3]   ↳ db/seeds.rb:73
+[ActiveJob] [ActiveStorage::AnalyzeJob] [15f75cc3-3c8c-4ebc-b4d1-8454b12bb1e3] Performed ActiveStorage::AnalyzeJob (Job ID: 15f75cc3-3c8c-4ebc-b4d1-8454b12bb1e3) from Inline(default) in 1141.3ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 15f75cc3-3c8c-4ebc-b4d1-8454b12bb1e3) to Inline(default) with arguments: #<GlobalID:0x00007fe2854d6f10 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/5>>
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:75
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ db/seeds.rb:75
+  [1m[36mPhoto Create (0.4ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Pikachus"], ["description", "Still waiting to catch a shiny pikachu in pokemon go..."], ["user_id", 34], ["created_at", "2021-02-12 22:29:19.443439"], ["updated_at", "2021-02-12 22:29:19.443439"]]
+  ↳ db/seeds.rb:75
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:75
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 35], ["record_type", "Photo"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:81
+[36m  S3 Storage (5545.4ms) [0m[32mUploaded file to key: d8b6rs2fKuQcbNDjS9HsRopH (checksum: 9jOp8erB9WNDoDCznQ9KXQ==)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:81
+  [1m[36mActiveStorage::Blob Create (0.8ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "d8b6rs2fKuQcbNDjS9HsRopH"], ["filename", "pikachus.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 15688780], ["checksum", "9jOp8erB9WNDoDCznQ9KXQ=="], ["created_at", "2021-02-12 22:29:26.489417"]]
+  ↳ db/seeds.rb:81
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:81
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:81
+  [1m[36mActiveStorage::Attachment Create (0.9ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "picture"], ["record_type", "Photo"], ["record_id", 35], ["blob_id", 6], ["created_at", "2021-02-12 22:29:26.496525"]]
+  ↳ db/seeds.rb:81
+  [1m[36mPhoto Update (0.5ms)[0m  [1m[33mUPDATE "photos" SET "updated_at" = $1 WHERE "photos"."id" = $2[0m  [["updated_at", "2021-02-12 22:29:26.499148"], ["id", 35]]
+  ↳ db/seeds.rb:81
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:81
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:81
+[ActiveJob] [ActiveStorage::AnalyzeJob] [bbf3f5a3-1462-47f7-9eb9-913119076cb4] Performing ActiveStorage::AnalyzeJob (Job ID: bbf3f5a3-1462-47f7-9eb9-913119076cb4) from Inline(default) with arguments: #<GlobalID:0x00007fe2854ce6d0 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/6>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [bbf3f5a3-1462-47f7-9eb9-913119076cb4] [36m  S3 Storage (1378.5ms) [0m[34mDownloaded file from key: d8b6rs2fKuQcbNDjS9HsRopH[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [bbf3f5a3-1462-47f7-9eb9-913119076cb4] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [bbf3f5a3-1462-47f7-9eb9-913119076cb4]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [bbf3f5a3-1462-47f7-9eb9-913119076cb4]   ↳ db/seeds.rb:81
+[ActiveJob] [ActiveStorage::AnalyzeJob] [bbf3f5a3-1462-47f7-9eb9-913119076cb4]   [1m[36mActiveStorage::Blob Update (0.7ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 6]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [bbf3f5a3-1462-47f7-9eb9-913119076cb4]   ↳ db/seeds.rb:81
+[ActiveJob] [ActiveStorage::AnalyzeJob] [bbf3f5a3-1462-47f7-9eb9-913119076cb4]   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [bbf3f5a3-1462-47f7-9eb9-913119076cb4]   ↳ db/seeds.rb:81
+[ActiveJob] [ActiveStorage::AnalyzeJob] [bbf3f5a3-1462-47f7-9eb9-913119076cb4] Performed ActiveStorage::AnalyzeJob (Job ID: bbf3f5a3-1462-47f7-9eb9-913119076cb4) from Inline(default) in 1391.52ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: bbf3f5a3-1462-47f7-9eb9-913119076cb4) to Inline(default) with arguments: #<GlobalID:0x00007fe286d8a818 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/6>>
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:83
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ db/seeds.rb:83
+  [1m[36mPhoto Create (0.5ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Say Less Smile More"], ["description", "Some dope graffiti art I came across."], ["user_id", 35], ["created_at", "2021-02-12 22:29:27.899470"], ["updated_at", "2021-02-12 22:29:27.899470"]]
+  ↳ db/seeds.rb:83
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:83
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 36], ["record_type", "Photo"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:89
+[36m  S3 Storage (3696.5ms) [0m[32mUploaded file to key: cBFz8V2BVcFHrWLJzfMBov4c (checksum: cd89hlqS+1P1S+StzA22JQ==)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:89
+  [1m[36mActiveStorage::Blob Create (1.0ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "cBFz8V2BVcFHrWLJzfMBov4c"], ["filename", "smile_graffiti.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 10241446], ["checksum", "cd89hlqS+1P1S+StzA22JQ=="], ["created_at", "2021-02-12 22:29:32.893312"]]
+  ↳ db/seeds.rb:89
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:89
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:89
+  [1m[36mActiveStorage::Attachment Create (0.7ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "picture"], ["record_type", "Photo"], ["record_id", 36], ["blob_id", 7], ["created_at", "2021-02-12 22:29:32.899924"]]
+  ↳ db/seeds.rb:89
+  [1m[36mPhoto Update (0.7ms)[0m  [1m[33mUPDATE "photos" SET "updated_at" = $1 WHERE "photos"."id" = $2[0m  [["updated_at", "2021-02-12 22:29:32.902102"], ["id", 36]]
+  ↳ db/seeds.rb:89
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:89
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:89
+[ActiveJob] [ActiveStorage::AnalyzeJob] [05ce3990-bb51-4bb0-9823-dc3e55a78753] Performing ActiveStorage::AnalyzeJob (Job ID: 05ce3990-bb51-4bb0-9823-dc3e55a78753) from Inline(default) with arguments: #<GlobalID:0x00007fe28cdde7f0 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/7>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [05ce3990-bb51-4bb0-9823-dc3e55a78753] [36m  S3 Storage (647.3ms) [0m[34mDownloaded file from key: cBFz8V2BVcFHrWLJzfMBov4c[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [05ce3990-bb51-4bb0-9823-dc3e55a78753] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [05ce3990-bb51-4bb0-9823-dc3e55a78753]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [05ce3990-bb51-4bb0-9823-dc3e55a78753]   ↳ db/seeds.rb:89
+[ActiveJob] [ActiveStorage::AnalyzeJob] [05ce3990-bb51-4bb0-9823-dc3e55a78753]   [1m[36mActiveStorage::Blob Update (0.4ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 7]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [05ce3990-bb51-4bb0-9823-dc3e55a78753]   ↳ db/seeds.rb:89
+[ActiveJob] [ActiveStorage::AnalyzeJob] [05ce3990-bb51-4bb0-9823-dc3e55a78753]   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [05ce3990-bb51-4bb0-9823-dc3e55a78753]   ↳ db/seeds.rb:89
+[ActiveJob] [ActiveStorage::AnalyzeJob] [05ce3990-bb51-4bb0-9823-dc3e55a78753] Performed ActiveStorage::AnalyzeJob (Job ID: 05ce3990-bb51-4bb0-9823-dc3e55a78753) from Inline(default) in 655.55ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 05ce3990-bb51-4bb0-9823-dc3e55a78753) to Inline(default) with arguments: #<GlobalID:0x00007fe28cd650f8 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/7>>
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:91
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ db/seeds.rb:91
+  [1m[36mPhoto Create (0.3ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Snowy Mountain"], ["description", "A freezing day but worth the photo!"], ["user_id", 35], ["created_at", "2021-02-12 22:29:33.565804"], ["updated_at", "2021-02-12 22:29:33.565804"]]
+  ↳ db/seeds.rb:91
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:91
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 37], ["record_type", "Photo"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:97
+[36m  S3 Storage (3318.1ms) [0m[32mUploaded file to key: 7yA5Gk2P4dLVHmCarDcuEtkj (checksum: BD7s9KjMroYTOHtiDjmvPQ==)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:97
+  [1m[36mActiveStorage::Blob Create (0.8ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "7yA5Gk2P4dLVHmCarDcuEtkj"], ["filename", "snow_mountain.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 9318572], ["checksum", "BD7s9KjMroYTOHtiDjmvPQ=="], ["created_at", "2021-02-12 22:29:38.476479"]]
+  ↳ db/seeds.rb:97
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:97
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:97
+  [1m[36mActiveStorage::Attachment Create (0.8ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "picture"], ["record_type", "Photo"], ["record_id", 37], ["blob_id", 8], ["created_at", "2021-02-12 22:29:38.482208"]]
+  ↳ db/seeds.rb:97
+  [1m[36mPhoto Update (0.6ms)[0m  [1m[33mUPDATE "photos" SET "updated_at" = $1 WHERE "photos"."id" = $2[0m  [["updated_at", "2021-02-12 22:29:38.484786"], ["id", 37]]
+  ↳ db/seeds.rb:97
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:97
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:97
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e93cf242-ce51-4b26-8a5b-deac5fca149a] Performing ActiveStorage::AnalyzeJob (Job ID: e93cf242-ce51-4b26-8a5b-deac5fca149a) from Inline(default) with arguments: #<GlobalID:0x00007fe28cd4c7d8 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/8>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e93cf242-ce51-4b26-8a5b-deac5fca149a] [36m  S3 Storage (611.5ms) [0m[34mDownloaded file from key: 7yA5Gk2P4dLVHmCarDcuEtkj[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e93cf242-ce51-4b26-8a5b-deac5fca149a] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e93cf242-ce51-4b26-8a5b-deac5fca149a]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e93cf242-ce51-4b26-8a5b-deac5fca149a]   ↳ db/seeds.rb:97
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e93cf242-ce51-4b26-8a5b-deac5fca149a]   [1m[36mActiveStorage::Blob Update (0.5ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 8]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e93cf242-ce51-4b26-8a5b-deac5fca149a]   ↳ db/seeds.rb:97
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e93cf242-ce51-4b26-8a5b-deac5fca149a]   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e93cf242-ce51-4b26-8a5b-deac5fca149a]   ↳ db/seeds.rb:97
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e93cf242-ce51-4b26-8a5b-deac5fca149a] Performed ActiveStorage::AnalyzeJob (Job ID: e93cf242-ce51-4b26-8a5b-deac5fca149a) from Inline(default) in 620.25ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: e93cf242-ce51-4b26-8a5b-deac5fca149a) to Inline(default) with arguments: #<GlobalID:0x00007fe2864da100 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/8>>
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:99
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ db/seeds.rb:99
+  [1m[36mPhoto Create (0.4ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Succulent Picture"], ["description", "Been trying out my green thumb during quarantine."], ["user_id", 32], ["created_at", "2021-02-12 22:29:39.113627"], ["updated_at", "2021-02-12 22:29:39.113627"]]
+  ↳ db/seeds.rb:99
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:99
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 38], ["record_type", "Photo"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:105
+[36m  S3 Storage (4998.8ms) [0m[32mUploaded file to key: L5rrZvDmYtGEP8S8yC8TDtbM (checksum: OzoSlWEoSydxcjWCapXUNw==)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:105
+  [1m[36mActiveStorage::Blob Create (0.8ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "L5rrZvDmYtGEP8S8yC8TDtbM"], ["filename", "succulant.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 14158228], ["checksum", "OzoSlWEoSydxcjWCapXUNw=="], ["created_at", "2021-02-12 22:29:46.765954"]]
+  ↳ db/seeds.rb:105
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:105
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:105
+  [1m[36mActiveStorage::Attachment Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "picture"], ["record_type", "Photo"], ["record_id", 38], ["blob_id", 9], ["created_at", "2021-02-12 22:29:46.771405"]]
+  ↳ db/seeds.rb:105
+  [1m[36mPhoto Update (0.8ms)[0m  [1m[33mUPDATE "photos" SET "updated_at" = $1 WHERE "photos"."id" = $2[0m  [["updated_at", "2021-02-12 22:29:46.773461"], ["id", 38]]
+  ↳ db/seeds.rb:105
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:105
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:105
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e0219d94-17b7-4970-b58e-7c0c4afbd1c8] Performing ActiveStorage::AnalyzeJob (Job ID: e0219d94-17b7-4970-b58e-7c0c4afbd1c8) from Inline(default) with arguments: #<GlobalID:0x00007fe28cdc4cb0 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/9>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e0219d94-17b7-4970-b58e-7c0c4afbd1c8] [36m  S3 Storage (892.8ms) [0m[34mDownloaded file from key: L5rrZvDmYtGEP8S8yC8TDtbM[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e0219d94-17b7-4970-b58e-7c0c4afbd1c8] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e0219d94-17b7-4970-b58e-7c0c4afbd1c8]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e0219d94-17b7-4970-b58e-7c0c4afbd1c8]   ↳ db/seeds.rb:105
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e0219d94-17b7-4970-b58e-7c0c4afbd1c8]   [1m[36mActiveStorage::Blob Update (0.7ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 9]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e0219d94-17b7-4970-b58e-7c0c4afbd1c8]   ↳ db/seeds.rb:105
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e0219d94-17b7-4970-b58e-7c0c4afbd1c8]   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e0219d94-17b7-4970-b58e-7c0c4afbd1c8]   ↳ db/seeds.rb:105
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e0219d94-17b7-4970-b58e-7c0c4afbd1c8] Performed ActiveStorage::AnalyzeJob (Job ID: e0219d94-17b7-4970-b58e-7c0c4afbd1c8) from Inline(default) in 904.48ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: e0219d94-17b7-4970-b58e-7c0c4afbd1c8) to Inline(default) with arguments: #<GlobalID:0x00007fe28ccf2e68 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/9>>
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:107
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ db/seeds.rb:107
+  [1m[36mPhoto Create (0.5ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Bird is the Word"], ["description", "Caught this bird chilling by the pond!"], ["user_id", 32], ["created_at", "2021-02-12 22:29:47.686826"], ["updated_at", "2021-02-12 22:29:47.686826"]]
+  ↳ db/seeds.rb:107
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:107
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 39], ["record_type", "Photo"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:113
+[36m  S3 Storage (1748.8ms) [0m[32mUploaded file to key: Ngpjj7MdfvBZu2FiYCSaSArX (checksum: 7rR+wWQQqIJfZaLWqoEGzw==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:113
+  [1m[36mActiveStorage::Blob Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "Ngpjj7MdfvBZu2FiYCSaSArX"], ["filename", "bird.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 4723614], ["checksum", "7rR+wWQQqIJfZaLWqoEGzw=="], ["created_at", "2021-02-12 22:29:50.256887"]]
+  ↳ db/seeds.rb:113
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:113
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:113
+  [1m[36mActiveStorage::Attachment Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "picture"], ["record_type", "Photo"], ["record_id", 39], ["blob_id", 10], ["created_at", "2021-02-12 22:29:50.262123"]]
+  ↳ db/seeds.rb:113
+  [1m[36mPhoto Update (0.5ms)[0m  [1m[33mUPDATE "photos" SET "updated_at" = $1 WHERE "photos"."id" = $2[0m  [["updated_at", "2021-02-12 22:29:50.263880"], ["id", 39]]
+  ↳ db/seeds.rb:113
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:113
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:113
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9a15d4fe-8f5e-4c50-8759-1e243c7e5819] Performing ActiveStorage::AnalyzeJob (Job ID: 9a15d4fe-8f5e-4c50-8759-1e243c7e5819) from Inline(default) with arguments: #<GlobalID:0x00007fe28c9580c8 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/10>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9a15d4fe-8f5e-4c50-8759-1e243c7e5819] [36m  S3 Storage (330.4ms) [0m[34mDownloaded file from key: Ngpjj7MdfvBZu2FiYCSaSArX[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9a15d4fe-8f5e-4c50-8759-1e243c7e5819] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9a15d4fe-8f5e-4c50-8759-1e243c7e5819]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9a15d4fe-8f5e-4c50-8759-1e243c7e5819]   ↳ db/seeds.rb:113
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9a15d4fe-8f5e-4c50-8759-1e243c7e5819]   [1m[36mActiveStorage::Blob Update (0.4ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 10]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9a15d4fe-8f5e-4c50-8759-1e243c7e5819]   ↳ db/seeds.rb:113
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9a15d4fe-8f5e-4c50-8759-1e243c7e5819]   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9a15d4fe-8f5e-4c50-8759-1e243c7e5819]   ↳ db/seeds.rb:113
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9a15d4fe-8f5e-4c50-8759-1e243c7e5819] Performed ActiveStorage::AnalyzeJob (Job ID: 9a15d4fe-8f5e-4c50-8759-1e243c7e5819) from Inline(default) in 347.03ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 9a15d4fe-8f5e-4c50-8759-1e243c7e5819) to Inline(default) with arguments: #<GlobalID:0x00007fe2864f1698 @uri=#<URI::GID gid://fs-project/ActiveStorage::Blob/10>>
