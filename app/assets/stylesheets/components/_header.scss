@@ -20,11 +20,15 @@
         margin-left: 20px;
     }
 
-    .username-logout-container {
+    .icon-logout-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 150px;
+
+        i {
+            color: #fff;
+            font-size: 28px;
+        }
 
         button {
             margin: 10px;
@@ -33,6 +37,7 @@
             color: #fff;
             background-color: #212124;
             text-decoration: none;
+            margin-left: 20px;
         }
     }
 
