@@ -15424,3 +15424,129 @@ Processing by Api::SessionsController#destroy as */*
 Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.8ms)
 
 
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Destroy (2.4ms)[0m  [1m[31mDELETE FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mPhoto Destroy (1.1ms)[0m  [1m[31mDELETE FROM "photos"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Demo_User"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "GW4d9GW9yAw715WILwTLdQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Demo_User"], ["password_digest", "$2a$12$Ev9fodrjSD/3paxrReJZM.IQSN7L3l6x635iWIhJ3n15416RR/vmS"], ["session_token", "GW4d9GW9yAw715WILwTLdQ"], ["created_at", "2021-02-12 22:01:38.809157"], ["updated_at", "2021-02-12 22:01:38.809157"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "FriendOfDogs"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qBmUD1cpYIeMyTUHYlOphg"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "FriendOfDogs"], ["password_digest", "$2a$12$Vw3M9aWgUtldC2PagN450.MmpBE2C77eY.kPVCBATUMlmJa4Rs3Vi"], ["session_token", "qBmUD1cpYIeMyTUHYlOphg"], ["created_at", "2021-02-12 22:01:39.074038"], ["updated_at", "2021-02-12 22:01:39.074038"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Cato-grapher"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "G8dKgB9vy6YHWxoxBIoAQg"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Cato-grapher"], ["password_digest", "$2a$12$dUUnXTjBcmF6CENlU4XCFOz5oZg3Ve9K.WBlhpUMb9yWqXNAdShhW"], ["session_token", "G8dKgB9vy6YHWxoxBIoAQg"], ["created_at", "2021-02-12 22:01:39.339420"], ["updated_at", "2021-02-12 22:01:39.339420"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "NautilusSoup"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sHAZnYJ-EWrmu84jZkl9Rg"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "NautilusSoup"], ["password_digest", "$2a$12$sT2JJ/k.RGSDSqoHxiUex.5yrUqRlVcUPsDTbgXZ3jtOkU8wRVcQa"], ["session_token", "sHAZnYJ-EWrmu84jZkl9Rg"], ["created_at", "2021-02-12 22:01:39.604575"], ["updated_at", "2021-02-12 22:01:39.604575"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mPhoto Create (1.5ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Yung Pup"], ["description", "Yung pup ready to drop his album dog!"], ["user_id", 29], ["created_at", "2021-02-12 22:01:39.624382"], ["updated_at", "2021-02-12 22:01:39.624382"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPhoto Create (0.3ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Good Boi"], ["description", "My dog chilling on a bed."], ["user_id", 29], ["created_at", "2021-02-12 22:01:39.628894"], ["updated_at", "2021-02-12 22:01:39.628894"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:44
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mPhoto Create (0.3ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Golden Gate Bridge"], ["description", "Bay area represent!"], ["user_id", 28], ["created_at", "2021-02-12 22:01:39.631426"], ["updated_at", "2021-02-12 22:01:39.631426"]]
+  ↳ db/seeds.rb:44
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:44
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:49
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ db/seeds.rb:49
+  [1m[36mPhoto Create (0.3ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Bananable"], ["description", "Got to feed monkeys while on my trip!"], ["user_id", 28], ["created_at", "2021-02-12 22:01:39.634152"], ["updated_at", "2021-02-12 22:01:39.634152"]]
+  ↳ db/seeds.rb:49
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:49
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ db/seeds.rb:54
+  [1m[36mPhoto Create (0.3ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Taco-Tuesday"], ["description", "Everyday should be taco tuesday."], ["user_id", 30], ["created_at", "2021-02-12 22:01:39.638136"], ["updated_at", "2021-02-12 22:01:39.638136"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:59
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ db/seeds.rb:59
+  [1m[36mPhoto Create (0.5ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Pikachus"], ["description", "Still waiting to catch a shiny pikachu in pokemon go..."], ["user_id", 30], ["created_at", "2021-02-12 22:01:39.641297"], ["updated_at", "2021-02-12 22:01:39.641297"]]
+  ↳ db/seeds.rb:59
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:59
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:64
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ db/seeds.rb:64
+  [1m[36mPhoto Create (0.4ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Say Less Smile More"], ["description", "Some dope graffiti art I came across."], ["user_id", 31], ["created_at", "2021-02-12 22:01:39.645119"], ["updated_at", "2021-02-12 22:01:39.645119"]]
+  ↳ db/seeds.rb:64
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:64
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:69
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ db/seeds.rb:69
+  [1m[36mPhoto Create (0.2ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Snowy Mountain"], ["description", "A freezing day but worth the photo!"], ["user_id", 31], ["created_at", "2021-02-12 22:01:39.647882"], ["updated_at", "2021-02-12 22:01:39.647882"]]
+  ↳ db/seeds.rb:69
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:69
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:74
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mPhoto Create (0.3ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Succulent Picture"], ["description", "Been trying out my green thumb during quarantine."], ["user_id", 28], ["created_at", "2021-02-12 22:01:39.650249"], ["updated_at", "2021-02-12 22:01:39.650249"]]
+  ↳ db/seeds.rb:74
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:74
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:79
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ db/seeds.rb:79
+  [1m[36mPhoto Create (0.4ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Bird is the Word"], ["description", "Caught this bird chilling by the pond!"], ["user_id", 28], ["created_at", "2021-02-12 22:01:39.653345"], ["updated_at", "2021-02-12 22:01:39.653345"]]
+  ↳ db/seeds.rb:79
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:79

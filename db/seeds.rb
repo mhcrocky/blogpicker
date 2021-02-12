@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
 User.delete_all
 Photo.delete_all
@@ -36,48 +37,72 @@ photo1 = Photo.create!(
     description: "Yung pup ready to drop his album dog!",
     user_id: user1.id
 )
+file1 = open('https://picktr-seeds.s3-us-west-1.amazonaws.com/yung_pup.jpg')
+photo1.picture.attach(io: file1, filename: 'yung_pup.jpg')
+
 photo2 = Photo.create!(
     title: "Good Boi",
     description: "My dog chilling on a bed.",
     user_id: user1.id
 )
+file2 = open('https://picktr-seeds.s3-us-west-1.amazonaws.com/dog_on_bed.jpg')
+photo2.picture.attach(io: file2, filename: 'dog_on_bed.jpg')
+
 photo3 = Photo.create!(
     title: "Golden Gate Bridge",
     description: "Bay area represent!",
     user_id: demo_user.id
 )
+file3 = open('https://picktr-seeds.s3-us-west-1.amazonaws.com/gg_bridge.JPG')
+photo3.picture.attach(io: file3, filename: 'gg_bridge.JPG')
+
 photo4 = Photo.create!(
     title: "Bananable",
     description: "Got to feed monkeys while on my trip!",
     user_id: demo_user.id
 )
+file4 = open('https://picktr-seeds.s3-us-west-1.amazonaws.com/monkeys.jpg')
+photo4.picture.attach(io: file4, filename: 'monkeys.jpg')
+
 photo5 = Photo.create!(
     title: "Taco-Tuesday",
     description: "Everyday should be taco tuesday.",
     user_id: user2.id
 )
+file5 = open('https://picktr-seeds.s3-us-west-1.amazonaws.com/taco_truck.JPG')
+photo5.picture.attach(io: file5, filename: 'taco_truck.JPG')
+
 photo6 = Photo.create!(
     title: "Pikachus",
     description: "Still waiting to catch a shiny pikachu in pokemon go...",
     user_id: user2.id
 )
+file6 = open('https://picktr-seeds.s3-us-west-1.amazonaws.com/pikachus.jpg')
+photo6.picture.attach(io: file6, filename: 'pikachus.jpg')
+
 photo7 = Photo.create!(
     title: "Say Less Smile More",
     description: "Some dope graffiti art I came across.",
     user_id: user3.id
 )
+file7 = open()
+photo7.picture.attach()
+
 photo8 = Photo.create!(
-    title: "pug",
-    description: "Pugz are the best",
+    title: "Snowy Mountain",
+    description: "A freezing day but worth the photo!",
     user_id: user3.id
 )
+file8 = open()
+photo8.picture.attach()
+
 photo9 = Photo.create!(
-    title: "pug",
-    description: "Pugz are the best",
-    user_id: user2.id
+    title: "Succulent Picture",
+    description: "Been trying out my green thumb during quarantine.",
+    user_id: demo_user.id
 )
 photo10 = Photo.create!(
-    title: "pug",
-    description: "Pugz are the best",
-    user_id: user2.id
+    title: "Bird is the Word",
+    description: "Caught this bird chilling by the pond!",
+    user_id: demo_user.id
 )
