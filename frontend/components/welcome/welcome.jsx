@@ -5,10 +5,10 @@ import HeaderContainer from '../header/header_container';
 class Welcome extends React.Component  {
     constructor(props) {
         super(props);
-        this.state = {background: 'splash1.jpg'}
         this.demoLogin = this.demoLogin.bind(this);
     }
 
+    // figuring out how to have rotating background
     // componentDidMount() {
     //     let i = 1;
     //     const background = document.getElementsByClassName('splash-background')[0];
@@ -35,7 +35,6 @@ class Welcome extends React.Component  {
                         <button onClick={this.demoLogin}>Demo Login</button>
                     </div>
                 </div>
-                <button onClick={this.setBackground}>click</button>
             </div>
         )
     }

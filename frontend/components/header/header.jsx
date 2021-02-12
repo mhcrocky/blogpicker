@@ -9,7 +9,6 @@ class Header extends React.Component {
 
     handleLogout() {
         return this.props.logout()
-            .then(() => this.props.history.push('/login'))
     }
 
     render() {
@@ -19,7 +18,7 @@ class Header extends React.Component {
         if (this.props.currentUser) {
             loginCondition =
                 <div className="icon-logout-container">
-                    <i class="fas fa-cloud-upload-alt"></i>
+                    <i className="fas fa-cloud-upload-alt"></i>
                     <button onClick={this.handleLogout}>Logout</button>
                 </div>;
             usernameCondition =

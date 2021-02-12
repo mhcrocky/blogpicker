@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { AuthRoute } from "../util/route_util";
+import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import Feed from "./feed/feed";
 import NoExistingPage from "./no_existing_page/no_existing_page";
 import LoginFormContainer from "./session_form/login_form_container";
@@ -14,7 +14,7 @@ const App = () => {
                 <AuthRoute exact path='/' component={WelcomeContainer} />
                 <AuthRoute exact path='/login' component={LoginFormContainer} />
                 <AuthRoute exact path='/signup' component={SignUpFormContainer} />
-                <Route path='/feed' component={Feed} />
+                <ProtectedRoute path='/feed' component={Feed} />
                 <Route component={NoExistingPage} />
             </Switch>
         </div>
