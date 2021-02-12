@@ -15,6 +15,9 @@ class PhotoIndexItem extends React.Component {
             <li>
                 <div>{photo.title}</div>
                 <div>{username}</div>
+                <div>
+                    <img src={photo.photoUrl} alt={`${username}'s photo`}/>
+                </div>
             </li>
         )
     }
