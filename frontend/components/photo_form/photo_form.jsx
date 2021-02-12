@@ -6,8 +6,10 @@ class PhotoForm extends React.Component {
         super(props);
         this.state = {
             title: "",
-            description: ""
+            description: "",
+            photoFile: null
         }
+        this.handleFile = this.handleFile.bind(this);
     }
 
     handleChange(body) {
@@ -16,22 +18,35 @@ class PhotoForm extends React.Component {
         )
     }
 
+    handleFile(e) {
+        this.setState({photoFile: e.currentTarget.files[0]})
+    }
+
     render () {
-        <div className="photo-form-page">
-            <HeaderContainer />
-            <div className="photo-form-container">
-                <label className="form-label">Upload a Photo!</label>
-                <form>
-                    <input type="file"/>
-                    <label>Title:</label>
-                    <input onChange={this.handleChange('title')}
-                        type="text" value={this.state.title}/>
-                    <label>Description:</label>
-                    <textarea onChange={this.handleChange('description')}
-                        value={this.state.description}></textarea>
-                </form>
+        console.log(this.state);
+        return (
+            <div className="photo-form-page">
+                <HeaderContainer />
+                <div className="photo-form-container">
+                    <label className="form-label">Upload a Photo!</label>
+                    <form>
+                        <input type="file" onChange={this.handleFile}/>
+                        <div>
+                            <label>Title:</label>
+                            <input onChange={this.handleChange('title')}
+                                type="text" value={this.state.title}/>
+                        </div>
+                        <div>
+                            <label>Description:</label>
+                            <textarea
+                                onChange={this.handleChange('description')}
+                                value={this.state.description}>
+                            </textarea>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
+        )
     }
 }
 

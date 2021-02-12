@@ -4,7 +4,7 @@ import PhotoForm from "./photo_form"
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createPhoto = (photo) => dispatch(createPhoto(photo))
+        createPhoto: (photo) => dispatch(createPhoto(photo))
     }
 }
 

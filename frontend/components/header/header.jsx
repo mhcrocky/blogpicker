@@ -18,7 +18,9 @@ class Header extends React.Component {
         if (this.props.currentUser) {
             loginCondition =
                 <div className="icon-logout-container">
-                    <i className="fas fa-cloud-upload-alt"></i>
+                    <Link to="/photo/new">
+                        <i className="fas fa-cloud-upload-alt"></i>
+                    </Link>
                     <button onClick={this.handleLogout}>Logout</button>
                 </div>;
             usernameCondition =

@@ -315,7 +315,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _feed_feed__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./feed/feed */ "./frontend/components/feed/feed.jsx");
 /* harmony import */ var _no_existing_page_no_existing_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./no_existing_page/no_existing_page */ "./frontend/components/no_existing_page/no_existing_page.jsx");
 /* harmony import */ var _photo_form_photo_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./photo_form/photo_form_container */ "./frontend/components/photo_form/photo_form_container.js");
-/* harmony import */ var _photo_form_photo_form_container__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_photo_form_photo_form_container__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.js");
 /* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.js");
 /* harmony import */ var _welcome_welcome_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./welcome/welcome_container */ "./frontend/components/welcome/welcome_container.js");
@@ -349,7 +348,7 @@ var App = function App() {
     component: _feed_feed__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
     path: "/photo/new",
-    component: _photo_form_photo_form_container__WEBPACK_IMPORTED_MODULE_5___default.a
+    component: _photo_form_photo_form_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     component: _no_existing_page_no_existing_page__WEBPACK_IMPORTED_MODULE_4__["default"]
   })));
@@ -492,9 +491,11 @@ var Header = /*#__PURE__*/function (_React$Component) {
       if (this.props.currentUser) {
         loginCondition = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "icon-logout-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/photo/new"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-cloud-upload-alt"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: this.handleLogout
         }, "Logout"));
         usernameCondition = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -613,14 +614,138 @@ var NoExistingPage = function NoExistingPage() {
 
 /***/ }),
 
+/***/ "./frontend/components/photo_form/photo_form.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/components/photo_form/photo_form.jsx ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _header_header_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../header/header_container */ "./frontend/components/header/header_container.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var PhotoForm = /*#__PURE__*/function (_React$Component) {
+  _inherits(PhotoForm, _React$Component);
+
+  var _super = _createSuper(PhotoForm);
+
+  function PhotoForm(props) {
+    var _this;
+
+    _classCallCheck(this, PhotoForm);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      title: "",
+      description: "",
+      photoFile: null
+    };
+    _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(PhotoForm, [{
+    key: "handleChange",
+    value: function handleChange(body) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, body, e.target.value));
+      };
+    }
+  }, {
+    key: "handleFile",
+    value: function handleFile(e) {
+      this.setState({
+        photoFile: e.currentTarget.files[0]
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      console.log(this.state);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "photo-form-page"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "photo-form-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "form-label"
+      }, "Upload a Photo!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        onChange: this.handleFile
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Title:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.handleChange('title'),
+        type: "text",
+        value: this.state.title
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        onChange: this.handleChange('description'),
+        value: this.state.description
+      })))));
+    }
+  }]);
+
+  return PhotoForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (PhotoForm);
+
+/***/ }),
+
 /***/ "./frontend/components/photo_form/photo_form_container.js":
 /*!****************************************************************!*\
   !*** ./frontend/components/photo_form/photo_form_container.js ***!
   \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/bcdguz/Desktop/picktr/frontend/components/photo_form/photo_form_container.js: Unexpected token (7:20)\n\n\u001b[0m \u001b[90m  5 |\u001b[39m \u001b[36mconst\u001b[39m mapDispatchToProps \u001b[33m=\u001b[39m (dispatch) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m  6 |\u001b[39m     \u001b[36mreturn\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m         createPhoto \u001b[33m=\u001b[39m (photo) \u001b[33m=>\u001b[39m dispatch(createPhoto(photo))\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  8 |\u001b[39m     }\u001b[0m\n\u001b[0m \u001b[90m  9 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 10 |\u001b[39m\u001b[0m\n    at Object._raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:776:17)\n    at Object.raiseWithData (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:769:17)\n    at Object.raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:737:17)\n    at Object.unexpected (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9183:16)\n    at Object.checkExpressionErrors (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9271:12)\n    at Object.parseMaybeAssign (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:10035:12)\n    at Object.parseExpressionBase (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9953:23)\n    at allowInAnd (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9947:39)\n    at Object.allowInAnd (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:11647:12)\n    at Object.parseExpression (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9947:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/photo_actions */ "./frontend/actions/photo_actions.js");
+/* harmony import */ var _photo_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./photo_form */ "./frontend/components/photo_form/photo_form.jsx");
+
+
+
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    createPhoto: function createPhoto(photo) {
+      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["createPhoto"])(photo));
+    }
+  };
+};
+
+var PhotoFormContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, mapDispatchToProps)(_photo_form__WEBPACK_IMPORTED_MODULE_2__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (PhotoFormContainer);
 
 /***/ }),
 
