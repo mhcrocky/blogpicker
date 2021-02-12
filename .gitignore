@@ -3,6 +3,6 @@ bundle.js
 bundle.js.map
 tmp/
 
-master.key
+config/master.key
 
 public/assets/*
