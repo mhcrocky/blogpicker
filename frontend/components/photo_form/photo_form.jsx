@@ -23,7 +23,6 @@ class PhotoForm extends React.Component {
     }
 
     render () {
-        console.log(this.state);
         return (
             <div className="photo-form-page">
                 <HeaderContainer />

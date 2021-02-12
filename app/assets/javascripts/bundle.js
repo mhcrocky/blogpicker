@@ -692,7 +692,6 @@ var PhotoForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-form-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

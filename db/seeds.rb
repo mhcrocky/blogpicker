@@ -16,50 +16,67 @@ demo_user = User.create!(
     password: '123456'
 )
 user1 = User.create!(
-    username: 'Pro-Photographer',
+    username: 'FriendOfDogs',
     password: '123456'
 )
 user2 = User.create!(
-    username: 'Festive Photos',
+    username: 'Cato-grapher',
     password: 'password'
 )
-user2 = User.create!(
+user3 = User.create!(
     username: 'NautilusSoup',
     password: 'password'
 )
-user2 = User.create!(
-    username: 'Dogo Ma',
-    password: 'password'
-)
+
 
 # photo seeds
 
 photo1 = Photo.create!(
-    title: "amazing",
-    description: "This photo is amazing!",
-    user_id: demo_user.id
+    title: "Yung Pup",
+    description: "Yung pup ready to drop his album dog!",
+    user_id: user1.id
 )
 photo2 = Photo.create!(
-    title: "orange",
-    description: "This photo is an orange!",
-    user_id: demo_user.id
+    title: "Good Boi",
+    description: "My dog chilling on a bed.",
+    user_id: user1.id
 )
 photo3 = Photo.create!(
-    title: "banana",
-    description: "This photo is an banana!",
-    user_id: user1.id
+    title: "Golden Gate Bridge",
+    description: "Bay area represent!",
+    user_id: demo_user.id
 )
 photo4 = Photo.create!(
-    title: "valorant",
-    description: "Sweet photo of Jett",
-    user_id: user1.id
+    title: "Bananable",
+    description: "Got to feed monkeys while on my trip!",
+    user_id: demo_user.id
 )
 photo5 = Photo.create!(
-    title: "doge",
-    description: "To the moon!",
+    title: "Taco-Tuesday",
+    description: "Everyday should be taco tuesday.",
     user_id: user2.id
 )
 photo6 = Photo.create!(
+    title: "Pikachus",
+    description: "Still waiting to catch a shiny pikachu in pokemon go...",
+    user_id: user2.id
+)
+photo7 = Photo.create!(
+    title: "Say Less Smile More",
+    description: "Some dope graffiti art I came across.",
+    user_id: user3.id
+)
+photo8 = Photo.create!(
+    title: "pug",
+    description: "Pugz are the best",
+    user_id: user3.id
+)
+photo9 = Photo.create!(
+    title: "pug",
+    description: "Pugz are the best",
+    user_id: user2.id
+)
+photo10 = Photo.create!(
     title: "pug",
     description: "Pugz are the best",
     user_id: user2.id
