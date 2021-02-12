@@ -314,9 +314,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 /* harmony import */ var _feed_feed__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./feed/feed */ "./frontend/components/feed/feed.jsx");
 /* harmony import */ var _no_existing_page_no_existing_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./no_existing_page/no_existing_page */ "./frontend/components/no_existing_page/no_existing_page.jsx");
-/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.js");
-/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.js");
-/* harmony import */ var _welcome_welcome_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./welcome/welcome_container */ "./frontend/components/welcome/welcome_container.js");
+/* harmony import */ var _photo_form_photo_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./photo_form/photo_form_container */ "./frontend/components/photo_form/photo_form_container.js");
+/* harmony import */ var _photo_form_photo_form_container__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_photo_form_photo_form_container__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.js");
+/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.js");
+/* harmony import */ var _welcome_welcome_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./welcome/welcome_container */ "./frontend/components/welcome/welcome_container.js");
+
 
 
 
@@ -332,18 +335,21 @@ var App = function App() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     exact: true,
     path: "/",
-    component: _welcome_welcome_container__WEBPACK_IMPORTED_MODULE_7__["default"]
+    component: _welcome_welcome_container__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     exact: true,
     path: "/login",
-    component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     exact: true,
     path: "/signup",
-    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_7__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
     path: "/feed",
     component: _feed_feed__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
+    path: "/photo/new",
+    component: _photo_form_photo_form_container__WEBPACK_IMPORTED_MODULE_5___default.a
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     component: _no_existing_page_no_existing_page__WEBPACK_IMPORTED_MODULE_4__["default"]
   })));
@@ -604,6 +610,17 @@ var NoExistingPage = function NoExistingPage() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (NoExistingPage);
+
+/***/ }),
+
+/***/ "./frontend/components/photo_form/photo_form_container.js":
+/*!****************************************************************!*\
+  !*** ./frontend/components/photo_form/photo_form_container.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/bcdguz/Desktop/picktr/frontend/components/photo_form/photo_form_container.js: Unexpected token (7:20)\n\n\u001b[0m \u001b[90m  5 |\u001b[39m \u001b[36mconst\u001b[39m mapDispatchToProps \u001b[33m=\u001b[39m (dispatch) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m  6 |\u001b[39m     \u001b[36mreturn\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m         createPhoto \u001b[33m=\u001b[39m (photo) \u001b[33m=>\u001b[39m dispatch(createPhoto(photo))\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  8 |\u001b[39m     }\u001b[0m\n\u001b[0m \u001b[90m  9 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 10 |\u001b[39m\u001b[0m\n    at Object._raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:776:17)\n    at Object.raiseWithData (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:769:17)\n    at Object.raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:737:17)\n    at Object.unexpected (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9183:16)\n    at Object.checkExpressionErrors (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9271:12)\n    at Object.parseMaybeAssign (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:10035:12)\n    at Object.parseExpressionBase (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9953:23)\n    at allowInAnd (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9947:39)\n    at Object.allowInAnd (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:11647:12)\n    at Object.parseExpression (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9947:17)");
 
 /***/ }),
 
