@@ -12,12 +12,10 @@ class PhotoIndexItem extends React.Component {
         const username = users[photo.userId] ? users[photo.userId].username : "";
 
         return (
-            <li>
+            <li className="photo-item-container">
                 <div>{photo.title}</div>
                 <div>{username}</div>
-                <div>
-                    <img src={photo.photoUrl} alt={`${username}'s photo`}/>
-                </div>
+                <img src={photo.photoUrl} alt={`${username}'s photo`}/>
             </li>
         )
     }
