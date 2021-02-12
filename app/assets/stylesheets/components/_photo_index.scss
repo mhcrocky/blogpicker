@@ -1,11 +1,11 @@
 .photo-index {
-    display: flex;
-    flex-wrap: wrap;
+    column-count: 2;
+    column-gap: 5px;
 }
 
 .photo-item-container {
     img {
-        height: 100%;
-        max-height: 200px;
+        height: auto;
+        width: 100%;
     }
 }

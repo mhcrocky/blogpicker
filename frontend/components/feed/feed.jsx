@@ -8,8 +8,10 @@ class Feed extends React.Component {
         return (
             <div className="feed-page">
                 <HeaderContainer />
-                <h1>PhotoIndex Goes Here!</h1>
-                <PhotoIndexContainer />
+                <div className="feed-body">
+                    <h1>PhotoIndex Goes Here!</h1>
+                    <PhotoIndexContainer />
+                </div>
             </div>
         )
     }
