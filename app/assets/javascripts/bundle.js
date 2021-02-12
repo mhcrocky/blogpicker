@@ -1124,10 +1124,21 @@ var Welcome = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Welcome);
 
     _this = _super.call(this, props);
-    _this.state;
+    _this.state = {
+      background: 'splash1.jpg'
+    };
     _this.demoLogin = _this.demoLogin.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // componentDidMount() {
+  //     let i = 1;
+  //     const background = document.getElementsByClassName('splash-background')[0];
+  //     setInterval(() => {
+  //         (i === 5) ? (i = 1) : i++;
+  //         background.style.backgroundImage = `asset-url(${this.state.background})`;
+  //         this.setState({background: `splash${i}.jpg`})
+  //     }, 6000)
+  // }
+
 
   _createClass(Welcome, [{
     key: "demoLogin",
@@ -1148,7 +1159,9 @@ var Welcome = /*#__PURE__*/function (_React$Component) {
         className: "splash-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Find your inspiration."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Join the Picktr community! Feel free to click around!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.demoLogin
-      }, "Demo Login"))));
+      }, "Demo Login"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.setBackground
+      }, "click"));
     }
   }]);
 

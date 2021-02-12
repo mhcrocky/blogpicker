@@ -5,15 +5,26 @@ import HeaderContainer from '../header/header_container';
 class Welcome extends React.Component  {
     constructor(props) {
         super(props);
-        this.state
+        this.state = {background: 'splash1.jpg'}
         this.demoLogin = this.demoLogin.bind(this);
     }
+
+    // componentDidMount() {
+    //     let i = 1;
+    //     const background = document.getElementsByClassName('splash-background')[0];
+    //     setInterval(() => {
+    //         (i === 5) ? (i = 1) : i++;
+    //         background.style.backgroundImage = `asset-url(${this.state.background})`;
+    //         this.setState({background: `splash${i}.jpg`})
+    //     }, 6000)
+    // }
+
+
     demoLogin () {
         this.props.login({username: 'Demo_User', password: '123456'})
     }
 
     render () {
-
         return (
             <div className="splash-background">
                 <HeaderContainer />
@@ -24,6 +35,7 @@ class Welcome extends React.Component  {
                         <button onClick={this.demoLogin}>Demo Login</button>
                     </div>
                 </div>
+                <button onClick={this.setBackground}>click</button>
             </div>
         )
     }
