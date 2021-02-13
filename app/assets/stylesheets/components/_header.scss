@@ -1,5 +1,5 @@
 .header {
-    display: block;
+    position: fixed;
     height: 3rem;
     width: 100%;
     background-color: #212124;
@@ -71,6 +71,10 @@
     height: 3rem;
     width: 100%;
     background-color: #212124;
+
+    .circles-container {
+        margin-left: 2.5px
+    }
 
     .header-content {
         display: flex;

@@ -6,3 +6,32 @@
     background-image: asset-url('splash.jpg');
     background-size: cover; 
 }
+
+.splash-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.splash-content {
+    margin: 0 auto;
+    width: 640px;
+    color: #fff;
+
+    h1 {
+        font-size: 56px;
+        line-height: 56px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+    p {
+        margin-bottom: 50px;
+        font-size: 26px;
+        line-height: 32px;
+        font-weight: 600;
+    }
+}
