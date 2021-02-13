@@ -792,33 +792,48 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(PhotoIndex);
 
-  function PhotoIndex() {
+  function PhotoIndex(props) {
+    var _this;
+
     _classCallCheck(this, PhotoIndex);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      loading: true
+    };
+    return _this;
   }
 
   _createClass(PhotoIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchAllPhotos();
+      var _this2 = this;
+
+      this.props.fetchAllPhotos().then(function () {
+        return _this2.setState({
+          loading: false
+        });
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this3 = this;
 
       var photos = this.props.photos.map(function (photo) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: photo.id,
           photo: photo,
-          users: _this.props.users,
-          fetchUser: _this.props.fetchUser
+          users: _this3.props.users,
+          fetchUser: _this3.props.fetchUser
         });
       });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      var loadingDiv = this.state.loading ? "loader" : "";
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: loadingDiv
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "photo-index"
-      }, photos);
+      }, photos));
     }
   }]);
 

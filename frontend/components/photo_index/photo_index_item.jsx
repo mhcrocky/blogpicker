@@ -2,6 +2,7 @@ import React from 'react';
 
 
 class PhotoIndexItem extends React.Component {
+
     componentDidMount() {
         this.props.fetchUser(this.props.photo.userId);
     }
@@ -19,6 +20,7 @@ class PhotoIndexItem extends React.Component {
                 </div>
                 <img src={photo.photoUrl} alt={`${username}'s photo`}/>
             </li>
+
         )
     }
 }

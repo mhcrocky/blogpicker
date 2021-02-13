@@ -3,9 +3,16 @@ import PhotoIndexItem from './photo_index_item';
 
 
 class PhotoIndex extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { loading: true }
+    }
 
     componentDidMount() {
-        this.props.fetchAllPhotos();
+        this.props.fetchAllPhotos()
+            .then(() => (
+                this.setState({ loading: false })
+            ));
     }
 
     render() {
@@ -19,10 +26,15 @@ class PhotoIndex extends React.Component {
             )
         })
 
+        const loadingDiv = this.state.loading ? "loader" : "";
+
         return(
-            <ul className="photo-index">
-                {photos}
-            </ul>
+            <>
+                <div className={loadingDiv}></div>
+                <ul className="photo-index">
+                    {photos}
+                </ul>
+            </>
         )
     }
 }
