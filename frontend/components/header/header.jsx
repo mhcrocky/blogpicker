@@ -29,8 +29,8 @@ class Header extends React.Component {
                 </Link>;
         } else if (pathname !== "/login" && pathname !== "/signup") {
             loginCondition = <div className="login-signup">
-                <Link to="/signup">Sign Up</Link>
                 <Link to="/login">Log In</Link>
+                <Link to="/signup">Sign Up</Link>
             </div>
         }
         
