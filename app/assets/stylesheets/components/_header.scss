@@ -106,15 +106,19 @@
     .login-signup {
         display: flex;
         justify-content: flex-end;
-        font-weight: 600;
+        text-align: center;
+        line-height: 32px;
+        
 
         a {
-            margin: 10px;
-            border: 2px solid #fff;
-            padding: 5px 10px;
-            color: #fff;
             text-decoration: none;
+            font-weight: 600;
         }
+
+        a:first-child {
+            color: #fff;
+        }
+
         a:last-child {
         color: #000;
         background-color: #fff;
@@ -122,6 +126,8 @@
         padding-left: 20px;
         padding-right: 20px;
         border-radius: 3px;
+        height: 32px;
+        margin-left: 23px;
     }
     }
 }
