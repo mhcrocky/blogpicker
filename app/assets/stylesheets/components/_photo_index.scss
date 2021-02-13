@@ -6,6 +6,7 @@
 .photo-item-container {
     flex-grow: 1;
     height: 40vh;
+    margin: 2.5px;
 
     img {
         max-height: 100%;
@@ -13,4 +14,9 @@
         object-fit: cover;
         vertical-align: bottom;
     }
+
+    .photo-details {
+        display: none;
+    }
 }
+
