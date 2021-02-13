@@ -68,9 +68,10 @@
 // Landing pages header
 .header-landing {
     display: block;
-    height: 3rem;
+    height: 64px;
     width: 100%;
     background-color: #212124;
+    background: rgba(0, 0, 0, 0.25);
 
     .circles-container {
         margin-left: 2.5px
@@ -81,7 +82,8 @@
         align-items: center;
         justify-content: space-between;
         margin: auto;
-        width: 80%;
+        max-width: none;
+        padding: 0 24px;
         height: 100%;
     }
 
