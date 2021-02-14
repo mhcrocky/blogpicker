@@ -1,5 +1,28 @@
+.user-show-page {
+    background-color: #f3f5f3;
+}
+
 .user-show-container {
     padding-top: 3rem;
     width: 80%;
     margin: auto;
+    
+    .user-header {
+        display: flex;
+        flex-direction: column;
+        margin-left: 4px;
+    }
+
+    .user-nav {
+        display: flex;
+
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .h1 {
+
+    }
 }
