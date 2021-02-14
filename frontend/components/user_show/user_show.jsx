@@ -15,16 +15,18 @@ class UserShow extends React.Component {
                 <HeaderContainer />
                 <div className="user-show-container">
                     <div className="user-header">
-                        <h1>
-                            Welcome to {this.props.user.username}'s Picktr Page
-                        </h1>
-                        <div className="user-nav">
-                            <Link to={`/users/${this.props.user.id}`}>
-                                Photo Stream
-                            </Link>
-                            <Link to={`/users/${this.props.user.id}/albums`}>
-                                Albums
-                            </Link>
+                        <div className="user-header-content">
+                            <h1>
+                                Welcome to {this.props.user.username}'s Picktr Page
+                            </h1>
+                            <div className="user-nav">
+                                <Link to={`/users/${this.props.user.id}`}>
+                                    Photo Stream
+                                </Link>
+                                <Link to={`/users/${this.props.user.id}/albums`}>
+                                    Albums
+                                </Link>
+                            </div>
                         </div>
                     </div>
                     <PhotoIndexContainer user={this.props.user} />
