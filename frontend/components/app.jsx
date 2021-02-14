@@ -6,6 +6,7 @@ import NoExistingPage from "./no_existing_page/no_existing_page";
 import PhotoFormContainer from "./photo_form/photo_form_container";
 import LoginFormContainer from "./session_form/login_form_container";
 import SignUpFormContainer from "./session_form/signup_form_container";
+import UserShowContainer from "./user_show/user_show_container";
 import WelcomeContainer from "./welcome/welcome_container";
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
                 <AuthRoute exact path='/signup' component={SignUpFormContainer} />
                 <ProtectedRoute path='/feed' component={Feed} />
                 <ProtectedRoute path='/photo/new' component={PhotoFormContainer} />
+                <ProtectedRoute path='/users/:id' component={UserShowContainer} />
                 <Route component={NoExistingPage} />
             </Switch>
         </div>
