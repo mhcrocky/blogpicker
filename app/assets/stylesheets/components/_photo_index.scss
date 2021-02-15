@@ -9,6 +9,7 @@
     flex-grow: 1;
     height: 40vh;
     margin: 2.5px;
+    position: relative;
 
     img {
         max-height: 100%;
@@ -21,10 +22,11 @@
     }
 
     .photo-details {
-        height: 100%;
         color: #fff;
         z-index: 2;
         position: absolute;
+        top: 35vh;
+        left: 7px;
         display: none;
     }
 }
@@ -33,7 +35,7 @@
 .photo-item-container:hover .photo-details {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    
 }
 
 .photo-item-container:hover img {
