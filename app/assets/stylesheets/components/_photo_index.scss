@@ -15,10 +15,31 @@
         min-width: 100%;
         object-fit: cover;
         vertical-align: bottom;
+        z-index: 1;
+        transition: filter 1s;
+        position: relative;
     }
 
     .photo-details {
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+        z-index: 2;
+        position: absolute;
         display: none;
     }
+}
+
+
+.photo-item-container:hover .photo-details {
+    display: flex;
+    align-content: space-between;
+}
+
+.photo-item-container:hover img {
+    filter: brightness(70%);
 }
 
