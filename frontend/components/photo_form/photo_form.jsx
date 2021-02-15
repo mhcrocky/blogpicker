@@ -7,7 +7,8 @@ class PhotoForm extends React.Component {
         this.state = {
             title: "",
             description: "",
-            photoFile: null
+            photoFile: null,
+            photoUrl: null
         }
         this.handleFile = this.handleFile.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,12 +16,19 @@ class PhotoForm extends React.Component {
 
     handleChange(body) {
         return (e) => (
-            this.setState({[body]: e.target.value})
+            this.setState({[body]: e.target.value});
         )
     }
 
     handleFile(e) {
-        this.setState({photoFile: e.currentTarget.files[0]})
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+
+            this.setState({photoFile: file, photoUrl: fileReader.result});
+        }
+
+        fileReader.readAsDataURL();
     }
 
     handleSubmit(e) {
@@ -29,7 +37,6 @@ class PhotoForm extends React.Component {
         photoForm.append('photo[title]', this.state.title);
         photoForm.append('photo[description]', this.state.description);
         photoForm.append('photo[picture]', this.state.photoFile);
-        // debugger
         this.props.createPhoto(photoForm)
             .then(() => (
                 this.props.history.push('/feed')
