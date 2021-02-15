@@ -20,7 +20,7 @@ const mapStateToProps = (state, ownProps) => {
     
     return {
         users: state.entities.users,
-        photos //arr of photo objects
+        photos: photos.reverse() //arr of photo objects
     }
 }
 

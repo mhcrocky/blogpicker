@@ -707,9 +707,17 @@ var PhotoForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this3 = this;
+
       e.preventDefault();
-      var formData = new FormData();
-      formData.append('photo[title]');
+      var photoForm = new FormData();
+      photoForm.append('photo[title]', this.state.title);
+      photoForm.append('photo[description]', this.state.description);
+      photoForm.append('photo[picture]', this.state.photoFile); // debugger
+
+      this.props.createPhoto(photoForm).then(function () {
+        return _this3.props.history.push('/feed');
+      });
     }
   }, {
     key: "render",
@@ -900,7 +908,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 
   return {
     users: state.entities.users,
-    photos: photos //arr of photo objects
+    photos: photos.reverse() //arr of photo objects
 
   };
 };
@@ -1858,9 +1866,9 @@ var createPhoto = function createPhoto(photo) {
   return $.ajax({
     url: '/api/photos',
     method: 'POST',
-    data: {
-      photo: photo
-    }
+    data: photo,
+    contentType: false,
+    processData: false
   });
 };
 var fetchAllPhotos = function fetchAllPhotos() {

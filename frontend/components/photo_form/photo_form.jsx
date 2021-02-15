@@ -25,8 +25,15 @@ class PhotoForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append('photo[title]')
+        const photoForm = new FormData();
+        photoForm.append('photo[title]', this.state.title);
+        photoForm.append('photo[description]', this.state.description);
+        photoForm.append('photo[picture]', this.state.photoFile);
+        // debugger
+        this.props.createPhoto(photoForm)
+            .then(() => (
+                this.props.history.push('/feed')
+            ))
     }
 
     render () {
