@@ -5,6 +5,7 @@ class PhotoShow extends React.Component {
 
     constructor(props) {
         super(props);
+        this.goBack = this.goBack.bind(this);
     }
 
     componentDidMount() {
@@ -14,6 +15,10 @@ class PhotoShow extends React.Component {
                 this.props.fetchUser(this.props.photo.userId)
             )
         
+    }
+
+    goBack() {
+        this.props.history.goBack();
     }
 
     componentDidUpdate(prevProps) {
@@ -50,7 +55,7 @@ class PhotoShow extends React.Component {
                 <HeaderContainer />
                 <div className="photo-show-body">
                     <div className="image-container">
-                        <i class="fas fa-arrow-left"></i>
+                        <i onClick={this.goBack} className="fas fa-arrow-left"></i>
                         <img src={src} alt={title}/>
                     </div>
                     <div className="photo-info-container">

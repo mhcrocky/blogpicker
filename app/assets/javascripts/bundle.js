@@ -1098,30 +1098,39 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(PhotoShow);
 
   function PhotoShow(props) {
+    var _this;
+
     _classCallCheck(this, PhotoShow);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.goBack = _this.goBack.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(PhotoShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this = this;
+      var _this2 = this;
 
       this.props.fetchPhoto().then(function () {
-        return _this.props.fetchUser(_this.props.photo.userId);
+        return _this2.props.fetchUser(_this2.props.photo.userId);
       });
+    }
+  }, {
+    key: "goBack",
+    value: function goBack() {
+      this.props.history.goBack();
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      var _this2 = this;
+      var _this3 = this;
 
       if (prevProps.match.params.id != this.props.match.params.id) {
         this.props.fetchPhoto().then(function () {
-          return _this2.props.fetchUser(_this2.props.photo.userId);
+          return _this3.props.fetchUser(_this3.props.photo.userId);
         }).fail(function () {
-          return _this2.props.history.push('/404');
+          return _this3.props.history.push('/404');
         });
       }
     }
@@ -1152,7 +1161,8 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "image-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-arrow-left"
+        onClick: this.goBack,
+        className: "fas fa-arrow-left"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: src,
         alt: title

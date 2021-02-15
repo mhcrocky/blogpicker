@@ -17,13 +17,15 @@
 
     i {
         color: #fff;
-        position: relative;
+        padding-top: 30px;
+        font-size: 25px;
+        cursor: pointer;
     }
 
     img {
-        padding-top: 50px;
+        padding-top: 15px;
         width: 813px;
-        height: 538px;
+        max-height: 100%;
         // left: 288px;
         top: 50px;
     }
@@ -59,7 +61,7 @@
 .photo-comments {
     background-color: #d7d7d7;
     color: black;
-    height: 300px;
+    min-height: 200px;
     padding-top: 15px;
     border-radius: 3px;
     margin-bottom: 20px;
