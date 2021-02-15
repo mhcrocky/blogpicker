@@ -4,6 +4,7 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import Feed from "./feed/feed";
 import NoExistingPage from "./no_existing_page/no_existing_page";
 import PhotoFormContainer from "./photo_form/photo_form_container";
+import PhotoShowContainer from "./photo_show/photo_show_container";
 import LoginFormContainer from "./session_form/login_form_container";
 import SignUpFormContainer from "./session_form/signup_form_container";
 import UserShowContainer from "./user_show/user_show_container";
@@ -20,6 +21,7 @@ const App = () => {
                 <ProtectedRoute exact path='/photo/new' component={PhotoFormContainer} />
                 <ProtectedRoute exact path='/users/:id' component={UserShowContainer} />
                 <ProtectedRoute exact path='/users/:id/albums' component={UserShowContainer} />
+                <ProtectedRoute exact path='/photos/:id' component={PhotoShowContainer} />
                 <Route component={NoExistingPage} />
             </Switch>
         </div>
