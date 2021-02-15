@@ -31,13 +31,19 @@ class PhotoShow extends React.Component {
                     </div>
                     <div className="photo-info-container">
                         <div className="photo-info-content">
-                            <h1>{title}</h1>
-                            <div>A photo by {username}</div>
-                            <div className="photo-description">
-                                <label>Description</label>
-                                <div>{description}</div>
-
+                            <div className="photo-title-desc-delete">
+                                <div>
+                                    <div className="photo-title-desc"></div>
+                                    <h1>{title}</h1>
+                                    <div>A photo by {username}</div>
+                                    <div className="photo-description">
+                                        <label>Description</label>
+                                        <div>{description}</div>
+                                    </div>
+                                </div>
+                                <button>delete</button>
                             </div>
+                            <div className="photo-comments">Comments will go here...</div>
                         </div>
                     </div>
                 </div>

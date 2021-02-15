@@ -25,7 +25,6 @@
 
 .photo-info-container {
     height: 100%;
-    border: 1px solid black;
     background: #f3f5f6;
 }
 
@@ -40,8 +39,22 @@
         padding-bottom: 2px;
         font-size: 32px;
     }
+}
 
-    div:first-child {
-        padding-bottom: 10px;
-    }
+.photo-title-desc-delete {
+    display: flex;
+    justify-content: space-between;
+}
+
+.photo-description {
+    padding-top: 10px;
+}
+
+.photo-comments {
+    background-color: #d7d7d7;
+    color: black;
+    height: 300px;
+    padding-top: 15px;
+    border-radius: 3px;
+    margin-bottom: 20px;
 }
