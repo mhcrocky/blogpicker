@@ -19,6 +19,7 @@ const App = () => {
                 <ProtectedRoute exact path='/feed' component={Feed} />
                 <ProtectedRoute exact path='/photo/new' component={PhotoFormContainer} />
                 <ProtectedRoute exact path='/users/:id' component={UserShowContainer} />
+                <ProtectedRoute exact path='/users/:id/albums' component={UserShowContainer} />
                 <Route component={NoExistingPage} />
             </Switch>
         </div>

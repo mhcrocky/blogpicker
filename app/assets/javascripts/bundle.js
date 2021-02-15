@@ -357,6 +357,10 @@ var App = function App() {
     exact: true,
     path: "/users/:id",
     component: _user_show_user_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
+    exact: true,
+    path: "/users/:id/albums",
+    component: _user_show_user_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     component: _no_existing_page_no_existing_page__WEBPACK_IMPORTED_MODULE_4__["default"]
   })));
@@ -1321,6 +1325,23 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var path = this.props.match.path;
+      var content;
+      var photoStream;
+      var albums;
+
+      if (path === "/users/:id/albums") {
+        content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Albums Index Goes here");
+        albums = "selected";
+        photoStream = "";
+      } else {
+        content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          user: this.props.user
+        });
+        albums = "";
+        photoStream = "selected";
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-show-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1332,12 +1353,12 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to ", this.props.user.username, "'s Picktr Page"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-nav"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+        className: photoStream,
         to: "/users/".concat(this.props.user.id)
       }, "Photo Stream"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+        className: albums,
         to: "/users/".concat(this.props.user.id, "/albums")
-      }, "Albums")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        user: this.props.user
-      })));
+      }, "Albums")))), content));
     }
   }]);
 

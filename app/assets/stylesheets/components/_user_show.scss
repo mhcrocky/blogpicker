@@ -11,7 +11,8 @@
         flex-direction: column;
         background-color: white;
         box-shadow: inset 0 -2px transparent;
-    border-bottom: 1px solid hsla(0,0%,54%,.3);
+
+        margin-bottom: 10px;
     }
 
     .user-header-content {
@@ -29,12 +30,26 @@
 
 
         a {
-            padding: 12px 20px; 
+            padding: 12px 20px;
+            padding-bottom: 5px; 
             height: 25px;
             text-decoration: none;
             font-size: 12pt;
             color: #212124;
-            border: 1px solid black;
+        }
+
+        a:hover {
+            background-color: #f3f5f3;
+            color: #006dac;
+            border-bottom: 3px solid #0091dc;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .selected {
+            background-color: #f3f5f3;
+            color: #006dac;
+            border-bottom: 3px solid #0091dc;
+            border-radius: 15px 15px 0 0;
         }
     }
 
