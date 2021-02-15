@@ -22,20 +22,22 @@
     }
 
     .photo-details {
+        display: flex;
+        flex-direction: column;
         color: #fff;
         z-index: 2;
         position: absolute;
         top: 35vh;
         left: 7px;
-        display: none;
+        transition: opacity 1s;
+        opacity: 0%;
+
     }
 }
 
 
 .photo-item-container:hover .photo-details {
-    display: flex;
-    flex-direction: column;
-    
+    opacity: 100%;
 }
 
 .photo-item-container:hover img {
