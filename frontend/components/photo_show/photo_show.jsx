@@ -21,6 +21,10 @@ class PhotoShow extends React.Component {
         const title = photo ? photo.title : "";
         const description = photo ? photo.description : "";
         const username = photo ? this.props.user[photo.userId].username : "";
+        let deleteButton = <div></div>;
+        if (photo && this.props.currentUserId === photo.userId) {
+            deleteButton = <button className="delete-photo">Delete Photo</button>
+        }
 
         return (
             <div className="photo-show-page">
@@ -41,7 +45,7 @@ class PhotoShow extends React.Component {
                                         <div>{description}</div>
                                     </div>
                                 </div>
-                                <button>delete</button>
+                                {deleteButton}
                             </div>
                             <div className="photo-comments">Comments will go here...</div>
                         </div>
