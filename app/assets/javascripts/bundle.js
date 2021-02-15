@@ -755,7 +755,7 @@ var PhotoForm = /*#__PURE__*/function (_React$Component) {
         }, error);
       });
       var preview = this.state.photoUrl ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: this.state.photoURL
+        src: this.state.photoUrl
       }) : null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-form-page"

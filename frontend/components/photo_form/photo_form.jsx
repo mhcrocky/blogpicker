@@ -53,7 +53,7 @@ class PhotoForm extends React.Component {
         });
 
         const preview = this.state.photoUrl ?
-            <img src={this.state.photoURL} /> : null;
+            <img src={this.state.photoUrl} /> : null;
 
         return (
             <div className="photo-form-page">
