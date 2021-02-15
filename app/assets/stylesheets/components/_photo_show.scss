@@ -59,7 +59,8 @@
     margin-bottom: 20px;
 }
 
-.delete-photo {
+.delete-update-photo button{
+    font-weight: 600;
     color: #fff;
     background-color: #128fdc;
     padding-left: 20px;
@@ -72,5 +73,9 @@
 }
 
 .delete-photo:hover {
-    color: red;
+    color: rgb(247, 85, 85);
+}
+
+.update-photo:hover {
+    color: #d7d7d7;
 }
