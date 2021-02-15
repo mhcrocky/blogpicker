@@ -21,6 +21,10 @@
         margin-left: 20px;
     }
 
+    .username-nav a:hover {
+        color: #d7d7d7;
+    }
+
     .icon-logout-container {
         display: flex;
         justify-content: space-between;
@@ -31,6 +35,10 @@
             font-size: 28px;
         }
 
+        i:hover {
+            color: #d7d7d7
+        }
+
         button {
             margin: 10px;
             border: 2px solid #fff;
@@ -39,6 +47,10 @@
             background-color: #212124;
             text-decoration: none;
             margin-left: 20px;
+        }
+
+        button:hover {
+            color: #d7d7d7;
         }
     }
 
@@ -55,6 +67,10 @@
             font-weight: 700;
             font-size: 28px;
             padding-left: 6px;
+        }
+
+        h1:hover {
+            color: #d7d7d7;
         }
     }
 }
@@ -92,6 +108,10 @@
             font-weight: 700;
             font-size: 28px;
             padding-left: 6px;
+        }
+
+        h1:hover {
+            color: #d7d7d7;
         }
     }
 

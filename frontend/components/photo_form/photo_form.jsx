@@ -10,6 +10,7 @@ class PhotoForm extends React.Component {
             photoFile: null
         }
         this.handleFile = this.handleFile.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(body) {
@@ -22,11 +23,17 @@ class PhotoForm extends React.Component {
         this.setState({photoFile: e.currentTarget.files[0]})
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('photo[title]')
+    }
+
     render () {
         return (
             <div className="photo-form-page">
                 <HeaderContainer />
-                <div className="photo-form-container">
+                <div onSubmit={this.handleSubmit} className="photo-form-container">
                     <label className="form-label">Upload a Photo!</label>
                     <form>
                         <input type="file" onChange={this.handleFile}/>
@@ -42,6 +49,7 @@ class PhotoForm extends React.Component {
                                 value={this.state.description}>
                             </textarea>
                         </div>
+                        <button>Upload Photo</button>
                     </form>
                 </div>
             </div>
