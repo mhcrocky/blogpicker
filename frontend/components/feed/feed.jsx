@@ -9,7 +9,7 @@ class Feed extends React.Component {
             <div className="feed-page">
                 <HeaderContainer />
                 <div className="feed-body">
-                    <h1>PhotoIndex Goes Here!</h1>
+                    <h1>Picktr Feed</h1>
                     <PhotoIndexContainer />
                 </div>
             </div>

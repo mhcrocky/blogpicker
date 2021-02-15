@@ -78,9 +78,11 @@
     border-radius: 0.25rem;
     padding: 8px;
     margin-top: 8px;
-    cursor: pointer;
 }
 
+.session-button:hover {
+    color: ##d7d7d7;
+}
 // circle logos
 .circles-container {
     height: 1.5rem;

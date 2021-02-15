@@ -111,6 +111,10 @@
             color: #fff;
         }
 
+        a:first-child:hover {
+            color: #d7d7d7;
+        }
+
         a:last-child {
         color: #000;
         background-color: #fff;
@@ -120,6 +124,10 @@
         border-radius: 3px;
         height: 32px;
         margin-left: 23px;
-    }
+        }
+
+        a:last-child:hover {
+            background-color: #d7d7d7;
+        }
     }
 }
