@@ -90,7 +90,7 @@
 /*!*******************************************!*\
   !*** ./frontend/actions/photo_actions.js ***!
   \*******************************************/
-/*! exports provided: RECEIVE_ALL_PHOTOS, RECEIVE_PHOTO, DELETE_PHOTO, createPhoto, fetchAllPhotos, fetchPhoto, updatePhoto, deletePhoto */
+/*! exports provided: RECEIVE_ALL_PHOTOS, RECEIVE_PHOTO, DELETE_PHOTO, PHOTO_ERRORS, createPhoto, fetchAllPhotos, fetchPhoto, updatePhoto, deletePhoto */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98,6 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_PHOTOS", function() { return RECEIVE_ALL_PHOTOS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_PHOTO", function() { return RECEIVE_PHOTO; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_PHOTO", function() { return DELETE_PHOTO; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PHOTO_ERRORS", function() { return PHOTO_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPhoto", function() { return createPhoto; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllPhotos", function() { return fetchAllPhotos; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPhoto", function() { return fetchPhoto; });
@@ -107,7 +108,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS';
 var RECEIVE_PHOTO = 'RECEIVE_PHOTO';
-var DELETE_PHOTO = 'DELETE_PHOTO'; //regular actions
+var DELETE_PHOTO = 'DELETE_PHOTO';
+var PHOTO_ERRORS = 'PHOTO_ERRORS'; //regular actions
 
 var receiveAllPhotos = function receiveAllPhotos(photos) {
   return {
@@ -128,6 +130,13 @@ var removePhoto = function removePhoto(photoId) {
     type: DELETE_PHOTO,
     photoId: photoId
   };
+};
+
+var photoErrors = function photoErrors(errors) {
+  return {
+    type: PHOTO_ERRORS,
+    errors: errors
+  };
 }; //thunks
 
 
@@ -135,6 +144,8 @@ var createPhoto = function createPhoto(photo) {
   return function (dispatch) {
     return _util_photo_api_util__WEBPACK_IMPORTED_MODULE_0__["createPhoto"](photo).then(function (photo) {
       dispatch(receivePhoto(photo));
+    }).fail(function (errors) {
+      return dispatch(photoErrors(errors));
     });
   };
 };
@@ -1624,13 +1635,42 @@ var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
+/* harmony import */ var _photos_error_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./photos_error_reducer */ "./frontend/reducers/photos_error_reducer.js");
+/* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
+
 
 
 var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  photo: _photos_error_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/photos_error_reducer.js":
+/*!***************************************************!*\
+  !*** ./frontend/reducers/photos_error_reducer.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var photoErrorsReducer = function photoErrorsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case RECEIVE_ERRORS:
+      return action.errors.responseJSON;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (photoErrorsReducer);
 
 /***/ }),
 

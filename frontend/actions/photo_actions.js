@@ -3,6 +3,7 @@ import * as APIUtil from '../util/photo_api_util';
 export const RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS';
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 export const DELETE_PHOTO = 'DELETE_PHOTO';
+export const PHOTO_ERRORS = 'PHOTO_ERRORS';
 
 //regular actions
 
@@ -27,6 +28,13 @@ const removePhoto = (photoId) => {
     }
 }
 
+const photoErrors = (errors) => {
+    return {
+        type: PHOTO_ERRORS,
+        errors
+    }
+}
+
 //thunks
 
 export const createPhoto = (photo) => (dispatch) => { 
@@ -34,6 +42,7 @@ export const createPhoto = (photo) => (dispatch) => {
         .then(photo => {
             dispatch(receivePhoto(photo));
         })
+        .fail((errors) => dispatch(photoErrors(errors)))
 }
 
 export const fetchAllPhotos = () => (dispatch) => {
