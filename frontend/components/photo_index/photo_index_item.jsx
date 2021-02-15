@@ -15,14 +15,12 @@ class PhotoIndexItem extends React.Component {
         return (
             <li className="photo-item-container">
                 <div className="photo-details">
-                    <div>
-                        <Link to={`/photos/${photo.id}`}>{photo.title}</Link>
-                    </div>
-                    <div>
-                        <Link to={`/users/${photo.userId}`}>{username}</Link>
-                    </div>
+                    <div>{photo.title}</div>
+                    <div>by {username}</div>
                 </div>
-                <img src={photo.photoUrl} alt={`${username}'s photo`}/>
+                <Link to={`/photos/${photo.id}`}>
+                    <img src={photo.photoUrl} alt={`${username}'s photo`}/>
+                </Link>
             </li>
 
         )
