@@ -1,12 +1,12 @@
-
+.photo-show-page {
+    background-color: #212124;
+    height: 100%;
+}
 
 .photo-show-body {
-    height: 100%;
     display: flex;
     flex-direction: column;
-    padding-top: 3rem;
-    background-color: #212124;
-    opacity: 1;
+    height: 100%
 }
 
 .image-container {
@@ -15,9 +15,33 @@
     
 
     img {
+        padding-top: 50px;
         width: 813px;
         height: 538px;
         left: 288px;
         top: 50px;
+    }
+}
+
+.photo-info-container {
+    height: 100%;
+    border: 1px solid black;
+    background: #f3f5f6;
+}
+
+.photo-info-content {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    padding-top: 10px;
+
+    h1 {
+        padding-bottom: 2px;
+        font-size: 32px;
+    }
+
+    div:first-child {
+        padding-bottom: 10px;
     }
 }
