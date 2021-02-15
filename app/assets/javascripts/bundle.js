@@ -1113,6 +1113,19 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      var _this2 = this;
+
+      if (prevProps.match.params.id != this.props.match.params.id) {
+        this.props.fetchPhoto().then(function () {
+          return _this2.props.fetchUser(_this2.props.photo.userId);
+        }).fail(function () {
+          return _this2.props.history.push('/404');
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var photo = this.props.photo;
@@ -1138,7 +1151,9 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
         className: "photo-show-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "image-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-arrow-left"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: src,
         alt: title
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

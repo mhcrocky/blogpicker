@@ -8,11 +8,24 @@ class PhotoShow extends React.Component {
     }
 
     componentDidMount() {
+        
         this.props.fetchPhoto()
             .then(() => 
                 this.props.fetchUser(this.props.photo.userId)
             )
         
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.id != this.props.match.params.id) {
+            this.props.fetchPhoto()
+                .then(() =>
+                    this.props.fetchUser(this.props.photo.userId)
+                )
+                .fail(() => (
+                    this.props.history.push('/404')
+                ))
+        }
     }
 
     render() {
@@ -21,6 +34,7 @@ class PhotoShow extends React.Component {
         const title = photo ? photo.title : "";
         const description = photo ? photo.description : "";
         const username = photo ? this.props.user[photo.userId].username : "";
+        
         let buttons = <div></div>;
         if (photo && this.props.currentUserId === photo.userId) {
             buttons = <div className="delete-update-photo">
@@ -29,11 +43,14 @@ class PhotoShow extends React.Component {
             </div>
         }
 
+
+
         return (
             <div className="photo-show-page">
                 <HeaderContainer />
                 <div className="photo-show-body">
                     <div className="image-container">
+                        <i class="fas fa-arrow-left"></i>
                         <img src={src} alt={title}/>
                     </div>
                     <div className="photo-info-container">

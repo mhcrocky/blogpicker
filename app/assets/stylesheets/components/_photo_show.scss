@@ -12,13 +12,19 @@
 .image-container {
     padding: 50px 0;
     margin: auto;
-    
+    display: flex;
+    flex-direction: column;
+
+    i {
+        color: #fff;
+        position: relative;
+    }
 
     img {
         padding-top: 50px;
         width: 813px;
         height: 538px;
-        left: 288px;
+        // left: 288px;
         top: 50px;
     }
 }
