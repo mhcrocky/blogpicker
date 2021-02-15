@@ -24,11 +24,11 @@ class PhotoForm extends React.Component {
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
-
             this.setState({photoFile: file, photoUrl: fileReader.result});
         }
-
-        fileReader.readAsDataURL();
+        if (file) {
+            fileReader.readAsDataURL(file); //Allows us to save a URL and render preview
+        }
     }
 
     handleSubmit(e) {
@@ -48,8 +48,10 @@ class PhotoForm extends React.Component {
             return (
                 <li key={idx}>{error}</li>
             )
-        })
+        });
 
+        const preview = this.state.photoUrl ?
+            <img src={this.state.photoURL} /> : null;
 
         return (
             <div className="photo-form-page">
@@ -58,6 +60,8 @@ class PhotoForm extends React.Component {
                     <label className="form-label">Upload a Photo!</label>
                     <form onSubmit={this.handleSubmit} >
                         <input type="file" onChange={this.handleFile}/>
+                        <h3>Preview</h3>
+                        {preview}
                         <div>
                             <label>Title:</label>
                             <input onChange={this.handleChange('title')}
