@@ -16,7 +16,7 @@ class PhotoForm extends React.Component {
 
     handleChange(body) {
         return (e) => (
-            this.setState({[body]: e.target.value});
+            this.setState({[body]: e.target.value})
         )
     }
 
@@ -36,7 +36,9 @@ class PhotoForm extends React.Component {
         const photoForm = new FormData();
         photoForm.append('photo[title]', this.state.title);
         photoForm.append('photo[description]', this.state.description);
-        photoForm.append('photo[picture]', this.state.photoFile);
+        if (this.state.photoFile) {
+            photoForm.append('photo[picture]', this.state.photoFile);
+        }
         this.props.createPhoto(photoForm)
             .then(() => (
                 this.props.history.push('/feed')

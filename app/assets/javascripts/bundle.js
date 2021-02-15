@@ -692,7 +692,8 @@ var PhotoForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       title: "",
       description: "",
-      photoFile: null
+      photoFile: null,
+      photoUrl: null
     };
     _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -711,23 +712,38 @@ var PhotoForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleFile",
     value: function handleFile(e) {
-      this.setState({
-        photoFile: e.currentTarget.files[0]
-      });
+      var _this3 = this;
+
+      var file = e.currentTarget.files[0];
+      var fileReader = new FileReader();
+
+      fileReader.onloadend = function () {
+        _this3.setState({
+          photoFile: file,
+          photoUrl: fileReader.result
+        });
+      };
+
+      if (file) {
+        fileReader.readAsDataURL(file); //Allows us to save a URL and render preview
+      }
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this3 = this;
+      var _this4 = this;
 
       e.preventDefault();
       var photoForm = new FormData();
       photoForm.append('photo[title]', this.state.title);
       photoForm.append('photo[description]', this.state.description);
-      photoForm.append('photo[picture]', this.state.photoFile); // debugger
+
+      if (this.state.photoFile) {
+        photoForm.append('photo[picture]', this.state.photoFile);
+      }
 
       this.props.createPhoto(photoForm).then(function () {
-        return _this3.props.history.push('/feed');
+        return _this4.props.history.push('/feed');
       });
     }
   }, {
@@ -738,6 +754,9 @@ var PhotoForm = /*#__PURE__*/function (_React$Component) {
           key: idx
         }, error);
       });
+      var preview = this.state.photoUrl ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: this.state.photoURL
+      }) : null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-form-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -749,7 +768,7 @@ var PhotoForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         onChange: this.handleFile
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Title:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Preview"), preview, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Title:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChange('title'),
         type: "text",
         value: this.state.title
@@ -1679,6 +1698,9 @@ var photoErrorsReducer = function photoErrorsReducer() {
   switch (action.type) {
     case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_0__["PHOTO_ERRORS"]:
       return action.errors.responseJSON;
+
+    case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_PHOTO"]:
+      return [];
 
     default:
       return state;
