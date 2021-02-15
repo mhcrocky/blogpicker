@@ -37,12 +37,19 @@ class PhotoForm extends React.Component {
     }
 
     render () {
+        const errors = this.props.errors.map((error, idx) => {
+            return (
+                <li key={idx}>{error}</li>
+            )
+        })
+
+
         return (
             <div className="photo-form-page">
                 <HeaderContainer />
-                <div onSubmit={this.handleSubmit} className="photo-form-container">
+                <div className="photo-form-container">
                     <label className="form-label">Upload a Photo!</label>
-                    <form>
+                    <form onSubmit={this.handleSubmit} >
                         <input type="file" onChange={this.handleFile}/>
                         <div>
                             <label>Title:</label>
@@ -58,6 +65,9 @@ class PhotoForm extends React.Component {
                         </div>
                         <button>Upload Photo</button>
                     </form>
+                    <ul>
+                        {errors}
+                    </ul>
                 </div>
             </div>
         )
