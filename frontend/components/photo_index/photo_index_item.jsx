@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 class PhotoIndexItem extends React.Component {
 
@@ -15,8 +15,8 @@ class PhotoIndexItem extends React.Component {
         return (
             <li className="photo-item-container">
                 <div className="photo-details">
-                    <div>{photo.title}</div>
-                    <div>{username}</div>
+                    <Link>{photo.title}</Link>
+                    <Link to={`/users/${photo.userId}`}>{username}</Link>
                 </div>
                 <img src={photo.photoUrl} alt={`${username}'s photo`}/>
             </li>
