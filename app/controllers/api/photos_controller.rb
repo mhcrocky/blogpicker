@@ -12,7 +12,7 @@ class Api::PhotosController < ApplicationController
     def update
         @photo = Photo.find_by(id: params[:id])
         if @photo.update(photo_params)
-            render :show
+            render json: {message: "Success"}
         else
             render json: @photo.errors.full_messages, status: 422
         end

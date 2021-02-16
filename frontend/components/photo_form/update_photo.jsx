@@ -10,6 +10,7 @@ class UpdatePhoto extends React.Component {
             description: '',
             photoUrl: ''
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -28,6 +29,17 @@ class UpdatePhoto extends React.Component {
         )
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        const updated = {title: this.state.title,
+                        description: this.state.description,
+                        id: this.props.match.params.id}
+        this.props.updatePhoto(updated)
+            .then(() => (
+                this.props.history.push(`/photos/${this.props.match.params.id}`)
+            ))
+    }
+
     render() {
 
         return (
@@ -35,16 +47,18 @@ class UpdatePhoto extends React.Component {
                 <HeaderContainer />
                 <div className="photo-form-container">
                     <label className="form-label">Update Photo Info</label>
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                         <div className="photo-form-input">
                             <div>
                                 <input
+                                    placeholder="Title"
                                     onChange={this.handleChange('title')}
                                     type="text"
                                     value={this.state.title} />
                             </div>
                             <div>
                                 <textarea
+                                    placeholder="Description"
                                     onChange={this.handleChange('description')}
                                     value={this.state.description}>
                                 </textarea>
