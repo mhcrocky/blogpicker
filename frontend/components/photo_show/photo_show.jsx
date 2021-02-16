@@ -35,7 +35,7 @@ class PhotoShow extends React.Component {
         e.preventDefault();
         this.props.deletePhoto(this.props.match.params.id)
             .then(() => (
-                this.props.history.goBack()
+                this.props.history.push('/feed')
             ))
     }
 

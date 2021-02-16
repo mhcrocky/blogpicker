@@ -73,12 +73,12 @@ class UpdatePhoto extends React.Component {
                         </div>
                         <button className="upload-button">Update</button>
                     </form>
-                    <h1>Photo:</h1>
-                    <img src={this.state.photoUrl}
-                        alt={this.state.title} className='preview-img'/>
                     <ul>
                         {errors}
                     </ul>
+                    <h1>Photo:</h1>
+                    <img src={this.state.photoUrl}
+                        alt={this.state.title} className='preview-img'/>
                 </div>
             </div>
         )

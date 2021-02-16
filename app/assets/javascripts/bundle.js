@@ -810,7 +810,7 @@ var PhotoForm = /*#__PURE__*/function (_React$Component) {
         htmlFor: "file-input"
       }, "Choose File"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "upload-button"
-      }, "Upload Photo")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Preview"), preview, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors)));
+      }, "Upload Photo")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Preview"), preview));
     }
   }]);
 
@@ -988,11 +988,11 @@ var UpdatePhoto = /*#__PURE__*/function (_React$Component) {
         value: this.state.description
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "upload-button"
-      }, "Update")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Photo:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, "Update")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Photo:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.photoUrl,
         alt: this.state.title,
         className: "preview-img"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors)));
+      })));
     }
   }]);
 
@@ -1350,7 +1350,7 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
 
       e.preventDefault();
       this.props.deletePhoto(this.props.match.params.id).then(function () {
-        return _this4.props.history.goBack();
+        return _this4.props.history.push('/feed');
       });
     }
   }, {
