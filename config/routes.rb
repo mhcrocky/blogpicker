@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show, :index]
     resource :session, only: [:create, :destroy]
     resources :photos, except: [:new, :edit]
+    resources :albums, only: [:create, :destroy, :show, :index]
   end
 end
