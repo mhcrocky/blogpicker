@@ -10,19 +10,24 @@ class UserShow extends React.Component {
     }
 
     render() {
+        const user = this.props.user;
         const path = this.props.match.path;
         let content;
         let photoStream;
         let albums;
+
         if (path === "/users/:id/albums") {
             content = <div>Albums Index Goes here</div>;
             albums = "selected";
             photoStream = "";
         } else {
-            content = <PhotoIndexContainer user={this.props.user} />;
+            content = <PhotoIndexContainer user={user} />;
             albums = "";
             photoStream = "selected";
         }
+
+        const username = user ? user.username : "";
+        const userId = user ? user.id : "";
 
         return(
             <div className="user-show-page">
@@ -31,15 +36,15 @@ class UserShow extends React.Component {
                     <div className="user-header">
                         <div className="user-header-content">
                             <h1>
-                                Welcome to {this.props.user.username}'s Picktr Page
+                                Welcome to {username}'s Picktr Page
                             </h1>
                             <div className="user-nav">
                                 <Link className={photoStream}
-                                to={`/users/${this.props.user.id}`}>
+                                to={`/users/${userId}`}>
                                     Photo Stream
                                 </Link>
                                 <Link className={albums}
-                                to={`/users/${this.props.user.id}/albums`}>
+                                to={`/users/${userId}/albums`}>
                                     Albums
                                 </Link>
                             </div>

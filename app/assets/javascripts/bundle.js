@@ -1067,6 +1067,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _header_header_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../header/header_container */ "./frontend/components/header/header_container.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1092,6 +1093,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var PhotoShow = /*#__PURE__*/function (_React$Component) {
   _inherits(PhotoShow, _React$Component);
 
@@ -1104,6 +1106,7 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.goBack = _this.goBack.bind(_assertThisInitialized(_this));
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1115,11 +1118,6 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
       this.props.fetchPhoto().then(function () {
         return _this2.props.fetchUser(_this2.props.photo.userId);
       });
-    }
-  }, {
-    key: "goBack",
-    value: function goBack() {
-      this.props.history.goBack();
     }
   }, {
     key: "componentDidUpdate",
@@ -1135,19 +1133,36 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "handleDelete",
+    value: function handleDelete(e) {
+      var _this4 = this;
+
+      e.preventDefault();
+      this.props.deletePhoto(this.props.match.params.id).then(function () {
+        return _this4.props.history.goBack();
+      });
+    }
+  }, {
+    key: "goBack",
+    value: function goBack() {
+      this.props.history.goBack();
+    }
+  }, {
     key: "render",
     value: function render() {
       var photo = this.props.photo;
       var src = photo ? photo.photoUrl : "";
       var title = photo ? photo.title : "";
       var description = photo ? photo.description : "";
-      var username = photo ? this.props.user[photo.userId].username : "";
+      var userId = photo ? photo.userId : "";
+      var username = photo ? this.props.user[userId].username : "";
       var buttons = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
 
-      if (photo && this.props.currentUserId === photo.userId) {
+      if (photo && this.props.currentUserId === userId) {
         buttons = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "delete-update-photo"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.handleDelete,
           className: "delete-photo"
         }, "Delete Photo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "update-photo"
@@ -1174,7 +1189,9 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
         className: "photo-title-desc-delete"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-title-desc"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "A photo by ", username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "A photo by", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: "/users/".concat(userId)
+      }, " ", username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-description"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, description))), buttons), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-comments"
@@ -1575,6 +1592,7 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var user = this.props.user;
       var path = this.props.match.path;
       var content;
       var photoStream;
@@ -1586,12 +1604,14 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
         photoStream = "";
       } else {
         content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          user: this.props.user
+          user: user
         });
         albums = "";
         photoStream = "selected";
       }
 
+      var username = user ? user.username : "";
+      var userId = user ? user.id : "";
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-show-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1600,14 +1620,14 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
         className: "user-header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-header-content"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to ", this.props.user.username, "'s Picktr Page"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to ", username, "'s Picktr Page"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-nav"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         className: photoStream,
-        to: "/users/".concat(this.props.user.id)
+        to: "/users/".concat(userId)
       }, "Photo Stream"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         className: albums,
-        to: "/users/".concat(this.props.user.id, "/albums")
+        to: "/users/".concat(userId, "/albums")
       }, "Albums")))), content));
     }
   }]);
