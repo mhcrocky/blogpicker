@@ -1,3 +1,18 @@
+.photo-form-page {
+    height: 100%;
+    background-color: #212124;
+}
+
 .photo-form-container{
-    padding-top: 4rem;
+    padding-top: 200px;
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+
+    label {
+        font-size: 32px;
+        padding-bottom: 15px;
+    }
 }

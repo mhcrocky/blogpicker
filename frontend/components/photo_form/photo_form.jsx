@@ -61,22 +61,21 @@ class PhotoForm extends React.Component {
                 <div className="photo-form-container">
                     <label className="form-label">Upload a Photo!</label>
                     <form onSubmit={this.handleSubmit} >
-                        <input type="file" onChange={this.handleFile}/>
-                        <h3>Preview</h3>
-                        {preview}
                         <div>
-                            <label>Title:</label>
-                            <input onChange={this.handleChange('title')}
+                            <input placeholder="Title" onChange={this.handleChange('title')}
                                 type="text" value={this.state.title}/>
                         </div>
                         <div>
-                            <label>Description:</label>
                             <textarea
+                                placeholder="Description"
                                 onChange={this.handleChange('description')}
                                 value={this.state.description}>
                             </textarea>
                         </div>
+                        <input type="file" onChange={this.handleFile}/>
                         <button>Upload Photo</button>
+                        <h1>Preview</h1>
+                        {preview}
                     </form>
                     <ul>
                         {errors}
