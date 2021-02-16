@@ -5,14 +5,52 @@
 
 .photo-form-container{
     padding-top: 200px;
-    width: 60%;
     margin: auto;
     display: flex;
     flex-direction: column;
     color: #fff;
+    width: 400px;
 
     label {
         font-size: 32px;
         padding-bottom: 15px;
     }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+}
+
+.photo-form-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    div {
+        padding-bottom: 10px;
+        width: 100%;
+
+        input {
+            height: 25px;
+        }
+
+        textarea {
+            height: 40px;
+        }
+
+        * {
+            font-family: inherit;
+            font-size: inherit;
+            border-radius: 0.25rem;
+            width: 100%;
+            border: none;
+            outline: none;
+        }
+    }
+}
+
+#file-input {
+    display: none;
 }

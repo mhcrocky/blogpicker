@@ -61,22 +61,31 @@ class PhotoForm extends React.Component {
                 <div className="photo-form-container">
                     <label className="form-label">Upload a Photo!</label>
                     <form onSubmit={this.handleSubmit} >
-                        <div>
-                            <input placeholder="Title" onChange={this.handleChange('title')}
-                                type="text" value={this.state.title}/>
+                        <div className="photo-form-input">
+                            <div>
+                                <input placeholder="Title"
+                                onChange={this.handleChange('title')}
+                                type="text"
+                                value={this.state.title}/>
+                            </div>
+                            <div>
+                                <textarea
+                                    placeholder="Description"
+                                    onChange={this.handleChange('description')}
+                                    value={this.state.description}>
+                                </textarea>
+                            </div>
                         </div>
-                        <div>
-                            <textarea
-                                placeholder="Description"
-                                onChange={this.handleChange('description')}
-                                value={this.state.description}>
-                            </textarea>
-                        </div>
-                        <input type="file" onChange={this.handleFile}/>
+                        <input
+                        name="file-input"
+                        id="file-input"
+                        type="file"
+                        onChange={this.handleFile}/>
+                        <label for="file-input">Choose File</label>
                         <button>Upload Photo</button>
-                        <h1>Preview</h1>
-                        {preview}
                     </form>
+                    <h1>Preview</h1>
+                    {preview}
                     <ul>
                         {errors}
                     </ul>
