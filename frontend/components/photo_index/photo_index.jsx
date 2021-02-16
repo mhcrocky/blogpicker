@@ -9,14 +9,16 @@ class PhotoIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchAllPhotos()
+        Promise.all([this.props.fetchAllUsers(), this.props.fetchAllPhotos()])
             .then(() => (
                 this.setState({ loading: false })
             ));
     }
 
     render() {
-        const photos = this.props.photos.map((photo) => {
+
+
+        const photos = this.props.photos.map((photo) => { //this.props.users[photo.userId]
             return (
                 <PhotoIndexItem
                     key={photo.id}

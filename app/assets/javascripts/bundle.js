@@ -1087,7 +1087,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      this.props.fetchAllPhotos().then(function () {
+      Promise.all([this.props.fetchAllUsers(), this.props.fetchAllPhotos()]).then(function () {
         return _this2.setState({
           loading: false
         });
@@ -1099,6 +1099,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       var photos = this.props.photos.map(function (photo) {
+        //this.props.users[photo.userId]
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: photo.id,
           photo: photo,
@@ -1164,6 +1165,9 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
+    fetchAllUsers: function fetchAllUsers() {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_3__["fetchAllUsers"])());
+    },
     fetchAllPhotos: function fetchAllPhotos() {
       return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["fetchAllPhotos"])());
     },
@@ -1359,15 +1363,16 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var photo = this.props.photo;
-      var src = photo ? photo.photoUrl : "";
-      var title = photo ? photo.title : "";
-      var description = photo ? photo.description : "";
-      var userId = photo ? photo.userId : "";
-      var username = photo ? this.props.user[userId].username : "";
+      if (!this.props.photo || !this.props.user) return null;
+      var photo = this.props.photo; // const src = photo ? photo.photoUrl : "";
+      // const title = photo ? photo.title : "";
+      // const description = photo ? photo.description : "";
+      // const userId = photo ? photo.userId : "";
+      // const username = photo ? this.props.user[userId].username : "";
+
       var buttons = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
 
-      if (photo && this.props.currentUserId === userId) {
+      if (this.props.currentUserId === photo.userId) {
         buttons = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "delete-update-photo"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1389,8 +1394,8 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
         onClick: this.goBack,
         className: "fas fa-arrow-left"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: src,
-        alt: title
+        src: photo.photoUrl,
+        alt: photo.title
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-info-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1399,11 +1404,11 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
         className: "photo-title-desc-delete"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-title-desc"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "A photo by", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/users/".concat(userId)
-      }, " ", username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, photo.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "A photo by", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: "/users/".concat(photo.userId)
+      }, this.props.user[photo.userId].username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-description"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, description))), buttons), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, photo.description))), buttons), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-comments"
       }, "Comments will go here...")))));
     }

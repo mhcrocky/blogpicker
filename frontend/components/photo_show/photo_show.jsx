@@ -51,15 +51,16 @@ class PhotoShow extends React.Component {
 
 
     render() {
+        if ((!this.props.photo) || (!this.props.user)) return null;
         const photo = this.props.photo;
-        const src = photo ? photo.photoUrl : "";
-        const title = photo ? photo.title : "";
-        const description = photo ? photo.description : "";
-        const userId = photo ? photo.userId : "";
-        const username = photo ? this.props.user[userId].username : "";
+        // const src = photo ? photo.photoUrl : "";
+        // const title = photo ? photo.title : "";
+        // const description = photo ? photo.description : "";
+        // const userId = photo ? photo.userId : "";
+        // const username = photo ? this.props.user[userId].username : "";
         
         let buttons = <div></div>;
-        if (photo && this.props.currentUserId === userId) {
+        if (this.props.currentUserId === photo.userId) {
             buttons = <div className="delete-update-photo">
                 <button onClick={this.handleDelete} className="delete-photo">
                     Delete Photo
@@ -78,20 +79,22 @@ class PhotoShow extends React.Component {
                 <div className="photo-show-body">
                     <div className="image-container">
                         <i onClick={this.goBack} className="fas fa-arrow-left"></i>
-                        <img src={src} alt={title}/>
+                        <img src={photo.photoUrl} alt={photo.title}/>
                     </div>
                     <div className="photo-info-container">
                         <div className="photo-info-content">
                             <div className="photo-title-desc-delete">
                                 <div>
                                     <div className="photo-title-desc"></div>
-                                    <h1>{title}</h1>
+                                    <h1>{photo.title}</h1>
                                     <div>A photo by 
-                                        <Link to={`/users/${userId}`}> {username}</Link>
+                                        <Link to={`/users/${photo.userId}`}> 
+                                            {this.props.user[photo.userId].username}
+                                        </Link>
                                     </div>
                                     <div className="photo-description">
                                         <label>Description</label>
-                                        <div>{description}</div>
+                                        <div>{photo.description}</div>
                                     </div>
                                 </div>
                                 {buttons}

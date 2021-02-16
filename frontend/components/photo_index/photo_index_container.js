@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import { fetchAllPhotos } from "../../actions/photo_actions"
-import { fetchUser } from "../../actions/user_actions"
+import { fetchAllUsers, fetchUser } from "../../actions/user_actions"
 import PhotoIndex from "./photo_index"
 
 const mapStateToProps = (state, ownProps) => {
@@ -26,6 +26,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        fetchAllUsers: () => dispatch(fetchAllUsers()),
         fetchAllPhotos: () => dispatch(fetchAllPhotos()),
         fetchUser: (id) => dispatch(fetchUser(id))
     }
