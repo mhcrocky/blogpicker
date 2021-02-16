@@ -12,8 +12,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     const photoId = ownProps.match.params.id
 
     return {
-        fetchPhoto = () => dispatch(fetchPhoto(photoId)),
-        updatePhoto = (photo) => dispatch(updatePhoto(photo))
+        fetchPhoto: () => dispatch(fetchPhoto(photoId)),
+        updatePhoto: (photo) => dispatch(updatePhoto(photo))
     }
 }
 

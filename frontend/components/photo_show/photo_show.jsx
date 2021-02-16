@@ -8,6 +8,7 @@ class PhotoShow extends React.Component {
         super(props);
         this.goBack = this.goBack.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
     }
 
     componentDidMount() {
@@ -37,6 +38,12 @@ class PhotoShow extends React.Component {
                 this.props.history.goBack()
             ))
     }
+
+    handleUpdate(e) {
+        e.preventDefault();
+        const id = this.props.photo ? this.props.photo.id : '';
+        this.props.history.push(`/photos/${id}/edit`);
+    }
         
     goBack() {
         this.props.history.goBack();
@@ -57,7 +64,9 @@ class PhotoShow extends React.Component {
                 <button onClick={this.handleDelete} className="delete-photo">
                     Delete Photo
                 </button>
-                <button className="update-photo">Update Photo</button>
+                <button onClick={this.handleUpdate} className="update-photo">
+                    Update Photo
+                </button>
             </div>
         }
 

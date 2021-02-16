@@ -8,6 +8,7 @@ class UpdatePhoto extends React.Component {
         this.state = {
             title: '',
             description: '',
+            photoUrl: ''
         }
     }
 
@@ -16,7 +17,8 @@ class UpdatePhoto extends React.Component {
             .then(() => (
                 this.setState({
                     title: this.props.photo.title,
-                    description: this.props.photo.description})
+                    description: this.props.photo.description,
+                    photoUrl: this.props.photo.photoUrl})
             ));
     }
 
@@ -27,10 +29,11 @@ class UpdatePhoto extends React.Component {
     }
 
     render() {
+
         return (
             <div className="photo-update-page">
                 <HeaderContainer />
-                <div className="update-photo-container">
+                <div className="photo-form-container">
                     <label className="form-label">Update Photo Info</label>
                     <form>
                         <div className="photo-form-input">
@@ -47,9 +50,11 @@ class UpdatePhoto extends React.Component {
                                 </textarea>
                             </div>
                         </div>
+                        <button className="upload-button">Update</button>
                     </form>
                     <h1>Photo:</h1>
-                    <img src={this.props.photo.photoUrl} alt={this.state.title} />
+                    <img src={this.state.photoUrl}
+                        alt={this.state.title} className='preview-img'/>
                 </div>
             </div>
         )

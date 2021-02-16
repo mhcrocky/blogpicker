@@ -327,7 +327,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _no_existing_page_no_existing_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./no_existing_page/no_existing_page */ "./frontend/components/no_existing_page/no_existing_page.jsx");
 /* harmony import */ var _photo_form_photo_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./photo_form/photo_form_container */ "./frontend/components/photo_form/photo_form_container.js");
 /* harmony import */ var _photo_form_update_photo_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./photo_form/update_photo_container */ "./frontend/components/photo_form/update_photo_container.js");
-/* harmony import */ var _photo_form_update_photo_container__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_photo_form_update_photo_container__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _photo_show_photo_show_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./photo_show/photo_show_container */ "./frontend/components/photo_show/photo_show_container.js");
 /* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.js");
 /* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.js");
@@ -384,7 +383,7 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
     exact: true,
     path: "/photos/:id/edit",
-    component: _photo_form_update_photo_container__WEBPACK_IMPORTED_MODULE_6___default.a
+    component: _photo_form_update_photo_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     component: _no_existing_page_no_existing_page__WEBPACK_IMPORTED_MODULE_4__["default"]
   })));
@@ -846,14 +845,156 @@ var PhotoFormContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connec
 
 /***/ }),
 
+/***/ "./frontend/components/photo_form/update_photo.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/photo_form/update_photo.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _header_header_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../header/header_container */ "./frontend/components/header/header_container.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var UpdatePhoto = /*#__PURE__*/function (_React$Component) {
+  _inherits(UpdatePhoto, _React$Component);
+
+  var _super = _createSuper(UpdatePhoto);
+
+  function UpdatePhoto(props) {
+    var _this;
+
+    _classCallCheck(this, UpdatePhoto);
+
+    _this = _super.call(this, props), _this.state = {
+      title: '',
+      description: '',
+      photoUrl: ''
+    };
+    return _this;
+  }
+
+  _createClass(UpdatePhoto, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.props.fetchPhoto().then(function () {
+        return _this2.setState({
+          title: _this2.props.photo.title,
+          description: _this2.props.photo.description,
+          photoUrl: _this2.props.photo.photoUrl
+        });
+      });
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(body) {
+      var _this3 = this;
+
+      return function (e) {
+        return _this3.setState(_defineProperty({}, body, e.target.value));
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "photo-update-page"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "photo-form-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "form-label"
+      }, "Update Photo Info"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "photo-form-input"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.handleChange('title'),
+        type: "text",
+        value: this.state.title
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        onChange: this.handleChange('description'),
+        value: this.state.description
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "upload-button"
+      }, "Update")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Photo:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: this.state.photoUrl,
+        alt: this.state.title,
+        className: "preview-img"
+      })));
+    }
+  }]);
+
+  return UpdatePhoto;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (UpdatePhoto);
+
+/***/ }),
+
 /***/ "./frontend/components/photo_form/update_photo_container.js":
 /*!******************************************************************!*\
   !*** ./frontend/components/photo_form/update_photo_container.js ***!
   \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/bcdguz/Desktop/picktr/frontend/components/photo_form/update_photo_container.js: Unexpected token (15:19)\n\n\u001b[0m \u001b[90m 13 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 14 |\u001b[39m     \u001b[36mreturn\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m         fetchPhoto \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m dispatch(fetchPhoto(photoId))\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 16 |\u001b[39m         updatePhoto \u001b[33m=\u001b[39m (photo) \u001b[33m=>\u001b[39m dispatch(updatePhoto(photo))\u001b[0m\n\u001b[0m \u001b[90m 17 |\u001b[39m     }\u001b[0m\n\u001b[0m \u001b[90m 18 |\u001b[39m }\u001b[0m\n    at Object._raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:776:17)\n    at Object.raiseWithData (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:769:17)\n    at Object.raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:737:17)\n    at Object.unexpected (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9183:16)\n    at Object.checkExpressionErrors (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9271:12)\n    at Object.parseMaybeAssign (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:10035:12)\n    at Object.parseExpressionBase (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9953:23)\n    at allowInAnd (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9947:39)\n    at Object.allowInAnd (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:11647:12)\n    at Object.parseExpression (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:9947:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/photo_actions */ "./frontend/actions/photo_actions.js");
+/* harmony import */ var _update_photo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./update_photo */ "./frontend/components/photo_form/update_photo.jsx");
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  return {
+    photo: state.entities.photos[ownProps.match.params.id]
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
+  var photoId = ownProps.match.params.id;
+  return {
+    fetchPhoto: function fetchPhoto() {
+      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["fetchPhoto"])(photoId));
+    },
+    updatePhoto: function updatePhoto(photo) {
+      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["updatePhoto"])(photo));
+    }
+  };
+};
+
+var UpdatePhotoContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_update_photo__WEBPACK_IMPORTED_MODULE_2__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (UpdatePhotoContainer);
 
 /***/ }),
 
@@ -1137,6 +1278,7 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.goBack = _this.goBack.bind(_assertThisInitialized(_this));
     _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
+    _this.handleUpdate = _this.handleUpdate.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1173,6 +1315,13 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "handleUpdate",
+    value: function handleUpdate(e) {
+      e.preventDefault();
+      var id = this.props.photo ? this.props.photo.id : '';
+      this.props.history.push("/photos/".concat(id, "/edit"));
+    }
+  }, {
     key: "goBack",
     value: function goBack() {
       this.props.history.goBack();
@@ -1195,6 +1344,7 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
           onClick: this.handleDelete,
           className: "delete-photo"
         }, "Delete Photo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.handleUpdate,
           className: "update-photo"
         }, "Update Photo"));
       }
