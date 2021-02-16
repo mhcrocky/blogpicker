@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         fetchUser: (id) => dispatch(fetchUser(id)),
         fetchPhoto: () => dispatch(fetchPhoto(photoId)),
-        deletePhoto: (id) => dispatch(deletePhoto(id))
+        deletePhoto: (id) => dispatch(deletePhoto(id)),
     }
 }
 
