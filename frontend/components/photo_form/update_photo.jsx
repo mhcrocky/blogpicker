@@ -51,6 +51,8 @@ class UpdatePhoto extends React.Component {
             <div className="photo-update-page">
                 <HeaderContainer />
                 <div className="photo-form-container">
+                    <i onClick={() => this.props.history.goBack()}
+                    className="fas fa-arrow-left"></i>
                     <label className="form-label">Update Photo Info</label>
                     <form onSubmit={this.handleSubmit}>
                         <div className="photo-form-input">

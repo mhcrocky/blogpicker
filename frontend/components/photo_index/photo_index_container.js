@@ -27,8 +27,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchAllUsers: () => dispatch(fetchAllUsers()),
-        fetchAllPhotos: () => dispatch(fetchAllPhotos()),
-        fetchUser: (id) => dispatch(fetchUser(id))
+        fetchAllPhotos: () => dispatch(fetchAllPhotos())
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PhotoIndex);

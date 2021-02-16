@@ -59,6 +59,8 @@ class PhotoForm extends React.Component {
             <div className="photo-form-page">
                 <HeaderContainer />
                 <div className="photo-form-container">
+                    <i onClick={() => this.props.history.goBack()}
+                    className="fas fa-arrow-left"></i>
                     <label className="form-label">Upload a Photo!</label>
                     <form onSubmit={this.handleSubmit} >
                         <div className="photo-form-input">

@@ -3,14 +3,9 @@ import { Link } from 'react-router-dom';
 
 class PhotoIndexItem extends React.Component {
 
-    componentDidMount() {
-        this.props.fetchUser(this.props.photo.userId);
-    }
-
     render() {
         const photo = this.props.photo;
-        const users = this.props.users;
-        const username = users[photo.userId] ? users[photo.userId].username : "";
+        const username = this.props.user.username;
 
         return (
             <li className="photo-item-container">
