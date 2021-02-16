@@ -25,7 +25,11 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         class_name: :Photo
 
-
+    has_many :albums,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Album
+        
     # User Auth methods below
 
     def self.find_by_credentials(username, password)
