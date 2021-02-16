@@ -1,5 +1,6 @@
 .photo-form-page {
     height: 100%;
+    overflow: auto;
     background-color: #212124;
 }
 
@@ -81,5 +82,5 @@
 }
 
 .preview-img {
-    max-width: 200px;
+    max-width: 400px;
 }
