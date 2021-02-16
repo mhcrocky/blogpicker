@@ -167,6 +167,8 @@ var updatePhoto = function updatePhoto(photo) {
   return function (dispatch) {
     return _util_photo_api_util__WEBPACK_IMPORTED_MODULE_0__["updatePhoto"](photo).then(function (photo) {
       dispatch(receivePhoto(photo));
+    }).fail(function (errors) {
+      return dispatch(photoErrors(errors));
     });
   };
 };
@@ -763,6 +765,7 @@ var PhotoForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var errors = this.props.errors.map(function (error, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "errors",
           key: idx
         }, error);
       });
@@ -943,6 +946,12 @@ var UpdatePhoto = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var errors = this.props.errors.map(function (error, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "errors",
+          key: idx
+        }, error);
+      });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-update-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -968,7 +977,7 @@ var UpdatePhoto = /*#__PURE__*/function (_React$Component) {
         src: this.state.photoUrl,
         alt: this.state.title,
         className: "preview-img"
-      })));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors)));
     }
   }]);
 
@@ -997,7 +1006,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    photo: state.entities.photos[ownProps.match.params.id]
+    photo: state.entities.photos[ownProps.match.params.id],
+    errors: state.errors.photo
   };
 };
 

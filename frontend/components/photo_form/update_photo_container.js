@@ -4,7 +4,8 @@ import UpdatePhoto from "./update_photo";
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        photo : state.entities.photos[ownProps.match.params.id]
+        photo: state.entities.photos[ownProps.match.params.id],
+        errors: state.errors.photo
     }
 }
 

@@ -42,7 +42,7 @@ export const createPhoto = (photo) => (dispatch) => {
         .then(photo => {
             dispatch(receivePhoto(photo));
         })
-        .fail((errors) => dispatch(photoErrors(errors)))
+        .fail((errors) => dispatch(photoErrors(errors)));
 }
 
 export const fetchAllPhotos = () => (dispatch) => {
@@ -64,6 +64,7 @@ export const updatePhoto = (photo) => (dispatch) => {
         .then(photo => {
             dispatch(receivePhoto(photo));
         })
+        .fail((errors) => dispatch(photoErrors(errors)));
 }
 
 export const deletePhoto = (photoId) => (dispatch) => {

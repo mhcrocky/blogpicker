@@ -41,6 +41,11 @@ class UpdatePhoto extends React.Component {
     }
 
     render() {
+        const errors = this.props.errors.map((error, idx) => {
+            return (
+                <li className="errors" key={idx}>{error}</li>
+            )
+        });
 
         return (
             <div className="photo-update-page">
@@ -69,6 +74,9 @@ class UpdatePhoto extends React.Component {
                     <h1>Photo:</h1>
                     <img src={this.state.photoUrl}
                         alt={this.state.title} className='preview-img'/>
+                    <ul>
+                        {errors}
+                    </ul>
                 </div>
             </div>
         )

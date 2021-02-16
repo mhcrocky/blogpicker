@@ -48,7 +48,7 @@ class PhotoForm extends React.Component {
     render () {
         const errors = this.props.errors.map((error, idx) => {
             return (
-                <li key={idx}>{error}</li>
+                <li className="errors" key={idx}>{error}</li>
             )
         });
 
