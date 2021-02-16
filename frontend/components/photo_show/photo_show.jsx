@@ -23,11 +23,11 @@ class PhotoShow extends React.Component {
         if (prevProps.match.params.id != this.props.match.params.id) {
             this.props.fetchPhoto()
             .then(() =>
-            this.props.fetchUser(this.props.photo.userId)
+                this.props.fetchUser(this.props.photo.userId)
             )
             .fail(() => (
                 this.props.history.push('/404')
-                ))
+            ))
         }
     }
     
@@ -51,13 +51,9 @@ class PhotoShow extends React.Component {
 
 
     render() {
-        if ((!this.props.photo) || (!this.props.user)) return null;
+
         const photo = this.props.photo;
-        // const src = photo ? photo.photoUrl : "";
-        // const title = photo ? photo.title : "";
-        // const description = photo ? photo.description : "";
-        // const userId = photo ? photo.userId : "";
-        // const username = photo ? this.props.user[userId].username : "";
+        if ((!photo) || (!this.props.user[photo.userId])) return null;
         
         let buttons = <div></div>;
         if (this.props.currentUserId === photo.userId) {
@@ -87,7 +83,7 @@ class PhotoShow extends React.Component {
                                 <div>
                                     <div className="photo-title-desc"></div>
                                     <h1>{photo.title}</h1>
-                                    <div>A photo by 
+                                    <div> A photo by&nbsp;
                                         <Link to={`/users/${photo.userId}`}> 
                                             {this.props.user[photo.userId].username}
                                         </Link>

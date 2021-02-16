@@ -1363,13 +1363,8 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (!this.props.photo || !this.props.user) return null;
-      var photo = this.props.photo; // const src = photo ? photo.photoUrl : "";
-      // const title = photo ? photo.title : "";
-      // const description = photo ? photo.description : "";
-      // const userId = photo ? photo.userId : "";
-      // const username = photo ? this.props.user[userId].username : "";
-
+      var photo = this.props.photo;
+      if (!photo || !this.props.user[photo.userId]) return null;
       var buttons = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
 
       if (this.props.currentUserId === photo.userId) {
@@ -1404,7 +1399,7 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
         className: "photo-title-desc-delete"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-title-desc"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, photo.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "A photo by", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, photo.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " A photo by\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/users/".concat(photo.userId)
       }, this.props.user[photo.userId].username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-description"
