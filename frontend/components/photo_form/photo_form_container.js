@@ -1,6 +1,6 @@
-import { connect } from "react-redux"
-import { createPhoto } from "../../actions/photo_actions"
-import PhotoForm from "./photo_form"
+import { connect } from "react-redux";
+import { createPhoto } from "../../actions/photo_actions";
+import PhotoForm from "./photo_form";
 
 const mapStateToProps = (state) => {
     return {
