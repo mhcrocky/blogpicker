@@ -82,6 +82,7 @@ class PhotoForm extends React.Component {
                         name="file-input"
                         id="file-input"
                         type="file"
+                        accept="image/*"
                         onChange={this.handleFile}/>
                         <label className="choose-file" htmlFor="file-input">
                             Choose File

@@ -803,6 +803,7 @@ var PhotoForm = /*#__PURE__*/function (_React$Component) {
         name: "file-input",
         id: "file-input",
         type: "file",
+        accept: "image/*",
         onChange: this.handleFile
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "choose-file",
