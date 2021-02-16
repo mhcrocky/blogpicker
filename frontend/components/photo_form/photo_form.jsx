@@ -53,7 +53,7 @@ class PhotoForm extends React.Component {
         });
 
         const preview = this.state.photoUrl ?
-            <img src={this.state.photoUrl} /> : null;
+            <img className="preview-img" src={this.state.photoUrl} /> : null;
 
         return (
             <div className="photo-form-page">
@@ -81,8 +81,10 @@ class PhotoForm extends React.Component {
                         id="file-input"
                         type="file"
                         onChange={this.handleFile}/>
-                        <label for="file-input">Choose File</label>
-                        <button>Upload Photo</button>
+                        <label className="choose-file" htmlFor="file-input">
+                            Choose File
+                        </label>
+                        <button className="upload-button">Upload Photo</button>
                     </form>
                     <h1>Preview</h1>
                     {preview}
