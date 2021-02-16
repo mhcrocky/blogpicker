@@ -25,7 +25,7 @@ class PhotoIndex extends React.Component {
                     fetchUser={this.props.fetchUser}/>
             )
         })
-
+        
         const loadingDiv = this.state.loading ? "loader" : "";
 
         return(
