@@ -1224,6 +1224,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
     },
     fetchPhoto: function fetchPhoto() {
       return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["fetchPhoto"])(photoId));
+    },
+    deletePhoto: function deletePhoto(id) {
+      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["deletePhoto"])(id));
     }
   };
 };

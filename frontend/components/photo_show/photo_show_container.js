@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { fetchPhoto } from "../../actions/photo_actions";
+import { deletePhoto, fetchPhoto } from "../../actions/photo_actions";
 import { fetchUser } from "../../actions/user_actions"
 import PhotoShow from "./photo_show";
 
@@ -18,7 +18,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
     return {
         fetchUser: (id) => dispatch(fetchUser(id)),
-        fetchPhoto: () => dispatch(fetchPhoto(photoId))
+        fetchPhoto: () => dispatch(fetchPhoto(photoId)),
+        deletePhoto: (id) => dispatch(deletePhoto(id))
     }
 }
 
