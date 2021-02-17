@@ -1,8 +1,7 @@
-import { connect } from "react-redux"
-import { withRouter } from "react-router-dom"
-import { fetchAllPhotos } from "../../actions/photo_actions"
-import { fetchAllUsers, fetchUser } from "../../actions/user_actions"
-import PhotoIndex from "./photo_index"
+import { connect } from "react-redux";
+import { fetchAllPhotos } from "../../actions/photo_actions";
+import { fetchAllUsers } from "../../actions/user_actions";
+import PhotoIndex from "./photo_index";
 
 const mapStateToProps = (state, ownProps) => {
     
@@ -12,8 +11,7 @@ const mapStateToProps = (state, ownProps) => {
         photos = [];
         Object.values(state.entities.photos).forEach((photo) => {
             if (photo.userId === userId) photos.push(photo);
-        })
-        
+        }) 
     } else {
         photos = Object.values(state.entities.photos);
     }

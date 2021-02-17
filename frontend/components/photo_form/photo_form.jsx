@@ -46,6 +46,9 @@ class PhotoForm extends React.Component {
                     this.setState({loading: false});
                     this.props.history.push('/feed');
                 })
+                .fail(() => {
+                    this.setState({loading: false});
+                })
         })
     }
 
