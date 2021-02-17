@@ -2577,7 +2577,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/album_actions */ "./frontend/actions/album_actions.js");
+/* harmony import */ var _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/photos_albums_util */ "./frontend/util/photos_albums_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -2610,9 +2610,8 @@ document.addEventListener("DOMContentLoaded", function () {
     store: store
   }), root); //Remove these after done testing!
 
-  window.dispatch = store.dispatch;
-  window.createAlbum = _actions_album_actions__WEBPACK_IMPORTED_MODULE_4__["createAlbum"];
-  window.deleteAlbum = _actions_album_actions__WEBPACK_IMPORTED_MODULE_4__["deleteAlbum"];
+  window.createPhotosAlbum = _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_4__["createPhotosAlbum"];
+  window.fetchPhotosAlbums = _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_4__["fetchPhotosAlbums"];
 });
 
 /***/ }),
@@ -3078,6 +3077,38 @@ var deletePhoto = function deletePhoto(photoId) {
   return $.ajax({
     url: "/api/photos/".concat(photoId),
     method: 'DELETE'
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/photos_albums_util.js":
+/*!*********************************************!*\
+  !*** ./frontend/util/photos_albums_util.js ***!
+  \*********************************************/
+/*! exports provided: createPhotosAlbum, fetchPhotosAlbums */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPhotosAlbum", function() { return createPhotosAlbum; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPhotosAlbums", function() { return fetchPhotosAlbums; });
+var createPhotosAlbum = function createPhotosAlbum(photos_album) {
+  return $.ajax({
+    url: '/api/photos_albums',
+    method: 'POST',
+    data: {
+      photos_album: photos_album
+    }
+  });
+};
+var fetchPhotosAlbums = function fetchPhotosAlbums(photosAlbums) {
+  return $.ajax({
+    url: '/api/photos_albums',
+    method: 'GET',
+    data: {
+      photosAlbums: photosAlbums
+    }
   });
 };
 

@@ -1,0 +1,1 @@
+json.extract! @photos_album, :id, :photo_id, :album_id
