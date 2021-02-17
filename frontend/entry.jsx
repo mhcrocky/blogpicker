@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from "./components/root";
+import * as APIUtil from './util/album_api_util';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;                   //Allowing user to refresh & stay logged in
@@ -22,5 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(<Root store={store}/>, root);
 
     //Remove these after done testing!
-
+    window.createAlbum = APIUtil.createAlbum;
+    window.fetchAllAlbums = APIUtil.fetchAllAlbums;
+    window.fetchAlbum = APIUtil.fetchAlbum;
+    window.deleteAlbum = APIUtil.deleteAlbum;
 })
