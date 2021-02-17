@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(<Root store={store}/>, root);
 
     //Remove these after done testing!
+    window.store = store;
     window.createPhotosAlbum = APIUtil.createPhotosAlbum;
     window.fetchPhotosAlbums = APIUtil.fetchPhotosAlbums;
     window.dispatch = store.dispatch;

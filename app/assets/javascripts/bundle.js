@@ -2612,6 +2612,7 @@ document.addEventListener("DOMContentLoaded", function () {
     store: store
   }), root); //Remove these after done testing!
 
+  window.store = store;
   window.createPhotosAlbum = _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_4__["createPhotosAlbum"];
   window.fetchPhotosAlbums = _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_4__["fetchPhotosAlbums"];
   window.dispatch = store.dispatch;
