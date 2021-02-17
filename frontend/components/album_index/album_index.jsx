@@ -1,5 +1,6 @@
 import React from 'react';
 import AlbumIndexItem from './album_index_item';
+import { Link } from 'react-router-dom';
 
 class AlbumIndex extends React.Component {
     componentDidMount() {
@@ -15,9 +16,16 @@ class AlbumIndex extends React.Component {
         })
 
         return (
-            <ul>
-                {indexItems}
-            </ul>
+            <div className="album-index-page">
+                <div className="album-index-content">
+                    <div className="album-index-header">
+                        <Link to="/album/new">Create an Album</Link>
+                    </div>
+                    <ul>
+                        {indexItems}
+                    </ul>
+                </div>
+            </div>
         )
     }
 }

@@ -24,6 +24,7 @@ const App = () => {
                 <ProtectedRoute exact path='/users/:id/albums' component={UserShowContainer} />
                 <ProtectedRoute exact path='/photos/:id' component={PhotoShowContainer} />
                 <ProtectedRoute exact path='/photos/:id/edit' component={UpdatePhotoContainer} />
+                <ProtectedRoute exact path='/album/new' component={} />
                 <Route component={NoExistingPage} />
             </Switch>
         </div>
