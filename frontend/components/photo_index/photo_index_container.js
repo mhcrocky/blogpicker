@@ -6,6 +6,7 @@ import PhotoIndex from "./photo_index";
 const mapStateToProps = (state, ownProps) => {
     
     const userId = ownProps.user ? ownProps.user.id : null;
+
     let photos;
     if (userId) {
         photos = [];
