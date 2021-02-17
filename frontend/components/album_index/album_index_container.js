@@ -4,10 +4,10 @@ import AlbumIndex from './album_index';
 
 
 const mapStateToProps = (state, ownProps) => {
-    const userId = ownProps.match.params.id;
+    
     let albums = [];
     Object.values(state.entities.albums).forEach((album) => {
-        if (album.userId === userId) albums.push(album);
+        if (album.userId === ownProps.userId) albums.push(album);
     })
 
     return {

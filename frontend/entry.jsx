@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from "./components/root";
+import * as ACTIONS from './actions/album_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;                   //Allowing user to refresh & stay logged in
@@ -22,5 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(<Root store={store}/>, root);
 
     //Remove these after done testing!
-    
+    window.dispatch = store.dispatch;
+    window.createAlbum = ACTIONS.createAlbum;
+    window.deleteAlbum = ACTIONS.deleteAlbum;
 })

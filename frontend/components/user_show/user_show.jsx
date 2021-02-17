@@ -2,6 +2,7 @@ import React from 'react';
 import HeaderContainer from '../header/header_container';
 import PhotoIndexContainer from '../photo_index/photo_index_container';
 import { Link } from 'react-router-dom';
+import AlbumIndexContainer from '../album_index/album_index_container';
 
 class UserShow extends React.Component {
 
@@ -16,8 +17,11 @@ class UserShow extends React.Component {
         let photoStream;
         let albums;
 
+        const username = user ? user.username : "";
+        const userId = user ? user.id : "";
+
         if (path === "/users/:id/albums") {
-            content = <div>Albums Index Goes here</div>;
+            content = <AlbumIndexContainer userId={user.id} />;
             albums = "selected";
             photoStream = "";
         } else {
@@ -26,8 +30,6 @@ class UserShow extends React.Component {
             photoStream = "selected";
         }
 
-        const username = user ? user.username : "";
-        const userId = user ? user.id : "";
 
         return(
             <div className="user-show-page">
