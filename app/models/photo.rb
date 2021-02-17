@@ -19,10 +19,19 @@ class Photo < ApplicationRecord
         end
     end
 
+    has_many :photos_albums,
+        primary_key: :id,
+        foreign_key: :photo_id,
+        class_name: :PhotosAlbum
+
     belongs_to :user,
         primary_key: :id,
         foreign_key: :user_id,
         class_name: :User
 
     has_one_attached :picture
+
+    has_many :albums,
+        through: :photos_albums,
+        source: :album
 end
