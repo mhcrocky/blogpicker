@@ -143,6 +143,8 @@ var createAlbum = function createAlbum(album) {
   return function (dispatch) {
     return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["createAlbum"](album).then(function (album) {
       dispatch(receiveAlbum(album));
+    }).fail(function (errors) {
+      dispatch(albumErrors(errors));
     });
   };
 };
@@ -2155,6 +2157,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /***/ }),
 
+/***/ "./frontend/reducers/albums_error_reducer.js":
+/*!***************************************************!*\
+  !*** ./frontend/reducers/albums_error_reducer.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/album_actions */ "./frontend/actions/album_actions.js");
+
+
+var albumErrorsReducer = function albumErrorsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["ALBUM_ERRORS"]:
+      return action.errors.responseJSON;
+
+    case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALBUM"]:
+      return [];
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (albumErrorsReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/albums_reducer.js":
 /*!*********************************************!*\
   !*** ./frontend/reducers/albums_reducer.js ***!
@@ -2231,14 +2265,17 @@ var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _photos_error_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./photos_error_reducer */ "./frontend/reducers/photos_error_reducer.js");
-/* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
+/* harmony import */ var _albums_error_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./albums_error_reducer */ "./frontend/reducers/albums_error_reducer.js");
+/* harmony import */ var _photos_error_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./photos_error_reducer */ "./frontend/reducers/photos_error_reducer.js");
+/* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
+
 
 
 
 var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  photo: _photos_error_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  photo: _photos_error_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  album: _albums_error_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
 

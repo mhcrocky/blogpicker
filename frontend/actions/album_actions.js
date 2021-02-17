@@ -42,6 +42,9 @@ export const createAlbum = (album) => (dispatch) => {
         .then(album => {
             dispatch(receiveAlbum(album))
         })
+        .fail(errors => {
+            dispatch(albumErrors(errors))
+        })
 }
 
 export const fetchAllAlbums = (albums) => (dispatch) => {
