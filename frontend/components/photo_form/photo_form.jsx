@@ -89,7 +89,7 @@ class PhotoForm extends React.Component {
                         </label>
                         <button className="upload-button">Upload Photo</button>
                     </form>
-                    <ul>
+                    <ul className="form-errors">
                         {errors}
                     </ul>
                     <h1>Preview</h1>

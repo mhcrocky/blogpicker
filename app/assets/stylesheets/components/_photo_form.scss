@@ -5,7 +5,7 @@
 }
 
 .photo-form-container{
-    padding-top: 200px;
+    padding-top: 150px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -63,7 +63,7 @@
     display: none;
 }
 
-.choose-file{
+.choose-file {
     width: 120px;
     text-align: center;
     color: #fff;
@@ -73,6 +73,10 @@
     border-radius: 0.25rem;
     padding: 8px;
     cursor: pointer;
+}
+
+.choose-file:hover {
+    color: #d7d7d7;
 }
 
 .upload-button {
@@ -87,7 +91,22 @@
     margin-top: 5px;
 }
 
+.upload-button:hover {
+    color: #d7d7d7;
+}
+
 .preview-img {
     max-width: 400px;
     padding-bottom: 20px;
+}
+
+.form-errors {
+    li {
+        font-weight: 300;
+        border: 1px solid red;
+        background-color: rgb(250, 174, 174);
+        padding: 4px;
+        margin-bottom: 2px;
+        border-radius: 0.25rem;
+    }
 }

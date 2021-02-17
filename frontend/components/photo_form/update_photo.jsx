@@ -73,7 +73,7 @@ class UpdatePhoto extends React.Component {
                         </div>
                         <button className="upload-button">Update</button>
                     </form>
-                    <ul>
+                    <ul className="form-errors">
                         {errors}
                     </ul>
                     <h1>Photo:</h1>

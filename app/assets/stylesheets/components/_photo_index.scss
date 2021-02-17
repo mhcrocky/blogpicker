@@ -17,7 +17,7 @@
         object-fit: cover;
         vertical-align: bottom;
         z-index: 1;
-        transition: filter 1s;
+        transition: filter .75s;
         position: relative;
     }
 
@@ -29,7 +29,7 @@
         position: absolute;
         top: 35vh;
         left: 7px;
-        transition: opacity 1s;
+        transition: opacity .75s;
         opacity: 0%;
 
     }
