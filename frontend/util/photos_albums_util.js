@@ -8,10 +8,9 @@ export const createPhotosAlbum = (photos_album) => {
     })
 }
 
-export const fetchPhotosAlbums = (photosAlbums) => {
+export const fetchPhotosAlbums = () => {
     return $.ajax({
         url: '/api/photos_albums',
-        method: 'GET',
-        data: {photosAlbums}
+        method: 'GET'
     })
 }

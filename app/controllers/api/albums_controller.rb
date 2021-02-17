@@ -22,7 +22,7 @@ class Api::AlbumsController < ApplicationController
     def destroy
         album = Album.find_by(id: params[:id])
         albumId = {albumId: album.id}
-        album.delete
+        album.destroy
         render json: albumId
     end
 
