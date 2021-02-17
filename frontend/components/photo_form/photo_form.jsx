@@ -65,14 +65,14 @@ class PhotoForm extends React.Component {
         const loadingDiv = this.state.loading ? "loader" : "";
 
         return (
-            <div className="photo-form-page">
+            <div className="form-page">
                 <HeaderContainer />
-                <div className="photo-form-container">
+                <div className="form-container">
                     <i onClick={() => this.props.history.goBack()}
                     className="fas fa-arrow-left"></i>
                     <label className="form-label">Upload a Photo!</label>
                     <form onSubmit={this.handleSubmit} >
-                        <div className="photo-form-input">
+                        <div className="upload-form-input">
                             <div>
                                 <input placeholder="Title"
                                 onChange={this.handleChange('title')}

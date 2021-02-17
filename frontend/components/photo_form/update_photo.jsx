@@ -4,7 +4,7 @@ import HeaderContainer from '../header/header_container';
 
 class UpdatePhoto extends React.Component {
     constructor(props) {
-        super(props),
+        super(props);
         this.state = {
             title: '',
             description: '',
@@ -50,12 +50,12 @@ class UpdatePhoto extends React.Component {
         return (
             <div className="photo-update-page">
                 <HeaderContainer />
-                <div className="photo-form-container">
+                <div className="form-container">
                     <i onClick={() => this.props.history.goBack()}
                     className="fas fa-arrow-left"></i>
                     <label className="form-label">Update Photo Info</label>
                     <form onSubmit={this.handleSubmit}>
-                        <div className="photo-form-input">
+                        <div className="upload-form-input">
                             <div>
                                 <input
                                     placeholder="Title"
