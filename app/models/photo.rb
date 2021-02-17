@@ -22,7 +22,8 @@ class Photo < ApplicationRecord
     has_many :photos_albums,
         primary_key: :id,
         foreign_key: :photo_id,
-        class_name: :PhotosAlbum
+        class_name: :PhotosAlbum,
+        dependent: :destroy
 
     belongs_to :user,
         primary_key: :id,

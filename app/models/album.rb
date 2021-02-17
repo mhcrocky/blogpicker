@@ -9,7 +9,8 @@ class Album < ApplicationRecord
     has_many :photos_albums,
         primary_key: :id,
         foreign_key: :album_id,
-        class_name: :PhotosAlbum
+        class_name: :PhotosAlbum,
+        dependent: :destroy
 
     has_many :photos,
         through: :photos_albums,

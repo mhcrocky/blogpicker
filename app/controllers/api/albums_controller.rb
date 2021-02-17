@@ -20,8 +20,8 @@ class Api::AlbumsController < ApplicationController
     end
 
     def destroy
-        photo = Album.find_by(id: params[:id])
-        photo.delete
+        album = Album.find_by(id: params[:id])
+        album.delete
         render json: {message: "Succesfully deleted!"}
     end
 
