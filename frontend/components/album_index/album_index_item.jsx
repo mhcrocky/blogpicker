@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AlbumIndexItem = (props) => {
     const album = props.album
@@ -6,7 +7,8 @@ const AlbumIndexItem = (props) => {
 
     return (
         <li>
-            <div>{album.title}</div>
+            <Link>{album.title}</Link>
+            <div></div>
             <div>{album.description}</div>
         </li>
     )
