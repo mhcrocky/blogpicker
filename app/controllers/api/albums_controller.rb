@@ -15,14 +15,15 @@ class Api::AlbumsController < ApplicationController
     end
 
     def show
-        @album = Album.show
+        @album = Album.find_by(id: params[:id])
         render :show
     end
 
     def destroy
         album = Album.find_by(id: params[:id])
+        albumId = {albumId: album.id}
         album.delete
-        render json: {message: "Succesfully deleted!"}
+        render json: albumId
     end
 
     private
