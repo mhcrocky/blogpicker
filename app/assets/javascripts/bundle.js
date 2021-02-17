@@ -86,6 +86,90 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/album_actions.js":
+/*!*******************************************!*\
+  !*** ./frontend/actions/album_actions.js ***!
+  \*******************************************/
+/*! exports provided: RECEIVE_ALL_ALBUMS, RECEIVE_ALBUM, DELETE_ALBUM, ALBUM_ERRORS, createAlbum, fetchAllAlbums, fetchAlbum, deleteAlbum */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_ALBUMS", function() { return RECEIVE_ALL_ALBUMS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALBUM", function() { return RECEIVE_ALBUM; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_ALBUM", function() { return DELETE_ALBUM; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALBUM_ERRORS", function() { return ALBUM_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAlbum", function() { return createAlbum; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllAlbums", function() { return fetchAllAlbums; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAlbum", function() { return fetchAlbum; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteAlbum", function() { return deleteAlbum; });
+/* harmony import */ var _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/album_api_util */ "./frontend/util/album_api_util.js");
+
+var RECEIVE_ALL_ALBUMS = 'RECEIVE_ALL_ALBUMS';
+var RECEIVE_ALBUM = 'RECEIVE_ALBUM';
+var DELETE_ALBUM = 'DELETE_ALBUM';
+var ALBUM_ERRORS = 'ALBUM_ERRORS'; //regular actions
+
+var receiveAllAlbums = function receiveAllAlbums(albums) {
+  return {
+    type: RECEIVE_ALL_ALBUMS,
+    albums: albums
+  };
+};
+
+var receiveAlbums = function receiveAlbums(album) {
+  return {
+    type: RECEIVE_ALBUMS,
+    album: album
+  };
+};
+
+var removeAlbum = function removeAlbum(albumId) {
+  return {
+    type: DELETE_ALBUM,
+    albumId: albumId
+  };
+};
+
+var albumErrors = function albumErrors(errors) {
+  return {
+    type: ALBUM_ERRORS,
+    errors: errors
+  };
+}; //thunks
+
+
+var createAlbum = function createAlbum(album) {
+  return function (dispatch) {
+    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["createAlbum"](album).then(function (album) {
+      dispatch(receiveAlbum(album));
+    });
+  };
+};
+var fetchAllAlbums = function fetchAllAlbums(albums) {
+  return function (dispatch) {
+    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllAlbums"](albums).then(function (albums) {
+      dispatch(receiveAllAlbums(albums));
+    });
+  };
+};
+var fetchAlbum = function fetchAlbum(albumId) {
+  return function (dispatch) {
+    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAlbum"](albumId).then(function (album) {
+      dispatch(receiveAlbum(album));
+    });
+  };
+};
+var deleteAlbum = function deleteAlbum(albumId) {
+  return function (dispatch) {
+    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteAlbum"](albumId).then(function (res) {
+      dispatch(removeAlbum(res.albumId));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/photo_actions.js":
 /*!*******************************************!*\
   !*** ./frontend/actions/photo_actions.js ***!
@@ -2063,6 +2147,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /***/ }),
 
+/***/ "./frontend/reducers/albums_reducer.js":
+/*!*********************************************!*\
+  !*** ./frontend/reducers/albums_reducer.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/album_actions */ "./frontend/actions/album_actions.js");
+
+
+var albumsReducer = function albumsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var newState = Object.assign({}, state);
+
+  switch (action.type) {
+    case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_ALBUMS"]:
+      newState = Object.assign({}, action.albums);
+      return newState;
+
+    case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALBUM"]:
+      newState[action.album.id] = action.album;
+      return newState;
+
+    case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_ALBUM"]:
+      delete newState[action.albumId];
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (albumsReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/entities_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/entities_reducer.js ***!
@@ -2073,14 +2197,17 @@ document.addEventListener("DOMContentLoaded", function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _photos_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./photos_reducer */ "./frontend/reducers/photos_reducer.js");
-/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _albums_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./albums_reducer */ "./frontend/reducers/albums_reducer.js");
+/* harmony import */ var _photos_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./photos_reducer */ "./frontend/reducers/photos_reducer.js");
+/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+
 
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  photos: _photos_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  photos: _photos_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  albums: _albums_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -2352,6 +2479,49 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/album_api_util.js":
+/*!*****************************************!*\
+  !*** ./frontend/util/album_api_util.js ***!
+  \*****************************************/
+/*! exports provided: createAlbum, fetchAllAlbums, fetchAlbum, deleteAlbum */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAlbum", function() { return createAlbum; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllAlbums", function() { return fetchAllAlbums; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAlbum", function() { return fetchAlbum; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteAlbum", function() { return deleteAlbum; });
+var createAlbum = function createAlbum(album) {
+  return $.ajax({
+    url: '/api/albums',
+    method: 'POST',
+    data: {
+      album: album
+    }
+  });
+};
+var fetchAllAlbums = function fetchAllAlbums() {
+  return $.ajax({
+    url: '/api/albums',
+    method: 'GET'
+  });
+};
+var fetchAlbum = function fetchAlbum(albumId) {
+  return $.ajax({
+    url: "/api/albums/".concat(albumId),
+    method: 'GET'
+  });
+};
+var deleteAlbum = function deleteAlbum(albumId) {
+  return $.ajax({
+    url: "/api/albums/".concat(albumId),
+    method: 'DELETE'
+  });
+};
 
 /***/ }),
 
