@@ -1,4 +1,5 @@
 import HeaderContainer from "../header/header_container";
+import React from 'react';
 
 class AlbumForm extends React.Component {
     constructor(props) {
@@ -7,6 +8,7 @@ class AlbumForm extends React.Component {
             title: '',
             description: ''
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(body) {
@@ -19,11 +21,20 @@ class AlbumForm extends React.Component {
         e.preventDefault();
         const album = {title: this.state.title,
                     description: this.state.description};
-        this.props.createAlbum(album);
+        this.props.createAlbum(album)
+            .then(() => {
+                this.props.history.goBack();
+            })
     }
 
 
     render() {
+        const errors = this.props.errors.map((error, idx) => {
+            return (
+                <li className="errors" key={idx}>{error}</li>
+            )
+        });
+
         return (
             <div className="form-page">
                 <HeaderContainer />
