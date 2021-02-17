@@ -8,7 +8,8 @@ class PhotoForm extends React.Component {
             title: "",
             description: "",
             photoFile: null,
-            photoUrl: null
+            photoUrl: null,
+            loading: false
         }
         this.handleFile = this.handleFile.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,10 +40,13 @@ class PhotoForm extends React.Component {
         if (this.state.photoFile) {
             photoForm.append('photo[picture]', this.state.photoFile);
         }
-        this.props.createPhoto(photoForm)
-            .then(() => (
-                this.props.history.push('/feed')
-            ))
+        this.setState({loading: true}, () => {
+            this.props.createPhoto(photoForm)
+                .then(() => {
+                    this.setState({loading: false});
+                    this.props.history.push('/feed');
+                })
+        })
     }
 
     render () {
@@ -54,6 +58,8 @@ class PhotoForm extends React.Component {
 
         const preview = this.state.photoUrl ?
             <img className="preview-img" src={this.state.photoUrl} /> : null;
+
+        const loadingDiv = this.state.loading ? "loader" : "";
 
         return (
             <div className="photo-form-page">
@@ -89,6 +95,7 @@ class PhotoForm extends React.Component {
                         </label>
                         <button className="upload-button">Upload Photo</button>
                     </form>
+                    <div className={loadingDiv}></div>
                     <ul className="form-errors">
                         {errors}
                     </ul>

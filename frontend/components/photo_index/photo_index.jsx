@@ -5,14 +5,16 @@ import PhotoIndexItem from './photo_index_item';
 class PhotoIndex extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { loading: true }
+        this.state = { loading: false }
     }
 
     componentDidMount() {
-        Promise.all([this.props.fetchAllUsers(), this.props.fetchAllPhotos()])
-            .then(() => (
-                this.setState({ loading: false })
-            ));
+        this.setState({loading: true}, () => {
+            Promise.all([this.props.fetchAllUsers(), this.props.fetchAllPhotos()])
+                .then(() => (
+                    this.setState({ loading: false })
+                ));
+        })
     }
 
     render() {

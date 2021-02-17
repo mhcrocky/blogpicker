@@ -793,7 +793,8 @@ var PhotoForm = /*#__PURE__*/function (_React$Component) {
       title: "",
       description: "",
       photoFile: null,
-      photoUrl: null
+      photoUrl: null,
+      loading: false
     };
     _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -842,8 +843,16 @@ var PhotoForm = /*#__PURE__*/function (_React$Component) {
         photoForm.append('photo[picture]', this.state.photoFile);
       }
 
-      this.props.createPhoto(photoForm).then(function () {
-        return _this4.props.history.push('/feed');
+      this.setState({
+        loading: true
+      }, function () {
+        _this4.props.createPhoto(photoForm).then(function () {
+          _this4.setState({
+            loading: false
+          });
+
+          _this4.props.history.push('/feed');
+        });
       });
     }
   }, {
@@ -861,6 +870,7 @@ var PhotoForm = /*#__PURE__*/function (_React$Component) {
         className: "preview-img",
         src: this.state.photoUrl
       }) : null;
+      var loadingDiv = this.state.loading ? "loader" : "";
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-form-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -896,7 +906,9 @@ var PhotoForm = /*#__PURE__*/function (_React$Component) {
         htmlFor: "file-input"
       }, "Choose File"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "upload-button"
-      }, "Upload Photo")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, "Upload Photo")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: loadingDiv
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "form-errors"
       }, errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Preview"), preview));
     }
@@ -1182,7 +1194,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      loading: true
+      loading: false
     };
     return _this;
   }
@@ -1192,9 +1204,13 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      Promise.all([this.props.fetchAllUsers(), this.props.fetchAllPhotos()]).then(function () {
-        return _this2.setState({
-          loading: false
+      this.setState({
+        loading: true
+      }, function () {
+        Promise.all([_this2.props.fetchAllUsers(), _this2.props.fetchAllPhotos()]).then(function () {
+          return _this2.setState({
+            loading: false
+          });
         });
       });
     }
@@ -2115,9 +2131,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/album_actions */ "./frontend/actions/album_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -2147,12 +2161,6 @@ document.addEventListener("DOMContentLoaded", function () {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root); //Remove these after done testing!
-
-  window.dispatch = store.dispatch;
-  window.createAlbum = _actions_album_actions__WEBPACK_IMPORTED_MODULE_4__["createAlbum"];
-  window.fetchAllAlbums = _actions_album_actions__WEBPACK_IMPORTED_MODULE_4__["fetchAllAlbums"];
-  window.fetchAlbum = _actions_album_actions__WEBPACK_IMPORTED_MODULE_4__["fetchAlbum"];
-  window.deleteAlbum = _actions_album_actions__WEBPACK_IMPORTED_MODULE_4__["deleteAlbum"];
 });
 
 /***/ }),
