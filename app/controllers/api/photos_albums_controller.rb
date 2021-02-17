@@ -13,11 +13,6 @@ class Api::PhotosAlbumsController < ApplicationController
         render :index
     end
 
-    def show
-        @photo_album = PhotosAlbum.show
-        render :show
-    end
-
     def destroy
         photos_album = PhotosAlbum.find_by(id: params[:id])
         photos_album.delete
