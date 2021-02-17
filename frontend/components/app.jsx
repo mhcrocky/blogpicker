@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import AlbumFormContainer from "./album_form/album_form_container";
+import AlbumShowContainer from "./album_show/album_show_container";
 import Feed from "./feed/feed";
 import NoExistingPage from "./no_existing_page/no_existing_page";
 import PhotoFormContainer from "./photo_form/photo_form_container";
@@ -26,6 +27,7 @@ const App = () => {
                 <ProtectedRoute exact path='/photos/:id' component={PhotoShowContainer} />
                 <ProtectedRoute exact path='/photos/:id/edit' component={UpdatePhotoContainer} />
                 <ProtectedRoute exact path='/album/new' component={AlbumFormContainer} />
+                <ProtectedRoute exact path='/album/:id' component={AlbumShowContainer} />
                 <Route component={NoExistingPage} />
             </Switch>
         </div>

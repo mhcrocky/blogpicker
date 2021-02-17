@@ -7,8 +7,7 @@ const AlbumIndexItem = (props) => {
 
     return (
         <li>
-            <Link>{album.title}</Link>
-            <div></div>
+            <Link to={`/album/${album.id}`}>{album.title}</Link>
             <div>{album.description}</div>
         </li>
     )
