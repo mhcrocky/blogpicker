@@ -961,17 +961,14 @@ var AlbumShow = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var album = this.props.album;
-      debugger;
-      if (!album || this.props.photoIds.length === 0) return null;
+      if (!album) return null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alb-show-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alb-show-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alb-show-details"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, album.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, album.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        photoIds: this.props.photoIds
-      })));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, album.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, album.description))));
     }
   }]);
 
@@ -1001,15 +998,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  var photoIds = [];
-  Object.values(state.entities.photosAlbums).forEach(function (pA) {
-    if (pA.albumId === ownProps.match.params.id) {
-      photoIds.push(pA.photoId);
-    }
-  });
   return {
-    album: state.entities.albums[ownProps.match.params.id],
-    photoIds: photoIds
+    album: state.entities.albums[ownProps.match.params.id]
   };
 };
 

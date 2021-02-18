@@ -10,8 +10,7 @@ class AlbumShow extends React.Component {
 
     render() {
         const album = this.props.album;
-        debugger
-        if (!album || this.props.photoIds.length === 0) return null;
+        if (!album) return null;
 
         return (
             <div className="alb-show-page">
@@ -22,7 +21,7 @@ class AlbumShow extends React.Component {
                         <p>{album.description}</p>
                     </div>
                     {/* Photo index will go here? */}
-                    <PhotoIndexContainer photoIds={this.props.photoIds} />
+                    {/* <PhotoIndexContainer photoIds={this.props.photoIds} /> */}
                 </div>
             </div>
         )
