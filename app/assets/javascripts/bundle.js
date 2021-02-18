@@ -495,7 +495,7 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       title: '',
       description: '',
-      selecting: false
+      rerender: false
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this)); //have an array of photoIds
@@ -508,6 +508,11 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchAllPhotos();
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.clearErrors();
     }
   }, {
     key: "handleChange",
@@ -524,12 +529,22 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
+      var photosAlbum = Object.values(this.photoIds);
+
+      if (photosAlbum.length === 0) {
+        var error = "Please select some photos";
+        if (!this.props.errors.includes(error)) this.props.errors.push(error);
+        this.setState({
+          rerender: !this.state.rerender
+        });
+        return null;
+      }
+
       var album = {
         title: this.state.title,
         description: this.state.description
       };
       this.props.createAlbum(album).then(function (album) {
-        var photosAlbum = Object.values(_this3.photoIds);
         photosAlbum.forEach(function (pA) {
           pA["albumId"] = album.id;
         });
@@ -566,7 +581,7 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
       }
 
       this.setState({
-        selecting: !this.state.selecting
+        rerender: !this.state.rerender
       });
     }
   }, {
@@ -644,6 +659,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/photo_actions */ "./frontend/actions/photo_actions.js");
 /* harmony import */ var _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/photos_album_actions */ "./frontend/actions/photos_album_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
 
@@ -672,6 +689,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     createPhotosAlbum: function createPhotosAlbum(pA) {
       return dispatch(Object(_actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_4__["createPhotosAlbum"])(pA));
+    },
+    clearErrors: function clearErrors() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_5__["clearErrors"])());
     }
   };
 };
@@ -2777,6 +2797,8 @@ document.addEventListener("DOMContentLoaded", function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/album_actions */ "./frontend/actions/album_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
 var albumErrorsReducer = function albumErrorsReducer() {
@@ -2788,6 +2810,9 @@ var albumErrorsReducer = function albumErrorsReducer() {
       return action.errors.responseJSON;
 
     case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALBUM"]:
+      return [];
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["CLEAR_ERRORS"]:
       return [];
 
     default:

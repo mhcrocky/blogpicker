@@ -3,6 +3,7 @@ import AlbumForm from "./album_form";
 import { connect } from "react-redux";
 import { fetchAllPhotos } from "../../actions/photo_actions"
 import { createPhotosAlbum } from "../../actions/photos_album_actions";
+import { clearErrors } from "../../actions/session_actions";
 
 const mapStateToProps = (state) => {
     const userId = state.session.currentUserId;
@@ -21,7 +22,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         createAlbum: (album) => dispatch(createAlbum(album)),
         fetchAllPhotos: () => dispatch(fetchAllPhotos()),
-        createPhotosAlbum: (pA) => dispatch(createPhotosAlbum(pA))
+        createPhotosAlbum: (pA) => dispatch(createPhotosAlbum(pA)),
+        clearErrors: () => dispatch(clearErrors())
     }
 }
 

@@ -8,7 +8,7 @@ class AlbumForm extends React.Component {
         this.state = {
             title: '',
             description: '',
-            selecting: false,
+            rerender: false,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -20,6 +20,10 @@ class AlbumForm extends React.Component {
         this.props.fetchAllPhotos();
     }
 
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
+
     handleChange(body) {
         return (e) => (
             this.setState({ [body]: e.target.value })
@@ -28,11 +32,19 @@ class AlbumForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        const photosAlbum = Object.values(this.photoIds);
+        
+        if (photosAlbum.length === 0) {
+            const error = "Please select some photos"
+            if (!this.props.errors.includes(error)) this.props.errors.push(error);
+            this.setState({ rerender: !this.state.rerender });
+            return null;
+        }
+
         const album = {title: this.state.title,
                     description: this.state.description};
         this.props.createAlbum(album)
             .then((album) => {
-                const photosAlbum = Object.values(this.photoIds);
                 photosAlbum.forEach((pA) => {
                     pA["albumId"] = album.id;
                 })
@@ -63,7 +75,7 @@ class AlbumForm extends React.Component {
             e.currentTarget.className = "";
         }
         
-        this.setState({selecting: !this.state.selecting});
+        this.setState({rerender: !this.state.rerender});
     }
 
 
