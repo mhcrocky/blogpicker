@@ -1,5 +1,6 @@
 class Api::PhotosAlbumsController < ApplicationController
     def create
+        # accept an array and iterate through it
         @photos_album = PhotosAlbum.new(photos_albums_params)
         if @photos_album.save
             render :show

@@ -4,9 +4,7 @@ const AlbumFormImage = (props) => {
     const photo = props.photo;
 
     return (
-        <li className="album-form-image">
-            <img src={photo.photoUrl} alt={photo.title}/>
-        </li>
+        <img src={photo.photoUrl} alt={photo.title}/> 
     )
 }
 

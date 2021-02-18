@@ -504,7 +504,8 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
       title: '',
       description: ''
     };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); //have an array of photoIds
+
     return _this;
   }
 
@@ -533,7 +534,8 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
         description: this.state.description
       };
       this.props.createAlbum(album).then(function () {
-        _this3.props.history.goBack();
+        _this3.props.history.goBack(); // this.props.createPhotosAlbums(pass an array)
+
       });
     }
   }, {
@@ -548,10 +550,13 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
         }, error);
       });
       var images = this.props.photos.map(function (photo) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_album_form_image__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        //on click event goes on the li
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
           key: photo.id,
+          className: "album-form-image"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_album_form_image__WEBPACK_IMPORTED_MODULE_2__["default"], {
           photo: photo
-        });
+        }));
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "form-page"
@@ -660,12 +665,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var AlbumFormImage = function AlbumFormImage(props) {
   var photo = props.photo;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "album-form-image"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: photo.photoUrl,
     alt: photo.title
-  }));
+  });
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (AlbumFormImage);
