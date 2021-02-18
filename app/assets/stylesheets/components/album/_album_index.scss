@@ -1,0 +1,27 @@
+.album-index-page {
+    height: 100%;
+    overflow: auto;
+}
+
+.album-index-content {
+    flex: display;
+    margin: auto;
+    width: 80%;
+}
+
+.create-alb-container {
+    display: flex;
+
+    a {
+        padding: 8px;
+        font-weight: 600;
+        color: #fff;
+        background-color: #128fdc;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 3px;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+    }
+}

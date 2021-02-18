@@ -495,7 +495,7 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       title: '',
       description: '',
-      selected: false
+      selecting: false
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this)); //have an array of photoIds
@@ -566,7 +566,7 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
       }
 
       this.setState({
-        selected: !this.state.selected
+        selecting: !this.state.selecting
       });
     }
   }, {
@@ -776,7 +776,7 @@ var AlbumIndex = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-index-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "album-index-header"
+        className: "create-alb-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/album/new"
       }, "Create an Album")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, indexItems)));

@@ -8,7 +8,7 @@ class AlbumForm extends React.Component {
         this.state = {
             title: '',
             description: '',
-            selected: false,
+            selecting: false,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -63,7 +63,7 @@ class AlbumForm extends React.Component {
             e.currentTarget.className = "";
         }
         
-        this.setState({selected: !this.state.selected});
+        this.setState({selecting: !this.state.selecting});
     }
 
 

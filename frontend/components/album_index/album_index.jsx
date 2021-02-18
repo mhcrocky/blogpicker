@@ -18,7 +18,7 @@ class AlbumIndex extends React.Component {
         return (
             <div className="album-index-page">
                 <div className="album-index-content">
-                    <div className="album-index-header">
+                    <div className="create-alb-container">
                         <Link to="/album/new">Create an Album</Link>
                     </div>
                     <ul>
