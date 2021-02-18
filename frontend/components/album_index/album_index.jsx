@@ -14,7 +14,6 @@ class AlbumIndex extends React.Component {
 
     handleClick(e) {
         const albId = e.currentTarget.id;
-        debugger
         this.props.history.push(`/album/${albId}`);
     }
 

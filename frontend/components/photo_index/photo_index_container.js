@@ -6,13 +6,17 @@ import PhotoIndex from "./photo_index";
 const mapStateToProps = (state, ownProps) => {
     
     const userId = ownProps.user ? ownProps.user.id : null;
+    const photoIds = ownProps.photoIds ? ownProps.photoIds : null;
 
-    let photos;
+    let photos = [];
     if (userId) {
-        photos = [];
         Object.values(state.entities.photos).forEach((photo) => {
             if (photo.userId === userId) photos.push(photo);
         }) 
+    } else if (photoIds) {
+        photoIds.forEach((id) => {
+            photos.push(state.entities.photos[id]);
+        })
     } else {
         photos = Object.values(state.entities.photos);
     }

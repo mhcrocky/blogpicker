@@ -4,12 +4,14 @@ import PhotoIndexContainer from '../photo_index/photo_index_container';
 
 class AlbumShow extends React.Component {
     componentDidMount() {
+        this.props.fetchPhotosAlbums();
         this.props.fetchAlbum();
     }
 
     render() {
-        const album = this.props.album
-        if (!album) return null;
+        const album = this.props.album;
+        debugger
+        if (!album || this.props.photoIds.length === 0) return null;
 
         return (
             <div className="alb-show-page">
@@ -20,6 +22,7 @@ class AlbumShow extends React.Component {
                         <p>{album.description}</p>
                     </div>
                     {/* Photo index will go here? */}
+                    <PhotoIndexContainer photoIds={this.props.photoIds} />
                 </div>
             </div>
         )

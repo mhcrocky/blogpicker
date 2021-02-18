@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import {fetchAllAlbums} from '../../actions/album_actions';
 import AlbumIndex from './album_index';
 
@@ -23,4 +24,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const AlbumIndexContainer = connect(mapStateToProps, mapDispatchToProps)(AlbumIndex);
-export default AlbumIndexContainer;
+export default withRouter(AlbumIndexContainer);

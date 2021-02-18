@@ -790,7 +790,6 @@ var AlbumIndex = /*#__PURE__*/function (_React$Component) {
     key: "handleClick",
     value: function handleClick(e) {
       var albId = e.currentTarget.id;
-      debugger;
       this.props.history.push("/album/".concat(albId));
     }
   }, {
@@ -845,8 +844,10 @@ var AlbumIndex = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/album_actions */ "./frontend/actions/album_actions.js");
-/* harmony import */ var _album_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./album_index */ "./frontend/components/album_index/album_index.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/album_actions */ "./frontend/actions/album_actions.js");
+/* harmony import */ var _album_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./album_index */ "./frontend/components/album_index/album_index.jsx");
+
 
 
 
@@ -865,13 +866,13 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchAllAlbums: function fetchAllAlbums() {
-      return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_1__["fetchAllAlbums"])());
+      return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_2__["fetchAllAlbums"])());
     }
   };
 };
 
-var AlbumIndexContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_album_index__WEBPACK_IMPORTED_MODULE_2__["default"]);
-/* harmony default export */ __webpack_exports__["default"] = (AlbumIndexContainer);
+var AlbumIndexContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_album_index__WEBPACK_IMPORTED_MODULE_3__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(AlbumIndexContainer));
 
 /***/ }),
 
@@ -953,20 +954,24 @@ var AlbumShow = /*#__PURE__*/function (_React$Component) {
   _createClass(AlbumShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.props.fetchPhotosAlbums();
       this.props.fetchAlbum();
     }
   }, {
     key: "render",
     value: function render() {
       var album = this.props.album;
-      if (!album) return null;
+      debugger;
+      if (!album || this.props.photoIds.length === 0) return null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alb-show-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alb-show-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alb-show-details"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, album.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, album.description))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, album.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, album.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        photoIds: this.props.photoIds
+      })));
     }
   }]);
 
@@ -988,14 +993,23 @@ var AlbumShow = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/album_actions */ "./frontend/actions/album_actions.js");
-/* harmony import */ var _album_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./album_show */ "./frontend/components/album_show/album_show.jsx");
+/* harmony import */ var _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/photos_album_actions */ "./frontend/actions/photos_album_actions.js");
+/* harmony import */ var _album_show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./album_show */ "./frontend/components/album_show/album_show.jsx");
+
 
 
 
 
 var mSTP = function mSTP(state, ownProps) {
+  var photoIds = [];
+  Object.values(state.entities.photosAlbums).forEach(function (pA) {
+    if (pA.albumId === ownProps.match.params.id) {
+      photoIds.push(pA.photoId);
+    }
+  });
   return {
-    album: state.entities.albums[ownProps.match.params.id]
+    album: state.entities.albums[ownProps.match.params.id],
+    photoIds: photoIds
   };
 };
 
@@ -1003,11 +1017,14 @@ var mDTP = function mDTP(dispatch, ownProps) {
   return {
     fetchAlbum: function fetchAlbum() {
       return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_1__["fetchAlbum"])(ownProps.match.params.id));
+    },
+    fetchPhotosAlbums: function fetchPhotosAlbums() {
+      return dispatch(Object(_actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_2__["fetchPhotosAlbums"])());
     }
   };
 };
 
-var AlbumShowContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_album_show__WEBPACK_IMPORTED_MODULE_2__["default"]);
+var AlbumShowContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_album_show__WEBPACK_IMPORTED_MODULE_3__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (AlbumShowContainer);
 
 /***/ }),
@@ -1894,12 +1911,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var userId = ownProps.user ? ownProps.user.id : null;
-  var photos;
+  var photoIds = ownProps.photoIds ? ownProps.photoIds : null;
+  var photos = [];
 
   if (userId) {
-    photos = [];
     Object.values(state.entities.photos).forEach(function (photo) {
       if (photo.userId === userId) photos.push(photo);
+    });
+  } else if (photoIds) {
+    photoIds.forEach(function (id) {
+      photos.push(state.entities.photos[id]);
     });
   } else {
     photos = Object.values(state.entities.photos);
