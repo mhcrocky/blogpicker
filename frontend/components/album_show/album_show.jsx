@@ -20,14 +20,14 @@ class AlbumShow extends React.Component {
                     <div className="alb-show-details">
                         <div className="alb-show-content">
                             <div className="alb-show-icons">
-                                <div onClick={() => this.props.history.goBack()} className="abl-go-back">
-                                    <i className="fas fa-arrow-left">
-                                    </i>
+                                <div onClick={() => this.props.history.goBack()}
+                                className="alb-go-back">
+                                    <i className="fas fa-arrow-left"></i>
                                     <div>
-                                        &nbsp;Back to Albums
+                                        Back to Albums
                                     </div>
                                 </div>
-                                <button className="delete-photo">
+                                <button className="delete-alb">
                                     Delete Album
                                 </button>
                             </div>

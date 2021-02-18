@@ -979,11 +979,11 @@ var AlbumShow = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this.props.history.goBack();
         },
-        className: "abl-go-back"
+        className: "alb-go-back"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-arrow-left"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\xA0Back to Albums")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "delete-photo"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Back to Albums")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "delete-alb"
       }, "Delete Album")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, album.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, album.description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
         photoIds: this.props.photoIds
       })));
@@ -1037,6 +1037,9 @@ var mDTP = function mDTP(dispatch, ownProps) {
     },
     fetchPhotosAlbums: function fetchPhotosAlbums() {
       return dispatch(Object(_actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_2__["fetchPhotosAlbums"])());
+    },
+    deleteAlbum: function deleteAlbum() {
+      return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_1__["deleteAlbum"])(ownProps.match.params.id));
     }
   };
 };

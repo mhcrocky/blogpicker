@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchAlbum } from "../../actions/album_actions";
+import { deleteAlbum, fetchAlbum } from "../../actions/album_actions";
 import { fetchPhotosAlbums } from "../../actions/photos_album_actions";
 import AlbumShow from "./album_show";
 
@@ -22,7 +22,8 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch, ownProps) => {
     return {
         fetchAlbum: () => dispatch(fetchAlbum(ownProps.match.params.id)),
-        fetchPhotosAlbums: () => dispatch(fetchPhotosAlbums())
+        fetchPhotosAlbums: () => dispatch(fetchPhotosAlbums()),
+        deleteAlbum: () => dispatch(deleteAlbum(ownProps.match.params.id))
     }
 }
 

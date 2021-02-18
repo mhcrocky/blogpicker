@@ -36,15 +36,41 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.alb-go-back {
+    display: flex;
+    color: #006dac;
+    align-items: center;
 
     i {
-        align-self: center;
-        display: flex;
         font-size: 20px;
-        div {
-            vertical-align: center;
-            font-size: 14px;
-            font-family: 'proxima_nova_rgbold', Helvetica, Arial, sans-serif;
-        }
+        margin-right: 5px;
     }
+
+    div {
+        vertical-align: center;
+        font-size: 16px;
+        font-family: 'proxima_nova_rgregular', Helvetica, Arial, sans-serif;
+    }
+}
+
+.alb-go-back:hover {
+    cursor: pointer;
+}
+
+.delete-alb {
+    font-weight: 600;
+    padding: 5px;
+    color: #fff;
+    background-color: #128fdc;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 3px;
+    text-decoration: none;
+    border: none;
+}
+
+.delete-alb:hover {
+    color: rgb(247, 85, 85);
 }
