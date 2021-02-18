@@ -268,6 +268,56 @@ var deletePhoto = function deletePhoto(photoId) {
 
 /***/ }),
 
+/***/ "./frontend/actions/photos_album_actions.js":
+/*!**************************************************!*\
+  !*** ./frontend/actions/photos_album_actions.js ***!
+  \**************************************************/
+/*! exports provided: RECEIVE_ALL_PHOTOS_ALBUMS, RECEIVE_PHOTOS_ALBUM, createPhotosAlbum, fetchPhotosAlbums */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_PHOTOS_ALBUMS", function() { return RECEIVE_ALL_PHOTOS_ALBUMS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_PHOTOS_ALBUM", function() { return RECEIVE_PHOTOS_ALBUM; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPhotosAlbum", function() { return createPhotosAlbum; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPhotosAlbums", function() { return fetchPhotosAlbums; });
+/* harmony import */ var _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/photos_albums_util */ "./frontend/util/photos_albums_util.js");
+
+var RECEIVE_ALL_PHOTOS_ALBUMS = 'RECEIVE_ALL_PHOTOS_ALBUMS';
+var RECEIVE_PHOTOS_ALBUM = 'RECEIVE_PHOTOS_ALBUM'; //regular actions
+
+var receiveAllPhotosAlbums = function receiveAllPhotosAlbums(photosAlbums) {
+  return {
+    type: RECEIVE_ALL_PHOTOS_ALBUMS,
+    photosAlbums: photosAlbums
+  };
+};
+
+var receivePhotosAlbum = function receivePhotosAlbum(photosAlbum) {
+  return {
+    type: RECEIVE_PHOTOS_ALBUM,
+    photosAlbum: photosAlbum
+  };
+}; //thunks
+
+
+var createPhotosAlbum = function createPhotosAlbum(photosAlbum) {
+  return function (dispatch) {
+    return _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_0__["createPhotosAlbum"](photosAlbum).then(function (pA) {
+      dispatch(receivePhotosAlbum(pA));
+    });
+  };
+};
+var fetchPhotosAlbums = function fetchPhotosAlbums() {
+  return function (dispatch) {
+    return _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_0__["fetchPhotosAlbums"]().then(function (pAs) {
+      dispatch(receiveAllPhotosAlbums(pAs));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -2577,8 +2627,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/photos_albums_util */ "./frontend/util/photos_albums_util.js");
-/* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/album_actions */ "./frontend/actions/album_actions.js");
+/* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/album_actions */ "./frontend/actions/album_actions.js");
+/* harmony import */ var _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/photos_album_actions */ "./frontend/actions/photos_album_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -2613,10 +2663,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }), root); //Remove these after done testing!
 
   window.store = store;
-  window.createPhotosAlbum = _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_4__["createPhotosAlbum"];
-  window.fetchPhotosAlbums = _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_4__["fetchPhotosAlbums"];
+  window.fetchPhotosAlbums = _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_5__["fetchPhotosAlbums"];
+  window.createPhotosAlbum = _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_5__["createPhotosAlbum"];
   window.dispatch = store.dispatch;
-  window.deleteAlbum = _actions_album_actions__WEBPACK_IMPORTED_MODULE_5__["deleteAlbum"];
+  window.deleteAlbum = _actions_album_actions__WEBPACK_IMPORTED_MODULE_4__["deleteAlbum"];
 });
 
 /***/ }),
@@ -2704,16 +2754,19 @@ var albumsReducer = function albumsReducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _albums_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./albums_reducer */ "./frontend/reducers/albums_reducer.js");
-/* harmony import */ var _photos_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./photos_reducer */ "./frontend/reducers/photos_reducer.js");
-/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _photos_albums_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./photos_albums_reducer */ "./frontend/reducers/photos_albums_reducer.js");
+/* harmony import */ var _photos_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./photos_reducer */ "./frontend/reducers/photos_reducer.js");
+/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+
 
 
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
-  photos: _photos_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  albums: _albums_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
+  photos: _photos_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  albums: _albums_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  photosAlbums: _photos_albums_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -2742,6 +2795,56 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
   album: _albums_error_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/photos_albums_reducer.js":
+/*!****************************************************!*\
+  !*** ./frontend/reducers/photos_albums_reducer.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/album_actions */ "./frontend/actions/album_actions.js");
+/* harmony import */ var _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/photos_album_actions */ "./frontend/actions/photos_album_actions.js");
+
+
+
+var photosAlbumsReducer = function photosAlbumsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var newState = Object.assign({}, state);
+
+  switch (action.type) {
+    case _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PHOTOS_ALBUM"]:
+      newState[action.photosAlbum.id] = action.photosAlbum;
+      return newState;
+
+    case _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_PHOTOS_ALBUMS"]:
+      newState = Object.assign({}, action.photosAlbums);
+      return newState;
+
+    case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_ALBUM"]:
+      var ids = [];
+      Object.values(newState).forEach(function (pA) {
+        if (pA.albumId === action.albumId) {
+          ids.push(pA.id);
+        }
+      });
+      ids.forEach(function (id) {
+        delete newState[id];
+      });
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (photosAlbumsReducer);
 
 /***/ }),
 

@@ -13,10 +13,19 @@ const photosAlbumsReducer = (state = {}, action) => {
             newState = Object.assign({}, action.photosAlbums);
             return newState;
         case DELETE_ALBUM:
-            const ids = Object.values(newState).map((pA) => {
-                if (pA.album_id === action.albumId) {
-                    return ids;
+            let ids = [];
+            Object.values(newState).forEach((pA) => {
+                if (pA.albumId === action.albumId) {
+                    ids.push(pA.id);
                 }
+            });
+            ids.forEach((id) => {
+                delete newState[id];
             })
+            return newState;
+        default:
+            return state;
     }
 }
+
+export default photosAlbumsReducer;
