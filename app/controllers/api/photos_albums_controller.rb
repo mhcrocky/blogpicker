@@ -1,11 +1,10 @@
 class Api::PhotosAlbumsController < ApplicationController
     def create
+
         # accept an array and iterate through it
-        @photos_album = PhotosAlbum.new(photos_albums_params)
-        if @photos_album.save
-            render :show
-        else
-            render json: @photos_albums.errors.full_messages, status: 422
+        params[:photos_album].values.each do |obj|
+            debugger
+            PhotosAlbum.create!(album_id: obj[:albumId], photo_id: obj[:photoId])
         end
     end
 
@@ -14,9 +13,4 @@ class Api::PhotosAlbumsController < ApplicationController
         render :index
     end
 
-    private
-
-    def photos_albums_params
-        params.require(:photos_album).permit(:album_id, :photo_id)
-    end
 end

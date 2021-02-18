@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from "./components/root";
 import { deleteAlbum } from './actions/album_actions';
-import { createPhotosAlbum, fetchPhotosAlbums } from './actions/photos_album_actions';
+import { fetchPhotosAlbums } from './actions/photos_album_actions';
+import { createPhotosAlbum } from './util/photos_albums_util';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;                   //Allowing user to refresh & stay logged in
