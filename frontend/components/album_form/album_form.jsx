@@ -1,5 +1,6 @@
 import HeaderContainer from "../header/header_container";
 import React from 'react';
+import AlbumFormImage from "./album_form_image";
 
 class AlbumForm extends React.Component {
     constructor(props) {
@@ -39,6 +40,12 @@ class AlbumForm extends React.Component {
             )
         });
 
+        const images = this.props.photos.map((photo) => {
+            return (
+                <AlbumFormImage key={photo.id} photo={photo} />
+            )
+        })
+
         return (
             <div className="form-page">
                 <HeaderContainer />
@@ -68,9 +75,9 @@ class AlbumForm extends React.Component {
                     <ul className="form-errors">
                         {errors}
                     </ul>
-                    <div className="image-selector">
-
-                    </div>
+                    <ul className="image-selector">
+                        {images}
+                    </ul>
                 </div>
             </div>
         )
