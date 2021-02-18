@@ -557,9 +557,16 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
       }
 
       console.log(this.photoIds);
-      var currentState = this.state.selected;
+      var className = e.currentTarget.className;
+
+      if (className === "") {
+        e.currentTarget.className = 'img-selected';
+      } else {
+        e.currentTarget.className = "";
+      }
+
       this.setState({
-        selected: !currentState
+        selected: !this.state.selected
       });
     }
   }, {
@@ -577,8 +584,7 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
         //on click event goes on the li
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
           onClick: _this4.handleClick,
-          key: photo.id,
-          className: _this4.state.selected ? 'img-selected' : null
+          key: photo.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_album_form_image__WEBPACK_IMPORTED_MODULE_2__["default"], {
           photo: photo
         }));

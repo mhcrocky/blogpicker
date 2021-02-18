@@ -8,7 +8,7 @@ class AlbumForm extends React.Component {
         this.state = {
             title: '',
             description: '',
-            selected: false
+            selected: false,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -45,7 +45,7 @@ class AlbumForm extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-
+        
         const id = parseInt(e.target.alt);
         const idObj = {photoId: id};
         
@@ -56,8 +56,14 @@ class AlbumForm extends React.Component {
         }
         console.log(this.photoIds)
 
-        const currentState = this.state.selected;
-        this.setState({selected: !currentState});
+        const className = e.currentTarget.className;
+        if (className === "") {
+            e.currentTarget.className = 'img-selected';
+        } else {
+            e.currentTarget.className = "";
+        }
+        
+        this.setState({selected: !this.state.selected});
     }
 
 
@@ -72,8 +78,7 @@ class AlbumForm extends React.Component {
             //on click event goes on the li
             return (
                 <li onClick={this.handleClick}
-                    key={photo.id}
-                    className={this.state.selected ? 'img-selected' : null}>
+                    key={photo.id}>
                     <AlbumFormImage photo={photo} />
                 </li>
             )

@@ -7,11 +7,12 @@
 .album-form-image {
     width: 100%;
     height: auto;
-    filter: sepia(90%);
+    filter: grayscale(80%);
 }
 
 .img-selected {
     img {
-        filter: sepia(0%);
+        filter: grayscale(0%);
+        border: #128fdc solid 1px;
     }
 }
