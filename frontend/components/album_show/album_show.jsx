@@ -16,10 +16,25 @@ class AlbumShow extends React.Component {
         return (
             <div className="alb-show-page">
                 <HeaderContainer />
-                <div className="alb-show-content">
+                <div className="alb-show-container">
                     <div className="alb-show-details">
-                        <h1>{album.title}</h1>
-                        <p>{album.description}</p>
+                        <div className="alb-show-content">
+                            <div className="alb-show-icons">
+                                <div onClick={() => this.props.history.goBack()} className="abl-go-back">
+                                    <i className="fas fa-arrow-left">
+                                    </i>
+                                    <div>
+                                        &nbsp;Back to Albums
+                                    </div>
+                                </div>
+                                <button className="delete-photo">
+                                    Delete Album
+                                </button>
+                            </div>
+                            <h1>{album.title}</h1>
+                            <div>Description</div>
+                            <p>{album.description}</p>
+                        </div>
                     </div>
                     <PhotoIndexContainer photoIds={this.props.photoIds} />
                 </div>
