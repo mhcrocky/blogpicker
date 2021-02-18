@@ -494,7 +494,8 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       title: '',
-      description: ''
+      description: '',
+      selected: false
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this)); //have an array of photoIds
@@ -556,6 +557,10 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
       }
 
       console.log(this.photoIds);
+      var currentState = this.state.selected;
+      this.setState({
+        selected: !currentState
+      });
     }
   }, {
     key: "render",
@@ -573,7 +578,7 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
           onClick: _this4.handleClick,
           key: photo.id,
-          className: "album-form-image"
+          className: _this4.state.selected ? 'img-selected' : null
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_album_form_image__WEBPACK_IMPORTED_MODULE_2__["default"], {
           photo: photo
         }));
@@ -686,6 +691,7 @@ __webpack_require__.r(__webpack_exports__);
 var AlbumFormImage = function AlbumFormImage(props) {
   var photo = props.photo;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "album-form-image",
     src: photo.photoUrl,
     alt: photo.id
   });
