@@ -7,23 +7,29 @@ const mapStateToProps = (state, ownProps) => {
     
     const userId = ownProps.user ? ownProps.user.id : null;
     const photoIds = ownProps.photoIds ? ownProps.photoIds : null;
+    const photosState = state.entities.photos;
 
     let photos = [];
     if (userId) {
-        Object.values(state.entities.photos).forEach((photo) => {
+        Object.values(photosState).forEach((photo) => {
             if (photo.userId === userId) photos.push(photo);
         }) 
     } else if (photoIds) {
-        photoIds.forEach((id) => {
-            photos.push(state.entities.photos[id]);
-        })
+        debugger
+        if (Object.values(photosState) === 0) {
+            photos = undefined;
+        } else {
+            photoIds.forEach((id) => {
+                photos.push(photosState[id]);
+            })
+        }
     } else {
-        photos = Object.values(state.entities.photos);
+        photos = Object.values(photosState);
     }
     
     return {
         users: state.entities.users,
-        photos: photos.reverse() //arr of photo objects
+        photos: photos.reverse() //see most recent image first
     }
 }
 

@@ -5,8 +5,17 @@ import AlbumShow from "./album_show";
 
 const mSTP = (state, ownProps) => {
     
+    let photoIds = [];
+    Object.values(state.entities.photosAlbums).forEach((photoAlbum) => {
+        const albId = parseInt(ownProps.match.params.id)
+        if (photoAlbum.albumId === albId) {
+            photoIds.push(photoAlbum.photoId)
+        }
+    })
+
     return {
         album: state.entities.albums[ownProps.match.params.id],
+        photoIds
     }
 }
 

@@ -961,14 +961,17 @@ var AlbumShow = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var album = this.props.album;
-      if (!album) return null;
+      var photoIds = this.props.photoIds.length;
+      if (!album || photoIds === 0) return null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alb-show-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alb-show-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alb-show-details"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, album.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, album.description))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, album.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, album.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        photoIds: this.props.photoIds
+      })));
     }
   }]);
 
@@ -998,8 +1001,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
+  var photoIds = [];
+  Object.values(state.entities.photosAlbums).forEach(function (photoAlbum) {
+    var albId = parseInt(ownProps.match.params.id);
+
+    if (photoAlbum.albumId === albId) {
+      photoIds.push(photoAlbum.photoId);
+    }
+  });
   return {
-    album: state.entities.albums[ownProps.match.params.id]
+    album: state.entities.albums[ownProps.match.params.id],
+    photoIds: photoIds
   };
 };
 
@@ -1857,6 +1869,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
+      if (!this.props.photos) return null;
       var photos = this.props.photos.map(function (photo) {
         //this.props.users[photo.userId]
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -1902,23 +1915,30 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var userId = ownProps.user ? ownProps.user.id : null;
   var photoIds = ownProps.photoIds ? ownProps.photoIds : null;
+  var photosState = state.entities.photos;
   var photos = [];
 
   if (userId) {
-    Object.values(state.entities.photos).forEach(function (photo) {
+    Object.values(photosState).forEach(function (photo) {
       if (photo.userId === userId) photos.push(photo);
     });
   } else if (photoIds) {
-    photoIds.forEach(function (id) {
-      photos.push(state.entities.photos[id]);
-    });
+    debugger;
+
+    if (Object.values(photosState) === 0) {
+      photos = undefined;
+    } else {
+      photoIds.forEach(function (id) {
+        photos.push(photosState[id]);
+      });
+    }
   } else {
-    photos = Object.values(state.entities.photos);
+    photos = Object.values(photosState);
   }
 
   return {
     users: state.entities.users,
-    photos: photos.reverse() //arr of photo objects
+    photos: photos.reverse() //see most recent image first
 
   };
 };
