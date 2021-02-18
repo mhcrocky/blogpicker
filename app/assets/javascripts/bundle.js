@@ -507,6 +507,11 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(AlbumForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchAllPhotos();
+    }
+  }, {
     key: "handleChange",
     value: function handleChange(body) {
       var _this2 = this;
@@ -568,7 +573,9 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
         className: "upload-button"
       }, "Create")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("ul", {
         className: "form-errors"
-      }, errors)));
+      }, errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "image-selector"
+      })));
     }
   }]);
 
@@ -591,13 +598,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/album_actions */ "./frontend/actions/album_actions.js");
 /* harmony import */ var _album_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./album_form */ "./frontend/components/album_form/album_form.jsx");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/photo_actions */ "./frontend/actions/photo_actions.js");
+/* harmony import */ var _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/photos_album_actions */ "./frontend/actions/photos_album_actions.js");
+
+
 
 
 
 
 var mapStateToProps = function mapStateToProps(state) {
+  var userId = state.session.currentUserId;
+  var photos = [];
+  Object.values(state.entities.photos).forEach(function (photo) {
+    if (photo.userId === userId) photos.push(photo);
+  });
   return {
-    errors: state.errors.album
+    errors: state.errors.album,
+    photos: photos
   };
 };
 
@@ -605,6 +622,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     createAlbum: function createAlbum(album) {
       return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["createAlbum"])(album));
+    },
+    fetchAllPhotos: function fetchAllPhotos() {
+      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_3__["fetchAllPhotos"])());
+    },
+    createPhotosAlbum: function createPhotosAlbum(pA) {
+      return dispatch(Object(_actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_4__["createPhotosAlbum"])(pA));
     }
   };
 };

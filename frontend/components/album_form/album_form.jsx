@@ -11,6 +11,10 @@ class AlbumForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        this.props.fetchAllPhotos();
+    }
+
     handleChange(body) {
         return (e) => (
             this.setState({ [body]: e.target.value })
@@ -64,6 +68,9 @@ class AlbumForm extends React.Component {
                     <ul className="form-errors">
                         {errors}
                     </ul>
+                    <div className="image-selector">
+
+                    </div>
                 </div>
             </div>
         )
