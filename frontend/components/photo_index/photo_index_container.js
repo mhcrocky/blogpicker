@@ -15,9 +15,8 @@ const mapStateToProps = (state, ownProps) => {
             if (photo.userId === userId) photos.push(photo);
         }) 
     } else if (photoIds) {
-        debugger
-        if (Object.values(photosState) === 0) {
-            photos = undefined;
+        if (Object.values(photosState).length === 0) {
+            photos = [];
         } else {
             photoIds.forEach((id) => {
                 photos.push(photosState[id]);

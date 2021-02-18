@@ -1869,7 +1869,6 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      if (!this.props.photos) return null;
       var photos = this.props.photos.map(function (photo) {
         //this.props.users[photo.userId]
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -1923,10 +1922,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
       if (photo.userId === userId) photos.push(photo);
     });
   } else if (photoIds) {
-    debugger;
-
-    if (Object.values(photosState) === 0) {
-      photos = undefined;
+    if (Object.values(photosState).length === 0) {
+      photos = [];
     } else {
       photoIds.forEach(function (id) {
         photos.push(photosState[id]);

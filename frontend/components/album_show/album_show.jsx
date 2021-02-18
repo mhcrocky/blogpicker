@@ -21,7 +21,6 @@ class AlbumShow extends React.Component {
                         <h1>{album.title}</h1>
                         <p>{album.description}</p>
                     </div>
-                    {/* Photo index will go here? */}
                     <PhotoIndexContainer photoIds={this.props.photoIds} />
                 </div>
             </div>

@@ -18,7 +18,6 @@ class PhotoIndex extends React.Component {
     }
 
     render() {
-        if (!this.props.photos) return null;
         
         const photos = this.props.photos.map((photo) => { //this.props.users[photo.userId]
             return (
