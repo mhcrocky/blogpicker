@@ -4,7 +4,7 @@ const AlbumFormImage = (props) => {
     const photo = props.photo;
 
     return (
-        <img src={photo.photoUrl} alt={photo.title}/> 
+        <img src={photo.photoUrl} alt={photo.id}/> 
     )
 }
 

@@ -495,8 +495,10 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
       title: '',
       description: ''
     };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); //have an array of photoIds
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this)); //have an array of photoIds
 
+    _this.photoIds = {};
     return _this;
   }
 
@@ -524,10 +526,30 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
         title: this.state.title,
         description: this.state.description
       };
-      this.props.createAlbum(album).then(function () {
-        _this3.props.history.goBack(); // this.props.createPhotosAlbums(pass an array)
-
+      this.props.createAlbum(album).then(function (album) {
+        var photosAlbums = Object.values(_this3.photoIds);
+        photosAlbums.forEach(function (pA) {
+          pA[albumId] = album.id;
+        });
+        console.log(photosAlbums); // this.props.history.goBack(); // this.props.createPhotosAlbums(pass an array)
       });
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick(e) {
+      e.preventDefault();
+      var id = parseInt(e.target.alt);
+      var idObj = {
+        photoId: id
+      };
+
+      if (this.photoIds[id]) {
+        delete this.photoIds[id];
+      } else {
+        this.photoIds[id] = idObj;
+      }
+
+      console.log(this.photoIds);
     }
   }, {
     key: "render",
@@ -543,6 +565,7 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
       var images = this.props.photos.map(function (photo) {
         //on click event goes on the li
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
+          onClick: _this4.handleClick,
           key: photo.id,
           className: "album-form-image"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_album_form_image__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -658,7 +681,7 @@ var AlbumFormImage = function AlbumFormImage(props) {
   var photo = props.photo;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: photo.photoUrl,
-    alt: photo.title
+    alt: photo.id
   });
 };
 
@@ -2683,7 +2706,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/album_actions */ "./frontend/actions/album_actions.js");
 /* harmony import */ var _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/photos_album_actions */ "./frontend/actions/photos_album_actions.js");
 /* harmony import */ var _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./util/photos_albums_util */ "./frontend/util/photos_albums_util.js");
+/* harmony import */ var _util_album_api_util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./util/album_api_util */ "./frontend/util/album_api_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2722,6 +2747,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.createPhotosAlbum = _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_6__["createPhotosAlbum"];
   window.dispatch = store.dispatch;
   window.deleteAlbum = _actions_album_actions__WEBPACK_IMPORTED_MODULE_4__["deleteAlbum"];
+  window.createAlbum = _util_album_api_util__WEBPACK_IMPORTED_MODULE_7__["createAlbum"];
 });
 
 /***/ }),

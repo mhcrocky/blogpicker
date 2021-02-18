@@ -10,8 +10,9 @@ class AlbumForm extends React.Component {
             description: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-
+        this.handleClick = this.handleClick.bind(this);
         //have an array of photoIds
+        this.photoIds = {};
     }
 
     componentDidMount() {
@@ -29,9 +30,27 @@ class AlbumForm extends React.Component {
         const album = {title: this.state.title,
                     description: this.state.description};
         this.props.createAlbum(album)
-            .then(() => {
-                this.props.history.goBack(); // this.props.createPhotosAlbums(pass an array)
+            .then((album) => {
+                const photosAlbums = Object.values(this.photoIds);
+                photosAlbums.forEach((pA) => {
+                    pA[albumId] = album.id;
+                })
+                console.log(photosAlbums);
+                // this.props.history.goBack(); // this.props.createPhotosAlbums(pass an array)
             })
+    }
+
+    handleClick(e) {
+        e.preventDefault();
+        const id = parseInt(e.target.alt);
+        const idObj = {photoId: id};
+        
+        if ( this.photoIds[id] ) {
+            delete this.photoIds[id];
+        } else {
+            this.photoIds[id] = idObj;
+        }
+        console.log(this.photoIds)
     }
 
 
@@ -45,7 +64,9 @@ class AlbumForm extends React.Component {
         const images = this.props.photos.map((photo) => {
             //on click event goes on the li
             return (
-                <li key={photo.id} className="album-form-image"> 
+                <li onClick={this.handleClick}
+                    key={photo.id}
+                    className="album-form-image"> 
                     <AlbumFormImage photo={photo} />
                 </li>
             )
