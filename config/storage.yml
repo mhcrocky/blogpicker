@@ -16,6 +16,8 @@ local:
 
 amazon_dev:
   service: S3
+  upload:
+    cache_control: 'max-age=86400, private'
   access_key_id: <%= Rails.application.credentials.aws[:access_key_id] %>
   secret_access_key:
     <%= Rails.application.credentials.aws[:secret_access_key] %>
@@ -24,6 +26,8 @@ amazon_dev:
 
 amazon_prod:
   service: S3
+  upload:
+    cache_control: 'max-age=86400, private'
   access_key_id: <%= Rails.application.credentials.aws[:access_key_id] %>
   secret_access_key:
     <%= Rails.application.credentials.aws[:secret_access_key] %>

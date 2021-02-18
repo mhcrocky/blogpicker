@@ -14,7 +14,7 @@ class PhotoIndexItem extends React.Component {
                     <div>by {username}</div>
                 </div>
                 <Link to={`/photos/${photo.id}`}>
-                    <img src={photo.photoUrl} alt={photo.title}/>
+                    <img loading="lazy" src={photo.photoUrl} alt={photo.title}/>
                 </Link>
             </li>
 
