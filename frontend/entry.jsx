@@ -5,7 +5,7 @@ import Root from "./components/root";
 import { deleteAlbum } from './actions/album_actions';
 import { fetchPhotosAlbums } from './actions/photos_album_actions';
 import { createPhotosAlbum } from './util/photos_albums_util';
-import { createAlbum } from './util/album_api_util';
+
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;                   //Allowing user to refresh & stay logged in
@@ -31,5 +31,4 @@ document.addEventListener("DOMContentLoaded", () => {
     window.createPhotosAlbum = createPhotosAlbum;
     window.dispatch = store.dispatch;
     window.deleteAlbum = deleteAlbum;
-    window.createAlbum = createAlbum;
 })

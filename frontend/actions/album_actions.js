@@ -41,6 +41,7 @@ export const createAlbum = (album) => (dispatch) => {
     return APIUtil.createAlbum(album)
         .then(album => {
             dispatch(receiveAlbum(album))
+            return album;
         })
         .fail(errors => {
             dispatch(albumErrors(errors))

@@ -143,6 +143,7 @@ var createAlbum = function createAlbum(album) {
   return function (dispatch) {
     return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["createAlbum"](album).then(function (album) {
       dispatch(receiveAlbum(album));
+      return album;
     }).fail(function (errors) {
       dispatch(albumErrors(errors));
     });
@@ -527,11 +528,16 @@ var AlbumForm = /*#__PURE__*/function (_React$Component) {
         description: this.state.description
       };
       this.props.createAlbum(album).then(function (album) {
-        var photosAlbums = Object.values(_this3.photoIds);
-        photosAlbums.forEach(function (pA) {
-          pA[albumId] = album.id;
+        var photosAlbum = Object.values(_this3.photoIds);
+        photosAlbum.forEach(function (pA) {
+          pA["albumId"] = album.id;
         });
-        console.log(photosAlbums); // this.props.history.goBack(); // this.props.createPhotosAlbums(pass an array)
+
+        _this3.props.createPhotosAlbum(photosAlbum).then(function () {
+          _this3.props.history.goBack();
+        }); // this.props.createPhotosAlbums(pass an array) arr is handled
+        // in the backend!
+
       });
     }
   }, {
@@ -2706,9 +2712,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/album_actions */ "./frontend/actions/album_actions.js");
 /* harmony import */ var _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/photos_album_actions */ "./frontend/actions/photos_album_actions.js");
 /* harmony import */ var _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./util/photos_albums_util */ "./frontend/util/photos_albums_util.js");
-/* harmony import */ var _util_album_api_util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./util/album_api_util */ "./frontend/util/album_api_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -2747,7 +2751,6 @@ document.addEventListener("DOMContentLoaded", function () {
   window.createPhotosAlbum = _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_6__["createPhotosAlbum"];
   window.dispatch = store.dispatch;
   window.deleteAlbum = _actions_album_actions__WEBPACK_IMPORTED_MODULE_4__["deleteAlbum"];
-  window.createAlbum = _util_album_api_util__WEBPACK_IMPORTED_MODULE_7__["createAlbum"];
 });
 
 /***/ }),

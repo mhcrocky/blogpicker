@@ -3,7 +3,6 @@ class Api::PhotosAlbumsController < ApplicationController
 
         # accept an array and iterate through it
         params[:photos_album].values.each do |obj|
-            debugger
             PhotosAlbum.create!(album_id: obj[:albumId], photo_id: obj[:photoId])
         end
     end

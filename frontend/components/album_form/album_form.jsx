@@ -31,12 +31,14 @@ class AlbumForm extends React.Component {
                     description: this.state.description};
         this.props.createAlbum(album)
             .then((album) => {
-                const photosAlbums = Object.values(this.photoIds);
-                photosAlbums.forEach((pA) => {
-                    pA[albumId] = album.id;
+                const photosAlbum = Object.values(this.photoIds);
+                photosAlbum.forEach((pA) => {
+                    pA["albumId"] = album.id;
                 })
-                console.log(photosAlbums);
-                // this.props.history.goBack(); // this.props.createPhotosAlbums(pass an array)
+                this.props.createPhotosAlbum(photosAlbum)
+                    .then(() => {this.props.history.goBack()})
+                 // this.props.createPhotosAlbums(pass an array) arr is handled
+                 // in the backend!
             })
     }
 
