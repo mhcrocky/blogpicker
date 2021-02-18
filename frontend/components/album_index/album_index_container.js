@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
     })
 
     return {
-        albums
+        albums,
+        currentUserId: state.session.currentUserId
     }
 }
 

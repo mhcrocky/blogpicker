@@ -16,9 +16,10 @@ class UserShow extends React.Component {
         let content;
         let photoStream;
         let albums;
+        if (!user) return null;
 
-        const username = user ? user.username : "";
-        const userId = user ? user.id : "";
+        const username = user.username 
+        const userId = user.id 
 
         if (path === "/users/:id/albums") {
             content = <AlbumIndexContainer userId={user.id} />;

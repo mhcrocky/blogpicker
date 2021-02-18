@@ -11,10 +11,11 @@
 
 .create-alb-container {
     display: flex;
+    margin-bottom: 15px;
 
     a {
         padding: 8px;
-        font-weight: 600;
+        font-size: 14px;
         color: #fff;
         background-color: #128fdc;
         padding-left: 15px;
@@ -28,4 +29,28 @@
     a:hover {
         color: #d7d7d7;
     }
+}
+
+.album-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.album-info {
+    padding: 8px;
+    height: 200px;
+    width: 200px;
+    background-color: darkgray;
+    border-radius: .25rem;
+    cursor: pointer;
+
+    h1 {
+        font-size: 20px;
+        text-shadow: 2px 1px #423c3c;
+        color: #fff;
+    }
+}
+
+.album-info:hover {
+    border: 1px solid black;
 }

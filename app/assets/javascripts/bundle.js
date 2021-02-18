@@ -771,10 +771,14 @@ var AlbumIndex = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(AlbumIndex);
 
-  function AlbumIndex() {
+  function AlbumIndex(props) {
+    var _this;
+
     _classCallCheck(this, AlbumIndex);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(AlbumIndex, [{
@@ -783,23 +787,44 @@ var AlbumIndex = /*#__PURE__*/function (_React$Component) {
       this.props.fetchAllAlbums();
     }
   }, {
+    key: "handleClick",
+    value: function handleClick(e) {
+      var albId = e.currentTarget.id;
+      debugger;
+      this.props.history.push("/album/".concat(albId));
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var indexItems = this.props.albums.map(function (album) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_album_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          onClick: _this2.handleClick,
+          id: album.id,
           key: album.id,
+          className: "album-info"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_album_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           album: album
-        });
+        }));
       });
+      var createButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+
+      if (this.props.currentUserId === this.props.userId) {
+        createButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "create-alb-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/album/new"
+        }, "Create an Album"));
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-index-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-index-content"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "create-alb-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/album/new"
-      }, "Create an Album")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, indexItems)));
+      }, createButton, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "album-list"
+      }, indexItems)));
     }
   }]);
 
@@ -832,7 +857,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     if (album.userId === ownProps.userId) albums.push(album);
   });
   return {
-    albums: albums
+    albums: albums,
+    currentUserId: state.session.currentUserId
   };
 };
 
@@ -867,9 +893,7 @@ __webpack_require__.r(__webpack_exports__);
 var AlbumIndexItem = function AlbumIndexItem(props) {
   var album = props.album;
   if (!album) return null;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/album/".concat(album.id)
-  }, album.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, album.description));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, album.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, album.description));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (AlbumIndexItem);
@@ -2526,8 +2550,9 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
       var content;
       var photoStream;
       var albums;
-      var username = user ? user.username : "";
-      var userId = user ? user.id : "";
+      if (!user) return null;
+      var username = user.username;
+      var userId = user.id;
 
       if (path === "/users/:id/albums") {
         content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_album_index_album_index_container__WEBPACK_IMPORTED_MODULE_4__["default"], {

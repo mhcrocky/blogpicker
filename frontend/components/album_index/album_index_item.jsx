@@ -6,10 +6,10 @@ const AlbumIndexItem = (props) => {
     if (!album) return null;
 
     return (
-        <li>
-            <Link to={`/album/${album.id}`}>{album.title}</Link>
+        <>
+            <h1>{album.title}</h1>
             <div>{album.description}</div>
-        </li>
+        </>
     )
 }
 
