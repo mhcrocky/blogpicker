@@ -40,7 +40,7 @@
 
 .alb-go-back {
     display: flex;
-    color: #006dac;
+    color: #128fdc;
     align-items: center;
 
     i {
@@ -53,6 +53,10 @@
         font-size: 16px;
         font-family: 'proxima_nova_rgregular', Helvetica, Arial, sans-serif;
     }
+}
+
+.alb-go-back:hover {
+    color: #006dac;
 }
 
 .alb-go-back:hover {

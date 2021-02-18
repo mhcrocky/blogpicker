@@ -945,10 +945,14 @@ var AlbumShow = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(AlbumShow);
 
-  function AlbumShow() {
+  function AlbumShow(props) {
+    var _this;
+
     _classCallCheck(this, AlbumShow);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(AlbumShow, [{
@@ -958,13 +962,34 @@ var AlbumShow = /*#__PURE__*/function (_React$Component) {
       this.props.fetchAlbum();
     }
   }, {
+    key: "handleClick",
+    value: function handleClick(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      var userId = this.props.currentUserId;
+      this.props.deleteAlbum().then(function () {
+        _this2.props.history.push("/users/".concat(userId, "/albums"));
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this3 = this;
 
       var album = this.props.album;
       var photoIds = this.props.photoIds.length;
       if (!album || photoIds === 0) return null;
+      var deleteButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+
+      if (this.props.currentUserId === album.userId) {
+        deleteButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button",
+          onClick: this.handleClick,
+          className: "delete-alb"
+        }, "Delete Album");
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alb-show-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -977,14 +1002,12 @@ var AlbumShow = /*#__PURE__*/function (_React$Component) {
         className: "alb-show-icons"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: function onClick() {
-          return _this.props.history.goBack();
+          return _this3.props.history.goBack();
         },
         className: "alb-go-back"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-arrow-left"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Back to Albums")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "delete-alb"
-      }, "Delete Album")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, album.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, album.description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Back to Albums")), deleteButton), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, album.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, album.description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
         photoIds: this.props.photoIds
       })));
     }
@@ -1026,7 +1049,8 @@ var mSTP = function mSTP(state, ownProps) {
   });
   return {
     album: state.entities.albums[ownProps.match.params.id],
-    photoIds: photoIds
+    photoIds: photoIds,
+    currentUserId: state.session.currentUserId
   };
 };
 
@@ -2158,9 +2182,11 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
         buttons = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "delete-update-photo"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button",
           onClick: this.handleDelete,
           className: "delete-photo"
         }, "Delete Photo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button",
           onClick: this.handleUpdate,
           className: "update-photo"
         }, "Update Photo"));
@@ -3001,6 +3027,8 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/album_actions */ "./frontend/actions/album_actions.js");
 /* harmony import */ var _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/photos_album_actions */ "./frontend/actions/photos_album_actions.js");
+/* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/photo_actions */ "./frontend/actions/photo_actions.js");
+
 
 
 
@@ -3013,6 +3041,18 @@ var photosAlbumsReducer = function photosAlbumsReducer() {
   switch (action.type) {
     case _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_PHOTOS_ALBUMS"]:
       newState = Object.assign({}, action.photosAlbums);
+      return newState;
+
+    case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["DELETE_PHOTO"]:
+      var paIds = [];
+      Object.values(newState).forEach(function (pA) {
+        if (pA.photoId === action.photoId) {
+          paIds.push(pA.id);
+        }
+      });
+      paIds.forEach(function (id) {
+        delete newState[id];
+      });
       return newState;
 
     case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_ALBUM"]:

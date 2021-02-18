@@ -15,7 +15,8 @@ const mSTP = (state, ownProps) => {
 
     return {
         album: state.entities.albums[ownProps.match.params.id],
-        photoIds
+        photoIds,
+        currentUserId: state.session.currentUserId
     }
 }
 

@@ -1,5 +1,6 @@
 import { DELETE_ALBUM } from "../actions/album_actions";
 import { RECEIVE_ALL_PHOTOS_ALBUMS } from "../actions/photos_album_actions";
+import { DELETE_PHOTO } from "../actions/photo_actions";
 
 
 const photosAlbumsReducer = (state = {}, action) => {
@@ -8,6 +9,17 @@ const photosAlbumsReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_ALL_PHOTOS_ALBUMS:
             newState = Object.assign({}, action.photosAlbums);
+            return newState;
+        case DELETE_PHOTO:
+            let paIds = [];
+            Object.values(newState).forEach((pA) => {
+                if (pA.photoId === action.photoId) {
+                    paIds.push(pA.id);
+                }
+            });
+            paIds.forEach((id) => {
+                delete newState[id];
+            })
             return newState;
         case DELETE_ALBUM:
             let ids = [];

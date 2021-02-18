@@ -58,10 +58,16 @@ class PhotoShow extends React.Component {
         let buttons = <div></div>;
         if (this.props.currentUserId === photo.userId) {
             buttons = <div className="delete-update-photo">
-                <button onClick={this.handleDelete} className="delete-photo">
+                <button
+                type="button"
+                onClick={this.handleDelete}
+                className="delete-photo">
                     Delete Photo
                 </button>
-                <button onClick={this.handleUpdate} className="update-photo">
+                <button
+                type="button"
+                onClick={this.handleUpdate}
+                className="update-photo">
                     Update Photo
                 </button>
             </div>

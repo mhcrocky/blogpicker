@@ -3,15 +3,39 @@ import HeaderContainer from '../header/header_container';
 import PhotoIndexContainer from '../photo_index/photo_index_container';
 
 class AlbumShow extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
     componentDidMount() {
         this.props.fetchPhotosAlbums();
         this.props.fetchAlbum();
+    }
+
+    handleClick(e) {
+        e.preventDefault();
+        const userId = this.props.currentUserId;
+        this.props.deleteAlbum()
+            .then(() => {
+                this.props.history.push(`/users/${userId}/albums`);
+            })
     }
 
     render() {
         const album = this.props.album;
         const photoIds = this.props.photoIds.length;
         if (!album || photoIds === 0) return null;
+
+        let deleteButton = <div></div>;
+        if (this.props.currentUserId === album.userId) {
+            deleteButton = <button
+                            type="button"
+                            onClick={this.handleClick}
+                            className="delete-alb">
+                                Delete Album
+                            </button>
+        }
 
         return (
             <div className="alb-show-page">
@@ -27,9 +51,7 @@ class AlbumShow extends React.Component {
                                         Back to Albums
                                     </div>
                                 </div>
-                                <button className="delete-alb">
-                                    Delete Album
-                                </button>
+                                {deleteButton}
                             </div>
                             <h1>{album.title}</h1>
                             <div>Description</div>
