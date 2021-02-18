@@ -272,39 +272,30 @@ var deletePhoto = function deletePhoto(photoId) {
 /*!**************************************************!*\
   !*** ./frontend/actions/photos_album_actions.js ***!
   \**************************************************/
-/*! exports provided: RECEIVE_ALL_PHOTOS_ALBUMS, RECEIVE_PHOTOS_ALBUM, createPhotosAlbum, fetchPhotosAlbums */
+/*! exports provided: RECEIVE_ALL_PHOTOS_ALBUMS, createPhotosAlbum, fetchPhotosAlbums */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_PHOTOS_ALBUMS", function() { return RECEIVE_ALL_PHOTOS_ALBUMS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_PHOTOS_ALBUM", function() { return RECEIVE_PHOTOS_ALBUM; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPhotosAlbum", function() { return createPhotosAlbum; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPhotosAlbums", function() { return fetchPhotosAlbums; });
 /* harmony import */ var _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/photos_albums_util */ "./frontend/util/photos_albums_util.js");
 
-var RECEIVE_ALL_PHOTOS_ALBUMS = 'RECEIVE_ALL_PHOTOS_ALBUMS';
-var RECEIVE_PHOTOS_ALBUM = 'RECEIVE_PHOTOS_ALBUM'; //regular actions
+var RECEIVE_ALL_PHOTOS_ALBUMS = 'RECEIVE_ALL_PHOTOS_ALBUMS'; //regular actions
 
 var receiveAllPhotosAlbums = function receiveAllPhotosAlbums(photosAlbums) {
   return {
     type: RECEIVE_ALL_PHOTOS_ALBUMS,
     photosAlbums: photosAlbums
   };
-};
-
-var receivePhotosAlbum = function receivePhotosAlbum(photosAlbum) {
-  return {
-    type: RECEIVE_PHOTOS_ALBUM,
-    photosAlbum: photosAlbum
-  };
 }; //thunks
 
 
 var createPhotosAlbum = function createPhotosAlbum(photosAlbum) {
   return function (dispatch) {
-    return _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_0__["createPhotosAlbum"](photosAlbum).then(function (pA) {
-      dispatch(receivePhotosAlbum(pA));
+    return _util_photos_albums_util__WEBPACK_IMPORTED_MODULE_0__["createPhotosAlbum"](photosAlbum).then(function (pAs) {
+      dispatch(receiveAllPhotosAlbums(pAs));
     });
   };
 };
@@ -2882,10 +2873,6 @@ var photosAlbumsReducer = function photosAlbumsReducer() {
   var newState = Object.assign({}, state);
 
   switch (action.type) {
-    case _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PHOTOS_ALBUM"]:
-      newState[action.photosAlbum.id] = action.photosAlbum;
-      return newState;
-
     case _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_PHOTOS_ALBUMS"]:
       newState = Object.assign({}, action.photosAlbums);
       return newState;
