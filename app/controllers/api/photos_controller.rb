@@ -21,7 +21,7 @@ class Api::PhotosController < ApplicationController
     def destroy
         photo = Photo.find_by(id: params[:id])
         photoId = {photoId: photo.id}
-        photo.delete
+        photo.destroy
         render json: photoId
     end
 
