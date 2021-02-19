@@ -17,13 +17,9 @@ Picktr is a photo sharing web application based off of the popular website Flick
 
 ![picktr feed](/readme_assets/picktr_feed.png?raw=true)
 
-The photo feed is a react component that renders photos through the React-Redux cycle. Taking advantage of React, new photos are updated on the upon succesful upload. The photos are dynamically sized using css flex-box, and flex-wrap. This allows for a great looking feed whithout having to worry about re-sizing images.
+The photo index is a react component that renders photos through the React-Redux cycle. Taking advantage of React, new photos are updated upon succesful upload. The photos are dynamically sized using css flex-box, and flex-wrap. This allows for a great looking feed whithout having to worry about re-sizing images.
 
-The highlight of the photo feed component is the ability to adjust its content based on wether it is displayed on the main feed, a single user's feed or a single album's feed.
-
-![user feed](/readme_assets/user_feed.png?raw=true)
-
-When the component is nested in the user's show route or an album's show route, the content of the feed pertains only to that user/album. This is done using conditional rendering when mapping the state to props.
+The highlight of the photo feed component is its ability to adjust the content based on wether it is displayed on the main feed, a single user's feed or a single album's feed. When the component is nested in the user's show route or an album's show route, the content of the feed pertains only to that user/album. This is done using conditional rendering when mapping the state to props.
 
 ```javascript
 let photos = [];
@@ -43,3 +39,8 @@ if (userId) {
     photos = Object.values(photosState);
 }
 ```
+
+A userId prop or photoIds prop will be passed down to the photo index component to select a specific slice of the Redux state.
+
+### Creating Albums
+

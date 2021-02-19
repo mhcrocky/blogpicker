@@ -25,7 +25,7 @@ class PhotoIndex extends React.Component {
                 this.setState({ loaded: true });
                 clearInterval(interval);
             }
-        }, 1000)
+        }, 2000)
     }
 
     
