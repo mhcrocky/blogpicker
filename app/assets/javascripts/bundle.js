@@ -1886,8 +1886,10 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      loading: false
+      loaded: false
     };
+    _this.loadedList = [];
+    _this.handleLoading = _this.handleLoading.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1896,35 +1898,69 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      this.setState({
-        loading: true
-      }, function () {
-        Promise.all([_this2.props.fetchAllUsers(), _this2.props.fetchAllPhotos()]).then(function () {
-          return _this2.setState({
-            loading: false
+      // this.setState({loading: true}, () => {
+      //     Promise.all([this.props.fetchAllUsers(), this.props.fetchAllPhotos()])
+      //         .then(() => (
+      //             this.setState({ loading: false })
+      //         ));
+      // })
+      this.props.fetchAllUsers();
+      this.props.fetchAllPhotos();
+      var interval = setInterval(function () {
+        if (_this2.props.photos.length === _this2.loadedList.length) {
+          _this2.setState({
+            loaded: true
           });
-        });
-      });
+
+          clearInterval(interval);
+        }
+      }, 1000);
+    }
+  }, {
+    key: "handleLoading",
+    value: function handleLoading(item) {
+      this.loadedList.push(item);
     }
   }, {
     key: "render",
     value: function render() {
       var _this3 = this;
 
-      var photos = this.props.photos.map(function (photo) {
-        //this.props.users[photo.userId]
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          key: photo.id,
-          photo: photo,
-          user: _this3.props.users[photo.userId]
+      var content;
+
+      if (this.props.photos.length <= this.loadedList.length) {
+        content = this.props.photos.map(function (photo) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            key: photo.id,
+            photo: photo,
+            user: _this3.props.users[photo.userId]
+          });
         });
-      });
-      var loadingDiv = this.state.loading ? "loader" : "";
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: loadingDiv
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      } else {
+        content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "loader"
+        }, this.props.photos.map(function (photo) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            className: "secret-load",
+            key: photo.id,
+            src: photo.photoUrl,
+            onLoad: _this3.handleLoading(photo)
+          });
+        }));
+      } // const photos = this.props.photos.map((photo) => { 
+      //     return (
+      //         <PhotoIndexItem
+      //             key={photo.id}
+      //             photo={photo}
+      //             user={this.props.users[photo.userId]}/>
+      //     )
+      // })
+      // const loadingDiv = this.state.loading ? "loader" : "";
+
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "photo-index"
-      }, photos));
+      }, content));
     }
   }]);
 
