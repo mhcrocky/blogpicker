@@ -18,7 +18,6 @@ class AlbumIndex extends React.Component {
     }
 
     render() {
-        
         const indexItems = this.props.albums.map((album) => {
             return (
                 <li onClick={this.handleClick} id={album.id}

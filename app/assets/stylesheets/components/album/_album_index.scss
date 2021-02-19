@@ -5,8 +5,8 @@
 
 .album-index-content {
     flex: display;
-    margin: auto;
-    width: 80%;
+    margin-left: 10%;
+    width: 70%;
 }
 
 .create-alb-container {
@@ -34,12 +34,14 @@
 .album-list {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .album-info {
     padding: 8px;
     height: 200px;
     width: 200px;
+    margin-bottom: 20px;
     background-color: darkgray;
     border-radius: .25rem;
     cursor: pointer;
