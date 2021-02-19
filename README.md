@@ -12,6 +12,7 @@ Picktr is a photo sharing web application based off of the popular website Flick
     + Backend and frontend user authentication with use of BCrypt
     + Clean and easy to use UI to view single photos and nested photos
 
+## Highlights
 
 ### Dyanamic Photo-Feed
 
@@ -42,5 +43,10 @@ if (userId) {
 
 A userId prop or photoIds prop will be passed down to the photo index component to select a specific slice of the Redux state.
 
-### Creating Albums
+### Creating Albums Form
 
+Allowing users to create albums was a mixture of Rails backend magic and creative React frontend logic. In the backend, albums and photos were connect through a joins table (photosAlbums). Both albums and photos had a dependent: :destroy included in their joins talbe association. This would prevent a joins association to persist that refrenced a photo or album that had been deleted.
+
+![creating an album](/readme_assets/create_alb.gif?raw=true)
+
+When creating an album the form displayed the user's photos for them as options. Using css the photos were displayed in greyscale to signify an un-selected photo. An on click event was added in the front end to toggle a css class that displayed the selected photo in full color. In addition, this click event contained logic to keep track of which photos to add to the album. This was done by having an instance variable that kept track of the photo's ids.
