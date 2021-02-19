@@ -1914,7 +1914,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
 
           clearInterval(interval);
         }
-      }, 1000);
+      }, 5000);
     }
   }, {
     key: "handleLoading",
