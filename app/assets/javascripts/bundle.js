@@ -2920,7 +2920,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/comment_api_util */ "./frontend/util/comment_api_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2952,6 +2954,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }), root); //Remove these after done testing!
 
   window.store = store;
+  window.createComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_4__["createComment"];
+  window.fetchComments = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_4__["fetchComments"];
+  window.deleteComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_4__["deleteComment"];
 });
 
 /***/ }),
@@ -3431,6 +3436,42 @@ var fetchAlbum = function fetchAlbum(albumId) {
 var deleteAlbum = function deleteAlbum(albumId) {
   return $.ajax({
     url: "/api/albums/".concat(albumId),
+    method: 'DELETE'
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/comment_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/comment_api_util.js ***!
+  \*******************************************/
+/*! exports provided: createComment, fetchComments, deleteComment */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createComment", function() { return createComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchComments", function() { return fetchComments; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComment", function() { return deleteComment; });
+var createComment = function createComment(comment) {
+  return $.ajax({
+    url: '/api/comments',
+    method: 'POST',
+    data: {
+      comment: comment
+    }
+  });
+};
+var fetchComments = function fetchComments() {
+  return $.ajax({
+    url: '/api/comments',
+    method: 'GET'
+  });
+};
+var deleteComment = function deleteComment(commentId) {
+  return $.ajax({
+    url: "/api/comments/".concat(commentId),
     method: 'DELETE'
   });
 };

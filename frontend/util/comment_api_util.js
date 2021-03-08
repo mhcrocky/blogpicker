@@ -15,7 +15,7 @@ export const fetchComments = () => {
 
 export const deleteComment = (commentId) => {
     return $.ajax({
-        url: `/api/comments${commentId}`,
+        url: `/api/comments/${commentId}`,
         method: 'DELETE'
     })
 }
