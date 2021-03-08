@@ -12,7 +12,7 @@ const albumsReducer = (state = {}, action) => {
             newState[action.album.id] = action.album;
             return newState;
         case DELETE_ALBUM:
-            delete newState[action.albumId]
+            delete newState[action.albumId];
             return newState;
         default:
             return state;
