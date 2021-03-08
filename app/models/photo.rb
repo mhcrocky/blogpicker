@@ -19,6 +19,12 @@ class Photo < ApplicationRecord
         end
     end
 
+    has_many :comments,
+        primary_key: :id,
+        foreign_key: :photo_id,
+        class_name: :Comment,
+        dependent: :destroy
+
     has_many :photos_albums,
         primary_key: :id,
         foreign_key: :photo_id,
@@ -35,4 +41,5 @@ class Photo < ApplicationRecord
     has_many :albums,
         through: :photos_albums,
         source: :album
+
 end
