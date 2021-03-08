@@ -2524,17 +2524,30 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/photo_actions */ "./frontend/actions/photo_actions.js");
-/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
-/* harmony import */ var _photo_show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./photo_show */ "./frontend/components/photo_show/photo_show.jsx");
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+/* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/photo_actions */ "./frontend/actions/photo_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _photo_show__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./photo_show */ "./frontend/components/photo_show/photo_show.jsx");
+
 
 
 
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  var photo = state.entities.photos[ownProps.match.params.id];
+  var photoId = ownProps.match.params.id;
+  var photo = state.entities.photos[photoId];
+  var commentsState = state.entities.comments;
+  var comments = [];
+
+  if (commentsState) {
+    Object.values(commentsState).forEach(function (comment) {
+      if (comment.photoId === photoId) comments.push(comment);
+    });
+  }
+
   return {
+    comments: comments,
     currentUserId: state.session.currentUserId,
     user: state.entities.users,
     photo: photo
@@ -2544,19 +2557,22 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
   var photoId = ownProps.match.params.id;
   return {
+    fetchComments: function fetchComments() {
+      return dispatch(Object(_actions_comment_actions__WEBPACK_IMPORTED_MODULE_1__["fetchAllComments"])());
+    },
     fetchUser: function fetchUser(id) {
-      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUser"])(id));
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_3__["fetchUser"])(id));
     },
     fetchPhoto: function fetchPhoto() {
-      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["fetchPhoto"])(photoId));
+      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["fetchPhoto"])(photoId));
     },
     deletePhoto: function deletePhoto(id) {
-      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["deletePhoto"])(id));
+      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["deletePhoto"])(id));
     }
   };
 };
 
-var PhotoShowContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_photo_show__WEBPACK_IMPORTED_MODULE_3__["default"]);
+var PhotoShowContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_photo_show__WEBPACK_IMPORTED_MODULE_4__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (PhotoShowContainer);
 
 /***/ }),
