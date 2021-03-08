@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
-import { fetchAllComments } from "../../actions/comment_actions";
+import { deleteComment, fetchAllComments } from "../../actions/comment_actions";
 import { deletePhoto, fetchPhoto } from "../../actions/photo_actions";
-import { fetchUser } from "../../actions/user_actions"
+import { fetchAllUsers } from "../../actions/user_actions"
 import PhotoShow from "./photo_show";
 
 const mapStateToProps = (state, ownProps) => {
@@ -9,9 +9,9 @@ const mapStateToProps = (state, ownProps) => {
     const photo = state.entities.photos[photoId];
     const commentsState = state.entities.comments;
     let comments = [];
-    if (commentsState) {
+    if (commentsState !== undefined) {
         Object.values(commentsState).forEach(comment => {
-            if (comment.photoId === photoId) comments.push(comment);
+            if (comment.photoId === parseInt(photoId)) comments.push(comment);
         })
     }
     return {
@@ -26,8 +26,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     const photoId = ownProps.match.params.id
 
     return {
+        deleteComment: (commentId) => dispatch(deleteComment(commentId)),
         fetchComments: () => dispatch(fetchAllComments()),
-        fetchUser: (id) => dispatch(fetchUser(id)),
+        fetchAllUsers: () => dispatch(fetchAllUsers()),
         fetchPhoto: () => dispatch(fetchPhoto(photoId)),
         deletePhoto: (id) => dispatch(deletePhoto(id)),
     }

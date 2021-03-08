@@ -2,6 +2,7 @@ import React from 'react';
 import HeaderContainer from '../header/header_container';
 import { Link } from 'react-router-dom';
 import CommentFormContainer from '../comment_form/comment_form_container';
+import CommentItem from './comment_item';
 
 class PhotoShow extends React.Component {
 
@@ -14,9 +15,10 @@ class PhotoShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchPhoto()
-            .then(() => 
-                this.props.fetchUser(this.props.photo.userId)
-            );
+            .then(() => {
+                this.props.fetchAllUsers();
+                this.props.fetchComments();
+            });
     }
         
 
@@ -24,7 +26,7 @@ class PhotoShow extends React.Component {
         if (prevProps.match.params.id != this.props.match.params.id) {
             this.props.fetchPhoto()
             .then(() =>
-                this.props.fetchUser(this.props.photo.userId)
+                this.props.fetchAllUsers()
             )
             .fail(() => (
                 this.props.history.push('/404')
@@ -103,6 +105,15 @@ class PhotoShow extends React.Component {
                                 {buttons}
                             </div>
                             <div className="photo-comments">
+                                <ul className="comments-list">
+                                    {this.props.comments.map(comment => {
+                                        return (
+                                            <CommentItem key={comment.id} comment={comment}
+                                            user={this.props.user[comment.userId]}
+                                            deleteComment={this.props.deleteComment} />
+                                        )
+                                    })}
+                                </ul>
                                 <CommentFormContainer photoId={photo.id} />
                             </div>
                         </div>

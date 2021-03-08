@@ -2352,6 +2352,27 @@ var PhotoIndexItem = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
+/***/ "./frontend/components/photo_show/comment_item.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/photo_show/comment_item.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var CommentItem = function CommentItem(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.user.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.comment.body));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CommentItem);
+
+/***/ }),
+
 /***/ "./frontend/components/photo_show/photo_show.jsx":
 /*!*******************************************************!*\
   !*** ./frontend/components/photo_show/photo_show.jsx ***!
@@ -2366,6 +2387,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header_header_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../header/header_container */ "./frontend/components/header/header_container.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _comment_form_comment_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../comment_form/comment_form_container */ "./frontend/components/comment_form/comment_form_container.js");
+/* harmony import */ var _comment_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./comment_item */ "./frontend/components/photo_show/comment_item.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2387,6 +2409,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -2416,7 +2439,9 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       this.props.fetchPhoto().then(function () {
-        return _this2.props.fetchUser(_this2.props.photo.userId);
+        _this2.props.fetchAllUsers();
+
+        _this2.props.fetchComments();
       });
     }
   }, {
@@ -2426,7 +2451,7 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
 
       if (prevProps.match.params.id != this.props.match.params.id) {
         this.props.fetchPhoto().then(function () {
-          return _this3.props.fetchUser(_this3.props.photo.userId);
+          return _this3.props.fetchAllUsers();
         }).fail(function () {
           return _this3.props.history.push('/404');
         });
@@ -2457,6 +2482,8 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this5 = this;
+
       var photo = this.props.photo;
       if (!photo || !this.props.user[photo.userId]) return null;
       var buttons = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
@@ -2501,7 +2528,16 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
         className: "photo-description"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, photo.description))), buttons), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-comments"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_form_comment_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "comments-list"
+      }, this.props.comments.map(function (comment) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          key: comment.id,
+          comment: comment,
+          user: _this5.props.user[comment.userId],
+          deleteComment: _this5.props.deleteComment
+        });
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_form_comment_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
         photoId: photo.id
       }))))));
     }
@@ -2540,9 +2576,9 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   var commentsState = state.entities.comments;
   var comments = [];
 
-  if (commentsState) {
+  if (commentsState !== undefined) {
     Object.values(commentsState).forEach(function (comment) {
-      if (comment.photoId === photoId) comments.push(comment);
+      if (comment.photoId === parseInt(photoId)) comments.push(comment);
     });
   }
 
@@ -2557,11 +2593,14 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
   var photoId = ownProps.match.params.id;
   return {
+    deleteComment: function deleteComment(commentId) {
+      return dispatch(Object(_actions_comment_actions__WEBPACK_IMPORTED_MODULE_1__["deleteComment"])(commentId));
+    },
     fetchComments: function fetchComments() {
       return dispatch(Object(_actions_comment_actions__WEBPACK_IMPORTED_MODULE_1__["fetchAllComments"])());
     },
-    fetchUser: function fetchUser(id) {
-      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_3__["fetchUser"])(id));
+    fetchAllUsers: function fetchAllUsers() {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_3__["fetchAllUsers"])());
     },
     fetchPhoto: function fetchPhoto() {
       return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["fetchPhoto"])(photoId));
