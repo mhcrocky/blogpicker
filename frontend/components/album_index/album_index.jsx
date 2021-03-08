@@ -11,6 +11,7 @@ class AlbumIndex extends React.Component {
     componentDidMount() {
         this.props.fetchAllAlbums();
         this.props.fetchPhotosAlbums();
+        this.props.fetchAllPhotos();
     }
 
     handleClick(e) {
@@ -23,7 +24,8 @@ class AlbumIndex extends React.Component {
             return (
                 <li onClick={this.handleClick} id={album.id}
                     key={album.id} className="album-info">
-                    <AlbumIndexItem album={album} />
+                    <AlbumIndexItem album={album} photos={this.props.photos}
+                    photosAlbums={this.props.photosAlbums} />
                 </li>
             )
         })
