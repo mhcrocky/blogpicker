@@ -48,8 +48,8 @@ export const createAlbum = (album) => (dispatch) => {
         })
 }
 
-export const fetchAllAlbums = (albums) => (dispatch) => {
-    return APIUtil.fetchAllAlbums(albums)
+export const fetchAllAlbums = () => (dispatch) => {
+    return APIUtil.fetchAllAlbums()
         .then(albums => {
             dispatch(receiveAllAlbums(albums))
         })
