@@ -92,7 +92,7 @@ class PhotoShow extends React.Component {
                                 <div>
                                     <div className="photo-title-desc"></div>
                                     <h1>{photo.title}</h1>
-                                    <div> A photo by&nbsp;
+                                    <div className="photo-owner"> A photo by&nbsp;
                                         <Link to={`/users/${photo.userId}`}> 
                                             {this.props.user[photo.userId].username}
                                         </Link>
@@ -105,6 +105,7 @@ class PhotoShow extends React.Component {
                                 {buttons}
                             </div>
                             <div className="photo-comments">
+                                <h2>Comments</h2>
                                 <ul className="comments-list">
                                     {this.props.comments.map(comment => {
                                         return (

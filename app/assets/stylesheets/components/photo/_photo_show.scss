@@ -44,9 +44,14 @@
     padding-top: 10px;
 
     h1 {
+        margin-left: 10px;
         padding-bottom: 2px;
         font-size: 32px;
     }
+}
+
+.photo-owner {
+    margin-left: 10px;
 }
 
 .photo-title-desc-delete {
@@ -56,15 +61,12 @@
 
 .photo-description {
     padding-top: 10px;
-}
+    margin-bottom: 2px;
+    margin-left: 10px;
 
-.photo-comments {
-    background-color: #d7d7d7;
-    color: black;
-    min-height: 200px;
-    padding-top: 15px;
-    border-radius: 3px;
-    margin-bottom: 20px;
+    div {
+        margin-top: 2px;
+    }
 }
 
 .delete-update-photo button{
@@ -86,4 +88,26 @@
 
 .update-photo:hover {
     color: #d7d7d7;
+}
+
+.photo-comments {
+    background-color: #d7d7d7;
+    color: black;
+    padding: 10px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+
+    li {
+        margin: 5px 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: #006dac;
+        margin-bottom: 2px;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
 }
