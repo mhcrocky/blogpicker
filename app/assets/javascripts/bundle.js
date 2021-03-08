@@ -149,9 +149,9 @@ var createAlbum = function createAlbum(album) {
     });
   };
 };
-var fetchAllAlbums = function fetchAllAlbums(albums) {
+var fetchAllAlbums = function fetchAllAlbums() {
   return function (dispatch) {
-    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllAlbums"](albums).then(function (albums) {
+    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllAlbums"]().then(function (albums) {
       dispatch(receiveAllAlbums(albums));
     });
   };
@@ -167,6 +167,73 @@ var deleteAlbum = function deleteAlbum(albumId) {
   return function (dispatch) {
     return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteAlbum"](albumId).then(function (res) {
       dispatch(removeAlbum(res.albumId));
+    });
+  };
+};
+
+/***/ }),
+
+/***/ "./frontend/actions/comment_actions.js":
+/*!*********************************************!*\
+  !*** ./frontend/actions/comment_actions.js ***!
+  \*********************************************/
+/*! exports provided: RECEIEVE_ALL_COMMENTS, RECEIVE_COMMENT, DELETE_COMMENT, fetchAllComments, createComment, deleteComment */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIEVE_ALL_COMMENTS", function() { return RECEIEVE_ALL_COMMENTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_COMMENT", function() { return RECEIVE_COMMENT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_COMMENT", function() { return DELETE_COMMENT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllComments", function() { return fetchAllComments; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createComment", function() { return createComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComment", function() { return deleteComment; });
+/* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/comment_api_util */ "./frontend/util/comment_api_util.js");
+
+var RECEIEVE_ALL_COMMENTS = 'RECEIVE_ALL_COMMENTS';
+var RECEIVE_COMMENT = 'RECEIVE_COMMENT';
+var DELETE_COMMENT = 'DELETE_COMMENT'; //regular actions
+
+var receiveAllComments = function receiveAllComments(comments) {
+  return {
+    type: RECEIEVE_ALL_COMMENTS,
+    comments: comments
+  };
+};
+
+var receiveComment = function receiveComment(comment) {
+  return {
+    type: RECEIVE_COMMENT,
+    comment: comment
+  };
+};
+
+var removeComment = function removeComment(commentId) {
+  return {
+    type: DELETE_COMMENT,
+    commentId: commentId
+  };
+}; //thunk action creators
+
+
+var fetchAllComments = function fetchAllComments() {
+  return function (dispatch) {
+    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchComments"]().then(function (comments) {
+      dispatch(receiveAllComments(comments));
+    });
+  };
+};
+var createComment = function createComment(comment) {
+  return function (dispatch) {
+    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["createComment"](comment).then(function (comment) {
+      dispatch(receiveComment(comment));
+    });
+  };
+};
+var deleteComment = function deleteComment(commentId) {
+  return function (dispatch) {
+    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteComment"](commentId).then(function (obj) {
+      dispatch(removeComment(obj.commentId));
     });
   };
 };
@@ -2920,9 +2987,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/comment_api_util */ "./frontend/util/comment_api_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -2952,11 +3017,7 @@ document.addEventListener("DOMContentLoaded", function () {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root); //Remove these after done testing!
-
-  window.store = store;
-  window.createComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_4__["createComment"];
-  window.fetchComments = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_4__["fetchComments"];
-  window.deleteComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_4__["deleteComment"];
+  // window.store = store;
 });
 
 /***/ }),
@@ -3038,6 +3099,46 @@ var albumsReducer = function albumsReducer() {
 
 /***/ }),
 
+/***/ "./frontend/reducers/comments_reducer.js":
+/*!***********************************************!*\
+  !*** ./frontend/reducers/comments_reducer.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+
+
+var commentsReducer = function commentsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var newState = Object.assign({}, state);
+
+  switch (action.type) {
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_COMMENT"]:
+      newState[action.comment.id] = action.comment;
+      return newState;
+
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIEVE_ALL_COMMENTS"]:
+      newState = Object.assign({}, action.comments);
+      return newState;
+
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_COMMENT"]:
+      delete newState[action.commentId];
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (commentsReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/entities_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/entities_reducer.js ***!
@@ -3049,19 +3150,22 @@ var albumsReducer = function albumsReducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _albums_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./albums_reducer */ "./frontend/reducers/albums_reducer.js");
-/* harmony import */ var _photos_albums_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./photos_albums_reducer */ "./frontend/reducers/photos_albums_reducer.js");
-/* harmony import */ var _photos_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./photos_reducer */ "./frontend/reducers/photos_reducer.js");
-/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _comments_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./comments_reducer */ "./frontend/reducers/comments_reducer.js");
+/* harmony import */ var _photos_albums_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./photos_albums_reducer */ "./frontend/reducers/photos_albums_reducer.js");
+/* harmony import */ var _photos_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./photos_reducer */ "./frontend/reducers/photos_reducer.js");
+/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+
 
 
 
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
-  photos: _photos_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_5__["default"],
+  photos: _photos_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
   albums: _albums_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  photosAlbums: _photos_albums_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  photosAlbums: _photos_albums_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
