@@ -116,6 +116,22 @@
         }
     }
 
+    .splash-head-buttons {
+        display: flex;
+        align-items: center;
+
+        i {
+            color: white;
+            font-size: 30px;
+            margin-right: 20px;
+        }
+
+        i:hover {
+            cursor: pointer;
+            text-shadow: 0 0 10 rgb(188, 188, 252);
+        }
+    }
+
     .login-signup {
         display: flex;
         justify-content: flex-end;
