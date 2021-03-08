@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderContainer from '../header/header_container';
 import { Link } from 'react-router-dom';
+import CommentFormContainer from '../comment_form/comment_form_container';
 
 class PhotoShow extends React.Component {
 
@@ -101,7 +102,9 @@ class PhotoShow extends React.Component {
                                 </div>
                                 {buttons}
                             </div>
-                            <div className="photo-comments">Comments will go here...</div>
+                            <div className="photo-comments">
+                                <CommentFormContainer photoId={photo.id} />
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,5 @@
+import React from 'react';
+
 class CommentForm extends React.Component {
     constructor(props) {
         super(props);
@@ -12,8 +14,11 @@ class CommentForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let data = {body: this.state.body, photo_id: this.props.photoId};
-        this.props.createComment(data);
+        const comment = {body: this.state.body, photo_id: this.props.photoId};
+        this.props.createComment(comment)
+            .then(() => {
+                this.setState({body: ""});
+            })
     }
 
     render() {
