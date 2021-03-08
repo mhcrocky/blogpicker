@@ -19,7 +19,7 @@ class Header extends React.Component {
             loginCondition =
                 <div className="icon-logout-container">
                     <a href="https://github.com/bcdguz/picktr">
-                        <i class="fab fa-github"></i>
+                        <i className="fab fa-github"></i>
                     </a>
                     <Link to="/photo/new">
                         <i className="fas fa-cloud-upload-alt"></i>
@@ -28,13 +28,13 @@ class Header extends React.Component {
                 </div>;
             usernameCondition =
                 <Link to={`/users/${this.props.currentUser.id}`}>
-                    {this.props.currentUser.username}
+                    Your Profile
                 </Link>;
         } else if (pathname !== "/login" && pathname !== "/signup") {
             loginCondition = 
                 <div className="splash-head-buttons">
                     <a href="https://github.com/bcdguz/picktr">
-                        <i class="fab fa-github"></i>=
+                        <i className="fab fa-github"></i>=
                     </a>
                     <div className="login-signup">
                         <Link to="/login">Log In</Link>

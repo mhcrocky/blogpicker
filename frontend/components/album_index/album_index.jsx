@@ -10,6 +10,7 @@ class AlbumIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllAlbums();
+        this.props.fetchPhotosAlbums();
     }
 
     handleClick(e) {

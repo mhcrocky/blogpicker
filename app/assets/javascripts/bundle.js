@@ -785,6 +785,7 @@ var AlbumIndex = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchAllAlbums();
+      this.props.fetchPhotosAlbums();
     }
   }, {
     key: "handleClick",
@@ -846,7 +847,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/album_actions */ "./frontend/actions/album_actions.js");
-/* harmony import */ var _album_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./album_index */ "./frontend/components/album_index/album_index.jsx");
+/* harmony import */ var _actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/photos_album_actions */ "./frontend/actions/photos_album_actions.js");
+/* harmony import */ var _album_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./album_index */ "./frontend/components/album_index/album_index.jsx");
+
 
 
 
@@ -857,21 +860,27 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   Object.values(state.entities.albums).forEach(function (album) {
     if (album.userId === ownProps.userId) albums.push(album);
   });
+  var pAs = state.entities.photosAlbums;
+  var photosAlbums = pAs ? Object.values(pAs) : [];
   return {
     albums: albums,
+    photosAlbums: photosAlbums,
     currentUserId: state.session.currentUserId
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
+    fetchPhotosAlbums: function fetchPhotosAlbums() {
+      return dispatch(Object(_actions_photos_album_actions__WEBPACK_IMPORTED_MODULE_3__["fetchPhotosAlbums"])());
+    },
     fetchAllAlbums: function fetchAllAlbums() {
       return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_2__["fetchAllAlbums"])());
     }
   };
 };
 
-var AlbumIndexContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_album_index__WEBPACK_IMPORTED_MODULE_3__["default"]);
+var AlbumIndexContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_album_index__WEBPACK_IMPORTED_MODULE_4__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(AlbumIndexContainer));
 
 /***/ }),
@@ -887,8 +896,6 @@ var AlbumIndexContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["conne
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-
 
 
 var AlbumIndexItem = function AlbumIndexItem(props) {
@@ -1306,7 +1313,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "https://github.com/bcdguz/picktr"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          "class": "fab fa-github"
+          className: "fab fa-github"
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/photo/new"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -1316,14 +1323,14 @@ var Header = /*#__PURE__*/function (_React$Component) {
         }, "Logout"));
         usernameCondition = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/users/".concat(this.props.currentUser.id)
-        }, this.props.currentUser.username);
+        }, "Your Profile");
       } else if (pathname !== "/login" && pathname !== "/signup") {
         loginCondition = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "splash-head-buttons"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "https://github.com/bcdguz/picktr"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          "class": "fab fa-github"
+          className: "fab fa-github"
         }), "="), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "login-signup"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
