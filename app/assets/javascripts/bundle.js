@@ -2378,10 +2378,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var CommentItem = function CommentItem(props) {
+  var handleDelete = function handleDelete() {
+    props.deleteComment(props.comment.id);
+  };
+
   var user = props.user;
+  var deleteIcon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+
+  if (props.currentId === user.id) {
+    deleteIcon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      onClick: handleDelete,
+      className: "fas fa-times"
+    });
+  }
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/users/".concat(user.id)
-  }, user.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.comment.body));
+  }, user.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "comment-body"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.comment.body), deleteIcon));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (CommentItem);
@@ -2549,6 +2564,7 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
         className: "comments-list"
       }, this.props.comments.map(function (comment) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          currentId: _this5.props.currentUserId,
           key: comment.id,
           comment: comment,
           user: _this5.props.user[comment.userId],

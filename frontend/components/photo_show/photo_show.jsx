@@ -109,7 +109,8 @@ class PhotoShow extends React.Component {
                                 <ul className="comments-list">
                                     {this.props.comments.map(comment => {
                                         return (
-                                            <CommentItem key={comment.id} comment={comment}
+                                            <CommentItem currentId = {this.props.currentUserId}
+                                            key={comment.id} comment={comment}
                                             user={this.props.user[comment.userId]}
                                             deleteComment={this.props.deleteComment} />
                                         )
