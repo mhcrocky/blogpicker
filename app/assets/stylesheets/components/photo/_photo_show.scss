@@ -55,6 +55,11 @@
     margin-left: 15px;
 }
 
+.photo-desc-info {
+    max-width: 50%;
+    overflow: auto;
+}
+
 .photo-title-desc-delete {
     display: flex;
     justify-content: space-between;
@@ -140,4 +145,8 @@
         color: rgb(248, 73, 73);
         cursor: pointer;
     }
+}
+
+.main-tag-container {
+    min-width: 50%;
 }

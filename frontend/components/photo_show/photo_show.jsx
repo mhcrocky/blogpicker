@@ -91,7 +91,7 @@ class PhotoShow extends React.Component {
                     <div className="photo-info-container">
                         <div className="photo-info-content">
                             <div className="photo-title-desc-delete">
-                                <div>
+                                <div className="photo-desc-info">
                                     <h1>{photo.title}</h1>
                                     <div className="photo-owner"> A photo by&nbsp;
                                         <Link to={`/users/${photo.userId}`}> 
