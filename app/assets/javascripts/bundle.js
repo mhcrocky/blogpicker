@@ -3082,13 +3082,36 @@ var TagComponent = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(TagComponent);
 
-  function TagComponent() {
+  function TagComponent(props) {
+    var _this;
+
     _classCallCheck(this, TagComponent);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      name: ""
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(TagComponent, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.props.fetchAllTags().then(function () {
+        return _this2.props.receiveTaggedPhotos();
+      });
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(e) {
+      this.setState({
+        name: e.target.value
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var tagForm = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
@@ -3096,7 +3119,11 @@ var TagComponent = /*#__PURE__*/function (_React$Component) {
       if (this.props.currentUserId === this.props.ownerId) {
         tagForm = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "tag-form-container"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          "class": "fas fa-plus"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          value: this.state.name,
+          onChange: this.handleChange,
           type: "text",
           placeholder: "Add a tag..."
         })));
@@ -3169,7 +3196,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       return dispatch(Object(_actions_tag_actions__WEBPACK_IMPORTED_MODULE_3__["newTag"])(tag));
     },
     fetchAllTags: function fetchAllTags() {
-      return dispatch(fetchAll(tags));
+      return dispatch(Object(_actions_tag_actions__WEBPACK_IMPORTED_MODULE_3__["fetchAllTags"])());
     },
     newTaggedPhoto: function newTaggedPhoto(taggedPhoto) {
       return dispatch(Object(_actions_tagged_photo_actions__WEBPACK_IMPORTED_MODULE_2__["newTaggedPhoto"])(taggedPhoto));

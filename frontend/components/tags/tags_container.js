@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { deleteTaggedPhoto, newTaggedPhoto, receiveTaggedPhotos } from "../../actions/tagged_photo_actions";
-import { newTag } from "../../actions/tag_actions";
+import { fetchAllTags, newTag } from "../../actions/tag_actions";
 import TagComponent from "./tags_component";
 
 const mapStateToProps = (state, ownProps) => {
@@ -32,7 +32,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps= (dispatch) => {
     return {
         newTag: (tag) => dispatch(newTag(tag)),
-        fetchAllTags: () => dispatch(fetchAll(tags)),
+        fetchAllTags: () => dispatch(fetchAllTags()),
         newTaggedPhoto: (taggedPhoto) => dispatch(newTaggedPhoto(taggedPhoto)),
         receiveTaggedPhotos: () => dispatch(receiveTaggedPhotos()),
         deleteTaggedPhoto: (id) => dispatch(deleteTaggedPhoto(id))
