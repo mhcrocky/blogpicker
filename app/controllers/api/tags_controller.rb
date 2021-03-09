@@ -1,6 +1,6 @@
 class Api::TagsController < ApplicationController
     def create
-        @tag = Tag.new(params[:tag][:name])
+        @tag = Tag.new(name: params[:tag][:name])
         if @tag.save
             render :show
         else
