@@ -2145,6 +2145,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
     };
     _this.loadedList = [];
     _this.handleLoading = _this.handleLoading.bind(_assertThisInitialized(_this));
+    _this.intervalFunc;
     return _this;
   }
 
@@ -2161,15 +2162,22 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
       // })
       this.props.fetchAllUsers();
       this.props.fetchAllPhotos();
-      var interval = setInterval(function () {
+      this.intervalFunc = setInterval(function () {
         if (_this2.props.photos.length === _this2.loadedList.length) {
           _this2.setState({
             loaded: true
           });
 
-          clearInterval(interval);
+          clearInterval(_this2.intervalFunc);
         }
       }, 5000);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      //Fixes bug where user navigates away from page before setInterval
+      //has been cleared
+      clearInterval(this.intervalFunc);
     }
   }, {
     key: "handleLoading",
