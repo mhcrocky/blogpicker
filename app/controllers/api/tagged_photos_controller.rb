@@ -16,4 +16,11 @@ class Api::TaggedPhotosController < ApplicationController
         @tagged_photos = TaggedPhoto.all
         render :index
     end
+
+    def destroy
+        tagged_photo = TaggedPhoto.find_by(id: params[:id])
+        tagged_photo_id = {id: tagged_photo.id}
+        tagged_photo.destroy
+        render json: tagged_photo_id
+    end
 end

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from "./components/root";
+import { createTaggedPhoto, deleteTaggedPhoto, fetchTaggedPhotos } from './util/tagged_photo_util';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;                   //Allowing user to refresh & stay logged in
@@ -23,4 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Remove these after done testing!
     // window.store = store;
+    window.createTaggedPhoto = createTaggedPhoto;
+    window.fetchTaggedPhotos = fetchTaggedPhotos;
+    window.deleteTaggedPhoto = deleteTaggedPhoto;
 })

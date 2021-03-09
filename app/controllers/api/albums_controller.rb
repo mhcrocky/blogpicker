@@ -21,9 +21,9 @@ class Api::AlbumsController < ApplicationController
 
     def destroy
         album = Album.find_by(id: params[:id])
-        albumId = {albumId: album.id}
+        album_id = {albumId: album.id}
         album.destroy
-        render json: albumId
+        render json: album_id
     end
 
     private
