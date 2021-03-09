@@ -2154,12 +2154,6 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      // this.setState({loading: true}, () => {
-      //     Promise.all([this.props.fetchAllUsers(), this.props.fetchAllPhotos()])
-      //         .then(() => (
-      //             this.setState({ loading: false })
-      //         ));
-      // })
       this.props.fetchAllUsers();
       this.props.fetchAllPhotos();
       this.intervalFunc = setInterval(function () {
@@ -2210,16 +2204,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
             onLoad: _this3.handleLoading(photo)
           });
         }));
-      } // const photos = this.props.photos.map((photo) => { 
-      //     return (
-      //         <PhotoIndexItem
-      //             key={photo.id}
-      //             photo={photo}
-      //             user={this.props.users[photo.userId]}/>
-      //     )
-      // })
-      // const loadingDiv = this.state.loading ? "loader" : "";
-
+      }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "photo-index"

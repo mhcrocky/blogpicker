@@ -13,12 +13,6 @@ class PhotoIndex extends React.Component {
     }
 
     componentDidMount() {
-        // this.setState({loading: true}, () => {
-        //     Promise.all([this.props.fetchAllUsers(), this.props.fetchAllPhotos()])
-        //         .then(() => (
-        //             this.setState({ loading: false })
-        //         ));
-        // })
         this.props.fetchAllUsers();
         this.props.fetchAllPhotos();
         this.intervalFunc = setInterval(() => {
@@ -60,23 +54,10 @@ class PhotoIndex extends React.Component {
                         ))}
                     </div>
         }
-        
-        // const photos = this.props.photos.map((photo) => { 
-        //     return (
-        //         <PhotoIndexItem
-        //             key={photo.id}
-        //             photo={photo}
-        //             user={this.props.users[photo.userId]}/>
-        //     )
-        // })
-        
-        // const loadingDiv = this.state.loading ? "loader" : "";
 
         return(
             <>
-                {/* <div className={loadingDiv}></div> */}
                 <ul className="photo-index">
-                    {/* {photos} */}
                     {content}
                 </ul>
             </>
