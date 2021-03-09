@@ -1,0 +1,1 @@
+json.extract! @tagged_photo, :id, :tag_id, :photo_id

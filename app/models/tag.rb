@@ -10,5 +10,5 @@ class Tag < ApplicationRecord
 
     has_many :photos,
         through: :tagged_photos,
-        source: :photo
+        source: :photo\
 end
