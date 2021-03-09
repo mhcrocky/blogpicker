@@ -3,6 +3,7 @@ import HeaderContainer from '../header/header_container';
 import { Link } from 'react-router-dom';
 import CommentFormContainer from '../comment_form/comment_form_container';
 import CommentItem from './comment_item';
+import TagsContainer from '../tags/tags_container';
 
 class PhotoShow extends React.Component {
 
@@ -102,7 +103,7 @@ class PhotoShow extends React.Component {
                                         <div>{photo.description}</div>
                                     </div>
                                 </div>
-                                <div className="tags-container"></div>
+                                <TagsContainer ownerId={photo.userId} />
                             </div>
                             <div className="photo-comments">
                                 <h2>Comments</h2>
