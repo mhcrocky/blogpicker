@@ -1,0 +1,2 @@
+class TaggedPhoto < ApplicationRecord
+end

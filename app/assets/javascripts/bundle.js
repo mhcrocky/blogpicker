@@ -3254,9 +3254,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _util_tag_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/tag_api_util */ "./frontend/util/tag_api_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -3286,10 +3284,7 @@ document.addEventListener("DOMContentLoaded", function () {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root); //Remove these after done testing!
-
-  window.store = store;
-  window.createTag = _util_tag_api_util__WEBPACK_IMPORTED_MODULE_4__["createTag"];
-  window.fetchTags = _util_tag_api_util__WEBPACK_IMPORTED_MODULE_4__["fetchTags"];
+  // window.store = store;
 });
 
 /***/ }),
