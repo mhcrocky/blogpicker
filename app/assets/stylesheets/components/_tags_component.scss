@@ -1,0 +1,22 @@
+.tags-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tags-header i {
+    color: #128fdc;
+    margin: 0 10px;
+}
+
+.tags-header i:hover {
+    cursor: pointer;
+    color: #006dac;
+}
+
+.tags-header input {
+    border: 1px grey solid;
+    outline: none;
+    border-radius: 3px;
+    padding: 5px 2px;
+}

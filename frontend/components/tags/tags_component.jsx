@@ -16,14 +16,18 @@ class TagComponent extends React.Component {
         this.setState({ name: e.target.value });
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+    }
+
     render() {
         let tagForm = <div></div>;
         if (this.props.currentUserId === this.props.ownerId) {
             tagForm = <div className="tag-form-container">
                 <form>
-                    <i class="fas fa-plus"></i>
                     <input value={this.state.name} onChange={this.handleChange}
                     type="text" placeholder="Add a tag..."/>
+                    <i class="fas fa-plus"></i>
                 </form>
             </div>
         }
@@ -31,7 +35,10 @@ class TagComponent extends React.Component {
 
         return(
             <div className="main-tag-container">
-                <h1>Tags</h1>
+                <div className="tags-header">
+                    <h1>Tags</h1>
+                    {tagForm}
+                </div>
 
             </div>
         )
