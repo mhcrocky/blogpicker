@@ -23,4 +23,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Remove these after done testing!
     // window.store = store;
+
 })
