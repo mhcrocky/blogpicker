@@ -32,8 +32,10 @@ class TagComponent extends React.Component {
         if (typeof currentTag === 'string') {
             let info = {name: currentTag}
             this.props.newTag(info)
-                .then(tag => {
-                    const data = {photo_id: photoId, tag_id: tag.id};
+                .then(action => {
+                    debugger
+                    const tagId = action.tag.id;
+                    const data = {photo_id: photoId, tag_id: tagId};
                     this.props.newTaggedPhoto(data);
                     this.setState({name: ""});
                 })
@@ -52,7 +54,7 @@ class TagComponent extends React.Component {
                 <form>
                     <input value={this.state.name} onChange={this.handleChange}
                     type="text" placeholder="Add a tag..."/>
-                    <i onClick={this.handleSubmit} class="fas fa-plus"></i>
+                    <i onClick={this.handleSubmit} className="fas fa-plus"></i>
                 </form>
             </div>
         }

@@ -3136,10 +3136,12 @@ var TagComponent = /*#__PURE__*/function (_React$Component) {
         var info = {
           name: currentTag
         };
-        this.props.newTag(info).then(function (tag) {
+        this.props.newTag(info).then(function (action) {
+          debugger;
+          var tagId = action.tag.id;
           var data = {
             photo_id: photoId,
-            tag_id: tag.id
+            tag_id: tagId
           };
 
           _this3.props.newTaggedPhoto(data);
@@ -3175,7 +3177,7 @@ var TagComponent = /*#__PURE__*/function (_React$Component) {
           placeholder: "Add a tag..."
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           onClick: this.handleSubmit,
-          "class": "fas fa-plus"
+          className: "fas fa-plus"
         })));
       }
 
