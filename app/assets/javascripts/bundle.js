@@ -507,6 +507,73 @@ var fetchAllTags = function fetchAllTags() {
 
 /***/ }),
 
+/***/ "./frontend/actions/tagged_photo_actions.js":
+/*!**************************************************!*\
+  !*** ./frontend/actions/tagged_photo_actions.js ***!
+  \**************************************************/
+/*! exports provided: RECEIVE_TAGGED_PHOTO, RECEIVE_ALL_TAGGED_PHOTOS, DELETE_TAGGED_PHOTO, newTaggedPhoto, receiveTaggedPhotos, deleteTaggedPhoto */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_TAGGED_PHOTO", function() { return RECEIVE_TAGGED_PHOTO; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_TAGGED_PHOTOS", function() { return RECEIVE_ALL_TAGGED_PHOTOS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_TAGGED_PHOTO", function() { return DELETE_TAGGED_PHOTO; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "newTaggedPhoto", function() { return newTaggedPhoto; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveTaggedPhotos", function() { return receiveTaggedPhotos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteTaggedPhoto", function() { return deleteTaggedPhoto; });
+/* harmony import */ var _util_tagged_photo_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/tagged_photo_util */ "./frontend/util/tagged_photo_util.js");
+
+var RECEIVE_TAGGED_PHOTO = "RECEIVE_TAGGED_PHOTO";
+var RECEIVE_ALL_TAGGED_PHOTOS = "RECEIVE_ALL_TAGGED_PHOTOS";
+var DELETE_TAGGED_PHOTO = "DELETE_TAGGED_PHOTO"; //regular actions
+
+var receiveTaggedPhoto = function receiveTaggedPhoto(taggedPhoto) {
+  return {
+    type: RECEIVE_TAGGED_PHOTO,
+    taggedPhoto: taggedPhoto
+  };
+};
+
+var recieveAllTaggedPhotos = function recieveAllTaggedPhotos(taggedPhotos) {
+  return {
+    type: RECEIVE_ALL_TAGGED_PHOTOS,
+    taggedPhotos: taggedPhotos
+  };
+};
+
+var removeTaggedPhoto = function removeTaggedPhoto(taggedPhoto) {
+  return {
+    type: DELETE_TAGGED_PHOTO,
+    taggedPhotoId: taggedPhoto.id
+  };
+}; //thunk actions
+
+
+var newTaggedPhoto = function newTaggedPhoto(taggedPhoto) {
+  return function (dispatch) {
+    return Object(_util_tagged_photo_util__WEBPACK_IMPORTED_MODULE_0__["createTaggedPhoto"])(taggedPhoto).then(function (taggedPhoto) {
+      return dispatch(receiveTaggedPhoto(taggedPhoto));
+    });
+  };
+};
+var receiveTaggedPhotos = function receiveTaggedPhotos() {
+  return function (dispatch) {
+    return Object(_util_tagged_photo_util__WEBPACK_IMPORTED_MODULE_0__["fetchTaggedPhotos"])().then(function (taggedPhotos) {
+      return dispatch(recieveAllTaggedPhotos(taggedPhotos));
+    });
+  };
+};
+var deleteTaggedPhoto = function deleteTaggedPhoto(id) {
+  return function (dispatch) {
+    return Object(_util_tagged_photo_util__WEBPACK_IMPORTED_MODULE_0__["destroyTaggedPhoto"])(id).then(function (taggedPhoto) {
+      return dispatch(removeTaggedPhoto(taggedPhoto));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/user_actions.js":
 /*!******************************************!*\
   !*** ./frontend/actions/user_actions.js ***!
@@ -3383,8 +3450,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _comments_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./comments_reducer */ "./frontend/reducers/comments_reducer.js");
 /* harmony import */ var _photos_albums_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./photos_albums_reducer */ "./frontend/reducers/photos_albums_reducer.js");
 /* harmony import */ var _photos_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./photos_reducer */ "./frontend/reducers/photos_reducer.js");
-/* harmony import */ var _tag_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tag_reducer */ "./frontend/reducers/tag_reducer.js");
-/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _tagged_photos_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tagged_photos_reducer */ "./frontend/reducers/tagged_photos_reducer.js");
+/* harmony import */ var _tag_reducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tag_reducer */ "./frontend/reducers/tag_reducer.js");
+/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+
 
 
 
@@ -3393,12 +3462,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_6__["default"],
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_7__["default"],
   photos: _photos_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
   albums: _albums_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   photosAlbums: _photos_albums_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
   comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  tags: _tag_reducer__WEBPACK_IMPORTED_MODULE_5__["default"]
+  tags: _tag_reducer__WEBPACK_IMPORTED_MODULE_6__["default"],
+  taggedPhotos: _tagged_photos_reducer__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -3730,6 +3800,46 @@ var tagReducer = function tagReducer() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (tagReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/tagged_photos_reducer.js":
+/*!****************************************************!*\
+  !*** ./frontend/reducers/tagged_photos_reducer.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_tagged_photo_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/tagged_photo_actions */ "./frontend/actions/tagged_photo_actions.js");
+
+
+var taggedPhotosReducer = function taggedPhotosReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var newState = Object.assign({}, state);
+
+  switch (action.type) {
+    case _actions_tagged_photo_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_TAGGED_PHOTOS"]:
+      newState = Object.assign({}, action.taggedPhotos);
+      return newState;
+
+    case _actions_tagged_photo_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_TAGGED_PHOTO"]:
+      newState[action.taggedPhoto.id] = action.taggedPhoto;
+      return newState;
+
+    case _actions_tagged_photo_actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_TAGGED_PHOTO"]:
+      delete newState[action.taggedPhotoId];
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (taggedPhotosReducer);
 
 /***/ }),
 
@@ -4096,6 +4206,42 @@ var fetchTags = function fetchTags() {
   return $.ajax({
     url: 'api/tags',
     method: 'GET'
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/tagged_photo_util.js":
+/*!********************************************!*\
+  !*** ./frontend/util/tagged_photo_util.js ***!
+  \********************************************/
+/*! exports provided: createTaggedPhoto, fetchTaggedPhotos, destroyTaggedPhoto */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createTaggedPhoto", function() { return createTaggedPhoto; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchTaggedPhotos", function() { return fetchTaggedPhotos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyTaggedPhoto", function() { return destroyTaggedPhoto; });
+var createTaggedPhoto = function createTaggedPhoto(tagged_photo) {
+  return $.ajax({
+    url: '/api/tagged_photos',
+    method: 'POST',
+    data: {
+      tagged_photo: tagged_photo
+    }
+  });
+};
+var fetchTaggedPhotos = function fetchTaggedPhotos() {
+  return $.ajax({
+    url: '/api/tagged_photos',
+    method: 'GET'
+  });
+};
+var destroyTaggedPhoto = function destroyTaggedPhoto(id) {
+  return $.ajax({
+    url: "/api/tagged_photos/".concat(id),
+    method: 'DELETE'
   });
 };
 

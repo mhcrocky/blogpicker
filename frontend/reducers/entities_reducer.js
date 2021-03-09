@@ -3,6 +3,7 @@ import albumsReducer from "./albums_reducer";
 import commentsReducer from "./comments_reducer";
 import photosAlbumsReducer from "./photos_albums_reducer";
 import photosReducer from "./photos_reducer";
+import taggedPhotosReducer from "./tagged_photos_reducer";
 import tagReducer from "./tag_reducer";
 import usersReducer from "./users_reducer";
 
@@ -14,7 +15,8 @@ const entitiesReducer = combineReducers({
     albums: albumsReducer,
     photosAlbums: photosAlbumsReducer,
     comments: commentsReducer,
-    tags: tagReducer
+    tags: tagReducer,
+    taggedPhotos: taggedPhotosReducer
 })
 
 export default entitiesReducer;
