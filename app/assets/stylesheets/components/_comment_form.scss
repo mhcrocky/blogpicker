@@ -11,10 +11,12 @@
     width: auto;
     background-color: white;
     min-height: 50px;
-    padding: 5px;
+    padding: 4px;
     margin-top: 2px;
+    border: 1px solid lightgrey;
     
     textarea {
+        font-size: 15px;
         font-family: inherit;
         width: 100%;
         border: none;
