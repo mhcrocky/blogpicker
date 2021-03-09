@@ -58,7 +58,7 @@ class PhotoShow extends React.Component {
         const photo = this.props.photo;
         if ((!photo) || (!this.props.user[photo.userId])) return null;
         
-        let buttons = <div></div>;
+        let buttons = <div className='delete-update-photo'></div>;
         if (this.props.currentUserId === photo.userId) {
             buttons = <div className="delete-update-photo">
                 <button
@@ -85,12 +85,12 @@ class PhotoShow extends React.Component {
                     <div className="image-container">
                         <i onClick={this.goBack} className="fas fa-arrow-left"></i>
                         <img src={photo.photoUrl} alt={photo.title}/>
+                        {buttons}
                     </div>
                     <div className="photo-info-container">
                         <div className="photo-info-content">
                             <div className="photo-title-desc-delete">
                                 <div>
-                                    <div className="photo-title-desc"></div>
                                     <h1>{photo.title}</h1>
                                     <div className="photo-owner"> A photo by&nbsp;
                                         <Link to={`/users/${photo.userId}`}> 
@@ -102,7 +102,7 @@ class PhotoShow extends React.Component {
                                         <div>{photo.description}</div>
                                     </div>
                                 </div>
-                                {buttons}
+                                <div className="tags-container"></div>
                             </div>
                             <div className="photo-comments">
                                 <h2>Comments</h2>
