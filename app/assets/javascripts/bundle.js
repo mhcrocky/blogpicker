@@ -3254,9 +3254,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _util_tagged_photo_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/tagged_photo_util */ "./frontend/util/tagged_photo_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -3287,10 +3285,6 @@ document.addEventListener("DOMContentLoaded", function () {
     store: store
   }), root); //Remove these after done testing!
   // window.store = store;
-
-  window.createTaggedPhoto = _util_tagged_photo_util__WEBPACK_IMPORTED_MODULE_4__["createTaggedPhoto"];
-  window.fetchTaggedPhotos = _util_tagged_photo_util__WEBPACK_IMPORTED_MODULE_4__["fetchTaggedPhotos"];
-  window.deleteTaggedPhoto = _util_tagged_photo_util__WEBPACK_IMPORTED_MODULE_4__["deleteTaggedPhoto"];
 });
 
 /***/ }),
@@ -4102,42 +4096,6 @@ var fetchTags = function fetchTags() {
   return $.ajax({
     url: 'api/tags',
     method: 'GET'
-  });
-};
-
-/***/ }),
-
-/***/ "./frontend/util/tagged_photo_util.js":
-/*!********************************************!*\
-  !*** ./frontend/util/tagged_photo_util.js ***!
-  \********************************************/
-/*! exports provided: createTaggedPhoto, fetchTaggedPhotos, deleteTaggedPhoto */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createTaggedPhoto", function() { return createTaggedPhoto; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchTaggedPhotos", function() { return fetchTaggedPhotos; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteTaggedPhoto", function() { return deleteTaggedPhoto; });
-var createTaggedPhoto = function createTaggedPhoto(tagged_photo) {
-  return $.ajax({
-    url: '/api/tagged_photos',
-    method: 'POST',
-    data: {
-      tagged_photo: tagged_photo
-    }
-  });
-};
-var fetchTaggedPhotos = function fetchTaggedPhotos() {
-  return $.ajax({
-    url: '/api/tagged_photos',
-    method: 'GET'
-  });
-};
-var deleteTaggedPhoto = function deleteTaggedPhoto(id) {
-  return $.ajax({
-    url: "/api/tagged_photos/".concat(id),
-    method: 'DELETE'
   });
 };
 

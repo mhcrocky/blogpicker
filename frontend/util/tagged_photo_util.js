@@ -13,7 +13,7 @@ export const fetchTaggedPhotos = () => {
     })
 }
 
-export const deleteTaggedPhoto = (id) => {
+export const destroyTaggedPhoto = (id) => {
     return $.ajax({
         url: `/api/tagged_photos/${id}`,
         method: 'DELETE'
