@@ -3094,6 +3094,7 @@ var TagComponent = /*#__PURE__*/function (_React$Component) {
       name: ""
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -3116,7 +3117,48 @@ var TagComponent = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this3 = this;
+
       e.preventDefault();
+      var photoId = parseInt(this.props.match.params.id);
+      var existingTags = this.props.allTags;
+      var currentTag = this.state.name;
+
+      if (existingTags !== undefined) {
+        Object.values(existingTags).forEach(function (tag) {
+          if (tag.name === currentTag) {
+            currentTag = tag.id;
+          }
+        });
+      }
+
+      if (typeof currentTag === 'string') {
+        var info = {
+          name: currentTag
+        };
+        this.props.newTag(info).then(function (tag) {
+          var data = {
+            photo_id: photoId,
+            tag_id: tag.id
+          };
+
+          _this3.props.newTaggedPhoto(data);
+
+          _this3.setState({
+            name: ""
+          });
+        });
+      } else {
+        var tagInfo = {
+          photo_id: photoId,
+          tag_id: currentTag
+        };
+        this.props.newTaggedPhoto(tagInfo).then(function () {
+          return _this3.setState({
+            name: ""
+          });
+        });
+      }
     }
   }, {
     key: "render",
@@ -3132,6 +3174,7 @@ var TagComponent = /*#__PURE__*/function (_React$Component) {
           type: "text",
           placeholder: "Add a tag..."
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          onClick: this.handleSubmit,
           "class": "fas fa-plus"
         })));
       }
@@ -3195,6 +3238,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 
   return {
     tags: tags,
+    allTags: state.entities.tags,
     currentUserId: state.session.currentUserId
   };
 };

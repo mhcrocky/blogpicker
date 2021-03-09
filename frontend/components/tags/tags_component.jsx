@@ -5,6 +5,7 @@ class TagComponent extends React.Component {
         super(props);
         this.state = { name: "" };
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     
     componentDidMount() {
@@ -18,6 +19,30 @@ class TagComponent extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        const photoId = parseInt(this.props.match.params.id);
+        const existingTags = this.props.allTags;
+        let currentTag = this.state.name;
+        if (existingTags !== undefined) {
+            Object.values(existingTags).forEach(tag => {
+                if (tag.name === currentTag) {
+                    currentTag = tag.id;
+                }
+            })
+        }
+        if (typeof currentTag === 'string') {
+            let info = {name: currentTag}
+            this.props.newTag(info)
+                .then(tag => {
+                    const data = {photo_id: photoId, tag_id: tag.id};
+                    this.props.newTaggedPhoto(data);
+                    this.setState({name: ""});
+                })
+        } else {
+            let tagInfo = {photo_id: photoId, tag_id: currentTag};
+            this.props.newTaggedPhoto(tagInfo)
+                .then(() => this.setState({name: ""}));
+        }
+
     }
 
     render() {
@@ -27,7 +52,7 @@ class TagComponent extends React.Component {
                 <form>
                     <input value={this.state.name} onChange={this.handleChange}
                     type="text" placeholder="Add a tag..."/>
-                    <i class="fas fa-plus"></i>
+                    <i onClick={this.handleSubmit} class="fas fa-plus"></i>
                 </form>
             </div>
         }

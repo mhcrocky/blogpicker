@@ -25,6 +25,7 @@ const mapStateToProps = (state, ownProps) => {
 
     return {
         tags,
+        allTags: state.entities.tags,
         currentUserId: state.session.currentUserId
     }
 }
