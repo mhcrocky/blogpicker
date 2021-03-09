@@ -1,4 +1,5 @@
 import React from 'react';
+import TagItem from './tag_item';
 
 class TagComponent extends React.Component {
     constructor(props) {
@@ -44,7 +45,6 @@ class TagComponent extends React.Component {
             this.props.newTaggedPhoto(tagInfo)
                 .then(() => this.setState({name: ""}));
         }
-
     }
 
     render() {
@@ -59,6 +59,11 @@ class TagComponent extends React.Component {
             </div>
         }
 
+        const tags = this.props.tags.map(tag => {
+            return (
+                <TagItem key={tag.id} tag={tag} deleteTag={this.props.deleteTaggedPhoto} />
+            )
+        })
 
         return(
             <div className="main-tag-container">
@@ -66,7 +71,9 @@ class TagComponent extends React.Component {
                     <h1>Tags</h1>
                     {tagForm}
                 </div>
-
+                <ul>
+                    {tags}
+                </ul>
             </div>
         )
     }
