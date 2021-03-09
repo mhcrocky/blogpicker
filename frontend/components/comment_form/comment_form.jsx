@@ -6,6 +6,7 @@ class CommentForm extends React.Component {
         this.state = {body: ""};
         this.inputHandler = this.inputHandler.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.newComment = this.newComment.bind(this);
     }
 
     inputHandler(e) {
@@ -21,12 +22,20 @@ class CommentForm extends React.Component {
             })
     }
 
+    newComment(e) {
+        e.preventDefault();
+        e.currentTarget.classList.toggle("new-comment");
+    }
+
     render() {
         return(
             <div className="comment-form-container">
                 <form onSubmit={this.handleSubmit} className="comment-form">
-                    <input onChange={this.inputHandler} type="text"
-                    value={this.state.body} placeholder="Add a comment"/>
+                    <div onFocus={this.newComment} onBlur={this.newComment}
+                    className="input-comment-container">
+                        <textarea onChange={this.inputHandler}
+                        value={this.state.body} placeholder="Add a comment"/>
+                    </div>
                     <button className="upload-button">Comment</button>
                 </form>
             </div>

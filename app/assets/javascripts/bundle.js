@@ -1322,6 +1322,7 @@ var CommentForm = /*#__PURE__*/function (_React$Component) {
     };
     _this.inputHandler = _this.inputHandler.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.newComment = _this.newComment.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1349,6 +1350,12 @@ var CommentForm = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "newComment",
+    value: function newComment(e) {
+      e.preventDefault();
+      e.currentTarget.classList.toggle("new-comment");
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1356,12 +1363,15 @@ var CommentForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "comment-form"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onFocus: this.newComment,
+        onBlur: this.newComment,
+        className: "input-comment-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         onChange: this.inputHandler,
-        type: "text",
         value: this.state.body,
         placeholder: "Add a comment"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "upload-button"
       }, "Comment")));
     }

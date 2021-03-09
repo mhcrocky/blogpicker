@@ -1,0 +1,29 @@
+.comment-form {
+    display: flex;
+    flex-direction: column;
+
+    button {
+        align-self: flex-end;
+    }
+}
+
+.input-comment-container {
+    width: auto;
+    background-color: white;
+    min-height: 50px;
+    padding: 5px;
+    margin-top: 2px;
+    
+    textarea {
+        font-family: inherit;
+        width: 100%;
+        border: none;
+        outline: none;
+        resize: none;
+    }
+}
+
+.new-comment {
+    border: 1px solid #006dac;
+    padding: 4px;
+}
