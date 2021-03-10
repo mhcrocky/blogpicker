@@ -3058,7 +3058,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var TagItem = function TagItem(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+  var _handleDelete = function _handleDelete(e) {
+    e.preventDefault();
+    props.deleteTag(props.taggedPhoto.id);
+  };
+
+  var deleteIcon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+
+  if (props.currentUserId === props.ownerId) {
+    deleteIcon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      onClick: _handleDelete,
+      className: "fas fa-times"
+    });
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, deleteIcon, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.tag.name));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (TagItem);
@@ -3160,7 +3174,6 @@ var TagComponent = /*#__PURE__*/function (_React$Component) {
           name: currentTag
         };
         this.props.newTag(info).then(function (action) {
-          debugger;
           var tagId = action.tag.id;
           var data = {
             photo_id: photoId,
@@ -3207,9 +3220,13 @@ var TagComponent = /*#__PURE__*/function (_React$Component) {
       }
 
       var tags = this.props.tags.map(function (tag) {
+        var taggedPhoto = _this4.props.tagAssociation[tag.id];
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tag_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: tag.id,
+          taggedPhoto: taggedPhoto,
           tag: tag,
+          currentUserId: _this4.props.currentUserId,
+          ownerId: _this4.props.ownerId,
           deleteTag: _this4.props.deleteTaggedPhoto
         });
       });
@@ -3252,11 +3269,13 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   var tagIds = [];
   var taggedPhotos = state.entities.taggedPhotos;
   var photoId = parseInt(ownProps.match.params.id);
+  var tagAssociation = {};
 
   if (taggedPhotos !== undefined) {
     Object.values(taggedPhotos).forEach(function (taggedPhoto) {
       if (taggedPhoto.photoId === photoId) {
         tagIds.push(taggedPhoto.tagId);
+        tagAssociation[taggedPhoto.tagId] = taggedPhoto;
       }
     });
   }
@@ -3273,6 +3292,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     tags: tags,
     allTags: state.entities.tags,
+    tagAssociation: tagAssociation,
     currentUserId: state.session.currentUserId
   };
 };

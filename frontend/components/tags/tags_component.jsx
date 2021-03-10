@@ -34,7 +34,6 @@ class TagComponent extends React.Component {
             let info = {name: currentTag}
             this.props.newTag(info)
                 .then(action => {
-                    debugger
                     const tagId = action.tag.id;
                     const data = {photo_id: photoId, tag_id: tagId};
                     this.props.newTaggedPhoto(data);
@@ -60,8 +59,11 @@ class TagComponent extends React.Component {
         }
 
         const tags = this.props.tags.map(tag => {
+            const taggedPhoto = this.props.tagAssociation[tag.id];
             return (
-                <TagItem key={tag.id} tag={tag} deleteTag={this.props.deleteTaggedPhoto} />
+                <TagItem key={tag.id} taggedPhoto={taggedPhoto} tag={tag}
+                currentUserId={this.props.currentUserId} ownerId={this.props.ownerId}
+                deleteTag={this.props.deleteTaggedPhoto} />
             )
         })
 

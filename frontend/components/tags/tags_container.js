@@ -8,11 +8,13 @@ const mapStateToProps = (state, ownProps) => {
     let tagIds = [];
     const taggedPhotos = state.entities.taggedPhotos;
     const photoId = parseInt(ownProps.match.params.id);
+    let tagAssociation = {};
 
     if (taggedPhotos !== undefined) {
         Object.values(taggedPhotos).forEach(taggedPhoto => {
             if (taggedPhoto.photoId === photoId) {
                 tagIds.push(taggedPhoto.tagId);
+                tagAssociation[taggedPhoto.tagId] = taggedPhoto;
             }
         })
     }
@@ -26,6 +28,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         tags,
         allTags: state.entities.tags,
+        tagAssociation,
         currentUserId: state.session.currentUserId
     }
 }
