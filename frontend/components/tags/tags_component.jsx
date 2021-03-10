@@ -73,7 +73,7 @@ class TagComponent extends React.Component {
                     <h1>Tags</h1>
                     {tagForm}
                 </div>
-                <ul>
+                <ul className="tag-list">
                     {tags}
                 </ul>
             </div>

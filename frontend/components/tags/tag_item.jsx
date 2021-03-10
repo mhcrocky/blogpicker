@@ -13,7 +13,7 @@ const TagItem = (props) => {
     }
 
     return (
-        <li>
+        <li className="tag-list-item">
             {deleteIcon}
             <div>{props.tag.name}</div>
         </li>
