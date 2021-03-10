@@ -25,7 +25,6 @@ class PhotoIndex extends React.Component {
         this.interval = setInterval(() => { check() }, 5000);
     }
 
-
     componentWillUnmount() {
         //Fixes bug where user navigates away from page before setInterval
         //has been cleared
