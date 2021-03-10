@@ -9,24 +9,27 @@ class PhotoIndex extends React.Component {
         this.state = { loaded: false };
         this.loadedList = [];
         this.handleLoading = this.handleLoading.bind(this);
-        this.intervalFunc;
+        this.interval;
     }
 
     componentDidMount() {
         this.props.fetchAllUsers();
         this.props.fetchAllPhotos();
-        this.intervalFunc = setInterval(() => {
-            if (this.props.photos.length === this.loadedList.length) {
+        let loadedCheck = () => {
+            if (this.props.photos.length <= this.loadedList.length) {
                 this.setState({ loaded: true });
-                clearInterval(this.intervalFunc);
+                clearInterval(this.interval);
             }
-        }, 5000)
+        };
+        const check = loadedCheck.bind(this);
+        this.interval = setInterval(() => { check() }, 5000);
     }
+
 
     componentWillUnmount() {
         //Fixes bug where user navigates away from page before setInterval
         //has been cleared
-        clearInterval(this.intervalFunc);
+        clearInterval(this.interval);
     }
     
     handleLoading(item) {
