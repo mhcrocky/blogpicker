@@ -12,6 +12,7 @@ import LoginFormContainer from "./session_form/login_form_container";
 import SignUpFormContainer from "./session_form/signup_form_container";
 import UserShowContainer from "./user_show/user_show_container";
 import WelcomeContainer from "./welcome/welcome_container";
+import TagIndexContainer from "./tag_index/tag_index_container";
 
 const App = () => {
     return (
@@ -28,6 +29,7 @@ const App = () => {
                 <ProtectedRoute exact path='/photos/:id/edit' component={UpdatePhotoContainer} />
                 <ProtectedRoute exact path='/album/new' component={AlbumFormContainer} />
                 <ProtectedRoute exact path='/album/:id' component={AlbumShowContainer} />
+                <ProtectedRoute exact path='/tag/:id' component={TagIndexContainer} />
                 <Route component={NoExistingPage} />
             </Switch>
         </div>
