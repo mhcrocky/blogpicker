@@ -3089,7 +3089,7 @@ var TagIndex = /*#__PURE__*/function (_React$Component) {
         className: "feed-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-body"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.tag.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Tag: ", this.props.tag.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
         photoIds: this.props.photoIds
       })));
     }
@@ -3113,7 +3113,9 @@ var TagIndex = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_tag_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/tag_actions */ "./frontend/actions/tag_actions.js");
-/* harmony import */ var _tag_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tag_index */ "./frontend/components/tag_index/tag_index.jsx");
+/* harmony import */ var _actions_tagged_photo_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/tagged_photo_actions */ "./frontend/actions/tagged_photo_actions.js");
+/* harmony import */ var _tag_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tag_index */ "./frontend/components/tag_index/tag_index.jsx");
+
 
 
 
@@ -3139,26 +3141,16 @@ var mSTP = function mSTP(state, ownProps) {
 
 var mDTP = function mDTP(dispatch, ownProps) {
   return {
-    receiveTaggedPhotos: function (_receiveTaggedPhotos) {
-      function receiveTaggedPhotos() {
-        return _receiveTaggedPhotos.apply(this, arguments);
-      }
-
-      receiveTaggedPhotos.toString = function () {
-        return _receiveTaggedPhotos.toString();
-      };
-
-      return receiveTaggedPhotos;
-    }(function () {
-      return dispatch(receiveTaggedPhotos());
-    }),
+    receiveTaggedPhotos: function receiveTaggedPhotos() {
+      return dispatch(Object(_actions_tagged_photo_actions__WEBPACK_IMPORTED_MODULE_2__["receiveTaggedPhotos"])());
+    },
     fetchATag: function fetchATag() {
       return dispatch(Object(_actions_tag_actions__WEBPACK_IMPORTED_MODULE_1__["fetchATag"])(ownProps.match.params.id));
     }
   };
 };
 
-var TagIndexContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_tag_index__WEBPACK_IMPORTED_MODULE_2__["default"]);
+var TagIndexContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_tag_index__WEBPACK_IMPORTED_MODULE_3__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (TagIndexContainer);
 
 /***/ }),

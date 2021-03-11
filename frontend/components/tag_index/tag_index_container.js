@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { fetchATag } from "../../actions/tag_actions";
+import { receiveTaggedPhotos } from "../../actions/tagged_photo_actions"
 import TagIndex from "./tag_index";
 
 const mSTP = (state, ownProps) => {

@@ -8,7 +8,6 @@ const mapStateToProps = (state, ownProps) => {
     const userId = ownProps.user ? ownProps.user.id : null;
     const photoIds = ownProps.photoIds ? ownProps.photoIds : null;
     const photosState = state.entities.photos;
-
     let photos = [];
     if (userId) {
         Object.values(photosState).forEach((photo) => {
