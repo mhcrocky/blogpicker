@@ -47,17 +47,18 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    border: 3px solid darkgray;
 
     h1 {
         font-size: 20px;
-        text-shadow: 2px 1px #423c3c;
+        text-shadow: 1px 1px #423c3c;
         color: #fff;
         margin-bottom: 10px;
     }
 }
 
 .album-info:hover {
-    border: 1px solid black;
+    border: 3px solid #128fdc;
 }
 
 .alb-prev {

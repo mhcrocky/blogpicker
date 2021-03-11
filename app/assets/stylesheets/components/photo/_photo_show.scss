@@ -20,6 +20,10 @@
         color: #fff;
         padding-top: 30px;
         font-size: 25px;
+    }
+
+    i:hover {
+        color: #d7d7d7;
         cursor: pointer;
     }
 
@@ -140,6 +144,7 @@
 
     a:hover {
         text-decoration: underline;
+        color: #128fdc;
     }
 }
 
