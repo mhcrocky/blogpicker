@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TagItem = (props) => {
     const _handleDelete = (e) => {
@@ -15,7 +16,7 @@ const TagItem = (props) => {
     return (
         <li className="tag-list-item">
             {deleteIcon}
-            <div>{props.tag.name}</div>
+            <Link to={`/tag/${props.tag.id}`}>{props.tag.name}</Link>
         </li>
     )
 }
