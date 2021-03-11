@@ -5,12 +5,21 @@ const mSTP = (state, ownProps) => {
     let photoIds = [];
     if (taggedPhotos !== undefined) {
         Object.values(taggedPhotos).forEach(taggedPhoto => {
-            if (taggedPhoto.tagId === tagId)
+            if (taggedPhoto.tagId === tagId) {
+                photoIds.push(taggedPhoto.photoId);
+            }
         })
     }
 
     return {
         tag: state.entities.tags[tagId],
         photoIds
+    }
+}
+
+const mDTP = (dispatch, ownProps) => {
+    return {
+        receiveTaggedPhotos: () => dispatch(receiveTaggedPhotos()),
+        
     }
 }

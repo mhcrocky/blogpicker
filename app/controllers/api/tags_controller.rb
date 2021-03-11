@@ -8,6 +8,11 @@ class Api::TagsController < ApplicationController
         end
     end
 
+    def show
+        @tag = Tag.find_by(id: params[:id])
+        render :show
+    end
+
     def index
         @tags = Tag.all
         render :index
