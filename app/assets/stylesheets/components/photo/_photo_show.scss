@@ -55,6 +55,16 @@
     margin-left: 15px;
 }
 
+.photo-owner a {
+    text-decoration: none;
+    color: #006dac;
+}
+
+.photo-owner a:hover {
+    text-decoration: underline;
+    color: #128fdc;
+}
+
 .photo-desc-info {
     max-width: 50%;
     overflow: auto;

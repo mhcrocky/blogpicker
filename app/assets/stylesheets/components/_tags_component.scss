@@ -5,13 +5,13 @@
 }
 
 .tags-header i {
-    color: #128fdc;
     margin: 0 10px;
+    color: #006dac;
 }
 
 .tags-header i:hover {
+    color: #128fdc;
     cursor: pointer;
-    color: #006dac;
 }
 
 .tags-header input {
@@ -46,4 +46,13 @@
 .tag-list-item i:hover {
     cursor: pointer;
     color: rgb(255, 115, 115);
+}
+
+.tag-list-item a {
+    text-decoration: none;
+    color: #006dac;
+}
+
+.tag-list-item a:hover {
+    color: #128fdc;
 }
