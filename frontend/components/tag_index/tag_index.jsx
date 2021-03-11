@@ -16,7 +16,7 @@ class TagIndex extends React.Component {
             <div className="feed-page">
                 <HeaderContainer />
                 <div className="feed-body">
-                    <h1>Tag: {this.props.tag.name}</h1>
+                    <h1>Tag #{this.props.tag.name}</h1>
                     <PhotoIndexContainer photoIds={this.props.photoIds} />
                 </div>
             </div>
