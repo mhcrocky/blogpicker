@@ -1,4 +1,4 @@
-import { createTag, fetchTags } from "../util/tag_api_util";
+import { createTag, fetchTags, fetchTag } from "../util/tag_api_util";
 
 export const RECEIVE_TAG = 'RECEIVE_TAG';
 export const RECEIVE_ALL_TAGS = 'RECEIVE_ALL_TAGS';
@@ -29,4 +29,9 @@ export const newTag = (tag) => (dispatch) => {
 export const fetchAllTags = () => (dispatch) => {
     return fetchTags()
         .then(tags => dispatch(receiveAllTags(tags)));
+}
+
+export const fetchATag = (id) => (dispatch) => {
+    return fetchTag(id)
+        .then(tag => dispatch(receiveTag(tag)));
 }

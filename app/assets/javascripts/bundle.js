@@ -461,7 +461,7 @@ var logout = function logout() {
 /*!*****************************************!*\
   !*** ./frontend/actions/tag_actions.js ***!
   \*****************************************/
-/*! exports provided: RECEIVE_TAG, RECEIVE_ALL_TAGS, newTag, fetchAllTags */
+/*! exports provided: RECEIVE_TAG, RECEIVE_ALL_TAGS, newTag, fetchAllTags, fetchATag */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -470,6 +470,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_TAGS", function() { return RECEIVE_ALL_TAGS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "newTag", function() { return newTag; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllTags", function() { return fetchAllTags; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchATag", function() { return fetchATag; });
 /* harmony import */ var _util_tag_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/tag_api_util */ "./frontend/util/tag_api_util.js");
 
 var RECEIVE_TAG = 'RECEIVE_TAG';
@@ -501,6 +502,13 @@ var fetchAllTags = function fetchAllTags() {
   return function (dispatch) {
     return Object(_util_tag_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchTags"])().then(function (tags) {
       return dispatch(receiveAllTags(tags));
+    });
+  };
+};
+var fetchATag = function fetchATag(id) {
+  return function (dispatch) {
+    return Object(_util_tag_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchTag"])(id).then(function (tag) {
+      return dispatch(receiveTag(tag));
     });
   };
 };
@@ -4441,13 +4449,14 @@ var logout = function logout() {
 /*!***************************************!*\
   !*** ./frontend/util/tag_api_util.js ***!
   \***************************************/
-/*! exports provided: createTag, fetchTags */
+/*! exports provided: createTag, fetchTags, fetchTag */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createTag", function() { return createTag; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchTags", function() { return fetchTags; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchTag", function() { return fetchTag; });
 var createTag = function createTag(tag) {
   return $.ajax({
     url: '/api/tags',
@@ -4459,7 +4468,13 @@ var createTag = function createTag(tag) {
 };
 var fetchTags = function fetchTags() {
   return $.ajax({
-    url: 'api/tags',
+    url: '/api/tags',
+    method: 'GET'
+  });
+};
+var fetchTag = function fetchTag(id) {
+  return $.ajax({
+    url: "/api/tags/".concat(id),
     method: 'GET'
   });
 };
