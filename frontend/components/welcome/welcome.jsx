@@ -2,43 +2,24 @@ import React from 'react';
 import HeaderContainer from '../header/header_container';
 
 
-class Welcome extends React.Component  {
-    constructor(props) {
-        super(props);
-        this.demoLogin = this.demoLogin.bind(this);
+const Welcome = (props) => {
+   
+    const demoLogin = () => {
+        props.login({username: 'Demo_User', password: '123456'})
     }
 
-    // figuring out how to have rotating background
-    // componentDidMount() {
-    //     let i = 1;
-    //     const background = document.getElementsByClassName('splash-background')[0];
-    //     setInterval(() => {
-    //         (i === 5) ? (i = 1) : i++;
-    //         background.style.backgroundImage = `asset-url(${this.state.background})`;
-    //         this.setState({background: `splash${i}.jpg`})
-    //     }, 6000)
-    // }
-
-
-    demoLogin () {
-        this.props.login({username: 'Demo_User', password: '123456'})
-    }
-
-    render () {
-        return (
-            <div className="splash-background">
-                <HeaderContainer />
-                <div className="splash-body">
-                    <div className="splash-content">
-                        <h1>Find your inspiration.</h1>
-                        <p>Join the Picktr community! Feel free to click around!</p>
-                        <button onClick={this.demoLogin}>Demo Login</button>
-                    </div>
+    return (
+        <div className="splash-background">
+            <HeaderContainer />
+            <div className="splash-body">
+                <div className="splash-content">
+                    <h1>Find your inspiration.</h1>
+                    <p>Join the Picktr community! Feel free to click around!</p>
+                    <button onClick={demoLogin}>Demo Login</button>
                 </div>
             </div>
-        )
-    }
-
+        </div>
+    )
 }
 
 export default Welcome;

@@ -6,9 +6,11 @@ const Header = (props) => {
     const handleLogout = () => {
         return props.logout();
     }
+
     const pathname = props.location.pathname;
     let loginCondition = <div></div>;
     let usernameCondition = <div></div>;
+    
     if (props.currentUser) {
         loginCondition =
             <div className="icon-logout-container">
@@ -64,10 +66,6 @@ const Header = (props) => {
             </div>
         </div>
     )
-
-        
-    
-
 }
 
 export default Header;
