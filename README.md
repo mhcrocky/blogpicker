@@ -52,4 +52,7 @@ Allowing users to create albums was a mixture of Rails backend magic and creativ
 When creating an album the form displayed the user's photos for them as options. Using css the photos were displayed in greyscale to signify an un-selected photo. A click event was added to toggle a css class that displayed the selected photo in full color. In addition, this click event contained logic to keep track of which photos to add to the album. This was done by having an instance variable that kept track of the photo's ids. On submission, an ajax request was sent to the backend to create an album. A promise was used to recieve the newly created albums id to then create relationships between the photos and the album.
 
 ### To-do
-    *
+    * Search bar
+    * Following other users
+    * Custom photo feed based on followed users
+    * Add photos to existing albums
