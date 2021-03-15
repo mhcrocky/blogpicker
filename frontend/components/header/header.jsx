@@ -30,7 +30,7 @@ const Header = (props) => {
         loginCondition = 
             <div className="splash-head-buttons">
                 <a href="https://github.com/bcdguz/picktr">
-                    <i className="fab fa-github"></i>=
+                    <i className="fab fa-github"></i>
                 </a>
                 <div className="login-signup">
                     <Link to="/login">Log In</Link>
