@@ -36,6 +36,15 @@ class User < ApplicationRecord
         class_name: :Comment,
         dependent: :destroy
         
+    has_many :favorites,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Favorite,
+        dependent: :destroy
+
+    has_many :favorite_photos,
+        through: :favorites,
+        source: :photo
     # User Auth methods below
 
     def self.find_by_credentials(username, password)

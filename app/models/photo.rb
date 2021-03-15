@@ -42,6 +42,12 @@ class Photo < ApplicationRecord
         foreign_key: :user_id,
         class_name: :User
 
+    has_many :favorites,
+        primary_key: :id,
+        foreign_key: :photo_id,
+        class_name: :Favorite,
+        dependent: :destroy
+
     has_one_attached :picture
 
     has_many :albums,
@@ -52,4 +58,7 @@ class Photo < ApplicationRecord
         through: :tagged_photos,
         source: :tag
 
+    has_many :user_favorites,
+        through: :favorites,
+        source: :user
 end
