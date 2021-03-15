@@ -2825,10 +2825,10 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       if (this.props.formType === 'Login to Picktr') {
         signUpOrLogin = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "sign-up-or-log-in"
-        }, "Not a Picktr member?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        }, "Not a Picktr member?\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           onClick: this.clearErrors,
           to: "/signup"
-        }, " Sign up here."));
+        }, "Sign up here."));
         demoLogin = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "button",
           className: "session-button",
@@ -2842,10 +2842,10 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       } else {
         signUpOrLogin = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "sign-up-or-log-in"
-        }, "Already a Picktr member?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        }, "Already a Picktr member?\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           onClick: this.clearErrors,
           to: "/login"
-        }, " Login here."));
+        }, "Login here."));
         demoLogin = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
       }
 

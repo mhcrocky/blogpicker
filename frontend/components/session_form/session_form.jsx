@@ -36,8 +36,8 @@ class SessionForm extends React.Component {
 
         if (this.props.formType === 'Login to Picktr') {
             signUpOrLogin = <div className="sign-up-or-log-in">
-                Not a Picktr member? 
-                <Link onClick={this.clearErrors} to="/signup"> Sign up here.</Link>
+                Not a Picktr member?&nbsp; 
+                <Link onClick={this.clearErrors} to="/signup">Sign up here.</Link>
             </div>;
 
             demoLogin = <button type="button" className="session-button"
@@ -47,8 +47,8 @@ class SessionForm extends React.Component {
 
         } else {
             signUpOrLogin = <div className="sign-up-or-log-in">
-                Already a Picktr member?
-                <Link onClick={this.clearErrors} to="/login"> Login here.</Link>
+                Already a Picktr member?&nbsp;
+                <Link onClick={this.clearErrors} to="/login">Login here.</Link>
             </div>;
 
             demoLogin = <div></div>;
