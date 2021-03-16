@@ -1,18 +1,31 @@
 import { connect } from "react-redux"
+import { fetchAllFavorites } from "../../actions/favorite_actions"
 import { fetchUser } from "../../actions/user_actions"
 import UserShow from "./user_show"
 
 
 const mapStateToProps = (state, ownProps) => {
+    let favorites = state.entities.favorites;
+    let photoIds = [];
+    if (favorites !== undefined) {
+        Object.values(favorites).forEach(favorite => {
+            if (favorite.userId === state.session.currentUserId) {
+                photoIds.push(favorite.photoId);
+            }
+        })
+    }
+
     return {
-        user: state.entities.users[ownProps.match.params.id]
+        user: state.entities.users[ownProps.match.params.id],
+        photoIds
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 
     return {
-        fetchUser: () => dispatch(fetchUser(ownProps.match.params.id))
+        fetchUser: () => dispatch(fetchUser(ownProps.match.params.id)),
+        fetchAllFavorites: () => dispatch(fetchAllFavorites())
     }
 }
 

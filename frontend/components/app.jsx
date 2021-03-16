@@ -25,6 +25,7 @@ const App = () => {
                 <ProtectedRoute exact path='/photo/new' component={PhotoFormContainer} />
                 <ProtectedRoute exact path='/users/:id' component={UserShowContainer} />
                 <ProtectedRoute exact path='/users/:id/albums' component={UserShowContainer} />
+                <ProtectedRoute exact path='/users/:id/favorites' component={UserShowContainer} />
                 <ProtectedRoute exact path='/photos/:id' component={PhotoShowContainer} />
                 <ProtectedRoute exact path='/photos/:id/edit' component={UpdatePhotoContainer} />
                 <ProtectedRoute exact path='/album/new' component={AlbumFormContainer} />

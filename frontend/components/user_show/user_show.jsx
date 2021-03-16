@@ -8,6 +8,7 @@ class UserShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchUser();
+        this.props.fetchAllFavorites();
     }
 
     render() {
@@ -16,6 +17,7 @@ class UserShow extends React.Component {
         let content;
         let photoStream;
         let albums;
+        let favorites;
         if (!user) return null;
 
         const username = user.username 
@@ -25,10 +27,17 @@ class UserShow extends React.Component {
             content = <AlbumIndexContainer userId={user.id} />;
             albums = "selected";
             photoStream = "";
+            favorites = "";
+        } else if (path === "/users/:id/favorites") {
+            content = <PhotoIndexContainer photoIds={this.props.photoIds} />
+            favorites = "selected";
+            photoStream = "";
+            albums = "";
         } else {
             content = <PhotoIndexContainer user={user} />;
             albums = "";
             photoStream = "selected";
+            favorites = "";
         }
 
 
@@ -49,6 +58,10 @@ class UserShow extends React.Component {
                                 <Link className={albums}
                                 to={`/users/${userId}/albums`}>
                                     Albums
+                                </Link>
+                                <Link className={favorites}
+                                    to={`/users/${userId}/favorites`}>
+                                    Favorites
                                 </Link>
                             </div>
                         </div>

@@ -1442,6 +1442,10 @@ var App = function App() {
     component: _user_show_user_show_container__WEBPACK_IMPORTED_MODULE_12__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
     exact: true,
+    path: "/users/:id/favorites",
+    component: _user_show_user_show_container__WEBPACK_IMPORTED_MODULE_12__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
+    exact: true,
     path: "/photos/:id",
     component: _photo_show_photo_show_container__WEBPACK_IMPORTED_MODULE_9__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
@@ -3543,6 +3547,7 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchUser();
+      this.props.fetchAllFavorites();
     }
   }, {
     key: "render",
@@ -3552,6 +3557,7 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
       var content;
       var photoStream;
       var albums;
+      var favorites;
       if (!user) return null;
       var username = user.username;
       var userId = user.id;
@@ -3562,12 +3568,21 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
         });
         albums = "selected";
         photoStream = "";
+        favorites = "";
+      } else if (path === "/users/:id/favorites") {
+        content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          photoIds: this.props.photoIds
+        });
+        favorites = "selected";
+        photoStream = "";
+        albums = "";
       } else {
         content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_photo_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
           user: user
         });
         albums = "";
         photoStream = "selected";
+        favorites = "";
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3586,7 +3601,10 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
       }, "Photo Stream"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         className: albums,
         to: "/users/".concat(userId, "/albums")
-      }, "Albums")))), content));
+      }, "Albums"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+        className: favorites,
+        to: "/users/".concat(userId, "/favorites")
+      }, "Favorites")))), content));
     }
   }]);
 
@@ -3607,27 +3625,44 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
-/* harmony import */ var _user_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user_show */ "./frontend/components/user_show/user_show.jsx");
+/* harmony import */ var _actions_favorite_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/favorite_actions */ "./frontend/actions/favorite_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _user_show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user_show */ "./frontend/components/user_show/user_show.jsx");
+
 
 
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var favorites = state.entities.favorites;
+  var photoIds = [];
+
+  if (favorites !== undefined) {
+    Object.values(favorites).forEach(function (favorite) {
+      if (favorite.userId === state.session.currentUserId) {
+        photoIds.push(favorite.photoId);
+      }
+    });
+  }
+
   return {
-    user: state.entities.users[ownProps.match.params.id]
+    user: state.entities.users[ownProps.match.params.id],
+    photoIds: photoIds
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
   return {
     fetchUser: function fetchUser() {
-      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["fetchUser"])(ownProps.match.params.id));
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUser"])(ownProps.match.params.id));
+    },
+    fetchAllFavorites: function fetchAllFavorites() {
+      return dispatch(Object(_actions_favorite_actions__WEBPACK_IMPORTED_MODULE_1__["fetchAllFavorites"])());
     }
   };
 };
 
-var UserShowContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_user_show__WEBPACK_IMPORTED_MODULE_2__["default"]);
+var UserShowContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_user_show__WEBPACK_IMPORTED_MODULE_3__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (UserShowContainer);
 
 /***/ }),
