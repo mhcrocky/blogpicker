@@ -97,9 +97,9 @@ class PhotoShow extends React.Component {
             </div>
         }
 
-        let fav = <i onClick={this.handleFavorite} className="fa fa-star"></i>
+        let fav = <i onClick={this.handleFavorite} className="fas fa-star"></i>
         if (this.props.favorite !== null) {
-            fav = <i onClick={this.handleFavorite} className="fa fa-star fav"></i>
+            fav = <i onClick={this.handleFavorite} className="fas fa-star fav"></i>
         }
 
         return (

@@ -2634,13 +2634,13 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
 
       var fav = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         onClick: this.handleFavorite,
-        className: "fa fa-star"
+        className: "fas fa-star"
       });
 
       if (this.props.favorite !== null) {
         fav = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           onClick: this.handleFavorite,
-          className: "fa fa-star fav"
+          className: "fas fa-star fav"
         });
       }
 
