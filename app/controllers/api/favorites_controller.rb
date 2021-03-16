@@ -1,6 +1,6 @@
 class Api::FavoritesController < ApplicationController
     def create
-        @favorite = Favorite.new(photo_id: params[:tagged_photo][:photo_id])
+        @favorite = Favorite.new(photo_id: params[:favorite][:photo_id])
         @favorite.user_id = current_user.id
         if @favorite.save
             render :show

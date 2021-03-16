@@ -15,7 +15,7 @@ export const fetchFavorites = () => {
 
 export const deleteFavorite = (id) => {
     return $.ajax({
-        url: `/api/favorite/${id}`,
+        url: `/api/favorites/${id}`,
         method: 'DELETE'
     })
 }

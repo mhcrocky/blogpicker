@@ -3587,7 +3587,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _util_favorites_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/favorites_api_util */ "./frontend/util/favorites_api_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -4258,6 +4260,42 @@ var fetchComments = function fetchComments() {
 var deleteComment = function deleteComment(commentId) {
   return $.ajax({
     url: "/api/comments/".concat(commentId),
+    method: 'DELETE'
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/favorites_api_util.js":
+/*!*********************************************!*\
+  !*** ./frontend/util/favorites_api_util.js ***!
+  \*********************************************/
+/*! exports provided: createFavorite, fetchFavorites, deleteFavorite */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFavorite", function() { return createFavorite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchFavorites", function() { return fetchFavorites; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteFavorite", function() { return deleteFavorite; });
+var createFavorite = function createFavorite(favorite) {
+  return $.ajax({
+    url: '/api/favorites',
+    method: 'POST',
+    data: {
+      favorite: favorite
+    }
+  });
+};
+var fetchFavorites = function fetchFavorites() {
+  return $.ajax({
+    url: '/api/favorites',
+    method: 'get'
+  });
+};
+var deleteFavorite = function deleteFavorite(id) {
+  return $.ajax({
+    url: "/api/favorites/".concat(id),
     method: 'DELETE'
   });
 };
