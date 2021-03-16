@@ -2534,10 +2534,6 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, PhotoShow);
 
     _this = _super.call(this, props);
-    _this.state = {
-      favorite: "fas fa-star",
-      favId: null
-    };
     _this.goBack = _this.goBack.bind(_assertThisInitialized(_this));
     _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     _this.handleUpdate = _this.handleUpdate.bind(_assertThisInitialized(_this));
@@ -2548,10 +2544,7 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
   _createClass(PhotoShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // const currentUserId  = this.props.currentUserId;
-      // const photoId = parseInt(this.props.match.params.id)
-      // this.props.fetchAllFavorites()
-      // .then((res) => {
+      this.props.fetchAllFavorites(); // .then((res) => {
       //     if(res.favorites) {
       //         Object.values(res.favorites).forEach(fav => {
       //             if (fav.userId === currentUserId && fav.photoId === photoId) {
@@ -2561,6 +2554,7 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
       //         })
       //     }
       // })
+
       this.props.fetchPhoto();
       this.props.fetchAllUsers();
       this.props.fetchComments();
@@ -2602,29 +2596,21 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "handleFavorite",
-    value: function handleFavorite() {
-      var _this4 = this;
-
-      if (this.state.favorite === "fas fa-star") {
-        this.props.newFavorite().then(function (action) {
-          _this4.setState({
-            favorite: "fas fa-star fav",
-            favId: action.favorite.id
-          });
+    value: function handleFavorite(e) {
+      if (e.target.className === "fas fa-star") {
+        this.props.newFavorite().then(function () {
+          e.target.className === "fas fa-star fav";
         });
       } else {
-        this.props.removeFavorite(this.state.favId).then(function () {
-          _this4.setState({
-            favorite: "fas fa-star",
-            favId: null
-          });
+        this.props.removeFavorite(this.props.favorite).then(function () {
+          e.target.className = "fas fa-star";
         });
       }
     }
   }, {
     key: "render",
     value: function render() {
-      var _this5 = this;
+      var _this4 = this;
 
       var photo = this.props.photo;
       if (!photo || !this.props.user[photo.userId]) return null;
@@ -2648,8 +2634,16 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
 
       var fav = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         onClick: this.handleFavorite,
-        className: this.state.favorite
+        className: "fa fa-star"
       });
+
+      if (this.props.favorite !== null) {
+        fav = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          onClick: this.handleFavorite,
+          className: "fa fa-star fav"
+        });
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-show-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2661,7 +2655,7 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         onClick: this.goBack,
         className: "fas fa-arrow-left"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }), fav), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: photo.photoUrl,
         alt: photo.title
       }), buttons), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2686,11 +2680,11 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
         className: "comments-list"
       }, this.props.comments.map(function (comment) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          currentId: _this5.props.currentUserId,
+          currentId: _this4.props.currentUserId,
           key: comment.id,
           comment: comment,
-          user: _this5.props.user[comment.userId],
-          deleteComment: _this5.props.deleteComment
+          user: _this4.props.user[comment.userId],
+          deleteComment: _this4.props.deleteComment
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_form_comment_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
         photoId: photo.id
@@ -2743,9 +2737,9 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   }
 
   if (favorites !== undefined) {
-    Object.values(favorites).forEach(function (favorite) {
-      if (favorite.photoId === photoId && favorite.userId === currentUserId) {
-        favorite = favorite.id;
+    Object.values(favorites).forEach(function (fav) {
+      if (fav.photoId === photoId && fav.userId === currentUserId) {
+        favorite = fav.id;
       }
     });
   }

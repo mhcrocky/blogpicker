@@ -19,9 +19,9 @@ const mapStateToProps = (state, ownProps) => {
         })
     }
     if (favorites !== undefined) {
-        Object.values(favorites).forEach(favorite => {
-            if (favorite.photoId === photoId && favorite.userId === currentUserId) {
-                favorite = favorite.id;
+        Object.values(favorites).forEach(fav => {
+            if (fav.photoId === photoId && fav.userId === currentUserId) {
+                favorite = fav.id;
             }
         })
     }

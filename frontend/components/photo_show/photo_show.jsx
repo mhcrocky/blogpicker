@@ -9,7 +9,6 @@ class PhotoShow extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { favorite: "fas fa-star", favId: null }
         this.goBack = this.goBack.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
@@ -17,9 +16,7 @@ class PhotoShow extends React.Component {
     }
 
     componentDidMount() {
-        // const currentUserId  = this.props.currentUserId;
-        // const photoId = parseInt(this.props.match.params.id)
-        // this.props.fetchAllFavorites()
+        this.props.fetchAllFavorites();
         // .then((res) => {
         //     if(res.favorites) {
         //         Object.values(res.favorites).forEach(fav => {
@@ -66,15 +63,14 @@ class PhotoShow extends React.Component {
         this.props.history.goBack();
     }
 
-    handleFavorite() {
-        if (this.state.favorite === "fas fa-star") {
-            this.props.newFavorite().then((action) => {
-                this.setState({ favorite: "fas fa-star fav",
-                                favId: action.favorite.id });
+    handleFavorite(e) {
+        if (e.target.className === "fas fa-star") {
+            this.props.newFavorite().then(() => {
+                e.target.className === "fas fa-star fav";
             })
         } else {
-            this.props.removeFavorite(this.state.favId).then(() => {
-                this.setState({ favorite: "fas fa-star", favId: null })
+            this.props.removeFavorite(this.props.favorite).then(() => {
+                e.target.className = "fas fa-star";
             })
         }
     }
@@ -101,7 +97,10 @@ class PhotoShow extends React.Component {
             </div>
         }
 
-        let fav = <i onClick={this.handleFavorite} className={this.state.favorite}></i>
+        let fav = <i onClick={this.handleFavorite} className="fa fa-star"></i>
+        if (this.props.favorite !== null) {
+            fav = <i onClick={this.handleFavorite} className="fa fa-star fav"></i>
+        }
 
         return (
             <div className="photo-show-page">
@@ -110,6 +109,7 @@ class PhotoShow extends React.Component {
                     <div className="image-container">
                         <div className="icons-container">
                             <i onClick={this.goBack} className="fas fa-arrow-left"></i>
+                            {fav}
                             {/* <i onClick={this.handleFavorite} className={this.state.favorite}></i> */}
                         </div>
                         <img src={photo.photoUrl} alt={photo.title}/>
