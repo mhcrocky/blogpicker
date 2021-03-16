@@ -9,17 +9,23 @@ class PhotoShow extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = { favorite: "fas fa-star" }
         this.goBack = this.goBack.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchPhoto()
+        this.props.fetchPhoto();
+        this.props.fetchAllUsers();
+        this.props.fetchComments();
+        this.props.fetchAllFavorites()
             .then(() => {
-                this.props.fetchAllUsers();
-                this.props.fetchComments();
-            });
+                if (this.props.favorite) {
+                    this.setState({favorite: "fas fa-star fav"});
+                }
+            })
+         
     }
         
 
@@ -84,7 +90,10 @@ class PhotoShow extends React.Component {
                 <HeaderContainer />
                 <div className="photo-show-body">
                     <div className="image-container">
-                        <i onClick={this.goBack} className="fas fa-arrow-left"></i>
+                        <div className="icons-container">
+                            <i onClick={this.goBack} className="fas fa-arrow-left"></i>
+                            <i className={this.state.favorite}></i>
+                        </div>
                         <img src={photo.photoUrl} alt={photo.title}/>
                         {buttons}
                     </div>

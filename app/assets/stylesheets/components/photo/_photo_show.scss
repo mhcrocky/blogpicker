@@ -18,21 +18,34 @@
 
     i {
         color: #fff;
-        padding-top: 30px;
         font-size: 25px;
     }
-
+    
     i:hover {
         color: #d7d7d7;
         cursor: pointer;
     }
-
+    
     img {
         padding-top: 15px;
         width: 813px;
         max-height: 100%;
         // left: 288px;
         top: 50px;
+    }
+}
+
+.icons-container {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+
+    .fa-star:hover {
+        color: #128fdc;
+    }
+
+    .fav {
+        color: #128fdc;
     }
 }
 

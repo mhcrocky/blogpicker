@@ -244,10 +244,66 @@ var deleteComment = function deleteComment(commentId) {
 /*!**********************************************!*\
   !*** ./frontend/actions/favorite_actions.js ***!
   \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: RECEIVE_FAVORITES, RECEIVE_FAVORITE, DELETE_FAVORITE, newFavorite, fetchAllFavorites, removeFavorite */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/bcdguz/Desktop/picktr/frontend/actions/favorite_actions.js: Const declarations require an initialization value (3:30)\n\n\u001b[0m \u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { createFavorite\u001b[33m,\u001b[39m fetchFavorites } \u001b[36mfrom\u001b[39m \u001b[32m\"../util/favorites_api_util\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 2 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 3 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mRECEIVE_FAVORITES\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mRECEIVE_FAVORITE\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mDELETE_FAVORITE\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 6 |\u001b[39m\u001b[0m\n    at Object._raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:776:17)\n    at Object.raiseWithData (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:769:17)\n    at Object.raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:737:17)\n    at Object.parseVar (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:12443:18)\n    at Object.parseVarStatement (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:12251:10)\n    at Object.parseStatementContent (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:11843:21)\n    at Object.parseStatement (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:11776:17)\n    at Object.parseExportDeclaration (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:12990:17)\n    at Object.maybeParseExportDeclaration (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:12946:31)\n    at Object.parseExport (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:12884:29)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_FAVORITES", function() { return RECEIVE_FAVORITES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_FAVORITE", function() { return RECEIVE_FAVORITE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_FAVORITE", function() { return DELETE_FAVORITE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "newFavorite", function() { return newFavorite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllFavorites", function() { return fetchAllFavorites; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFavorite", function() { return removeFavorite; });
+/* harmony import */ var _util_favorites_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/favorites_api_util */ "./frontend/util/favorites_api_util.js");
+
+var RECEIVE_FAVORITES = 'RECEIVE_FAVORITES';
+var RECEIVE_FAVORITE = 'RECEIVE_FAVORITE';
+var DELETE_FAVORITE = 'DELETE_FAVORITE';
+
+var receiveFavorites = function receiveFavorites(favorites) {
+  return {
+    type: RECEIVE_FAVORITES,
+    favorites: favorites
+  };
+};
+
+var receiveFavorite = function receiveFavorite(favorite) {
+  return {
+    type: RECEIVE_FAVORITE,
+    favorite: favorite
+  };
+};
+
+var omitFavorite = function omitFavorite(favoriteId) {
+  return {
+    type: DELETE_FAVORITE,
+    favoriteId: favoriteId
+  };
+}; //thunks
+
+
+var newFavorite = function newFavorite(favorite) {
+  return function (dispatch) {
+    return Object(_util_favorites_api_util__WEBPACK_IMPORTED_MODULE_0__["createFavorite"])(favorite).then(function (favorite) {
+      return dispatch(receiveFavorite(favorite));
+    });
+  };
+};
+var fetchAllFavorites = function fetchAllFavorites() {
+  return function (dispatch) {
+    return Object(_util_favorites_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchFavorites"])().then(function (favorites) {
+      return dispatch(receiveFavorites(favorites));
+    });
+  };
+};
+var removeFavorite = function removeFavorite(id) {
+  return function (dispatch) {
+    return Object(_util_favorites_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteFavorite"])(id).then(function (favorite) {
+      return dispatch(omitFavorite(favorite.id));
+    });
+  };
+};
 
 /***/ }),
 
@@ -2478,6 +2534,9 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, PhotoShow);
 
     _this = _super.call(this, props);
+    _this.state = {
+      favorite: "fas fa-star"
+    };
     _this.goBack = _this.goBack.bind(_assertThisInitialized(_this));
     _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     _this.handleUpdate = _this.handleUpdate.bind(_assertThisInitialized(_this));
@@ -2489,10 +2548,15 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      this.props.fetchPhoto().then(function () {
-        _this2.props.fetchAllUsers();
-
-        _this2.props.fetchComments();
+      this.props.fetchPhoto();
+      this.props.fetchAllUsers();
+      this.props.fetchComments();
+      this.props.fetchAllFavorites().then(function () {
+        if (_this2.props.favorite) {
+          _this2.setState({
+            favorite: "fas fa-star fav"
+          });
+        }
       });
     }
   }, {
@@ -2561,10 +2625,14 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
         className: "photo-show-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "image-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "icons-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         onClick: this.goBack,
         className: "fas fa-arrow-left"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: this.state.favorite
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: photo.photoUrl,
         alt: photo.title
       }), buttons), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2620,8 +2688,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
 /* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/photo_actions */ "./frontend/actions/photo_actions.js");
-/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
-/* harmony import */ var _photo_show__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./photo_show */ "./frontend/components/photo_show/photo_show.jsx");
+/* harmony import */ var _actions_favorite_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/favorite_actions */ "./frontend/actions/favorite_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _photo_show__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./photo_show */ "./frontend/components/photo_show/photo_show.jsx");
+
 
 
 
@@ -2632,6 +2702,9 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   var photoId = ownProps.match.params.id;
   var photo = state.entities.photos[photoId];
   var commentsState = state.entities.comments;
+  var favorites = state.entities.favorites;
+  var currentUserId = state.session.currentUserId;
+  var favorite = false;
   var comments = [];
 
   if (commentsState !== undefined) {
@@ -2640,11 +2713,20 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     });
   }
 
+  if (favorites !== undefined) {
+    Object.values(favorites).forEach(function (favorite) {
+      if (favorite.photoId === photoId && favorite.userId === currentUserId) {
+        favorite = true;
+      }
+    });
+  }
+
   return {
     comments: comments,
-    currentUserId: state.session.currentUserId,
+    currentUserId: currentUserId,
     user: state.entities.users,
-    photo: photo
+    photo: photo,
+    favorite: favorite
   };
 };
 
@@ -2658,18 +2740,29 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
       return dispatch(Object(_actions_comment_actions__WEBPACK_IMPORTED_MODULE_1__["fetchAllComments"])());
     },
     fetchAllUsers: function fetchAllUsers() {
-      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_3__["fetchAllUsers"])());
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_4__["fetchAllUsers"])());
     },
     fetchPhoto: function fetchPhoto() {
       return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["fetchPhoto"])(photoId));
     },
     deletePhoto: function deletePhoto(id) {
       return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["deletePhoto"])(id));
+    },
+    newFavorite: function newFavorite() {
+      return dispatch(Object(_actions_favorite_actions__WEBPACK_IMPORTED_MODULE_3__["newFavorite"])({
+        photo_id: photoId
+      }));
+    },
+    removeFavorite: function removeFavorite(id) {
+      return dispatch(Object(_actions_favorite_actions__WEBPACK_IMPORTED_MODULE_3__["removeFavorite"])(id));
+    },
+    fetchAllFavorites: function fetchAllFavorites() {
+      return dispatch(Object(_actions_favorite_actions__WEBPACK_IMPORTED_MODULE_3__["fetchAllFavorites"])());
     }
   };
 };
 
-var PhotoShowContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_photo_show__WEBPACK_IMPORTED_MODULE_4__["default"]);
+var PhotoShowContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_photo_show__WEBPACK_IMPORTED_MODULE_5__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (PhotoShowContainer);
 
 /***/ }),
@@ -3599,7 +3692,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _util_favorites_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/favorites_api_util */ "./frontend/util/favorites_api_util.js");
+/* harmony import */ var _actions_favorite_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/favorite_actions */ "./frontend/actions/favorite_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -3896,7 +3991,6 @@ var sessionErrorsReducer = function sessionErrorsReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_favorite_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/favorite_actions */ "./frontend/actions/favorite_actions.js");
-/* harmony import */ var _actions_favorite_actions__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_actions_favorite_actions__WEBPACK_IMPORTED_MODULE_0__);
 
 
 var favoritesReducer = function favoritesReducer() {

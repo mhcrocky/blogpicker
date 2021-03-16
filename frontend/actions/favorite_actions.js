@@ -1,8 +1,8 @@
-import { createFavorite, fetchFavorites } from "../util/favorites_api_util";
+import { createFavorite, fetchFavorites, deleteFavorite } from "../util/favorites_api_util";
 
-export const RECEIVE_FAVORITES;
-export const RECEIVE_FAVORITE;
-export const DELETE_FAVORITE;
+export const RECEIVE_FAVORITES = 'RECEIVE_FAVORITES';
+export const RECEIVE_FAVORITE = 'RECEIVE_FAVORITE';
+export const DELETE_FAVORITE = 'DELETE_FAVORITE';
 
 const receiveFavorites = (favorites) => {
     return {
@@ -18,7 +18,7 @@ const receiveFavorite = (favorite) => {
     }
 }
 
-const deleteFavorite = (favoriteId) => {
+const omitFavorite = (favoriteId) => {
     return {
         type: DELETE_FAVORITE,
         favoriteId
@@ -39,5 +39,5 @@ export const fetchAllFavorites = () => (dispatch) => {
 
 export const removeFavorite = (id) => (dispatch) => {
     return deleteFavorite(id)
-        .then(favorite => dispatch(deleteFavorite(favorite.id)));
+        .then(favorite => dispatch(omitFavorite(favorite.id)));
 }
