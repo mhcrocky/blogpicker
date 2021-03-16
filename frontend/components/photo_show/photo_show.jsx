@@ -9,26 +9,34 @@ class PhotoShow extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { favorite: "fas fa-star" }
+        this.state = { favorite: "fas fa-star", favId: null }
         this.goBack = this.goBack.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
+        this.handleFavorite = this.handleFavorite.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchPhoto();
         this.props.fetchAllUsers();
         this.props.fetchComments();
+
+        const currentUserId  = this.props.currentUserId;
+        const photoId = parseInt(this.props.match.params.id)
         this.props.fetchAllFavorites()
-            .then(() => {
-                if (this.props.favorite) {
-                    this.setState({favorite: "fas fa-star fav"});
+            .then((res) => {
+                if(res.favorites) {
+                    Object.values(res.favorites).forEach(fav => {
+                        if (fav.userId === currentUserId && fav.photoId === photoId) {
+                            this.setState({ favorite: "fas fa-star fav", 
+                                            favId: fav.id});
+                        }
+                    })
                 }
             })
          
     }
         
-
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.id != this.props.match.params.id) {
             this.props.fetchPhoto()
@@ -59,9 +67,20 @@ class PhotoShow extends React.Component {
         this.props.history.goBack();
     }
 
+    handleFavorite() {
+        if (this.state.favorite === "fas fa-star") {
+            this.props.newFavorite().then((action) => {
+                this.setState({ favorite: "fas fa-star fav",
+                                favId: action.favorite.id });
+            })
+        } else {
+            this.props.removeFavorite(this.state.favId).then(() => {
+                this.setState({ favorite: "fas fa-star", favId: null })
+            })
+        }
+    }
 
     render() {
-
         const photo = this.props.photo;
         if ((!photo) || (!this.props.user[photo.userId])) return null;
         
@@ -92,7 +111,7 @@ class PhotoShow extends React.Component {
                     <div className="image-container">
                         <div className="icons-container">
                             <i onClick={this.goBack} className="fas fa-arrow-left"></i>
-                            <i className={this.state.favorite}></i>
+                            <i onClick={this.handleFavorite} className={this.state.favorite}></i>
                         </div>
                         <img src={photo.photoUrl} alt={photo.title}/>
                         {buttons}

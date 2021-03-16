@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
     const commentsState = state.entities.comments;
     const favorites = state.entities.favorites;
     const currentUserId = state.session.currentUserId;
-    let favorite = false;
+    let favorite = null;
     let comments = [];
     if (commentsState !== undefined) {
         Object.values(commentsState).forEach(comment => {
@@ -21,7 +21,7 @@ const mapStateToProps = (state, ownProps) => {
     if (favorites !== undefined) {
         Object.values(favorites).forEach(favorite => {
             if (favorite.photoId === photoId && favorite.userId === currentUserId) {
-                favorite = true;
+                favorite = favorite.id;
             }
         })
     }

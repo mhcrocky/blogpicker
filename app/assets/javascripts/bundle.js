@@ -2535,11 +2535,13 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      favorite: "fas fa-star"
+      favorite: "fas fa-star",
+      favId: null
     };
     _this.goBack = _this.goBack.bind(_assertThisInitialized(_this));
     _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     _this.handleUpdate = _this.handleUpdate.bind(_assertThisInitialized(_this));
+    _this.handleFavorite = _this.handleFavorite.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2551,10 +2553,17 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
       this.props.fetchPhoto();
       this.props.fetchAllUsers();
       this.props.fetchComments();
-      this.props.fetchAllFavorites().then(function () {
-        if (_this2.props.favorite) {
-          _this2.setState({
-            favorite: "fas fa-star fav"
+      var currentUserId = this.props.currentUserId;
+      var photoId = parseInt(this.props.match.params.id);
+      this.props.fetchAllFavorites().then(function (res) {
+        if (res.favorites) {
+          Object.values(res.favorites).forEach(function (fav) {
+            if (fav.userId === currentUserId && fav.photoId === photoId) {
+              _this2.setState({
+                favorite: "fas fa-star fav",
+                favId: fav.id
+              });
+            }
           });
         }
       });
@@ -2595,9 +2604,30 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
       this.props.history.goBack();
     }
   }, {
+    key: "handleFavorite",
+    value: function handleFavorite() {
+      var _this5 = this;
+
+      if (this.state.favorite === "fas fa-star") {
+        this.props.newFavorite().then(function (action) {
+          _this5.setState({
+            favorite: "fas fa-star fav",
+            favId: action.favorite.id
+          });
+        });
+      } else {
+        this.props.removeFavorite(this.state.favId).then(function () {
+          _this5.setState({
+            favorite: "fas fa-star",
+            favId: null
+          });
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this5 = this;
+      var _this6 = this;
 
       var photo = this.props.photo;
       if (!photo || !this.props.user[photo.userId]) return null;
@@ -2631,6 +2661,7 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
         onClick: this.goBack,
         className: "fas fa-arrow-left"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        onClick: this.handleFavorite,
         className: this.state.favorite
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: photo.photoUrl,
@@ -2657,11 +2688,11 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
         className: "comments-list"
       }, this.props.comments.map(function (comment) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          currentId: _this5.props.currentUserId,
+          currentId: _this6.props.currentUserId,
           key: comment.id,
           comment: comment,
-          user: _this5.props.user[comment.userId],
-          deleteComment: _this5.props.deleteComment
+          user: _this6.props.user[comment.userId],
+          deleteComment: _this6.props.deleteComment
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_form_comment_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
         photoId: photo.id
@@ -2704,7 +2735,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   var commentsState = state.entities.comments;
   var favorites = state.entities.favorites;
   var currentUserId = state.session.currentUserId;
-  var favorite = false;
+  var favorite = null;
   var comments = [];
 
   if (commentsState !== undefined) {
@@ -2716,7 +2747,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   if (favorites !== undefined) {
     Object.values(favorites).forEach(function (favorite) {
       if (favorite.photoId === photoId && favorite.userId === currentUserId) {
-        favorite = true;
+        favorite = favorite.id;
       }
     });
   }
