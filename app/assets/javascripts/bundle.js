@@ -240,6 +240,17 @@ var deleteComment = function deleteComment(commentId) {
 
 /***/ }),
 
+/***/ "./frontend/actions/favorite_actions.js":
+/*!**********************************************!*\
+  !*** ./frontend/actions/favorite_actions.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/bcdguz/Desktop/picktr/frontend/actions/favorite_actions.js: Const declarations require an initialization value (3:30)\n\n\u001b[0m \u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { createFavorite\u001b[33m,\u001b[39m fetchFavorites } \u001b[36mfrom\u001b[39m \u001b[32m\"../util/favorites_api_util\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 2 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 3 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mRECEIVE_FAVORITES\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mRECEIVE_FAVORITE\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mDELETE_FAVORITE\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 6 |\u001b[39m\u001b[0m\n    at Object._raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:776:17)\n    at Object.raiseWithData (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:769:17)\n    at Object.raise (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:737:17)\n    at Object.parseVar (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:12443:18)\n    at Object.parseVarStatement (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:12251:10)\n    at Object.parseStatementContent (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:11843:21)\n    at Object.parseStatement (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:11776:17)\n    at Object.parseExportDeclaration (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:12990:17)\n    at Object.maybeParseExportDeclaration (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:12946:31)\n    at Object.parseExport (/Users/bcdguz/Desktop/picktr/node_modules/@babel/parser/lib/index.js:12884:29)");
+
+/***/ }),
+
 /***/ "./frontend/actions/photo_actions.js":
 /*!*******************************************!*\
   !*** ./frontend/actions/photo_actions.js ***!
@@ -3716,11 +3727,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _albums_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./albums_reducer */ "./frontend/reducers/albums_reducer.js");
 /* harmony import */ var _comments_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./comments_reducer */ "./frontend/reducers/comments_reducer.js");
-/* harmony import */ var _photos_albums_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./photos_albums_reducer */ "./frontend/reducers/photos_albums_reducer.js");
-/* harmony import */ var _photos_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./photos_reducer */ "./frontend/reducers/photos_reducer.js");
-/* harmony import */ var _tagged_photos_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tagged_photos_reducer */ "./frontend/reducers/tagged_photos_reducer.js");
-/* harmony import */ var _tag_reducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tag_reducer */ "./frontend/reducers/tag_reducer.js");
-/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _favorites_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./favorites_reducer */ "./frontend/reducers/favorites_reducer.js");
+/* harmony import */ var _photos_albums_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./photos_albums_reducer */ "./frontend/reducers/photos_albums_reducer.js");
+/* harmony import */ var _photos_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./photos_reducer */ "./frontend/reducers/photos_reducer.js");
+/* harmony import */ var _tagged_photos_reducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tagged_photos_reducer */ "./frontend/reducers/tagged_photos_reducer.js");
+/* harmony import */ var _tag_reducer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./tag_reducer */ "./frontend/reducers/tag_reducer.js");
+/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+
 
 
 
@@ -3730,13 +3743,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_7__["default"],
-  photos: _photos_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_8__["default"],
+  photos: _photos_reducer__WEBPACK_IMPORTED_MODULE_5__["default"],
   albums: _albums_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  photosAlbums: _photos_albums_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  photosAlbums: _photos_albums_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
   comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  tags: _tag_reducer__WEBPACK_IMPORTED_MODULE_6__["default"],
-  taggedPhotos: _tagged_photos_reducer__WEBPACK_IMPORTED_MODULE_5__["default"]
+  tags: _tag_reducer__WEBPACK_IMPORTED_MODULE_7__["default"],
+  taggedPhotos: _tagged_photos_reducer__WEBPACK_IMPORTED_MODULE_6__["default"],
+  favorites: _favorites_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -3869,6 +3883,47 @@ var sessionErrorsReducer = function sessionErrorsReducer() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (sessionErrorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/favorites_reducer.js":
+/*!************************************************!*\
+  !*** ./frontend/reducers/favorites_reducer.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_favorite_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/favorite_actions */ "./frontend/actions/favorite_actions.js");
+/* harmony import */ var _actions_favorite_actions__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_actions_favorite_actions__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var favoritesReducer = function favoritesReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var newState = Object.assign({}, state);
+
+  switch (action.type) {
+    case _actions_favorite_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FAVORITES"]:
+      newState = Object.assign({}, action.favorites);
+      return newState;
+
+    case _actions_favorite_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FAVORITE"]:
+      newState[action.favorite.id] = action.favorite;
+      return newState;
+
+    case _actions_favorite_actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_FAVORITE"]:
+      delete newState[action.favoriteId];
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (favoritesReducer);
 
 /***/ }),
 

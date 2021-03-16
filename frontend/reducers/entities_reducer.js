@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import albumsReducer from "./albums_reducer";
 import commentsReducer from "./comments_reducer";
+import favoritesReducer from "./favorites_reducer";
 import photosAlbumsReducer from "./photos_albums_reducer";
 import photosReducer from "./photos_reducer";
 import taggedPhotosReducer from "./tagged_photos_reducer";
@@ -16,7 +17,8 @@ const entitiesReducer = combineReducers({
     photosAlbums: photosAlbumsReducer,
     comments: commentsReducer,
     tags: tagReducer,
-    taggedPhotos: taggedPhotosReducer
+    taggedPhotos: taggedPhotosReducer,
+    favorites: favoritesReducer
 })
 
 export default entitiesReducer;
