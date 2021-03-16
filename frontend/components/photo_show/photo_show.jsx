@@ -17,17 +17,6 @@ class PhotoShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllFavorites();
-        // .then((res) => {
-        //     if(res.favorites) {
-        //         Object.values(res.favorites).forEach(fav => {
-        //             if (fav.userId === currentUserId && fav.photoId === photoId) {
-        //                 this.setState({ favorite: "fas fa-star fav", 
-        //                 favId: fav.id});
-        //             }
-        //         })
-        //     }
-        // })
-        
         this.props.fetchPhoto();
         this.props.fetchAllUsers();
         this.props.fetchComments();

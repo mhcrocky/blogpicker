@@ -2548,17 +2548,7 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
   _createClass(PhotoShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchAllFavorites(); // .then((res) => {
-      //     if(res.favorites) {
-      //         Object.values(res.favorites).forEach(fav => {
-      //             if (fav.userId === currentUserId && fav.photoId === photoId) {
-      //                 this.setState({ favorite: "fas fa-star fav", 
-      //                 favId: fav.id});
-      //             }
-      //         })
-      //     }
-      // })
-
+      this.props.fetchAllFavorites();
       this.props.fetchPhoto();
       this.props.fetchAllUsers();
       this.props.fetchComments();
@@ -3639,7 +3629,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 
   if (favorites !== undefined) {
     Object.values(favorites).forEach(function (favorite) {
-      if (favorite.userId === state.session.currentUserId) {
+      if (favorite.userId === parseInt(ownProps.match.params.id)) {
         photoIds.push(favorite.photoId);
       }
     });

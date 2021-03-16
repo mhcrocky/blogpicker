@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
     let photoIds = [];
     if (favorites !== undefined) {
         Object.values(favorites).forEach(favorite => {
-            if (favorite.userId === state.session.currentUserId) {
+            if (favorite.userId === parseInt(ownProps.match.params.id)) {
                 photoIds.push(favorite.photoId);
             }
         })
