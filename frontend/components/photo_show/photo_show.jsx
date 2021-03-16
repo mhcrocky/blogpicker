@@ -17,24 +17,23 @@ class PhotoShow extends React.Component {
     }
 
     componentDidMount() {
+        // const currentUserId  = this.props.currentUserId;
+        // const photoId = parseInt(this.props.match.params.id)
+        // this.props.fetchAllFavorites()
+        // .then((res) => {
+        //     if(res.favorites) {
+        //         Object.values(res.favorites).forEach(fav => {
+        //             if (fav.userId === currentUserId && fav.photoId === photoId) {
+        //                 this.setState({ favorite: "fas fa-star fav", 
+        //                 favId: fav.id});
+        //             }
+        //         })
+        //     }
+        // })
+        
         this.props.fetchPhoto();
         this.props.fetchAllUsers();
         this.props.fetchComments();
-
-        const currentUserId  = this.props.currentUserId;
-        const photoId = parseInt(this.props.match.params.id)
-        this.props.fetchAllFavorites()
-            .then((res) => {
-                if(res.favorites) {
-                    Object.values(res.favorites).forEach(fav => {
-                        if (fav.userId === currentUserId && fav.photoId === photoId) {
-                            this.setState({ favorite: "fas fa-star fav", 
-                                            favId: fav.id});
-                        }
-                    })
-                }
-            })
-         
     }
         
     componentDidUpdate(prevProps) {
@@ -102,7 +101,7 @@ class PhotoShow extends React.Component {
             </div>
         }
 
-
+        let fav = <i onClick={this.handleFavorite} className={this.state.favorite}></i>
 
         return (
             <div className="photo-show-page">
@@ -111,7 +110,7 @@ class PhotoShow extends React.Component {
                     <div className="image-container">
                         <div className="icons-container">
                             <i onClick={this.goBack} className="fas fa-arrow-left"></i>
-                            <i onClick={this.handleFavorite} className={this.state.favorite}></i>
+                            {/* <i onClick={this.handleFavorite} className={this.state.favorite}></i> */}
                         </div>
                         <img src={photo.photoUrl} alt={photo.title}/>
                         {buttons}

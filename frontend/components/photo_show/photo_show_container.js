@@ -6,7 +6,7 @@ import { fetchAllUsers } from "../../actions/user_actions";
 import PhotoShow from "./photo_show";
 
 const mapStateToProps = (state, ownProps) => {
-    const photoId = ownProps.match.params.id
+    const photoId = parseInt(ownProps.match.params.id)
     const photo = state.entities.photos[photoId];
     const commentsState = state.entities.comments;
     const favorites = state.entities.favorites;
@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
     let comments = [];
     if (commentsState !== undefined) {
         Object.values(commentsState).forEach(comment => {
-            if (comment.photoId === parseInt(photoId)) comments.push(comment);
+            if (comment.photoId === photoId) comments.push(comment);
         })
     }
     if (favorites !== undefined) {

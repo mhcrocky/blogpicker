@@ -2548,47 +2548,44 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
   _createClass(PhotoShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
-
+      // const currentUserId  = this.props.currentUserId;
+      // const photoId = parseInt(this.props.match.params.id)
+      // this.props.fetchAllFavorites()
+      // .then((res) => {
+      //     if(res.favorites) {
+      //         Object.values(res.favorites).forEach(fav => {
+      //             if (fav.userId === currentUserId && fav.photoId === photoId) {
+      //                 this.setState({ favorite: "fas fa-star fav", 
+      //                 favId: fav.id});
+      //             }
+      //         })
+      //     }
+      // })
       this.props.fetchPhoto();
       this.props.fetchAllUsers();
       this.props.fetchComments();
-      var currentUserId = this.props.currentUserId;
-      var photoId = parseInt(this.props.match.params.id);
-      this.props.fetchAllFavorites().then(function (res) {
-        if (res.favorites) {
-          Object.values(res.favorites).forEach(function (fav) {
-            if (fav.userId === currentUserId && fav.photoId === photoId) {
-              _this2.setState({
-                favorite: "fas fa-star fav",
-                favId: fav.id
-              });
-            }
-          });
-        }
-      });
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      var _this3 = this;
+      var _this2 = this;
 
       if (prevProps.match.params.id != this.props.match.params.id) {
         this.props.fetchPhoto().then(function () {
-          return _this3.props.fetchAllUsers();
+          return _this2.props.fetchAllUsers();
         }).fail(function () {
-          return _this3.props.history.push('/404');
+          return _this2.props.history.push('/404');
         });
       }
     }
   }, {
     key: "handleDelete",
     value: function handleDelete(e) {
-      var _this4 = this;
+      var _this3 = this;
 
       e.preventDefault();
       this.props.deletePhoto(this.props.match.params.id).then(function () {
-        return _this4.props.history.push('/feed');
+        return _this3.props.history.push('/feed');
       });
     }
   }, {
@@ -2606,18 +2603,18 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleFavorite",
     value: function handleFavorite() {
-      var _this5 = this;
+      var _this4 = this;
 
       if (this.state.favorite === "fas fa-star") {
         this.props.newFavorite().then(function (action) {
-          _this5.setState({
+          _this4.setState({
             favorite: "fas fa-star fav",
             favId: action.favorite.id
           });
         });
       } else {
         this.props.removeFavorite(this.state.favId).then(function () {
-          _this5.setState({
+          _this4.setState({
             favorite: "fas fa-star",
             favId: null
           });
@@ -2627,7 +2624,7 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this6 = this;
+      var _this5 = this;
 
       var photo = this.props.photo;
       if (!photo || !this.props.user[photo.userId]) return null;
@@ -2649,6 +2646,10 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
         }, "Update Photo"));
       }
 
+      var fav = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        onClick: this.handleFavorite,
+        className: this.state.favorite
+      });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-show-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2660,9 +2661,6 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         onClick: this.goBack,
         className: "fas fa-arrow-left"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        onClick: this.handleFavorite,
-        className: this.state.favorite
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: photo.photoUrl,
         alt: photo.title
@@ -2688,11 +2686,11 @@ var PhotoShow = /*#__PURE__*/function (_React$Component) {
         className: "comments-list"
       }, this.props.comments.map(function (comment) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          currentId: _this6.props.currentUserId,
+          currentId: _this5.props.currentUserId,
           key: comment.id,
           comment: comment,
-          user: _this6.props.user[comment.userId],
-          deleteComment: _this6.props.deleteComment
+          user: _this5.props.user[comment.userId],
+          deleteComment: _this5.props.deleteComment
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_form_comment_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
         photoId: photo.id
@@ -2730,7 +2728,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  var photoId = ownProps.match.params.id;
+  var photoId = parseInt(ownProps.match.params.id);
   var photo = state.entities.photos[photoId];
   var commentsState = state.entities.comments;
   var favorites = state.entities.favorites;
@@ -2740,7 +2738,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 
   if (commentsState !== undefined) {
     Object.values(commentsState).forEach(function (comment) {
-      if (comment.photoId === parseInt(photoId)) comments.push(comment);
+      if (comment.photoId === photoId) comments.push(comment);
     });
   }
 
