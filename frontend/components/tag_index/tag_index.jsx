@@ -1,27 +1,29 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import HeaderContainer from '../header/header_container';
 import PhotoIndexContainer from '../photo_index/photo_index_container';
 
-class TagIndex extends React.Component {
+const TagIndex = (props) => {
 
-    componentDidMount() {
-        this.props.fetchATag();
-        this.props.receiveTaggedPhotos();
-    }
+    // componentDidMount() {
+    //     this.props.fetchATag();
+    //     this.props.receiveTaggedPhotos();
+    // }
+    useEffect(() => {
+        props.fetchATag();
+        props.receiveTaggedPhotos();
+    })
 
-    render() {
-        if (!this.props.tag) return null;
-
-        return (
-            <div className="feed-page">
-                <HeaderContainer />
-                <div className="feed-body">
-                    <h1>Tag #{this.props.tag.name}</h1>
-                    <PhotoIndexContainer photoIds={this.props.photoIds} />
-                </div>
+    if (!props.tag) return null;
+    return (
+        <div className="feed-page">
+            <HeaderContainer />
+            <div className="feed-body">
+                <h1>Tag #{props.tag.name}</h1>
+                <PhotoIndexContainer photoIds={props.photoIds} />
             </div>
-        )
-    }
+        </div>
+    )
+
 }
 
 export default TagIndex;
