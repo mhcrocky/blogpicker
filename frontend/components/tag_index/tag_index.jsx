@@ -11,7 +11,7 @@ const TagIndex = (props) => {
     useEffect(() => {
         props.fetchATag();
         props.receiveTaggedPhotos();
-    })
+    }, [])
 
     if (!props.tag) return null;
     return (
