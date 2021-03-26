@@ -3081,10 +3081,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var TagIndex = function TagIndex(props) {
-  // componentDidMount() {
-  //     this.props.fetchATag();
-  //     this.props.receiveTaggedPhotos();
-  // }
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     props.fetchATag();
     props.receiveTaggedPhotos();
