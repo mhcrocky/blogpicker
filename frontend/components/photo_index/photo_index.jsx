@@ -7,7 +7,7 @@ class PhotoIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = { loaded: false };
-        this.loadedList = [];
+        this.loadedList = 0;
         this.handleLoading = this.handleLoading.bind(this);
         this.interval;
     }
@@ -16,7 +16,7 @@ class PhotoIndex extends React.Component {
         this.props.fetchAllUsers();
         this.props.fetchAllPhotos();
         let loadedCheck = () => {
-            if (this.props.photos.length <= this.loadedList.length) {
+            if (this.props.photos.length <= this.loadedList) {
                 this.setState({ loaded: true });
                 clearInterval(this.interval);
             }
@@ -31,14 +31,14 @@ class PhotoIndex extends React.Component {
         clearInterval(this.interval);
     }
     
-    handleLoading(item) {
-        this.loadedList.push(item);
+    handleLoading() {
+        this.loadedList++;
     }
 
     render() {
         let content;
 
-        if (this.props.photos.length <= this.loadedList.length) {
+        if (this.props.photos.length <= this.loadedList) {
             content = this.props.photos.map((photo) => {
                 return (
                     <PhotoIndexItem

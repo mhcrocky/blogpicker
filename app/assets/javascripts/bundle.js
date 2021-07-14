@@ -2262,7 +2262,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       loaded: false
     };
-    _this.loadedList = [];
+    _this.loadedList = 0;
     _this.handleLoading = _this.handleLoading.bind(_assertThisInitialized(_this));
     _this.interval;
     return _this;
@@ -2277,7 +2277,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
       this.props.fetchAllPhotos();
 
       var loadedCheck = function loadedCheck() {
-        if (_this2.props.photos.length <= _this2.loadedList.length) {
+        if (_this2.props.photos.length <= _this2.loadedList) {
           _this2.setState({
             loaded: true
           });
@@ -2300,8 +2300,8 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "handleLoading",
-    value: function handleLoading(item) {
-      this.loadedList.push(item);
+    value: function handleLoading() {
+      this.loadedList++;
     }
   }, {
     key: "render",
@@ -2310,7 +2310,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
 
       var content;
 
-      if (this.props.photos.length <= this.loadedList.length) {
+      if (this.props.photos.length <= this.loadedList) {
         content = this.props.photos.map(function (photo) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             key: photo.id,
