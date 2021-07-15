@@ -50,20 +50,17 @@ class PhotoIndex extends React.Component {
             
         } else {
             content = <div className="loader" >
-                        {/* {this.props.photos.map((photo) => (
-                            <img className='secret-load' key={photo.id}
-                            src={photo.photoUrl}
-                            onLoad={this.handleLoading(photo)}/>
-                        ))} */}
-                        {this.props.photos.map((photo) => {
-                            return (
-                                <PhotoIndexItem
-                                    key={photo.id}
-                                    photo={photo}
-                                    user={this.props.users[photo.userId]}
-                                    loading={this.handleLoading} />
-                            )
-                        })}
+                        <div className="secret-load">
+                            {this.props.photos.map((photo) => {
+                                return (
+                                    <PhotoIndexItem
+                                        key={photo.id}
+                                        photo={photo}
+                                        user={this.props.users[photo.userId]}
+                                        loading={this.handleLoading} />
+                                )
+                            })}
+                        </div>
                     </div>
         }
         

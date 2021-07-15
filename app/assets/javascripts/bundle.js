@@ -2322,6 +2322,8 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
       } else {
         content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "loader"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "secret-load"
         }, this.props.photos.map(function (photo) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             key: photo.id,
@@ -2329,7 +2331,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
             user: _this3.props.users[photo.userId],
             loading: _this3.handleLoading
           });
-        }));
+        })));
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
