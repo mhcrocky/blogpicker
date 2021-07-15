@@ -2315,18 +2315,19 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             key: photo.id,
             photo: photo,
-            user: _this3.props.users[photo.userId]
+            user: _this3.props.users[photo.userId],
+            loading: _this3.handleLoading
           });
         });
       } else {
         content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "loader"
         }, this.props.photos.map(function (photo) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            className: "secret-load",
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             key: photo.id,
-            src: photo.photoUrl,
-            onLoad: _this3.handleLoading(photo)
+            photo: photo,
+            user: _this3.props.users[photo.userId],
+            loading: _this3.handleLoading
           });
         }));
       }
@@ -2424,14 +2425,20 @@ __webpack_require__.r(__webpack_exports__);
 var PhotoIndexItem = function PhotoIndexItem(props) {
   var photo = props.photo;
   var username = props.user.username;
+
+  var onTrigger = function onTrigger(e) {
+    props.loading();
+    e.preventDefault();
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    onLoad: onTrigger,
     className: "photo-item-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "photo-details"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, photo.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "by ", username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/photos/".concat(photo.id)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    loading: "lazy",
     src: photo.photoUrl,
     alt: photo.title
   })));

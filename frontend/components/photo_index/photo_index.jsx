@@ -37,26 +37,36 @@ class PhotoIndex extends React.Component {
 
     render() {
         let content;
-
         if (this.props.photos.length <= this.loadedList) {
             content = this.props.photos.map((photo) => {
                 return (
                     <PhotoIndexItem
                         key={photo.id}
                         photo={photo}
-                        user={this.props.users[photo.userId]}/>
+                        user={this.props.users[photo.userId]}
+                        loading={this.handleLoading}/>
                 )
             })
+            
         } else {
             content = <div className="loader" >
-                        {this.props.photos.map((photo) => (
+                        {/* {this.props.photos.map((photo) => (
                             <img className='secret-load' key={photo.id}
                             src={photo.photoUrl}
                             onLoad={this.handleLoading(photo)}/>
-                        ))}
+                        ))} */}
+                        {this.props.photos.map((photo) => {
+                            return (
+                                <PhotoIndexItem
+                                    key={photo.id}
+                                    photo={photo}
+                                    user={this.props.users[photo.userId]}
+                                    loading={this.handleLoading} />
+                            )
+                        })}
                     </div>
         }
-
+        
         return(
             <>
                 <ul className="photo-index">
