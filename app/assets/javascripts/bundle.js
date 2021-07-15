@@ -2289,7 +2289,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
       var check = loadedCheck.bind(this);
       this.interval = setInterval(function () {
         check();
-      }, 5000);
+      }, 3000);
     }
   }, {
     key: "componentWillUnmount",

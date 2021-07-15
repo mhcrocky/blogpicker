@@ -22,7 +22,7 @@ class PhotoIndex extends React.Component {
             }
         };
         const check = loadedCheck.bind(this);
-        this.interval = setInterval(() => { check() }, 5000);
+        this.interval = setInterval(() => { check() }, 3000);
     }
 
     componentWillUnmount() {
