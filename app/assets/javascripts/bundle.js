@@ -2427,14 +2427,8 @@ __webpack_require__.r(__webpack_exports__);
 var PhotoIndexItem = function PhotoIndexItem(props) {
   var photo = props.photo;
   var username = props.user.username;
-
-  var onTrigger = function onTrigger(e) {
-    props.loading();
-    e.preventDefault();
-  };
-
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    onLoad: onTrigger,
+    onLoad: props.loading,
     className: "photo-item-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "photo-details"

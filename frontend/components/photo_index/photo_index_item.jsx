@@ -4,12 +4,9 @@ import { Link } from 'react-router-dom';
 const PhotoIndexItem = (props) => {
     const photo = props.photo;
     const username = props.user.username;
-    const onTrigger = (e) => {
-        props.loading();
-        e.preventDefault();
-    }
+    
     return (
-        <li onLoad={onTrigger} className="photo-item-container">
+        <li onLoad={props.loading} className="photo-item-container">
             <div className="photo-details">
                 <div>{photo.title}</div>
                 <div>by {username}</div>
