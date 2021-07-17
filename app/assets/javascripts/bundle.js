@@ -2260,7 +2260,8 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      loaded: false
+      loaded: false,
+      reduced: []
     };
     _this.loadedList = 0;
     _this.handleLoading = _this.handleLoading.bind(_assertThisInitialized(_this));
@@ -2274,19 +2275,18 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       this.props.fetchAllUsers();
-      this.props.fetchAllPhotos();
+      this.props.fetchAllPhotos().then(function (res) {
+        _this2.setState({
+          reduced: _this2.props.photos.slice(0, 5)
+        });
+      }); // let loadedCheck = () => {
+      //     if (this.props.photos.length <= this.loadedList) {
+      //         this.setState({ loaded: true });
+      //         clearInterval(this.interval);
+      //     }
+      // };
 
-      var loadedCheck = function loadedCheck() {
-        if (_this2.props.photos.length <= _this2.loadedList) {
-          _this2.setState({
-            loaded: true
-          });
-
-          clearInterval(_this2.interval);
-        }
-      };
-
-      var check = loadedCheck.bind(this);
+      var check = this.loadedCheck.bind(this);
       this.interval = setInterval(function () {
         check();
       }, 3000);
@@ -2304,19 +2304,38 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
       this.loadedList++;
     }
   }, {
-    key: "render",
-    value: function render() {
+    key: "loadedCheck",
+    value: function loadedCheck() {
       var _this3 = this;
 
-      var content;
+      if (5 <= this.loadedList) {
+        this.setState({
+          loaded: true
+        });
+        clearInterval(this.interval);
+      }
 
-      if (this.props.photos.length <= this.loadedList) {
-        content = this.props.photos.map(function (photo) {
+      setTimeout(function () {
+        _this3.setState({
+          reduced: _this3.props.photos
+        });
+      }, 3000);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      var content;
+      var photos = this.state.reduced;
+
+      if (5 <= this.loadedList) {
+        content = photos.map(function (photo) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             key: photo.id,
             photo: photo,
-            user: _this3.props.users[photo.userId],
-            loading: _this3.handleLoading
+            user: _this4.props.users[photo.userId],
+            loading: _this4.handleLoading
           });
         });
       } else {
@@ -2324,12 +2343,12 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
           className: "loader"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "secret-load"
-        }, this.props.photos.map(function (photo) {
+        }, photos.map(function (photo) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             key: photo.id,
             photo: photo,
-            user: _this3.props.users[photo.userId],
-            loading: _this3.handleLoading
+            user: _this4.props.users[photo.userId],
+            loading: _this4.handleLoading
           });
         })));
       }
@@ -2428,13 +2447,13 @@ var PhotoIndexItem = function PhotoIndexItem(props) {
   var photo = props.photo;
   var username = props.user.username;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    onLoad: props.loading,
     className: "photo-item-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "photo-details"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, photo.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "by ", username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/photos/".concat(photo.id)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    onLoad: props.loading,
     src: photo.photoUrl,
     alt: photo.title
   })));

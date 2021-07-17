@@ -6,13 +6,13 @@ const PhotoIndexItem = (props) => {
     const username = props.user.username;
     
     return (
-        <li onLoad={props.loading} className="photo-item-container">
+        <li className="photo-item-container">
             <div className="photo-details">
                 <div>{photo.title}</div>
                 <div>by {username}</div>
             </div>
             <Link to={`/photos/${photo.id}`}>
-                <img src={photo.photoUrl} alt={photo.title}/>
+                <img onLoad={props.loading} src={photo.photoUrl} alt={photo.title}/>
             </Link>
         </li>
     )

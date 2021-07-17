@@ -6,7 +6,7 @@ import PhotoIndexItem from './photo_index_item';
 class PhotoIndex extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { loaded: false };
+        this.state = { loaded: false, reduced: [] };
         this.loadedList = 0;
         this.handleLoading = this.handleLoading.bind(this);
         this.interval;
@@ -14,14 +14,17 @@ class PhotoIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllUsers();
-        this.props.fetchAllPhotos();
-        let loadedCheck = () => {
-            if (this.props.photos.length <= this.loadedList) {
-                this.setState({ loaded: true });
-                clearInterval(this.interval);
-            }
-        };
-        const check = loadedCheck.bind(this);
+        this.props.fetchAllPhotos()
+            .then(res => {
+                this.setState({reduced: this.props.photos.slice(0,5)})
+            })
+        // let loadedCheck = () => {
+        //     if (this.props.photos.length <= this.loadedList) {
+        //         this.setState({ loaded: true });
+        //         clearInterval(this.interval);
+        //     }
+        // };
+        const check = this.loadedCheck.bind(this);
         this.interval = setInterval(() => { check() }, 3000);
     }
 
@@ -35,10 +38,22 @@ class PhotoIndex extends React.Component {
         this.loadedList++;
     }
 
+    loadedCheck () {
+        if (5 <= this.loadedList) {
+            this.setState({ loaded: true });
+            clearInterval(this.interval);
+        }
+        setTimeout(() => {
+            this.setState({reduced: this.props.photos})
+        }, 3000)
+    }
+
     render() {
         let content;
-        if (this.props.photos.length <= this.loadedList) {
-            content = this.props.photos.map((photo) => {
+        const photos = this.state.reduced;
+        if (5 <= this.loadedList) {
+            
+            content = photos.map((photo) => {
                 return (
                     <PhotoIndexItem
                         key={photo.id}
@@ -47,11 +62,11 @@ class PhotoIndex extends React.Component {
                         loading={this.handleLoading}/>
                 )
             })
-            
         } else {
+            
             content = <div className="loader" >
                         <div className="secret-load">
-                            {this.props.photos.map((photo) => {
+                            {photos.map((photo) => {
                                 return (
                                     <PhotoIndexItem
                                         key={photo.id}
