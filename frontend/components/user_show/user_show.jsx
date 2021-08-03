@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import AlbumIndexContainer from '../album_index/album_index_container';
 
 class UserShow extends React.Component {
-
     componentDidMount() {
         this.props.fetchUser();
         this.props.fetchAllFavorites();

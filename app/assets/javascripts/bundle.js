@@ -2308,7 +2308,10 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
     value: function loadedCheck() {
       var _this3 = this;
 
-      if (5 <= this.loadedList) {
+      var photos = this.props.photos;
+      var loadAmount = photos.length < 5 ? photos.length : 5;
+
+      if (loadAmount <= this.loadedList) {
         this.setState({
           loaded: true
         });
@@ -2317,7 +2320,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
 
       setTimeout(function () {
         _this3.setState({
-          reduced: _this3.props.photos
+          reduced: photos
         });
       }, 3000);
     }

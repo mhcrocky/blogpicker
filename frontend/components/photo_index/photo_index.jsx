@@ -39,12 +39,14 @@ class PhotoIndex extends React.Component {
     }
 
     loadedCheck () {
-        if (5 <= this.loadedList) {
+        const photos = this.props.photos
+        const loadAmount = photos.length < 5 ? photos.length : 5;
+        if (loadAmount <= this.loadedList) {
             this.setState({ loaded: true });
             clearInterval(this.interval);
         }
         setTimeout(() => {
-            this.setState({reduced: this.props.photos})
+            this.setState({reduced: photos})
         }, 3000)
     }
 
