@@ -1,5 +1,4 @@
 import React from 'react';
-
 import PhotoIndexItem from './photo_index_item';
 
 
@@ -18,12 +17,6 @@ class PhotoIndex extends React.Component {
             .then(res => {
                 this.setState({reduced: this.props.photos.slice(0,5)})
             })
-        // let loadedCheck = () => {
-        //     if (this.props.photos.length <= this.loadedList) {
-        //         this.setState({ loaded: true });
-        //         clearInterval(this.interval);
-        //     }
-        // };
         const check = this.loadedCheck.bind(this);
         this.interval = setInterval(() => { check() }, 1000);
     }
@@ -44,17 +37,17 @@ class PhotoIndex extends React.Component {
         if (loadAmount <= this.loadedList) {
             this.setState({ loaded: true });
             clearInterval(this.interval);
+            setTimeout(() => {
+                this.setState({reduced: photos})
+            }, 3000)
         }
-        setTimeout(() => {
-            this.setState({reduced: photos})
-        }, 3000)
     }
 
     render() {
         let content;
-        const photos = this.state.reduced;
         const propLength = this.props.photos.length;
         const loadAmount = propLength < 5 ? propLength : 5;
+        const photos = propLength < 5 ? this.props.photos : this.state.reduced;
         if (loadAmount <= this.loadedList) {
             
             content = photos.map((photo) => {

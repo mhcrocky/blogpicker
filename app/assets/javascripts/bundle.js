@@ -2279,13 +2279,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
         _this2.setState({
           reduced: _this2.props.photos.slice(0, 5)
         });
-      }); // let loadedCheck = () => {
-      //     if (this.props.photos.length <= this.loadedList) {
-      //         this.setState({ loaded: true });
-      //         clearInterval(this.interval);
-      //     }
-      // };
-
+      });
       var check = this.loadedCheck.bind(this);
       this.interval = setInterval(function () {
         check();
@@ -2316,13 +2310,12 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
           loaded: true
         });
         clearInterval(this.interval);
+        setTimeout(function () {
+          _this3.setState({
+            reduced: photos
+          });
+        }, 3000);
       }
-
-      setTimeout(function () {
-        _this3.setState({
-          reduced: photos
-        });
-      }, 3000);
     }
   }, {
     key: "render",
@@ -2330,9 +2323,9 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
       var _this4 = this;
 
       var content;
-      var photos = this.state.reduced;
       var propLength = this.props.photos.length;
       var loadAmount = propLength < 5 ? propLength : 5;
+      var photos = propLength < 5 ? this.props.photos : this.state.reduced;
 
       if (loadAmount <= this.loadedList) {
         content = photos.map(function (photo) {
