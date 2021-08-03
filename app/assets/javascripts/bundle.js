@@ -2289,7 +2289,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
       var check = this.loadedCheck.bind(this);
       this.interval = setInterval(function () {
         check();
-      }, 3000);
+      }, 1000);
     }
   }, {
     key: "componentWillUnmount",
@@ -2328,8 +2328,10 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
 
       var content;
       var photos = this.state.reduced;
+      var propLength = this.props.photos.length;
+      var loadAmount = propLength < 5 ? propLength : 5;
 
-      if (5 <= this.loadedList) {
+      if (loadAmount <= this.loadedList) {
         content = photos.map(function (photo) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             key: photo.id,

@@ -25,7 +25,7 @@ class PhotoIndex extends React.Component {
         //     }
         // };
         const check = this.loadedCheck.bind(this);
-        this.interval = setInterval(() => { check() }, 3000);
+        this.interval = setInterval(() => { check() }, 1000);
     }
 
     componentWillUnmount() {
@@ -51,7 +51,9 @@ class PhotoIndex extends React.Component {
     render() {
         let content;
         const photos = this.state.reduced;
-        if (5 <= this.loadedList) {
+        const propLength = this.props.photos.length;
+        const loadAmount = propLength < 5 ? propLength : 5;
+        if (loadAmount <= this.loadedList) {
             
             content = photos.map((photo) => {
                 return (
