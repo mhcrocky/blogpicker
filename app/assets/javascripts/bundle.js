@@ -2260,8 +2260,7 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      loaded: false,
-      reduced: []
+      loaded: false
     };
     _this.loadedList = 0;
     _this.handleLoading = _this.handleLoading.bind(_assertThisInitialized(_this));
@@ -2272,18 +2271,12 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(PhotoIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
-
       this.props.fetchAllUsers();
-      this.props.fetchAllPhotos().then(function (res) {
-        _this2.setState({
-          reduced: _this2.props.photos.slice(0, 5)
-        });
-      });
+      this.props.fetchAllPhotos();
       var check = this.loadedCheck.bind(this);
       this.interval = setInterval(function () {
         check();
-      }, 1000);
+      }, 500);
     }
   }, {
     key: "componentWillUnmount",
@@ -2300,40 +2293,33 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "loadedCheck",
     value: function loadedCheck() {
-      var _this3 = this;
-
       var photos = this.props.photos;
-      var loadAmount = photos.length < 5 ? photos.length : 5;
+      var loadAmount = photos.length > 5 ? 5 : photos.length;
 
       if (loadAmount <= this.loadedList) {
         this.setState({
           loaded: true
         });
         clearInterval(this.interval);
-        setTimeout(function () {
-          _this3.setState({
-            reduced: photos
-          });
-        }, 3000);
       }
     }
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this2 = this;
 
       var content;
-      var propLength = this.props.photos.length;
-      var loadAmount = propLength < 5 ? propLength : 5;
-      var photos = propLength < 5 ? this.props.photos : this.state.reduced;
+      var photos = this.props.photos;
+      var propLength = photos.length;
+      var loadAmount = propLength > 5 ? 5 : propLength;
 
       if (loadAmount <= this.loadedList) {
         content = photos.map(function (photo) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             key: photo.id,
             photo: photo,
-            user: _this4.props.users[photo.userId],
-            loading: _this4.handleLoading
+            user: _this2.props.users[photo.userId],
+            loading: _this2.handleLoading
           });
         });
       } else {
@@ -2345,8 +2331,8 @@ var PhotoIndex = /*#__PURE__*/function (_React$Component) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             key: photo.id,
             photo: photo,
-            user: _this4.props.users[photo.userId],
-            loading: _this4.handleLoading
+            user: _this2.props.users[photo.userId],
+            loading: _this2.handleLoading
           });
         })));
       }

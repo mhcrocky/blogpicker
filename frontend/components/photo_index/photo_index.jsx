@@ -5,7 +5,7 @@ import PhotoIndexItem from './photo_index_item';
 class PhotoIndex extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { loaded: false, reduced: [] };
+        this.state = { loaded: false};
         this.loadedList = 0;
         this.handleLoading = this.handleLoading.bind(this);
         this.interval;
@@ -13,12 +13,9 @@ class PhotoIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllUsers();
-        this.props.fetchAllPhotos()
-            .then(res => {
-                this.setState({reduced: this.props.photos.slice(0,5)})
-            })
+        this.props.fetchAllPhotos();
         const check = this.loadedCheck.bind(this);
-        this.interval = setInterval(() => { check() }, 1000);
+        this.interval = setInterval(() => { check() }, 500);
     }
 
     componentWillUnmount() {
@@ -33,23 +30,19 @@ class PhotoIndex extends React.Component {
 
     loadedCheck () {
         const photos = this.props.photos
-        const loadAmount = photos.length < 5 ? photos.length : 5;
+        const loadAmount = photos.length > 5 ? 5 : photos.length;
         if (loadAmount <= this.loadedList) {
             this.setState({ loaded: true });
             clearInterval(this.interval);
-            setTimeout(() => {
-                this.setState({reduced: photos})
-            }, 3000)
         }
     }
 
     render() {
         let content;
-        const propLength = this.props.photos.length;
-        const loadAmount = propLength < 5 ? propLength : 5;
-        const photos = propLength < 5 ? this.props.photos : this.state.reduced;
+        const photos = this.props.photos;
+        const propLength = photos.length;
+        const loadAmount = propLength > 5 ? 5 : propLength;
         if (loadAmount <= this.loadedList) {
-            
             content = photos.map((photo) => {
                 return (
                     <PhotoIndexItem
